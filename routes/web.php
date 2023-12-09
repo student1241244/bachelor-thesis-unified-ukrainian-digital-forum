@@ -4,11 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QAController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FollowController;
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\QuestionDetailsController;
-use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\ThreadController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\WarningController;
+use App\Http\Controllers\PasscodeController;
+use App\Http\Controllers\QuestionDetailsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,12 @@ Route::get('/admin-dashboard', function () {
 Route::get('/qa-home', function () {
     return view('qa-home');
 });
+
+Route::get('/passcode', [PasscodeController::class, "passcodeHome"]);
+Route::get('/buy-passcode', [PasscodeController::class, "createCheckoutSession"])->name('passcode.checkout');
+Route::get('/passcode/success', [PasscodeController::class, "success"])->name('passcode.success');
+Route::get('/passcode/cancel', [PasscodeController::class, "cancel"])->name('passcode.cancel');
+Route::stripeWebhooks('stripe-webhook');
 
 Route::get('/warnings/{id}/delete', [WarningController::class, "destroy"])->name('warnings.destroy');
 
