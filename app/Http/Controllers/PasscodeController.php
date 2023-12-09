@@ -57,10 +57,10 @@ class PasscodeController extends Controller
                 'quantity' => 1,
             ]],
             'mode' => 'payment',
-            'success_url' => route('passcode.success', ['token' => $secureToken]),
-            'cancel_url' => route('passcode.cancel'),
+            'success_url' => route('passcode-success', ['token' => $secureToken]),
+            'cancel_url' => route('passcode-cancel'),
         ]);
-
+        print($session);
         // Store the Stripe session ID and the secure token in your database
         Payment::create([
             'stripe_session_id' => $session->id,
@@ -74,7 +74,7 @@ class PasscodeController extends Controller
     public function success(Request $request)
     {
         // Retrieve the token from the query parameters
-        sleep(2);
+        sleep(10);
         $secureToken = $request->query('token');
         Log::info('Accessing Success Page', ['token' => $secureToken]);
     
