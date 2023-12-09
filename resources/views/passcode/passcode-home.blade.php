@@ -15,7 +15,7 @@
                     <div class="hero-content py-5">
                         <h2 class="section-title fs-40 pb-3 lh-55">Reach 100 million+ people in tech</h2>
                         <p class="section-desc pb-40px">Get the word out to the world’s largest audience of developers and technologists. Advertise with Disilab.</p>
-                        <a class="media media-card align-items-center hover-s d-inline-flex" href="/buy-passcode" data-fancybox="">
+                        <a class="media media-card align-items-center hover-s d-inline-flex" href="{{ route('passcode.checkout') }}" data-fancybox="">
                             <div class="mr-3">
                                 <svg height="37" viewBox="0 0 37 37" width="37"><path clip-rule="evenodd" d="m18.5 37c10.2173 0 18.5-8.2827 18.5-18.5 0-10.21727-8.2827-18.5-18.5-18.5-10.21727 0-18.5 8.28273-18.5 18.5 0 10.2173 8.28273 18.5 18.5 18.5zm-1.8334-25.3051c-1.2394-.8221-2.8953.0665-2.8953 1.5537v5.2214 5.2214c0 1.4873 1.6559 2.3759 2.8953 1.5537l7.8705-5.2214c1.1117-.7375 1.1117-2.3699 0-3.1074z" fill="currentColor" fill-rule="evenodd"></path></svg>
                             </div>
