@@ -39,8 +39,7 @@ class PasscodeController extends Controller
 
     public function success()
     {
-        ChargeSucceededJob::dispatch();
-        sleep(1);
+        sleep(10);
         $paymentId = session('payment_id');
         Log::info("Payment id", ['charge' => $paymentId]);
         if (!$paymentId) {
