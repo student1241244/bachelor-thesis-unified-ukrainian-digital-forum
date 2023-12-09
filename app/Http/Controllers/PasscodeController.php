@@ -37,6 +37,7 @@ class PasscodeController extends Controller
 
     public function success()
     {
+        sleep(1);
         $paymentId = session('payment_id');
         if (!$paymentId) {
             print("Erorr 1");
