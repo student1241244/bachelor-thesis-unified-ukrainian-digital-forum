@@ -12,6 +12,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Spatie\WebhookClient\Models\WebhookCall;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
+use Illuminate\Support\Facades\Cache;
 
 class ChargeSucceededJob implements ShouldQueue
 {
@@ -25,24 +26,33 @@ class ChargeSucceededJob implements ShouldQueue
         $this->webhookCall = $webhookCall;
     }
 
-    public function handle()
+    public function handle($webhookPayload)
     {
         Log::info("ChargeSucceededJob started");
-        $charge = $this->webhookCall->payload['data']['object'];
-        Log::info("Payment data", ['charge' => $charge]);
-        $payment = Payment::create([
-            'stripe_id' => $charge['id'],
-            'total' => $charge['amount'],
-            'passcode' => Str::uuid()->toString()
-        ]);
+        $stripeSessionId = $webhookPayload['data']['object']['id'];
 
-        // Store the payment ID in the session to retrieve the passcode later
-        session(['payment_id' => $payment->id]);
-        session()->save();
-        Log::info("Payment data", ['payment' => $payment]);
-        Log::info("Payment id", ['payment' => $payment->id]);
-        Log::info("ChargeSucceededJob completed---------------------------------------------");
-        // Log the session ID
-        Log::info('Session ID in Job', ['session_id' => session()->getId()]);
+        // Find the payment associated with this Stripe session ID
+        $payment = Payment::where('stripe_session_id', $stripeSessionId)->first();
+    
+        if ($payment) {
+            // Update the payment record with the charge details and generate a passcode
+            $payment->update([
+                'stripe_id' => $stripeSessionId, // Assuming you want to store the Stripe session ID
+                'total' => $webhookPayload['data']['object']['amount_total'], // Total amount from the webhook payload
+                'passcode' => Str::uuid()->toString(), // Generate a unique passcode
+                'status' => 'completed' // Update the status to completed
+            ]);
+    
+            // Optionally, you can use the secure token (if stored in the payment record) to update the cache
+            if (!empty($payment->secure_token)) {
+                Cache::put($payment->secure_token, $payment->id, now()->addMinutes(10));
+            }
+    
+            Log::info("Payment updated", ['payment' => $payment]);
+        } else {
+            Log::error("Payment not found for Stripe session", ['stripe_session_id' => $stripeSessionId]);
+        }
+    
+        Log::info("ChargeSucceededWebhook completed");
     }
 }

@@ -7,5 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Payment extends Model
 {
-    protected $fillable = ['stripe_id', 'total', 'passcode'];
+    protected $fillable = [
+        'stripe_session_id',
+        'secure_token',
+        'status',
+        'passcode',
+        'passcode_displayed'
+    ];
 }

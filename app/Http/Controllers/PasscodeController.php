@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Stripe\Stripe;
 use App\Models\Payment;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Jobs\StripeWebhooks\ChargeSucceededJob;
@@ -15,10 +16,36 @@ class PasscodeController extends Controller
         return view('passcode.passcode-home', ['title' => 'Passcode feature']);
     }
 
-    public function createCheckoutSession(Request $request)
+    // public function createCheckoutSession(Request $request)
+    // {
+    //     Stripe::setApiKey(config('services.stripe.secret'));
+
+    //     $session = \Stripe\Checkout\Session::create([
+    //         'payment_method_types' => ['card'],
+    //         'line_items' => [[
+    //             'price_data' => [
+    //                 'currency' => 'usd',
+    //                 'product_data' => ['name' => 'Passcode'],
+    //                 'unit_amount' => 1000, // price in cents
+    //             ],
+    //             'quantity' => 1,
+    //         ]],
+    //         'mode' => 'payment',
+    //         'success_url' => route('passcode.success', ['token' => $uniqueKey]),
+    //         'cancel_url' => route('passcode.cancel'),
+    //     ]);
+
+    //     return redirect($session->url, 303);
+    // }
+
+    public function createCheckoutSession()
     {
         Stripe::setApiKey(config('services.stripe.secret'));
 
+        // Generate a unique, secure token
+        $secureToken = Str::uuid();
+
+        // Create the Stripe Checkout session
         $session = \Stripe\Checkout\Session::create([
             'payment_method_types' => ['card'],
             'line_items' => [[
@@ -30,31 +57,45 @@ class PasscodeController extends Controller
                 'quantity' => 1,
             ]],
             'mode' => 'payment',
-            'success_url' => route('passcode.success'),
+            'success_url' => route('passcode.success', ['token' => $secureToken]),
             'cancel_url' => route('passcode.cancel'),
+        ]);
+
+        // Store the Stripe session ID and the secure token in your database
+        Payment::create([
+            'stripe_session_id' => $session->id,
+            'secure_token' => $secureToken,
         ]);
 
         return redirect($session->url, 303);
     }
 
-    public function success()
+    public function success(Request $request)
     {
-        sleep(10);
-        Log::info('Session ID in Success Page', ['session_id' => session()->getId()]);
-        $paymentId = session('payment_id');
-        Log::info("Payment id", ['charge' => $paymentId]);
-        if (!$paymentId) {
-            print("Erorr 1");
+        // Retrieve the token from the query parameters
+        sleep(2);
+        $secureToken = $request->query('token');
+        Log::info('Accessing Success Page', ['token' => $secureToken]);
+    
+        if (!$secureToken) {
+            Log::error('Error: Token not provided in Success Page');
+            abort(404); // Or return a custom error view
         }
-
-        $payment = Payment::find($paymentId);
-        if (!$payment || $payment->passcode_displayed) {
-            print("Erorr 2");
+    
+        // Find the payment associated with this token
+        $payment = Payment::where('secure_token', $secureToken)
+                          ->where('status', 'completed')
+                          ->first();
+    
+        if (!$payment) {
+            Log::error('Error: No completed payment found for the provided token', ['token' => $secureToken]);
+            abort(404); // Or return a custom error view
         }
-
-        // Mark the passcode as displayed
-        $payment->update(['passcode_displayed' => true]);
-
+    
+        // Optionally mark the passcode as displayed or invalidate the token, if necessary
+        // $payment->update(['passcode_displayed' => true]); // Commented out if not needed
+    
+        // Return the success view with the passcode
         return view('passcode-success', ['passcode' => $payment->passcode]);
     }
 
