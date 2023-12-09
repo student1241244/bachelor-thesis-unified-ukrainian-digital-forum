@@ -39,12 +39,12 @@ class PasscodeController extends Controller
     {
         $paymentId = session('payment_id');
         if (!$paymentId) {
-            return redirect('/')->with('error', 'No valid payment found.');
+            print("Erorr 1");
         }
 
         $payment = Payment::find($paymentId);
         if (!$payment || $payment->passcode_displayed) {
-            return redirect('/')->with('error', 'Invalid or already displayed passcode.');
+            print("Erorr 2");
         }
 
         // Mark the passcode as displayed
