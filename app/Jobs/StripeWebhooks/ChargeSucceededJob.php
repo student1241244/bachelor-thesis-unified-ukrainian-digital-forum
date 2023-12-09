@@ -3,6 +3,7 @@
 namespace App\Jobs\StripeWebhooks;
 
 use App\Models\Payment;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
@@ -26,8 +27,9 @@ class ChargeSucceededJob implements ShouldQueue
 
     public function handle()
     {
+        Log::info("ChargeSucceededJob started");
         $charge = $this->webhookCall->payload['data']['object'];
-
+        Log::info("Payment data", ['charge' => $charge]);
         $payment = Payment::create([
             'stripe_id' => $charge['id'],
             'total' => $charge['amount'],
@@ -36,5 +38,6 @@ class ChargeSucceededJob implements ShouldQueue
 
         // Store the payment ID in the session to retrieve the passcode later
         session(['payment_id' => $payment->id]);
+        Log::info("ChargeSucceededJob completed");
     }
 }
