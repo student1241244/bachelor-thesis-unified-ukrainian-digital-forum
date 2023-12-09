@@ -1,0 +1,38 @@
+.color-selector {
+  display: inline-block;
+  vertical-align: middle;
+  height: 14px;
+  width: 14px;
+  border-radius: 10px;
+  margin: 0px 5px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+[data-color="classic"] {
+  background-color: #2e7eed;
+  border: 1px solid #2e7eed;
+}
+[data-color="agency"] {
+  background-color: #6d0eb1;
+  border: 1px solid #6d0eb1;
+}
+[data-color="original"] {
+  background-color: #389e9e;
+  border: 1px solid #389e9e;
+}
+[data-color="analitycs"] {
+  background-color: #f63854;
+  border: 1px solid #f63854;
+}
+
+.color-selector.selected,
+.color-selector:hover {
+  -webkit-box-shadow: 0px 0px 0px 2px #fff, 0px 0px 0px 4px #88b8ff;
+  box-shadow: 0px 0px 0px 2px #fff, 0px 0px 0px 4px #88b8ff;
+}
+.color-selector-field {
+  display: block;
+  margin-bottom: 15px;
+}

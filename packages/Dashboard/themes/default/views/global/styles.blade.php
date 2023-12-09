@@ -1,0 +1,11 @@
+<link href="/vendor/dashboard/css/select2/select2.min.css" rel="stylesheet">
+<link href="/vendor/dashboard/css/bootstrap.min.css" rel="stylesheet">
+<link href="/vendor/dashboard/css/ionicons.min.css" rel="stylesheet">
+<link href="/vendor/dashboard/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+<link href="/vendor/dashboard/js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+<link href="/vendor/dashboard/css/animate.css" rel="stylesheet">
+<link href="/vendor/dashboard/css/plugins/jasny/jasny-bootstrap.min.css" rel="stylesheet">
+<link href="/vendor/dashboard/css/plugins//bootstrap-datetimepicker.css" rel="stylesheet">
+<link href="/vendor/dashboard/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+<link href="/vendor/dashboard/css/style.css?v=1.7" rel="stylesheet">
+<link href="/vendor/dashboard/font-awesome/css/font-awesome.min.css" rel="stylesheet">

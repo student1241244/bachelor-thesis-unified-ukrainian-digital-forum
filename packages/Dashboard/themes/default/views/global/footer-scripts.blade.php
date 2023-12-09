@@ -1,0 +1,15 @@
+<script src="/vendor/dashboard/js/jquery-3.2.1.min.js"></script>
+<script src="/vendor/dashboard/js/bootstrap.min.js"></script>
+<script src="/vendor/dashboard/js/datapicker/bootstrap-datetimepicker.js"></script>
+<script src="/vendor/dashboard/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="/vendor/dashboard/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="/vendor/dashboard/js/inspinia.js"></script>
+<script src="/vendor/dashboard/js/plugins/pace/pace.min.js"></script>
+<script src="/vendor/dashboard/js/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="/vendor/dashboard/js/plugins/gritter/jquery.gritter.min.js"></script>
+<script src="/vendor/dashboard/js/plugins/toastr/toastr.min.js"></script>
+<script src="/vendor/dashboard/js/plugins/sweetalert/sweetalert.min.js"></script>
+<script src="/vendor/dashboard/js/dashboard.js"></script>
+<script src="/vendor/dashboard/js/select2/select2.min.js"></script>
+<script src="/vendor/dashboard/media/js/jquery.iframe-transport.js"></script>
+<script src="/vendor/dashboard/media/js/script.js?v=1.1"></script>

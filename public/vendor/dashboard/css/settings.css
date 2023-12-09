@@ -1,0 +1,28 @@
+.settings-list-item {
+    margin-bottom: 20px;
+}
+
+.settings-list-item .inner {
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.settings-list-item .inactive {
+    opacity: 0.6;
+}
+
+.settings-list-item .actions {
+    height: 40px;
+    text-align: right;
+}
+
+.settings-list-item .number {
+    line-height: 22px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.tab-error a {
+    color: red !important;
+}

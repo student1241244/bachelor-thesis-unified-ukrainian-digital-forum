@@ -1,0 +1,328 @@
+#drop {
+    background-color: #2E3134;
+    padding: 40px 50px;
+    margin-bottom: 30px;
+    border: 20px solid rgba(0, 0, 0, 0);
+    border-radius: 3px;
+    border-image: url('../images/border-image.png') 25 repeat;
+    text-align: center;
+    text-transform: uppercase;
+
+    font-size: 16px;
+    font-weight: bold;
+    color: #7f858a;
+}
+
+.upload-container input[type="file"] {
+    display: none;
+}
+.upload-container ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.upload-container ul li {
+    display: inline-block;
+    list-style: none;
+    padding: 5px 0;
+    position: relative;
+}
+.upload-container ul li.error {
+    display: block;
+}
+.upload-container ul li>div {
+    background: rgba(255,255,255,0.8);
+    border: 1px solid #DDDDDD;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.16);
+    display: inline-block;
+    font-size: 14px;
+    margin: 0 0 17px;
+    padding: 6px;
+    position: relative;
+    vertical-align: top;
+    width: auto;
+}
+.upload-container ul li > div a.preview-video {
+    background: url(../images/play.png) center no-repeat;
+    width: 100%;
+    height: 110px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+.upload-container ul li > div a.preview-video:hover {
+    opacity: .7;
+}
+.upload-container ul li>div>img{
+    background: #f0f0f0;
+    max-height: 200px;
+    max-width: 100%;
+}
+
+.upload-container ul li>div>i.fa{
+    font-size: 100px;
+    height: 100px;
+    text-align: center;
+    width: 100px;
+}
+
+.upload-container ul li .file-name {
+    color: #676a6c;
+    display: block;
+    margin: 5px 0;
+    text-decoration: underline;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 20px;
+    white-space: nowrap;
+}
+
+.upload-container ul li .file-name > span {
+    overflow: hidden;
+    position: absolute;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.upload-container ul li.error .file-name > span {
+    color: #a94442;
+}
+
+.upload-container ul li .file-name:hover {
+    color : #333333;
+}
+
+.upload-container .file-name-input-holder {
+    position: relative;
+}
+
+.upload-container .file-name-submit {
+    display: block;
+    width: 15px;
+    height: 13px;
+    right: 10px;
+    top: 10px;
+    background: url('../images/icons.png') no-repeat 0 0;
+    position: absolute;
+    z-index: 99;
+}
+
+.upload-container .file-name-input {
+    margin-top: 10px;
+}
+
+.upload-container ul li.working .file-name {
+    margin-left: 50px;
+    text-transform: none;
+}
+
+.upload-container ul li.error .file-name {
+    text-transform: none;
+    font-size: 12px;
+}
+
+.upload-container ul li .file-size {
+    font-weight: normal;
+    font-style: normal;
+    color: #646464;
+    position: absolute;
+    right: 100px;
+    top: 6px;
+}
+
+.upload-container ul li.error .file-size {
+    display: none;
+}
+
+.upload-container ul li canvas {
+    display: none;
+    top: 9px;
+    left: 32px;
+    position: absolute;
+}
+
+.upload-container ul li.working canvas {
+    display: block;
+}
+
+.upload-container ul li .media-progress {
+    display: none;
+}
+
+.upload-container ul li.working .media-progress {
+    display: block;
+    position: absolute;
+    z-index: 1000;
+    text-align: center;
+    width: 100%;
+    margin-top: 40px;
+    left: 0;
+    font-weight: bold;
+}
+
+.upload-container ul li .delete-file {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+    display: none;
+}
+
+.upload-container ul li .download-file {
+    position: absolute;
+    top: 8px;
+    right: 32px;
+    cursor: pointer;
+    display: none;
+}
+
+.upload-container ul li:not(.working):hover .download-file,
+.upload-container ul li:hover .delete-file {
+    display: block;
+}
+
+.upload-container ul li.error p {
+    color: red;
+}
+
+.upload-container .li-tpl {
+    display: none;
+}
+/*Loader*/
+.loader-wrapper {
+    display: none;
+    min-height: 100px;
+    min-width: 100px;
+    height: 100%;
+    width: 100%;
+}
+.loader-wrapper .loader {
+    background-color: #F1F1F1;
+    bottom: 0;
+    display: block;
+    left: 0;
+    right: 0;
+    top: 0;
+    position: absolute;
+}
+.loader-wrapper .spinner {
+    height: 50px;
+    left: 50%;
+    margin: -25px 0 0 -25px;
+    position: absolute;
+    top: 50%;
+    width: 50px;
+}
+.loader-wrapper .container1 > div, .loader-wrapper .container2 > div, .loader-wrapper .container3 > div {
+    width: 6px;
+    height: 6px;
+    background-color: #333;
+    border-radius: 100%;
+    position: absolute;
+    -webkit-animation: bouncedelay 1.2s infinite ease-in-out;
+    animation: bouncedelay 1.2s infinite ease-in-out;
+    /* Prevent first frame from flickering when animation starts */
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+.loader-wrapper .spinner .spinner-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.loader-wrapper .container2 {
+    -webkit-transform: rotateZ(45deg);
+    transform: rotateZ(45deg);
+}
+.loader-wrapper .container3 {
+    -webkit-transform: rotateZ(90deg);
+    transform: rotateZ(90deg);
+}
+.loader-wrapper .circle1 {
+    top: 0;
+    left: 0;
+}
+.loader-wrapper .circle2 {
+    top: 0;
+    right: 0;
+}
+.loader-wrapper .circle3 {
+    right: 0;
+    bottom: 0;
+}
+.loader-wrapper .circle4 {
+    left: 0;
+    bottom: 0;
+}
+.loader-wrapper .container2 .circle1 {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s;
+}
+.loader-wrapper .container3 .circle1 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+}
+.loader-wrapper .container1 .circle2 {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+}
+.loader-wrapper .container2 .circle2 {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s;
+}
+.loader-wrapper .container3 .circle2 {
+    -webkit-animation-delay: -0.7s;
+    animation-delay: -0.7s;
+}
+.loader-wrapper .container1 .circle3 {
+    -webkit-animation-delay: -0.6s;
+    animation-delay: -0.6s;
+}
+.loader-wrapper .container2 .circle3 {
+    -webkit-animation-delay: -0.5s;
+    animation-delay: -0.5s;
+}
+.loader-wrapper .container3 .circle3 {
+    -webkit-animation-delay: -0.4s;
+    animation-delay: -0.4s;
+}
+.loader-wrapper .container1 .circle4 {
+    -webkit-animation-delay: -0.3s;
+    animation-delay: -0.3s;
+}
+.loader-wrapper .container2 .circle4 {
+    -webkit-animation-delay: -0.2s;
+    animation-delay: -0.2s;
+}
+.loader-wrapper .container3 .circle4 {
+    -webkit-animation-delay: -0.1s;
+    animation-delay: -0.1s;
+}
+
+#videoLinkModal .modal-footer .btn {
+    margin-bottom: 0;
+}
+
+@-webkit-keyframes bouncedelay {
+    0%, 80%, 100% {
+        -webkit-transform: scale(0);
+    }
+    40% {
+        -webkit-transform: scale(1);
+    }
+}
+@keyframes bouncedelay {
+    0%, 80%, 100% {
+        transform: scale(0);
+        -webkit-transform: scale(0);
+    }
+    40% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+    }
+}
+/*Loader END*/

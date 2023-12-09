@@ -1,0 +1,85 @@
+/*
+ *
+ *   INSPINIA - Responsive Admin Theme
+ *   version 2.7.1
+ *
+*/
+// Google Fonts
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+
+// Variables, Mixins
+@import "scss/variables";
+@import "scss/mixins";
+
+// INSPINIA Theme Elements
+@import "scss/typography";
+@import "scss/navigation";
+@import "scss/top_navigation";
+@import "scss/buttons";
+@import "scss/badges_labels";
+@import "scss/elements";
+@import "scss/sidebar";
+@import "scss/base";
+@import "scss/pages";
+@import "scss/chat";
+@import "scss/metismenu";
+@import "scss/spinners";
+
+// Landing page styles
+@import "scss/landing";
+
+// RTL Support
+@import "scss/rtl";
+
+// For demo only - config box style
+@import "scss/theme-config";
+
+// INSPINIA Skins
+@import "scss/skins";
+@import "scss/md-skin";
+
+// Media query style
+@import "scss/media";
+
+// Custom style
+// Your custom style to override base style
+@import "scss/custom";
+
+//Digitalp Custom Styles
+@import "color-selector";
+
+// Clear layout on print mode
+@media print {
+  nav.navbar-static-side {
+    display: none;
+  }
+  body {
+    overflow: visible !important;
+  }
+
+  #page-wrapper {
+    margin: 0;
+  }
+}
+
+//Digitalp Custom Styles
+@import "custom";
+
+.input-editable {
+  box-shadow: none;
+  background-color: #FFFFFF;
+  background-image: none;
+  border: 1px solid #e5e6e7;
+  border-radius: 1px;
+  color: inherit;
+  display: block;
+  padding: 6px 12px;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  width: 100%;
+}
+.input-editable.error {
+  background-color: #f8bab9;
+}
+.input-editable.success {
+  background-color: darkseagreen;
+}

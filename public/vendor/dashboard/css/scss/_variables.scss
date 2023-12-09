@@ -1,0 +1,65 @@
+// Basic Colors
+$navy: #32617e;       // Primary color
+$dark-gray: #c2c2c2;  // Default color
+$blue: #1c84c6;       // Success color
+$lazur: #23c6c8;      // Info color
+$yellow: #f8ac59;     // Warning color
+$red: #ED5565;        // Danger color
+
+// Various colors
+$text-color: #676a6c;   // Body text
+$gray: #f3f3f4;         // Background wrapper color
+$light-gray: #D1DADE;   // Default label, badge
+$label-badge-color: #5E5E5E;
+$light-blue:#f3f6fb;
+
+// Spiner color and margin
+$spin-color: $navy;
+$spin-margin: 0 auto;
+
+
+// IBOX colors ( default panel colors)
+$border-color: #e7eaec;     // IBox border
+$ibox-title-bg:#ffffff;     // IBox Background header
+$ibox-content-bg:#ffffff;   // IBox Background content
+
+//Sidebar width
+$sidebar-width: 320px;
+
+// Boxed layout width
+$boxed-width: 1200px;
+$boxed-background: url('patterns/shattered.png');
+
+//Border radius for buttons
+$btn-border-radius: 3px;
+
+//Navigation
+$nav-bg: #202429;
+$nav-bg-darken: #15181a;
+$nav-profile-pattern: url("patterns/header-profile-llc.png");
+$nav-text-color: #8aa6bb;
+
+//style-3
+$dark-blue: #0d4a77;
+$border-color: #e7e7e7;
+$secondary-bg-color: #f7f7f7;
+
+$btn-view-color: #f9ebff;
+$btn-view-shadow: #9d45c5;
+$btn-view-bg: #9B51E0;
+$btn-view-bg-hover: #BB6BD9;
+
+$btn-products-color:  #EB5757;
+$btn-products-shadow: #EB5757;
+$btn-products-bg: #FFF;
+$btn-products-bg-hover: rgba(255, 87, 87, 0.1);
+
+$btn-edit-create-color: #eff5ec;
+$btn-edit-create-shadow: #26a75b;
+$btn-edit-create-bg: #27AE60;
+$btn-edit-create-bg-hover: #51b872;
+
+$btn-delete-color: #ffeded;
+$btn-delete-shadow: #ce4d4d;
+$btn-delete-bg: #EB5757;
+$btn-delete-bg-hover: #da7570;
