@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Stripe\Stripe;
 use App\Models\Payment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use App\Jobs\StripeWebhooks\ChargeSucceededJob;
 
 class PasscodeController extends Controller
 {
@@ -37,8 +39,10 @@ class PasscodeController extends Controller
 
     public function success()
     {
+        ChargeSucceededJob::dispatch();
         sleep(1);
         $paymentId = session('payment_id');
+        Log::info("Payment id", ['charge' => $paymentId]);
         if (!$paymentId) {
             print("Erorr 1");
         }
