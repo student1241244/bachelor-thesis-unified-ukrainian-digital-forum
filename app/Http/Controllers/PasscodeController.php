@@ -50,7 +50,7 @@ class PasscodeController extends Controller
         // Mark the passcode as displayed
         $payment->update(['passcode_displayed' => true]);
 
-        return view('success', ['passcode' => $payment->passcode]);
+        return view('passcode-success', ['passcode' => $payment->passcode]);
     }
 
     public function cancel(Request $request)
