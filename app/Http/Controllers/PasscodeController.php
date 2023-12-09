@@ -61,6 +61,7 @@ class PasscodeController extends Controller
             'cancel_url' => route('passcode-cancel'),
         ]);
         print($session);
+        Log::error("SESSION", ['session' => $session]);
         // Store the Stripe session ID and the secure token in your database
         Payment::create([
             'stripe_session_id' => $session->id,
