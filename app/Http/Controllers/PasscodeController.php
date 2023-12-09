@@ -57,7 +57,7 @@ class PasscodeController extends Controller
                 'quantity' => 1,
             ]],
             'mode' => 'payment',
-            'success_url' => route('passcode.success', ['token' => $secureToken]),
+            'success_url' => url('/passcode/success?token=' . $secureToken),
             'cancel_url' => route('passcode.cancel'),
         ]);
         print($session);
@@ -75,7 +75,7 @@ class PasscodeController extends Controller
     public function success(Request $request)
     {
         // Retrieve the token from the query parameters
-        sleep(10);
+        sleep(2);
         $secureToken = $request->query('token');
         Log::info('Accessing Success Page', ['token' => $secureToken]);
     

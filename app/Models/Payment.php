@@ -10,6 +10,7 @@ class Payment extends Model
     protected $fillable = [
         'stripe_session_id',
         'secure_token',
+        'total',
         'status',
         'passcode',
         'passcode_displayed'
