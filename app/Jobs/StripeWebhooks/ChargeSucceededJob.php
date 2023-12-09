@@ -26,10 +26,10 @@ class ChargeSucceededJob implements ShouldQueue
         $this->webhookCall = $webhookCall;
     }
 
-    public function handle($webhookPayload)
+    public function handle()
     {
         Log::info("ChargeSucceededJob started");
-        $stripeSessionId = $webhookPayload['data']['object']['id'];
+        $stripeSessionId = $this->webhookCall->payload['data']['object']['id'];
 
         // Find the payment associated with this Stripe session ID
         $payment = Payment::where('stripe_session_id', $stripeSessionId)->first();
@@ -38,16 +38,9 @@ class ChargeSucceededJob implements ShouldQueue
             // Update the payment record with the charge details and generate a passcode
             $payment->update([
                 'stripe_id' => $stripeSessionId, // Assuming you want to store the Stripe session ID
-                'total' => $webhookPayload['data']['object']['amount_total'], // Total amount from the webhook payload
                 'passcode' => Str::uuid()->toString(), // Generate a unique passcode
                 'status' => 'completed' // Update the status to completed
             ]);
-    
-            // Optionally, you can use the secure token (if stored in the payment record) to update the cache
-            if (!empty($payment->secure_token)) {
-                Cache::put($payment->secure_token, $payment->id, now()->addMinutes(10));
-            }
-    
             Log::info("Payment updated", ['payment' => $payment]);
         } else {
             Log::error("Payment not found for Stripe session", ['stripe_session_id' => $stripeSessionId]);
