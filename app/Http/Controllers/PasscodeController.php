@@ -40,6 +40,7 @@ class PasscodeController extends Controller
     public function success()
     {
         sleep(10);
+        Log::info('Session ID in Success Page', ['session_id' => session()->getId()]);
         $paymentId = session('payment_id');
         Log::info("Payment id", ['charge' => $paymentId]);
         if (!$paymentId) {

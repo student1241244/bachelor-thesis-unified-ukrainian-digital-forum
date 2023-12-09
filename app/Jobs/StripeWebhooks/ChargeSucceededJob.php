@@ -38,8 +38,11 @@ class ChargeSucceededJob implements ShouldQueue
 
         // Store the payment ID in the session to retrieve the passcode later
         session(['payment_id' => $payment->id]);
+        session()->save();
         Log::info("Payment data", ['payment' => $payment]);
         Log::info("Payment id", ['payment' => $payment->id]);
         Log::info("ChargeSucceededJob completed---------------------------------------------");
+        // Log the session ID
+        Log::info('Session ID in Job', ['session_id' => session()->getId()]);
     }
 }
