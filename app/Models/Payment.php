@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Payment extends Model
 {
-    protected $fillable = ['stripe_id', 'total'];
+    protected $fillable = ['stripe_id', 'total', 'passcode'];
 }

@@ -3,13 +3,14 @@
 namespace App\Jobs\StripeWebhooks;
 
 use App\Models\Payment;
+use Illuminate\Support\Str;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Queue\SerializesModels;
 use Spatie\WebhookClient\Models\WebhookCall;
+use Illuminate\Contracts\Queue\ShouldBeUnique;
 
 class ChargeSucceededJob implements ShouldQueue
 {
@@ -27,9 +28,13 @@ class ChargeSucceededJob implements ShouldQueue
     {
         $charge = $this->webhookCall->payload['data']['object'];
 
-        Payment::create([
+        $payment = Payment::create([
             'stripe_id' => $charge['id'],
-            'total' => $charge['amount']
+            'total' => $charge['amount'],
+            'passcode' => Str::uuid()->toString()
         ]);
+
+        // Store the payment ID in the session to retrieve the passcode later
+        session(['payment_id' => $payment->id]);
     }
 }

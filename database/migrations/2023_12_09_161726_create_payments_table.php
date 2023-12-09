@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('stripe_id');
             $table->integer('total');
+            $table->string('passcode')->nullable();
         });
     }
 

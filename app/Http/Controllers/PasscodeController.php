@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Stripe\Stripe;
+use App\Models\Payment;
 use Illuminate\Http\Request;
 
 class PasscodeController extends Controller
@@ -34,9 +35,22 @@ class PasscodeController extends Controller
         return redirect($session->url, 303);
     }
 
-    public function success(Request $request)
+    public function success()
     {
-       print("success");
+        $paymentId = session('payment_id');
+        if (!$paymentId) {
+            return redirect('/')->with('error', 'No valid payment found.');
+        }
+
+        $payment = Payment::find($paymentId);
+        if (!$payment || $payment->passcode_displayed) {
+            return redirect('/')->with('error', 'Invalid or already displayed passcode.');
+        }
+
+        // Mark the passcode as displayed
+        $payment->update(['passcode_displayed' => true]);
+
+        return view('success', ['passcode' => $payment->passcode]);
     }
 
     public function cancel(Request $request)
