@@ -57,8 +57,8 @@ class PasscodeController extends Controller
                 'quantity' => 1,
             ]],
             'mode' => 'payment',
-            'success_url' => route('passcode-success', ['token' => $secureToken]),
-            'cancel_url' => route('passcode-cancel'),
+            'success_url' => route('passcode.success', ['token' => $secureToken]),
+            'cancel_url' => route('passcode.cancel'),
         ]);
         print($session);
         Log::error("SESSION", ['session' => $session]);
