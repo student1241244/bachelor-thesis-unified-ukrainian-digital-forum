@@ -98,7 +98,7 @@ class PasscodeController extends Controller
         // $payment->update(['passcode_displayed' => true]); // Commented out if not needed
     
         // Return the success view with the passcode
-        return view('passcode-success', ['passcode' => $payment->passcode]);
+        return view('threads/passcode-success', ['passcode' => $payment->passcode]);
     }
 
     public function cancel(Request $request)
