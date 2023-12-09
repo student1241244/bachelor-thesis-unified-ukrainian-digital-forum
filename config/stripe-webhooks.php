@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Log;
 use App\Jobs\StripeWebhooks\ChargeSucceededJob;
 
 return [
@@ -24,7 +23,6 @@ return [
      * You can find a list of Stripe webhook types here:
      * https://stripe.com/docs/api#event_types.
      */
-    Log::info("ChargeSucceededJob completed"),
     'jobs' => [
         'charge_succeeded' => \App\Jobs\StripeWebhooks\ChargeSucceededJob::class,
         // 'source_chargeable' => \App\Jobs\StripeWebhooks\HandleChargeableSource::class,
