@@ -44,7 +44,7 @@ class PasscodeController extends Controller
 
         // Generate a unique, secure token
         $secureToken = Str::uuid();
-
+        $price = 1000;
         // Create the Stripe Checkout session
         $session = \Stripe\Checkout\Session::create([
             'payment_method_types' => ['card'],
@@ -52,7 +52,7 @@ class PasscodeController extends Controller
                 'price_data' => [
                     'currency' => 'usd',
                     'product_data' => ['name' => 'Passcode'],
-                    'unit_amount' => 1000, // price in cents
+                    'unit_amount' => $price, // price in cents
                 ],
                 'quantity' => 1,
             ]],
@@ -65,6 +65,7 @@ class PasscodeController extends Controller
         Payment::create([
             'stripe_session_id' => $session->id,
             'secure_token' => $secureToken,
+            'total' => $price
         ]);
 
         return redirect($session->url, 303);
