@@ -2,14 +2,39 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Thread\AddCommentRequest;
-use App\Http\Requests\Thread\StoreRequest;
-use Packages\Threads\App\Models\Category;
-use Packages\Threads\App\Models\Comment;
+use App\Models\Payment;
 use Packages\Threads\App\Models\Thread;
+use Packages\Threads\App\Models\Comment;
+use Packages\Threads\App\Models\Category;
+use App\Http\Requests\Thread\StoreRequest;
+use App\Http\Requests\Thread\AddCommentRequest;
 
 class ThreadController extends Controller
 {
+    private function validatePasscode() {
+        $rawPasscode = session('passcode');
+        if (!$rawPasscode) {
+            return false;
+        }
+    
+        // Retrieve the hashed passcode from the database
+        $payment = Payment::where('status', 'completed')->first();
+    
+        // Assuming the hashed passcode is stored in a column named 'passcode'
+        if ($payment && password_verify($rawPasscode, $payment->passcode)) {
+            return true;
+        }
+    
+        return false;
+    }   
+    
+    public function showThreadsHome()
+    {
+        $categories = Category::all();
+
+        return view('threads-home', compact('categories'));
+    }
+
     public function index()
     {
         $threads = Thread::query()
@@ -62,6 +87,14 @@ class ThreadController extends Controller
         return response()->json([
             'message' => 'Comment was posted successfully.',
         ]);
+    }
+
+    public function showByCategory($categoryId)
+    {
+        // Assuming each thread belongs to a category and 'category_id' is the foreign key in the 'threads' table
+        $category = Category::findOrFail($categoryId);
+        $threads = Thread::where('category_id', $categoryId)->latest()->paginate(4);
+        return view('threads.index', compact('threads', 'categoryId'));
     }
 
 }

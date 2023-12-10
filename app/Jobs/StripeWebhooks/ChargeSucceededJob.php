@@ -35,10 +35,14 @@ class ChargeSucceededJob implements ShouldQueue
         $payment = Payment::where('stripe_session_id', $stripeSessionId)->first();
     
         if ($payment) {
+            $rawPasscode = Str::uuid()->toString();
+            // Hash the passcode
+            $hashedPasscode = password_hash($rawPasscode, PASSWORD_DEFAULT);
+            Cache::put('raw_passcode_for_user_' . $payment->id, $rawPasscode, now()->addMinutes(10));
             // Update the payment record with the charge details and generate a passcode
             $payment->update([
                 'stripe_id' => $stripeSessionId, // Assuming you want to store the Stripe session ID
-                'passcode' => Str::uuid()->toString(), // Generate a unique passcode
+                'passcode' => $hashedPasscode, // Generate a unique passcode
                 'status' => 'completed' // Update the status to completed
             ]);
             Log::info("Payment updated", ['payment' => $payment]);

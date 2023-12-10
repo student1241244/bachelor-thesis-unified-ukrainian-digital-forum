@@ -608,7 +608,7 @@ Author Email:   contact@tecydevs.com
             processData: false,
             success: function (response) {
                 form.trigger('reset')
-                alert(response.message)
+                location.reload(true)
             },
             error: function (response) {
                 let errors= [];

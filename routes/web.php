@@ -9,6 +9,7 @@ use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\WarningController;
 use App\Http\Controllers\PasscodeController;
+use App\Http\Controllers\PasscodeFeaturesController;
 use App\Http\Controllers\QuestionDetailsController;
 
 /*
@@ -35,6 +36,7 @@ Route::get('/passcode', [PasscodeController::class, "passcodeHome"]);
 Route::get('/buy-passcode', [PasscodeController::class, "createCheckoutSession"])->name('passcode.checkout');
 Route::get('/passcode/success', [PasscodeController::class, "success"])->name('passcode.success');
 Route::get('/passcode/cancel', [PasscodeController::class, "cancel"])->name('passcode.cancel');
+Route::post('/passcode-activate', [PasscodeController::class, 'passcodeActivate'])->name('passcode.activate');
 Route::stripeWebhooks('stripe-webhook');
 
 Route::get('/warnings/{id}/delete', [WarningController::class, "destroy"])->name('warnings.destroy');
@@ -42,11 +44,14 @@ Route::get('/warnings/{id}/delete', [WarningController::class, "destroy"])->name
 Route::post('/reports', [ReportController::class, "store"])->name('reports.store');
 Route::put('/reports/clean', [ReportController::class, "clean"])->name('reports.clean');
 
-Route::get('/threads-home', [ThreadController::class, "index"])->name('threads.index');
+Route::get('/threads', [ThreadController::class, "index"])->name('threads.index');
+Route::get('/threads-home', [ThreadController::class, "showThreadsHome"])->name('threads.home');
 Route::get('/threads-add', [ThreadController::class, "create"])->name('threads.create');
 Route::post('/threads', [ThreadController::class, "store"])->name('threads.store');
 Route::post('/threads-{id}/add-comment', [ThreadController::class, "addComment"])->name('threads.add_comment');
 Route::get('/threads-{id}', [ThreadController::class, "show"])->name('threads.show');
+Route::get('/threads/{categoryId}', [ThreadController::class, "showByCategory"])->name('threads.showByCategory');
+
 
 Route::get('/home', [UserController::class, "showHomepage"]);
 Route::get('/', [UserController::class, "showHomepage"]);
@@ -98,3 +103,5 @@ Route::post('/follow/{user:username}', [FollowController::class, "followUser"])-
 Route::post('/unfollow/{user:username}', [FollowController::class, "unfollowUser"])->middleware('auth');
 // Route::post('/profile/{user:username}/followers', [FollowController::class, "profileFollowers"])->middleware('auth');
 // Route::post('/profile/{user:username}/following', [FollowController::class, "profileFollowing"])->middleware('auth');
+
+Route::post('/switch-theme', [PasscodeFeaturesController::class, 'switchTheme']);

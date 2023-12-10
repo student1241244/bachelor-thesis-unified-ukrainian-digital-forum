@@ -44,6 +44,76 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
+body.dark-theme {
+    background-color: #262d33!important; /* Dark background */
+    color: #fff!important; /* Light text */
+    /* Add other styles for dark theme as needed */
+}
+
+body.dark-theme div {
+  background-color: #262d33!important; /* Dark background */
+  color: #fff!important; /* Light text */
+  /* Add other styles for dark theme as needed */
+}
+
+body.dark-theme header {
+  background-color: #262d33!important; /* Dark background */
+  color: #fff!important; /* Light text */
+  /* Add other styles for dark theme as needed */
+}
+
+body.dark-theme h1,h2,h3,h4,h5,h6,a,span,p {
+  color: #fff; /* Light text */
+  /* Add other styles for dark theme as needed */
+}
+
+body.dark-theme * {
+  color: #fff!important; /* Light text */
+  /* Add other styles for dark theme as needed */
+}
+
+body.dark-theme select {
+  background-color: #262d33!important;
+  color: #fff!important; /* Light text */
+  /* Add other styles for dark theme as needed */
+}
+
+body.dark-theme .bg-dark {
+  background-color: #262d33!important; /* Dark background */
+  color: #fff!important; /* Light text */
+  /* Add other styles for dark theme as needed */
+}
+
+body.dark-theme .text-black {
+  color: #fff!important; /* Light text */
+  /* Add other styles for dark theme as needed */
+}
+
+body.dark-theme .preloader {
+  background-color: #262d33!important; /* Light text */
+  /* Add other styles for dark theme as needed */
+}
+
+body.dark-theme .bg-white {
+  background-color: #262d33!important; /* Light text */
+  /* Add other styles for dark theme as needed */
+}
+
+body.dark-theme hr {
+  background-color: white!important; /* Light text */
+  /* Add other styles for dark theme as needed */
+}
+
+body.dark-theme .card-item .card-link {
+  background-color: #262d33!important; /* Light text */
+  /* Add other styles for dark theme as needed */
+}
+
+body h1,h2,h3,h4,h5,h6,span,p,a {
+  color: #0d233e; /* Light text */
+  /* Add other styles for dark theme as needed */
+}
+
 .post {
   background-color: #F1F1F1;
   margin: 5px 15px 2px;

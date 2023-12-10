@@ -129,12 +129,12 @@
     <div class="container">
         @if (isset($passcode)):
             <div class="row" id="anchor-your-passcode">
-                <div class="col-lg-9">
+                <div class="col-lg-9" style="max-width: 100%;flex: 0 0 100%;">
                     <div class="referrals-content-wrap mb-50px">
                         <div class="card card-item">
                             <div class="card-body">
                                 <h3 class="fs-26 fw-bold pb-2">Your Passcode</h3>
-                                <p class="pb-3 lh-22">We have a number of ways to help spread the word to your friends and family, Choose whatever works best for you.</p>
+                                <p class="pb-3 lh-22">Please securely store this Passcode as it will not be displayed again once you exit the website. Be advised that in the event of loss, resetting the Passcode is not possible.</p>
                                 <p class="pb-2">Send a referral by email.</p>
                                 <div class="input-group">
                                     <input class="form-control form--control" type="text" value="{{ $passcode }}" readonly="readonly">
@@ -147,17 +147,19 @@
         @else
         @endif
         <div class="row">
-            <div class="col-lg-9">
+            <div class="col-lg-9" style="max-width: 100%;flex: 0 0 100%;">
                 <div class="referrals-content-wrap mb-50px">
                     <div class="card card-item">
                         <div class="card-body">
                             <h3 class="fs-26 fw-bold pb-2">Enter your Passcode</h3>
-                            <p class="pb-3 lh-22">If you do not have your Passcode, you can buy it using the button above.</p>
-                            <form method="post" class="mb-4">
+                            <p class="pb-3 lh-22">If you don't have your Passcode, you can get it by clicking the button above.</p>
+                            <p class="pb-2">Once you activate your Passcode, it'll work for everything you do on the website until you leave. Just remember, you'll need to activate it again every time you come back.</p>
+                            <form method="post" class="mb-4" action="{{ route('passcode.activate') }}">
+                                @csrf
                                 <div class="input-group">
-                                    <input class="form-control form--control" type="email" name="email" placeholder="Enter code with 36 symbols">
+                                    <input class="form-control form--control" type="text" name="passcode" placeholder="Enter your Passcode">
                                     <div class="input-group-append">
-                                        <button class="btn theme-btn" type="button">Activate <i class="la la-arrow-right icon ml-1"></i></button>
+                                        <button class="btn theme-btn" type="submit">Activate <i class="la la-arrow-right icon ml-1"></i></button>
                                     </div>
                                 </div>
                             </form>

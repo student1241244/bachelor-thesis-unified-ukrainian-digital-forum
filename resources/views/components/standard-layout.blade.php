@@ -33,15 +33,28 @@
     <!-- end inject -->
 </head>
 <body>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const storedTheme = localStorage.getItem('theme');
 
+    if (storedTheme) {
+        document.body.classList.toggle('dark-theme', storedTheme === 'dark');
+        // Update theme selector to reflect the current theme
+        const themeSelector = document.getElementById('themeSwitcher');
+        if (themeSelector) {
+            themeSelector.value = storedTheme;
+        }
+    }
+});
+</script>
 <!-- start cssload-loader -->
-{{-- <div id="preloader">
+<div id="preloader">
     <div class="loader">
         <svg class="spinner" viewBox="0 0 50 50">
             <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
         </svg>
     </div>
-</div> --}}
+</div>
 <!-- end cssload-loader -->
 
 <!--======================================
@@ -81,6 +94,14 @@
                             </li>
                         </ul><!-- end ul -->
                     </nav><!-- end main-menu -->
+                    @if(session('passcode'))
+                        <div class="theme-selector">
+                            <select id="themeSwitcher">
+                                <option value="light">Light Theme</option>
+                                <option value="dark">Dark Theme</option>
+                            </select>                            
+                        </div>
+                    @endif
                     <form class="mr-2">
                         <div class="form-group mb-0">
                             {{-- <input class="form-control form--control h-auto py-2" type="text" name="search" placeholder="Type your search words..."> --}}
@@ -300,6 +321,36 @@
         </div>
     </div>
 </div>
+<script>
+document.getElementById('themeSwitcher').addEventListener('change', function() {
+    var selectedTheme = this.value;
+    fetch('/switch-theme', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}' // CSRF token for Laravel
+        },
+        body: JSON.stringify({theme: selectedTheme})
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Apply theme change
+            if (selectedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+            } else {
+                document.body.classList.remove('dark-theme');
+            }
+
+            // Store the selected theme in local storage
+            localStorage.setItem('theme', selectedTheme);
+        } else {
+            alert('Invalid or expired passcode.');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+});
+</script>
 
 <!-- template js files -->
 <script src="/js/jquery-3.4.1.min.js"></script>

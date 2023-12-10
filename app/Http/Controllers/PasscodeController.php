@@ -7,6 +7,7 @@ use App\Models\Payment;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Cache;
 use App\Jobs\StripeWebhooks\ChargeSucceededJob;
 
 class PasscodeController extends Controller
@@ -15,6 +16,42 @@ class PasscodeController extends Controller
     {
         return view('passcode.passcode-home', ['title' => 'Passcode feature']);
     }
+
+    public function passcodeActivate(Request $request)
+    {
+        $request->validate([
+            'passcode' => 'required'
+        ]);
+    
+        // Retrieve all passcodes (hashed) from the database
+        $payments = Payment::all();
+    
+        // Flag to check if passcode is found and valid
+        $isValidPasscode = false;
+    
+        foreach ($payments as $payment) {
+            // Use password_verify to check if the provided passcode matches the hashed one
+            if (password_verify($request->passcode, $payment->passcode)) {
+                $isValidPasscode = true;
+                break; // Stop the loop as we found the valid passcode
+            }
+        }
+    
+        // Check if valid passcode is found
+        if ($isValidPasscode) {
+            // Check if Passcode is not expired, not used, etc.
+            if ($payment->isExpired() || $payment->isUsed()) {
+                return back()->with('error', 'Invalid or expired Passcode.');
+            }
+    
+            // Embed the Passcode in the user's session
+            session(['passcode' => $request->passcode]);
+    
+            return redirect('/')->with('success', 'Passcode activated successfully.');
+        } else {
+            return back()->with('error', 'Invalid Passcode.');
+        }
+    }    
 
     // public function createCheckoutSession(Request $request)
     // {
@@ -83,11 +120,14 @@ class PasscodeController extends Controller
             Log::error('Error: Token not provided in Success Page');
             abort(404); // Or return a custom error view
         }
-    
+        
         // Find the payment associated with this token
         $payment = Payment::where('secure_token', $secureToken)
                           ->where('status', 'completed')
                           ->first();
+
+        $rawPasscode = Cache::get('raw_passcode_for_user_' . $payment->id);
+        Cache::forget('raw_passcode_for_user_' . $payment->id);
     
         if (!$payment) {
             Log::error('Error: No completed payment found for the provided token', ['token' => $secureToken]);
@@ -98,7 +138,7 @@ class PasscodeController extends Controller
         $payment->update(['passcode_displayed' => true]); // Commented out if not needed
     
         // Return the success view with the passcode
-        return view('passcode.passcode-success', ['passcode' => $payment->passcode, 'title' => 'Passcode feature']);
+        return view('passcode.passcode-success', ['passcode' => $rawPasscode, 'title' => 'Passcode feature']);
     }
 
     public function cancel(Request $request)

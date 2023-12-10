@@ -52,7 +52,7 @@
                             @foreach($comments as $comment)
                                 <li class="mb-3">
                                     <div class="comment-body pt-0">
-                                        <span class="comment-separated">-</span>
+                                        <span class="comment-separated">Anonymous - </span>
                                         <span class="comment-date text-gray">{{ $comment->created_at->diffForHumans() }}</span>
                                         <p class="comment-text pt-1 pb-2 lh-22">{{ $comment->body }}</p>
                                         <a href="#" class="comment-reply text-color hover-underline js-report" data-type="{{ \App\Services\ReportService::TYPE_THREAD_COMMENT }}" data-id="{{ $comment->id }}"><i class="la la-flag mr-1"></i>Report</a>
