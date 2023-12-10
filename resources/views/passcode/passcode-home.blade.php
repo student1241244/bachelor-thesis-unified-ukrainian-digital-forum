@@ -127,15 +127,14 @@
 ================================= -->
 <section class="user-details-area pt-60px pb-60px">
     <div class="container">
-        @if (isset($passcode)):
+        @if (isset($passcode))
             <div class="row" id="anchor-your-passcode">
                 <div class="col-lg-9" style="max-width: 100%;flex: 0 0 100%;">
                     <div class="referrals-content-wrap mb-50px">
                         <div class="card card-item">
                             <div class="card-body">
                                 <h3 class="fs-26 fw-bold pb-2">Your Passcode</h3>
-                                <p class="pb-3 lh-22">Please securely store this Passcode as it will not be displayed again once you exit the website. Be advised that in the event of loss, resetting the Passcode is not possible.</p>
-                                <p class="pb-2">Send a referral by email.</p>
+                                <p class="pb-3 lh-22">Please securely store this Passcode as it will not be displayed again once you exit the website. Be advised that in the event of loss, resetting the Passcode is not possible!</p>
                                 <div class="input-group">
                                     <input class="form-control form--control" type="text" value="{{ $passcode }}" readonly="readonly">
                                 </div>

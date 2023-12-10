@@ -11,7 +11,7 @@ use App\Http\Requests\Thread\AddCommentRequest;
 
 class ThreadController extends Controller
 {
-    private function validatePasscode() {
+    private function isPasscodeValid() {
         $rawPasscode = session('passcode');
         if (!$rawPasscode) {
             return false;
@@ -26,7 +26,7 @@ class ThreadController extends Controller
         }
     
         return false;
-    }   
+    }    
     
     public function showThreadsHome()
     {
@@ -53,7 +53,10 @@ class ThreadController extends Controller
 
     public function store(StoreRequest $request)
     {
-        $thread = Thread::create($request->validated());
+        $data = $request->validated();
+        $data['is_passcode_user'] = $this->isPasscodeValid();
+        
+        $thread = Thread::create($data);
         if ($request->hasFile('image')) {
             $thread->addMediaFromRequest('image')->toMediaCollection('image');
         }
@@ -76,16 +79,16 @@ class ThreadController extends Controller
         return view('threads.show', get_defined_vars());
     }
 
-    public function addComment(int $id, AddCommentRequest $request)
+    public function addComment(AddCommentRequest $request, $threadId)
     {
-        $thread = Thread::findOrFail($id);
         $data = $request->validated();
-        $data['thread_id'] = $thread->id;
-
+        $data['thread_id'] = $threadId;
+        $data['is_passcode_user'] = $this->isPasscodeValid();
+    
         Comment::create($data);
-
+    
         return response()->json([
-            'message' => 'Comment was posted successfully.',
+            'message' => 'Comment created successfully.',
         ]);
     }
 

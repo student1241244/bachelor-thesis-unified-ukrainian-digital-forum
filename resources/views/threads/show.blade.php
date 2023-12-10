@@ -19,7 +19,10 @@
                     <div class="media-body">
                         <small class="meta d-block lh-20">
                             <span class="mr-2">{{ $thread->created_at->format('M d, Y') }}</span>
-                            <span class="mr-2 fs-15">.</span>
+                            <span class="mr-2 fs-15">Anonymous</span>
+                            @if($thread->is_passcode_user)
+                                <span class="checkmark-icon"><img src="/images/check1.png"></span>
+                            @endif
                             <a href="#comments" class="page-scroll text-gray"><i class="la la-comment mr-1"></i>{{ $countComments }}</a>
 
                             <a href="#" class="comment-reply text-color hover-underline js-report" data-type="{{ \App\Services\ReportService::TYPE_THREAD }}" data-id="{{ $thread->id }}"><i class="la la-flag mr-1"></i>Report</a>
@@ -52,7 +55,11 @@
                             @foreach($comments as $comment)
                                 <li class="mb-3">
                                     <div class="comment-body pt-0">
-                                        <span class="comment-separated">Anonymous - </span>
+                                        <span class="comment-separated">Anonymous</span>
+                                        @if($comment->is_passcode_user)
+                                            <span class="checkmark-icon"><img src="/images/check1.png"></span>
+                                        @endif
+                                        <span class="comment-separated"> - </span>
                                         <span class="comment-date text-gray">{{ $comment->created_at->diffForHumans() }}</span>
                                         <p class="comment-text pt-1 pb-2 lh-22">{{ $comment->body }}</p>
                                         <a href="#" class="comment-reply text-color hover-underline js-report" data-type="{{ \App\Services\ReportService::TYPE_THREAD_COMMENT }}" data-id="{{ $comment->id }}"><i class="la la-flag mr-1"></i>Report</a>
