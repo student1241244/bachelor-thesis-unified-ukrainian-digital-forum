@@ -57,16 +57,17 @@ Route::post('/register', [UserController::class, "register"])->middleware('guest
 Route::post('/logout', [UserController::class, "logout"])->middleware('auth');
 Route::get('/profile-settings', [UserController::class, "showProfileSettings"])->middleware('auth');
 Route::post('/profile-settings', [UserController::class, "updateProfileSettings"])->middleware('auth');
+Route::get('/favourites/{user:username}', [UserController::class, "showFavourites"])->middleware('auth');
 
 Route::get('/signin', function () {
-    return view('signin');
+    return view('signin', ['title' => 'Signin']);
 })->name('login')->middleware('guest');
 Route::get('/signup', function () {
-    return view('signup');
+    return view('signup', ['title' => 'Signup']);
 })->middleware('guest');
 
 // Q&A routes
-Route::get('/questions', [QAController::class, "showQuestions"]);
+Route::get('/questions/{category}', [QAController::class, "showQuestions"]);
 Route::get('/ask-question', [QAController::class, "show"])->middleware('auth');
 Route::post('/create-question', [QAController::class, "createNewQuestion"])->middleware('auth');
 Route::get('/question-details/{question}', [QAController::class, "showSingleQuestion"]);

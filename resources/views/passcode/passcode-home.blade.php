@@ -13,9 +13,9 @@
             <div class="row align-items-center">
                 <div class="col-lg-5">
                     <div class="hero-content py-5">
-                        <h2 class="section-title fs-40 pb-3 lh-55">Reach 100 million+ people in tech</h2>
+                        <h2 class="section-title fs-40 pb-3 lh-55">Unlock exclusive features with Lemyk's Passcode</h2>
                         <p class="section-desc pb-40px">Get the word out to the world’s largest audience of developers and technologists. Advertise with Disilab.</p>
-                        <a class="media media-card align-items-center hover-s d-inline-flex" href="{{ route('passcode.checkout') }}" data-fancybox="">
+                        <a class="media media-card align-items-center hover-s d-inline-flex" href="{{ route('passcode.checkout') }}">
                             <div class="mr-3">
                                 <svg height="37" viewBox="0 0 37 37" width="37"><path clip-rule="evenodd" d="m18.5 37c10.2173 0 18.5-8.2827 18.5-18.5 0-10.21727-8.2827-18.5-18.5-18.5-10.21727 0-18.5 8.28273-18.5 18.5 0 10.2173 8.28273 18.5 18.5 18.5zm-1.8334-25.3051c-1.2394-.8221-2.8953.0665-2.8953 1.5537v5.2214 5.2214c0 1.4873 1.6559 2.3759 2.8953 1.5537l7.8705-5.2214c1.1117-.7375 1.1117-2.3699 0-3.1074z" fill="currentColor" fill-rule="evenodd"></path></svg>
                             </div>
@@ -27,7 +27,7 @@
                 </div><!-- end col-lg-5 -->
                 <div class="col-lg-5 ml-auto">
                     <div class="img-box">
-                        <img class="w-100 rounded-rounded lazy js-tilt" src="images/img-loading.png" data-src="images/img6.jpg" alt="image">
+                        <img class="w-100 rounded-rounded lazy js-tilt" src="images/img-loading.png" data-src="/images/developer-tal.png" alt="image">
                     </div>
                 </div><!-- end col-lg-5 -->
             </div><!-- end row -->
@@ -79,7 +79,9 @@
                             </svg>
                         </div>
                         <div class="media-body">
-                            <h5>Promote your product</h5>
+                            <h5>Premium recognition</h5>
+                            <br>
+                            <p>Stand out with a special checkmark next to your anonymous username, subtly highlighting your premium status</p>
                         </div>
                     </div>
                 </div><!-- end col-lg-4 -->
@@ -89,7 +91,9 @@
                             <svg height="50" viewBox="0 0 512 512" width="50" xmlns="http://www.w3.org/2000/svg"><g><g><path d="m502 276v-20c0-6.72-.29-13.39-.87-20h-490.26c-.58 6.61-.87 13.28-.87 20v20h47.01c2.18 21.97 8.05 42.82 16.76 62.12l-35.62 20.56 20 34.64 35.67-20.59c12.62 17.49 27.96 32.83 45.45 45.45l-20.59 35.67 34.64 20 20.56-35.62c19.3 8.71 40.15 14.58 62.12 16.76v47.01h40v-47.01c21.97-2.18 42.82-8.05 62.12-16.76l20.56 35.62 34.64-20-20.59-35.67c17.49-12.62 32.83-27.96 45.45-45.45l35.67 20.59 20-34.64-35.62-20.56c8.71-19.3 14.58-40.15 16.76-62.12z" fill="#ffda8f"/><path d="m256 10c-125.83 0-234.45 102.24-245.13 226h490.26c-10.68-123.76-119.3-226-245.13-226z" fill="#a0e5a5"/><circle cx="256" cy="256" fill="#eefaff" r="160"/><path d="m369.14 142.86-74.74 101.91c1.04 3.56 1.6 7.33 1.6 11.23 0 22.09-17.91 40-40 40s-40-17.91-40-40 17.91-40 40-40c3.9 0 7.67.56 11.23 1.6z" fill="#ff7d95"/></g><g><circle cx="296" cy="356" r="10"/><circle cx="256" cy="256" r="10"/><circle cx="256" cy="356" r="10"/><circle cx="216" cy="356" r="10"/><path d="m256 0c-138.04 0-256 117.711-256 256v20c0 5.523 4.477 10 10 10h38.157c2.355 16.291 6.691 32.335 12.94 47.889l-27.946 16.131c-2.297 1.326-3.974 3.51-4.66 6.072-.687 2.562-.327 5.292.999 7.589l20 34.64c2.762 4.783 8.876 6.42 13.66 3.661l28.015-16.171c10.269 13.023 22.003 24.757 35.026 35.026l-16.171 28.015c-2.761 4.783-1.122 10.898 3.661 13.66l34.64 20c4.781 2.76 10.9 1.123 13.661-3.661l16.131-27.946c15.554 6.25 31.598 10.585 47.889 12.94v38.155c0 5.523 4.477 10 10 10h40c5.523 0 10-4.477 10-10v-38.157c16.291-2.355 32.335-6.691 47.889-12.94l16.131 27.946c2.759 4.781 8.877 6.421 13.661 3.661l34.64-20c4.783-2.761 6.421-8.876 3.661-13.66l-16.171-28.015c13.023-10.269 24.757-22.003 35.026-35.026l28.015 16.171c4.783 2.761 10.898 1.122 13.66-3.661l20-34.64c2.76-4.781 1.122-10.901-3.661-13.661l-27.946-16.131c6.25-15.554 10.585-31.598 12.94-47.889h38.153c5.523 0 10-4.477 10-10v-20c0-137.903-117.61-255.998-256-255.998zm-208.145 147.376 29.935 17.284c4.762 2.749 10.887 1.144 13.66-3.66 2.762-4.783 1.123-10.899-3.66-13.66l-29.699-17.147c18.743-28.721 43.486-53.374 72.139-72.036l17.11 29.633c2.774 4.806 8.9 6.409 13.66 3.66 4.783-2.761 6.422-8.877 3.66-13.66l-17.236-29.853c30.064-16.232 63.616-26.106 98.576-27.698v35.761c0 5.523 4.477 10 10 10s10-4.477 10-10v-35.761c34.96 1.592 68.512 11.466 98.576 27.698l-17.236 29.853c-2.762 4.783-1.123 10.899 3.66 13.66 4.762 2.749 10.887 1.144 13.66-3.66l17.109-29.633c28.653 18.662 53.395 43.314 72.138 72.036l-29.697 17.147c-4.783 2.761-6.422 8.877-3.66 13.66 2.775 4.806 8.9 6.408 13.66 3.66l29.933-17.282c13.062 24.177 22.024 50.713 25.814 78.622h-66.615c-14.085-78.584-82.479-140-167.342-140-82.619 0-153.049 59.591-167.351 140h-66.607c3.789-27.909 12.75-54.446 25.813-78.624zm444.145 118.624h-37.01c-5.141 0-9.443 3.897-9.951 9.013-2.001 20.166-7.359 40.015-15.924 58.994-2.113 4.683-.334 10.206 4.116 12.774l26.958 15.561-10 17.319-27.01-15.591c-4.445-2.565-10.107-1.352-13.109 2.809-12.012 16.648-26.544 31.18-43.192 43.192-4.16 3.002-5.374 8.666-2.809 13.109l15.591 27.01-17.319 10-15.561-26.958c-2.568-4.45-8.091-6.23-12.774-4.116-18.979 8.565-38.828 13.923-58.994 15.924-5.116.508-9.013 4.811-9.013 9.951v37.009h-20v-37.01c0-5.141-3.897-9.443-9.013-9.951-20.166-2.001-40.015-7.359-58.994-15.924-4.682-2.113-10.206-.334-12.774 4.116l-15.561 26.958-17.319-10 15.591-27.01c2.565-4.443 1.351-10.107-2.809-13.109-16.648-12.012-31.18-26.544-43.192-43.192-3.002-4.161-8.664-5.375-13.109-2.809l-27.01 15.591-10-17.319 26.958-15.561c4.45-2.568 6.229-8.091 4.116-12.774-8.565-18.979-13.923-38.828-15.924-58.994-.506-5.115-4.809-9.012-9.949-9.012h-37.01v-10c0-3.333.08-6.674.23-10.01h66.07c-.193 3.337-.3 6.677-.3 10.01 0 93.738 76.262 170 170 170 28.681 0 57.036-7.278 82-21.048 4.836-2.667 6.594-8.75 3.926-13.586-2.668-4.835-8.75-6.592-13.586-3.926-22.014 12.142-47.028 18.56-72.34 18.56-82.71 0-150-67.29-150-150 0-82.913 67.339-150 150-150 36.128 0 70.308 12.694 97.455 35.962l-88.43 64.854c-2.967-.543-5.987-.816-9.025-.816-27.57 0-50 22.43-50 50s22.43 50 50 50 50-22.43 50-50c0-3.038-.273-6.058-.816-9.025l64.845-88.417c22.292 26.13 35.971 60.284 35.971 97.442 0 25.312-6.418 50.326-18.561 72.339-2.667 4.836-.91 10.919 3.926 13.586 4.835 2.667 10.918.911 13.586-3.926 13.771-24.963 21.049-53.318 21.049-81.999 0-3.333-.106-6.673-.3-10h66.069c.151 3.326.23 6.667.23 10v10zm-207.199-18.426c.795 2.723 1.199 5.558 1.199 8.426 0 16.542-13.458 30-30 30s-30-13.458-30-30 13.458-30 30-30c2.868 0 5.703.403 8.426 1.199 2.986.874 6.209.305 8.718-1.535l49.481-36.29-36.29 49.481c-1.839 2.51-2.406 5.732-1.534 8.719z"/><circle cx="369" cy="369" r="10"/></g></g></svg>
                         </div>
                         <div class="media-body">
-                            <h5>Boost brand awareness</h5>
+                            <h5>Exclusive dark theme</h5>
+                            <br>
+                            <p>Switch to a sleek, eye-friendly dark theme for your browsing comfort</p>
                         </div>
                     </div>
                 </div><!-- end col-lg-4 -->
@@ -99,7 +103,9 @@
                             <svg height="50" viewBox="0 0 64 64" width="50" xmlns="http://www.w3.org/2000/svg"><g><g><path d="m5 21h14v5h-14z" fill="#f0bc5e"/></g><g><path d="m57.164 15.179-.137-.119-.418-.156-.641 6.413c1.283 1.91 2.032 4.209 2.032 6.683 0 6.627-5.373 12-12 12s-12-5.373-12-12 5.373-12 12-12c1.761 0 3.433.379 4.939 1.06l.435.368-5.374-5.428 2.295-.209-2.114-.791h-.181c-9.374 0-17 7.626-17 17s7.626 17 17 17 17-7.626 17-17c0-4.916-2.127-9.589-5.836-12.821z" fill="#f0bc5e"/></g><g><path d="m57.164 15.179-.137-.119-.418-.156-.641 6.413c1.283 1.91 2.032 4.209 2.032 6.683 0 6.627-5.373 12-12 12s-12-5.373-12-12 5.373-12 12-12c1.761 0 3.433.379 4.939 1.06l.435.368-5.374-5.428 2.295-.209-2.114-.791h-.181c-9.374 0-17 7.626-17 17s7.626 17 17 17 17-7.626 17-17c0-4.916-2.127-9.589-5.836-12.821z" fill="#f0bc5e"/></g><g><path d="m5 21h4v2h-4z"/><path d="m11 21h8v2h-8z"/><path d="m5 25h14v2h-14z"/><path d="m7 8c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3zm4 0c0 .551-.448 1-1 1s-1-.449-1-1 .448-1 1-1 1 .449 1 1z"/><path d="m15 8c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3zm4 0c0 .551-.448 1-1 1s-1-.449-1-1 .448-1 1-1 1 .449 1 1z"/><path d="m23 8c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3zm4 0c0 .551-.448 1-1 1s-1-.449-1-1 .448-1 1-1 1 .449 1 1z"/><path d="m41 53h-2v-8h-2v8h-2v-10h-2v10h-2v-6h-6v6h-2v-6.414l-6-6v12.414h-2v-9.414l-6 6v3.414h-2v2h34zm-14-4h2v4h-2zm-8-3.586 2 2v5.586h-2zm-8 5 2-2v4.586h-2z"/><path d="m16.964 38.378 7.036 7.036 7.911-7.911c-.386-.57-.725-1.172-1.04-1.788l-6.871 6.871-6.964-6.964-10.705 9.635 1.338 1.486z"/><path d="m59 28c0-2.465-.696-4.846-2.002-6.919l1.118-11.186-11.116 1.01v-6.905c0-1.654-1.346-3-3-3h-38c-1.654 0-3 1.346-3 3v13c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2v27c0 1.654 1.346 3 3 3h37c0 1.103.897 2 2 2h2c1.103 0 2-.897 2-2v-16.281c-.654.117-1.322.191-2 .231v16.05h-2v-16.051c-.678-.04-1.346-.114-2-.231v14.282h-37c-.552 0-1-.448-1-1v-27h5.5l2.3 3.066c.438.585 1.136.934 1.867.934 1.286 0 2.333-1.047 2.333-2.333v-1.667h4c1.103 0 2-.897 2-2v-10c0-1.103-.897-2-2-2h-16v-2h30.068c.908-.765 1.894-1.436 2.949-2h-33.017v-9c0-.551.448-1 1-1h38c.552 0 1 .449 1 1v7.087l-1.203.109 3.884 3.923c-.554-.071-1.113-.119-1.681-.119-7.168 0-13 5.832-13 13s5.832 13 13 13 13-5.832 13-13zm-37.999 1h-6.001v3.667c0 .288-.428.43-.601.2l-2.899-3.867h-8.5v-10h18zm29.999 8.786c-.634.325-1.302.59-2 .788v-10.16l2-2zm4.885-25.681-.769 7.682-6.913-6.983zm-9.885 4.895c1.072 0 2.116.163 3.124.462l-13.665 13.665c-.295-.992-.459-2.04-.459-3.127 0-6.065 4.935-11 11-11zm-9.721 16.135 14.692-14.692 5.106 5.157c.603 1.379.923 2.87.923 4.4 0 3.408-1.559 6.459-4 8.479v-14.893l-6 6v11.363c-.33.03-.662.051-1 .051s-.67-.021-1-.051v-12.363l-6 6v3.893c-1.113-.921-2.039-2.059-2.721-3.344zm6.721 5.439c-.698-.198-1.366-.463-2-.788v-4.372l2-2z"/></g></g></svg>
                         </div>
                         <div class="media-body">
-                            <h5>See long-term results</h5>
+                            <h5>Fully Anonymous</h5>
+                            <br>
+                            <p>At Lemyk, we prioritize your privacy. Enjoy an enhanced browsing experience with our premium offer, all while maintaining your treasured anonymity.</p>
                         </div>
                     </div>
                 </div><!-- end col-lg-4 -->
@@ -116,76 +122,55 @@
     <section class="about-area pb-120px">
         <div class="container">
             <div class="about-box bg-white shadow-md rounded-rounded px-5 pt-40px pb-60px">
-                <div class="row align-items-center pb-30px">
-                    <div class="col-lg-6">
-                        <div class="about-content py-5">
-                            <h2 class="section-title pb-3">Developers love Disilab</h2>
-                            <p class="section-desc pb-40px">When developers have a coding problem, they head to Disilab. Because they know they’ll find a solution.</p>
-                            <div class="media media-card p-0 shadow-none rounded-0 bg-transparent align-items-center border-bottom border-bottom-gray pb-30px">
-                                <div class="mr-3">
-                                    <h5 class="fs-70 fw-bold">59%</h5>
-                                </div>
-                                <div class="media-body">
-                                    <p class="lh-22 text-black">of developers visit Disilab every day</p>
-                                </div>
-                            </div><!-- end media -->
-                            <div class="media media-card p-0 shadow-none rounded-0 bg-transparent align-items-center">
-                                <div class="mr-3">
-                                    <h5 class="fs-70 fw-bold">82%</h5>
-                                </div>
-                                <div class="media-body">
-                                    <p class="lh-22 text-black">of developers visit Disilab at least once a week</p>
-                                </div>
-                            </div><!-- end media -->
-                        </div><!-- end about-content -->
-                    </div><!-- end col-lg-6 -->
-                    <div class="col-lg-6">
-                        <div class="text-right">
-                            <img src="/images/developer-tal.png" alt="Company profile page" class="img-fluid">
-                        </div>
-                    </div><!-- end col-lg-6 -->
-                </div><!-- end row -->
-                <hr class="border-top-gray">
-                <div class="row align-items-center pt-4 pb-40px">
-                    <div class="col-lg-6">
-                        <div class="about-content py-5">
-                            <h2 class="section-title pb-3">Trusted for over 10 years</h2>
-                            <p class="section-desc pb-40px">We’ve been a home for the tech community since 2008. Developers and tech workers trust us. So when they see an ad on Disilab, they pay attention.</p>
-                            <hr class="border-top-gray">
-                            <p class="section-desc pt-4 fs-15 lh-20">Seeing an ad on Disilab influences developers to search out more information on their own. On average, 83% of conversions from advertising on Disilab happen without a click.</p>
-                        </div><!-- end about-content -->
-                    </div><!-- end col-lg-6 -->
-                    <div class="col-lg-6">
-                        <div class="text-right">
-                            <img src="/images/brand-tal-2.png" alt="Company profile page" class="img-fluid">
-                        </div>
-                    </div><!-- end col-lg-6 -->
-                </div><!-- end row -->
-                <div class="about-content pt-100px pb-100px text-center bg-radial-gradient-gray">
-                    <h2 class="section-title pb-2">Find out if we’re a match</h2>
-                    <p class="section-desc pb-4">Find out if your target audience spends time on Disilab.</p>
-                    <a href="contact.html" class="btn theme-btn">Advertise on Disilab</a>
-                </div><!-- end about-content -->
-                <div class="row pt-100px">
-                    <div class="col-lg-6">
-                        <div class="card card-item shadow-none border border-gray text-center py-4">
+                <!-- ================================
+         START USER DETAILS AREA
+================================= -->
+<section class="user-details-area pt-60px pb-60px">
+    <div class="container">
+        @if (isset($passcode)):
+            <div class="row" id="anchor-your-passcode">
+                <div class="col-lg-9">
+                    <div class="referrals-content-wrap mb-50px">
+                        <div class="card card-item">
                             <div class="card-body">
-                                <h5 class="card-title fs-26">Learn about our ads policy</h5>
-                                <p class="card-text pb-4">Read our advertising principles and policies.</p>
-                                <a href="privacy-policy.html" class="btn theme-btn theme-btn-outline theme-btn-outline-gray">Read more <i class="la la-arrow-right icon ml-1"></i></a>
-                            </div><!-- end card-body -->
+                                <h3 class="fs-26 fw-bold pb-2">Your Passcode</h3>
+                                <p class="pb-3 lh-22">We have a number of ways to help spread the word to your friends and family, Choose whatever works best for you.</p>
+                                <p class="pb-2">Send a referral by email.</p>
+                                <div class="input-group">
+                                    <input class="form-control form--control" type="text" value="{{ $passcode }}" readonly="readonly">
+                                </div>
+                            </div>
                         </div><!-- end card -->
-                    </div><!-- end col-lg-6 -->
-                    <div class="col-lg-6">
-                        <div class="card card-item shadow-none border border-gray text-center py-4">
-                            <div class="card-body">
-                                <h5 class="card-title fs-26">Give feedback about an ad</h5>
-                                <p class="card-text pb-4">Seen something that doesn't look right? Let us know.</p>
-                                <a href="mailto:youremail@gmail.com" class="btn theme-btn theme-btn-outline theme-btn-outline-gray">Email feedback <i class="la la-arrow-right icon ml-1"></i></a>
-                            </div><!-- end card-body -->
-                        </div><!-- end card -->
-                    </div><!-- end col-lg-6 -->
-                </div><!-- end row -->
+                    </div><!-- end referrals-content-wrap -->
+                </div><!-- end col-lg-9 -->
+            </div><!-- end row -->
+        @else
+        @endif
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="referrals-content-wrap mb-50px">
+                    <div class="card card-item">
+                        <div class="card-body">
+                            <h3 class="fs-26 fw-bold pb-2">Enter your Passcode</h3>
+                            <p class="pb-3 lh-22">If you do not have your Passcode, you can buy it using the button above.</p>
+                            <form method="post" class="mb-4">
+                                <div class="input-group">
+                                    <input class="form-control form--control" type="email" name="email" placeholder="Enter code with 36 symbols">
+                                    <div class="input-group-append">
+                                        <button class="btn theme-btn" type="button">Activate <i class="la la-arrow-right icon ml-1"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div><!-- end card -->
+                </div><!-- end referrals-content-wrap -->
+            </div><!-- end col-lg-9 -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end user-details-area -->
+<!-- ================================
+         END USER DETAILS AREA
+================================= -->
             </div><!-- end about-box -->
         </div><!-- end container -->
     </section><!-- end about-area -->

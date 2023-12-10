@@ -66,4 +66,8 @@ class User extends BaseUser
     public function questions() {
         return $this->hasMany(Question::class, 'user_id');
     }
+
+    public function favourites() {
+        return $this->hasMany(Favourites::class, 'user_id');
+    }
 }

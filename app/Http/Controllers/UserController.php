@@ -112,9 +112,11 @@ class UserController extends Controller
 
         $incomingFields['password'] = bcrypt($incomingFields['password']);
 
-        $user = User::create($incomingFields);
-        auth()->login($user);
-        return redirect('questions', ['questions' => auth()->user()->feedQuestions()->latest()->paginate(4)]);
+
+        $questions = Question::query()->latest()->paginate(4);
+        $count = Question::query()->count();
+
+        return view('questions', get_defined_vars());
     }
 
     private function getSharedData($user) {
@@ -136,6 +138,11 @@ class UserController extends Controller
             'followersCount' => $user->followers()->count(),
             'followingCount' => $user->following()->count(),
        ]);
+    }
+
+    public function showFavourites(User $user) {
+        $favourites = $user->bookmarkQuestions()->latest()->paginate(4);
+        return view('/favourites', ['favourites' => $favourites, 'title' => 'Favourites']);
     }
 
     // public function profileFollowers(User $user) {

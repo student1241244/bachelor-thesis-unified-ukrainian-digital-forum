@@ -25,17 +25,8 @@
                                             <a href="/profile/{{$question->user->username}}" class="text-black">{{$question->user->username}}</a>
                                         </div>
                                         <div class="pr-3">
-                                            <span class="pr-1">Viewed:</span>
-                                            <span class="text-black">89 times</span>
-                                        </div>
-                                        <div class="pr-3">
                                             <a href="#" class="comment-reply text-color hover-underline js-report" data-type="{{ \App\Services\ReportService::TYPE_QUESTION }}" data-id="{{ $question->id }}"><i class="la la-flag mr-1"></i>Report</a>
                                         </div>
-                                    </div>
-                                    <div class="tags">
-                                        <a href="#" class="tag-link">javascript</a>
-                                        <a href="#" class="tag-link">jquery</a>
-                                        <a href="#" class="tag-link">attribute</a>
                                     </div>
                                 </div>
                                 <div  class="float-right">

@@ -57,7 +57,7 @@ class PasscodeController extends Controller
                 'quantity' => 1,
             ]],
             'mode' => 'payment',
-            'success_url' => url('/passcode/success?token=' . $secureToken),
+            'success_url' => url('/passcode/success?token=' . $secureToken . '#anchor-your-passcode'),
             'cancel_url' => route('passcode.cancel'),
         ]);
         print($session);
@@ -95,7 +95,7 @@ class PasscodeController extends Controller
         }
     
         // Optionally mark the passcode as displayed or invalidate the token, if necessary
-        // $payment->update(['passcode_displayed' => true]); // Commented out if not needed
+        $payment->update(['passcode_displayed' => true]); // Commented out if not needed
     
         // Return the success view with the passcode
         return view('passcode.passcode-success', ['passcode' => $payment->passcode, 'title' => 'Passcode feature']);

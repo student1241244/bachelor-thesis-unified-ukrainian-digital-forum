@@ -69,6 +69,9 @@
                             <li>
                                 <a href="/threads-home">Threads</a>
                             </li>
+                            <li>
+                                <a href="/about-us">About Lemyk</a>
+                            </li>
                         </ul><!-- end ul -->
                     </nav><!-- end main-menu -->
                     <form class="mr-4">
@@ -163,8 +166,8 @@
                     </div><!-- end nav-right-button -->
                     @else
                     <div class="nav-right-button">
-                        <a href="#" class="btn theme-btn theme-btn-outline theme-btn-outline-white mr-2" data-toggle="modal" data-target="#loginModal"><i class="la la-sign-in mr-1"></i> Login</a>
-                        <a href="#" class="btn theme-btn theme-btn-white" data-toggle="modal" data-target="#signUpModal"><i class="la la-user mr-1"></i> Sign up</a>
+                        <a href="/signin" class="btn theme-btn theme-btn-outline theme-btn-outline-white mr-2"><i class="la la-sign-in mr-1"></i> Login</a>
+                        <a href="/signup" class="btn theme-btn theme-btn-white"><i class="la la-user mr-1"></i> Sign up</a>
                     </div><!-- end nav-right-button -->
                     @endauth
                 </div><!-- end menu-wrapper -->
@@ -185,11 +188,14 @@
             <li>
                 <a href="/threads-home">Threads</a>
             </li>
+            <li>
+                <a href="/about-us">About Lemyk</a>
+            </li>
         </ul>
         <div class="off-canvas-btn-box px-4 pt-5 text-center">
-            <a href="#" class="btn theme-btn theme-btn-sm theme-btn-outline" data-toggle="modal" data-target="#loginModal"><i class="la la-sign-in mr-1"></i> Login</a>
+            <a href="/signin" class="btn theme-btn theme-btn-sm theme-btn-outline"><i class="la la-sign-in mr-1"></i> Login</a>
             <span class="fs-15 fw-medium d-inline-block mx-2">Or</span>
-            <a href="#" class="btn theme-btn theme-btn-sm" data-toggle="modal" data-target="#signUpModal"><i class="la la-plus mr-1"></i> Sign up</a>
+            <a href="/signup" class="btn theme-btn theme-btn-sm" data-toggle="modal"><i class="la la-plus mr-1"></i> Sign up</a>
         </div>
     </div><!-- end off-canvas-menu -->
     <div class="mobile-search-form">
