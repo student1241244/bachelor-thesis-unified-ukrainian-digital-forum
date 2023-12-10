@@ -15,21 +15,24 @@ class ThreadController extends Controller
     private function isPasscodeValid() {
         $rawPasscode = session('passcode');
         if (!$rawPasscode) {
-            Log::error("SESSION", ['session' => 'pizda']);
+            Log::error("SESSION", ['session' => 'No session passcode']);
             return false;
         }
         Log::error("RAW", ['raw passcode' => $rawPasscode]);
-        // Retrieve the hashed passcode from the database
-        $payment = Payment::where('status', 'completed')->first();
     
-        // Assuming the hashed passcode is stored in a column named 'passcode'
-        if ($payment && password_verify($rawPasscode, $payment->passcode)) {
-            Log::error("TRUE", ['payment' => $payment]);
-            return true;
+        // Retrieve all payments with status 'completed'
+        $payments = Payment::where('status', 'completed')->get();
+    
+        foreach ($payments as $payment) {
+            if (password_verify($rawPasscode, $payment->passcode)) {
+                Log::info("Passcode valid", ['payment_id' => $payment->id]);
+                return true;
+            }
         }
-        Log::error("FALSE", ['payment' => $payment]);
+    
+        Log::error("Passcode invalid or not found", ['rawPasscode' => $rawPasscode]);
         return false;
-    }    
+    }      
     
     public function showThreadsHome()
     {
