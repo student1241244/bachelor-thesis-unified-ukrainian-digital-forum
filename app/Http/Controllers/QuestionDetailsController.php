@@ -22,9 +22,9 @@ class QuestionDetailsController extends Controller
             if (!in_array($vote, [1, -1])) {
                 return response()->json(['error' => 'Invalid vote value'], 400);
             }
-        
+            Log::error('asdadasdas:asdasdds');
             $question->vote(auth()->user(), $vote);
-        
+            Log::error('Question: ' . $question->votes_count);
             return response()->json(['newVoteCount' => $question->votes_count]);
         } catch (\Exception $e) {
             // Log the error
@@ -33,5 +33,29 @@ class QuestionDetailsController extends Controller
             // Return a meaningful error response
             return response()->json(['error' => 'Internal Server Error'], 500);
         }
-    }       
+    }
+
+    public function voteAnswer(Request $request, $questionId, $commentId)
+    {
+        try {
+            $question = Question::findOrFail($questionId);
+            $answer = $question->comments()->findOrFail($commentId);
+            $vote = $request->input('vote', 0); // vote should be 1 or -1
+            
+            // Ensure that $vote is either 1 or -1
+            if (!in_array($vote, [1, -1])) {
+                return response()->json(['error' => 'Invalid vote value'], 400);
+            }
+            
+            $answer->vote(auth()->user(), $vote);
+            
+            return response()->json(['newVoteCount' => $answer->votes_count]);
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error('Vote Error: ' . $e->getMessage());
+        
+            // Return a meaningful error response
+            return response()->json(['error' => 'Internal Server Error'], 500);
+        }
+    }    
 }

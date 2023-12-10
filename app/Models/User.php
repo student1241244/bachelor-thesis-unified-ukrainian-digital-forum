@@ -67,6 +67,10 @@ class User extends BaseUser
         return $this->hasMany(Question::class, 'user_id');
     }
 
+    public function comments() {
+        return $this->hasMany(Comment::class, 'user_id');
+    }
+
     public function favourites() {
         return $this->hasMany(Favourites::class, 'user_id');
     }

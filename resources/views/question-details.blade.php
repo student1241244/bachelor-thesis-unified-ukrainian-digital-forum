@@ -14,7 +14,7 @@
                                         {{-- <div class="comment-avatar">
                                             <a href="/profile/{{$question->user->username}}"><img class="lazy" src="{{$question->user->avatar}}" alt="avatar" style="">
                                         </div> --}}
-                                        <h5 class="fs-20"><a href="question-details.html">{{$question->title}}</a></h5>
+                                        <h5 class="fs-20"><a>{{$question->title}}</a></h5>
                                         <div class="meta d-flex flex-wrap align-items-center fs-13 lh-20 py-1">
                                             <div class="pr-3">
                                                 <span>Created:</span>
@@ -35,6 +35,7 @@
                                         @csrf
                                         @method('DELETE')
                                         <button style="border:none;color:#007bff;background-color:transparent;" type="submit"><i class="la la-trash"></i></button>
+                                    </form>
                                     </div>
                                     @endcan
                                             </div>
@@ -52,7 +53,7 @@
                             
                             <div class="votes votes-styled w-auto">
                                 <div class="vote-buttons">
-                                    <button class="vote-button" aria-label="Vote up" onclick="voteQuestion({{$question->id}}, 1)">
+                                    <button class="vote-button" aria-label="Vote up" onclick="voteQuestion({{ $question->id }}, 1)">
                                       <span class="arrow-up"></span>
                                     </button>
                                     <div class="vote-count"><span id="vote-count">{{ $question->votes_count }}</span></div>
@@ -93,13 +94,13 @@
                             <div class="answer-wrap d-flex">
                                 <div class="votes votes-styled w-auto">
                                     <div class="vote-buttons">
-                                        <button class="vote-button" aria-label="Vote up" onclick="voteAnswer({{$question->id}}, 1)">
+                                        <button class="vote-button" aria-label="Vote up" onclick="voteAnswer({{$question->id}}, {{$comment->id}}, 1)">
                                           <span class="arrow-up"></span>
                                         </button>
-                                        <div class="vote-count"><span id="vote-count">{{ $question->votes_count }}</span></div>
-                                        <button class="vote-button" aria-label="Vote down">
+                                        <div class="vote-count"><span id="vote-count-{{$comment->id}}">{{ $comment->votes_count }}</span></div>
+                                        <button class="vote-button" aria-label="Vote down" onclick="voteAnswer({{$question->id}}, {{$comment->id}}, -1)">
                                             <span class="arrow-down"></span>
-                                          </button>
+                                        </button>
                                     </div>
                                 </div>
                                 <div class="answer-body-wrap flex-grow-1">
@@ -148,12 +149,12 @@
                 <div class="sidebar">
                     <div class="card card-item">
                         <div class="card-body">
-                            <h3 class="fs-17 pb-3">Related Questions</h3>
+                            <h3 class="fs-17 pb-3"><img style="width: 10%;" src="/images/fire.gif">Interesting Questions</h3>
                             <div class="divider"><span></span></div>
                             <div class="sidebar-questions pt-3">
                                 <div class="media media-card media--card media--card-2">
                                     <div class="media-body">
-                                        <h5><a href="question-details.html">How to select the dom element with event.target</a></h5>
+                                        <h5><a href="">How to select the dom element with event.target</a></h5>
                                         <small class="meta">
                                             <span class="pr-1">2 mins ago</span>
                                             <span class="pr-1">. by</span>
@@ -209,7 +210,6 @@
                 </button>
             </div>
             <div class="modal-body">
-
                 <form method="post" class="pt-3" id="update-answer-form" action="">
                     @csrf
                     <div class="input-box">
@@ -253,6 +253,25 @@ function voteQuestion(questionId, vote) {
         success: function(response) {
             // Update the vote count on the page
             $('#vote-count').text(response.newVoteCount);
+        },
+        error: function(xhr, status, error) {
+            console.error(error);
+            alert('Error: ' + error.message);
+        }
+    });
+}
+function voteAnswer(questionId, answerId, vote) {
+    console.log("Vote for Answer" + answerId + ": " + vote); // Add this line for debugging
+    $.ajax({
+        type: "POST",
+        url: "/question-details/" + questionId + "/" + answerId + "/vote",
+        data: {
+            _token: "{{csrf_token()}}",
+            vote: parseInt(vote)
+        },
+        success: function(response) {
+            // Update the vote count on the page
+            $('#vote-count-' + answerId).text(response.newVoteCount);
         },
         error: function(xhr, status, error) {
             console.error(error);

@@ -87,6 +87,8 @@ Route::get('/search/{query}', [QAController::class, "search"]);
 //Comment routes
 Route::post('/question-details/{question}/create-comment', [CommentController::class, "createComment"])->middleware('auth');
 Route::post('/question-details/{id}/vote', [QuestionDetailsController::class, 'voteQuestion'])->middleware('auth')->name('questions.vote');
+Route::post('/question-details/{id}/{idAnswer}/vote', [QuestionDetailsController::class, 'voteAnswer'])->middleware('auth')->name('questions.answers.vote');
+
 
 //Profile routes
 Route::get('/profile/{user:username}', [UserController::class, "showProfile"]);

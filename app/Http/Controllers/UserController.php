@@ -89,7 +89,6 @@ class UserController extends Controller
 
         $user = User::where('username', $incomingFields['loginusername'])->first();
 
-
         if (auth()->attempt(['username' => $incomingFields['loginusername'], 'password' => $incomingFields['loginpassword']])) {
             if (auth()->user()->checkIsBan()) {
                 auth()->logout();
@@ -112,7 +111,9 @@ class UserController extends Controller
 
         $incomingFields['password'] = bcrypt($incomingFields['password']);
 
-
+        $user = User::create($incomingFields);
+        auth()->login($user);
+        
         $questions = Question::query()->latest()->paginate(4);
         $count = Question::query()->count();
 

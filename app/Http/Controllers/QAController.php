@@ -39,7 +39,14 @@ class QAController extends Controller
 
         $question->update($incomingFields);
 
-        return view('question-details', ['question' => $question]);
+        $comments = $question->comments()->with(['media', 'user'])->latest()->paginate(4);
+
+        $isBookmarked = false;
+        if (auth()->check()) {
+            $isBookmarked = auth()->user()->bookmarkQuestions()->where('question_id', $question->id)->exists();
+        }
+
+        return view('question-details', get_defined_vars());
     }
 
     public function showEditQuestionForm(Question $question) {
@@ -48,6 +55,7 @@ class QAController extends Controller
 
     public function deleteQuestion(Question $question) {
         $question->delete();
+        
         return redirect('/profile/' . auth()->user()->username)->with('success', 'Post successfully deleted.');
     }
 
