@@ -35,6 +35,7 @@ class Thread extends Model implements HasMedia
         'body',
         'report_count',
         'report_data',
+        'is_passcode_user'
     ];
 
     protected $casts = [
