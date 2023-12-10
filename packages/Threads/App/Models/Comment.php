@@ -23,6 +23,7 @@ class Comment extends Model
         'body',
         'report_count',
         'report_data',
+        'is_passcode_user'
     ];
 
     protected $casts = [
