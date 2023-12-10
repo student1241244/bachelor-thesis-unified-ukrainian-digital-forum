@@ -89,14 +89,16 @@ class ThreadController extends Controller
     {
         $data = $request->validated();
         $data['thread_id'] = $threadId;
-        $data['is_passcode_user'] = $this->isPasscodeValid();
+    
+        // Convert boolean to integer (1 for true, 0 for false)
+        $data['is_passcode_user'] = $this->isPasscodeValid() ? 1 : 0;
     
         Comment::create($data);
     
         return response()->json([
             'message' => 'Comment created successfully.',
         ]);
-    }
+    }    
 
     public function showByCategory($categoryId)
     {
