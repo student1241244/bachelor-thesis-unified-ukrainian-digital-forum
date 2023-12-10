@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Payment;
+use Illuminate\Support\Facades\Log;
 use Packages\Threads\App\Models\Thread;
 use Packages\Threads\App\Models\Comment;
 use Packages\Threads\App\Models\Category;
@@ -14,9 +15,10 @@ class ThreadController extends Controller
     private function isPasscodeValid() {
         $rawPasscode = session('passcode');
         if (!$rawPasscode) {
-            return redirect('/');
+            Log::error("SESSION", ['session' => 'pizda']);
+            return false;
         }
-    
+        Log::error("RAW", ['raw passcode' => $rawPasscode]);
         // Retrieve the hashed passcode from the database
         $payment = Payment::where('status', 'completed')->first();
     
