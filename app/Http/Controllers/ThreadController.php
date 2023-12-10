@@ -24,9 +24,10 @@ class ThreadController extends Controller
     
         // Assuming the hashed passcode is stored in a column named 'passcode'
         if ($payment && password_verify($rawPasscode, $payment->passcode)) {
+            Log::error("TRUE", ['payment' => $payment]);
             return true;
         }
-    
+        Log::error("FALSE", ['payment' => $payment]);
         return false;
     }    
     
