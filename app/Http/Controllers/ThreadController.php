@@ -14,7 +14,7 @@ class ThreadController extends Controller
     private function isPasscodeValid() {
         $rawPasscode = session('passcode');
         if (!$rawPasscode) {
-            return false;
+            return redirect('/');
         }
     
         // Retrieve the hashed passcode from the database
