@@ -19,9 +19,9 @@
                     <div class="media-body">
                         <small class="meta d-block lh-20">
                             <span class="mr-2">{{ $thread->created_at->format('M d, Y') }}</span>
-                            <span class="mr-2 fs-15">Anonymous</span>
+                            <span>Anonymous</span>
                             @if($thread->is_passcode_user)
-                                <span class="checkmark-icon"><img src="/images/check1.png"></span>
+                                <span class="checkmark-icon fs-15"><img src="/images/check1.png"></span>
                             @endif
                             <a href="#comments" class="page-scroll text-gray"><i class="la la-comment mr-1"></i>{{ $countComments }}</a>
 

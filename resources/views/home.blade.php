@@ -97,7 +97,7 @@
     <section class="get-started-area section--padding" id="for-sections">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-title pb-3">Our website if for - Everyone!</h2>
+                <h2 class="section-title pb-3">Our website is for - Everyone!</h2>
                 <p class="section-desc w-50 mx-auto">Just choose which section you want to explore, either Questions and Answers section or Forum Threads section
                 </p>
             </div>
