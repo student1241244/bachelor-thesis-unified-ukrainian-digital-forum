@@ -10,16 +10,17 @@ use App\Models\User;
 use App\Models\Question;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Packages\Questions\App\Models\Category;
 use Packages\Dashboard\App\Models\Media;
 
 class QAController extends Controller
 {
-    public function showQuestions()
+    public function showQuestions($categoryId)
     {
-        $questions = Question::query()->latest()->paginate(4);
-        $count = Question::query()->count();
-
-        return view('questions', get_defined_vars());
+        $category = Category::findOrFail($categoryId);
+        $questions = Question::where('category_id', $categoryId)->latest()->paginate(4);
+        $count = Question::query()->where('category_id', $categoryId)->count();
+        return view('questions.index', compact('questions', 'categoryId', 'count'));
     }
 
     public function search($query) {

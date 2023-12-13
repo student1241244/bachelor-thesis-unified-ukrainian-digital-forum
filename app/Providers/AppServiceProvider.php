@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Providers;
-
+use Validator;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
@@ -25,5 +26,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrapFive();
+        Validator::extend('recaptcha', 'App\\Validators\\ReCaptcha@validate');
     }
 }

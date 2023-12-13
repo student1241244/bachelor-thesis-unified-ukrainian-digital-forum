@@ -9,6 +9,7 @@ use Packages\Threads\App\Models\Comment;
 use Packages\Threads\App\Models\Category;
 use App\Http\Requests\Thread\StoreRequest;
 use App\Http\Requests\Thread\AddCommentRequest;
+use Illuminate\Http\Request;
 
 class ThreadController extends Controller
 {
@@ -50,8 +51,17 @@ class ThreadController extends Controller
         return view('threads.index', get_defined_vars());
     }
 
-    public function create()
+    public function create(Request $request)
     {
+        $incomingRules = [
+            'g-captcha-response' => 'required|recaptcha'
+        ];
+
+        // $this->validate($request, $incomingRules, [
+        //     'g-captcha-response.recaptcha' => 'Captcha verification failed',
+        //     'g-captcha-response.required' => 'Please complete the captcha'
+        // ]);
+
         $categories = Category::get()->pluck('title', 'id')->toArray();
 
         return view('threads.create', get_defined_vars());

@@ -13,18 +13,48 @@ use Packages\Dashboard\App\Models\User as BaseUser;
 
 class User extends BaseUser
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use Notifiable;
+
+    public $new_password;
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
+     * @var array
      */
+    protected $conversions = [
+        'image' => ['100x100'],
+    ];
+
+    /**
+     * @var array
+     */
+    protected $mediaRules = [
+        'image' => [
+            'max_size' => '10M',
+            'min_width' => '100',
+            'min_height' => '100',
+            'mimes' => 'jpg,jpeg,png',
+        ],
+    ];
+
+    /**
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
+
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'users';
+
     protected $fillable = [
-        'username',
+        'role_id',
         'email',
         'password',
-        'avatar',
+        'username',
+        'is_admin',
+        'ban_to',
     ];
 
     protected function avatar(): Attribute {

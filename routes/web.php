@@ -72,7 +72,7 @@ Route::get('/signup', function () {
 })->middleware('guest');
 
 // Q&A routes
-Route::get('/questions/{category}', [QAController::class, "showQuestions"]);
+Route::get('/questions/{categoryId}', [QAController::class, "showQuestions"]);
 Route::get('/ask-question', [QAController::class, "show"])->middleware('auth');
 Route::post('/create-question', [QAController::class, "createNewQuestion"])->middleware('auth');
 Route::get('/question-details/{question}', [QAController::class, "showSingleQuestion"]);

@@ -10,8 +10,8 @@
     <span class="stroke-shape stroke-shape-5"></span>
     <span class="stroke-shape stroke-shape-6"></span>
     <div class="container">
-        <div class="hero-content text-center pb-5">
-            <h2 class="section-title pb-3 theme-font-2 fs-40">The Social Q&A Community</h2>
+        <div class="hero-content text-center pb-3">
+            <h2 class="section-title pb-3 fs-40">The Social Q&A Community</h2>
             <p class="section-desc">The question and answer section designed to help people, to help each other: <br>
                 To ask, to learn, to share, to grow.
             </p>
@@ -19,9 +19,8 @@
                 <a href="/ask-question" class="btn theme-btn mr-2">Ask a Question</a>
             </div>
         </div><!-- end hero-content -->
-        <hr>
         <div class="hero-content text-center pb-5">
-            <h2 class="section-title pb-3 theme-font-2 fs-40">Choose Q&A category:</h2>
+            <h2 class="section-title pb-3 fs-30">Choose Q&A category:</h2>
         </div>
         <div class="row">
             <div class="col-lg-4-2 responsive-column-half">
@@ -103,7 +102,7 @@
                         </svg>
                     </div>
                     <div class="media-body">
-                        <h5 class="pb-2"><a href="/questions/general">General Questions</a></h5>
+                        <h5 class="pb-2"><a href="/questions/1">General Questions</a></h5>
                         <p>Quickly ask question and provide answer related with the general type of inquiries</p>
                     </div>
                 </div>
@@ -201,7 +200,7 @@
                         </svg>
                     </div>
                     <div class="media-body">
-                        <h5 class="pb-2"><a href="/questions/programmers">Programmer Questions</a></h5>
+                        <h5 class="pb-2"><a href="/questions/2">Programmer Questions</a></h5>
                         <p>Devoted especially to answering the queries of programmers</p>
                     </div>
                 </div>
@@ -256,7 +255,7 @@
                                 </svg>
                     </div>
                     <div class="media-body">
-                        <h5 class="pb-2"><a href="/questions/hackers">Hackers Questions</a></h5>
+                        <h5 class="pb-2"><a href="/questions/3">Hackers Questions</a></h5>
                         <p>Section covers broad of defense and ofence cybersecurity questions and answers.</p>
                     </div>
                 </div>
@@ -273,7 +272,7 @@
                         </svg>
                     </div>
                     <div class="media-body">
-                        <h5 class="pb-2"><a href="/questions/study">Study Questions</a></h5>
+                        <h5 class="pb-2"><a href="/questions/4">Study Questions</a></h5>
                         <p>Addressing the questions of pupils and students</p>
                     </div>
                 </div>

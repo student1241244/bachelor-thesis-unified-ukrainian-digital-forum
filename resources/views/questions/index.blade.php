@@ -32,16 +32,12 @@
                         <div class="media media-card rounded-0 shadow-none mb-0 bg-transparent py-3 px-0 border-bottom border-bottom-gray">
                             <div class="votes text-center votes-2">
                                 <div class="vote-block">
-                                    <span class="vote-counts d-block text-center pr-0 lh-20 fw-medium">3</span>
+                                    <span class="vote-counts d-block text-center pr-0 lh-20 fw-medium">{{$question->comments->count()}}</span>
                                     <span class="vote-text d-block fs-13 lh-18">votes</span>
                                 </div>
                                 <div class="answer-block answered my-2">
-                                    <span class="answer-counts d-block lh-20 fw-medium">3</span>
+                                    <span class="answer-counts d-block lh-20 fw-medium">{{$question->comments->count()}}</span>
                                     <span class="answer-text d-block fs-13 lh-18">answers</span>
-                                </div>
-                                <div class="view-block">
-                                    <span class="view-counts d-block lh-20 fw-medium">12</span>
-                                    <span class="view-text d-block fs-13 lh-18">views</span>
                                 </div>
                             </div>
                             <div class="media-body">
