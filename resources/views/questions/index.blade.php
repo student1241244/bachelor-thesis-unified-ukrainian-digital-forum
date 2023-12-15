@@ -32,7 +32,7 @@
                         <div class="media media-card rounded-0 shadow-none mb-0 bg-transparent py-3 px-0 border-bottom border-bottom-gray">
                             <div class="votes text-center votes-2">
                                 <div class="vote-block">
-                                    <span class="vote-counts d-block text-center pr-0 lh-20 fw-medium">{{$question->comments->count()}}</span>
+                                    <span class="vote-counts d-block text-center pr-0 lh-20 fw-medium">{{$question->votes_count}}</span>
                                     <span class="vote-text d-block fs-13 lh-18">votes</span>
                                 </div>
                                 <div class="answer-block answered my-2">
@@ -44,14 +44,14 @@
                                 <h5 class="mb-2 fw-medium"><a href="/question-details/{{$question->id}}">{{$question->title}}</a></h5>
                                 <p class="mb-2 truncate lh-20 fs-15">{{$question->body}}</p>
                                 <div class="media media-card user-media align-items-center px-0 border-bottom-0 pb-0">
-                                    <a href="user-profile.html" class="media-img d-block">
+                                    <a href="/profile/{{ $question->user->username }}" class="media-img d-block">
                                         <img src="{{$question->user->avatar}}" alt="avatar">
                                     </a>
                                     <div class="media-body d-flex flex-wrap align-items-center justify-content-between">
                                         <div>
-                                            <h5 class="pb-1"><a href="user-profile.html">{{$question->user->username}}</a></h5>
+                                            <h5 class="pb-1"><a href="/profile/{{ $question->user->username }}">{{ $question->user->username }}</a></h5>
                                             <div class="stats fs-12 d-flex align-items-center lh-18">
-                                                <span class="text-black pr-2" title="Reputation score">XXXXX</span>
+                                                <span class="text-black pr-2" title="Reputation score">{{ $question->user->bonus_points }} points</span>
                                             </div>
                                         </div>
                                         <small class="meta d-block text-right">
@@ -72,52 +72,7 @@
                 </div><!-- end question-main-bar -->
             </div><!-- end col-lg-9 -->
             <div class="col-lg-3">
-                <div class="sidebar">
-                    <div class="card card-item">
-                        <div class="card-body">
-                            <h3 class="fs-17 pb-3"><img style="width: 10%;" src="/images/fire.gif">Interesting Questions</h3>
-                            <div class="divider"><span></span></div>
-                            <div class="sidebar-questions pt-3">
-                                <div class="media media-card media--card media--card-2">
-                                    <div class="media-body">
-                                        <h5><a href="question-details.html">Using web3 to call precompile contract</a></h5>
-                                        <small class="meta">
-                                            <span class="pr-1">2 mins ago</span>
-                                            <span class="pr-1">. by</span>
-                                            <a href="#" class="author">Sudhir Kumbhare</a>
-                                        </small>
-                                    </div>
-                                </div><!-- end media -->
-                                <div class="media media-card media--card media--card-2">
-                                    <div class="media-body">
-                                        <h5><a href="question-details.html">Is it true while finding Time Complexity of the algorithm [closed]</a></h5>
-                                        <small class="meta">
-                                            <span class="pr-1">48 mins ago</span>
-                                            <span class="pr-1">. by</span>
-                                            <a href="#" class="author">wimax</a>
-                                        </small>
-                                    </div>
-                                </div><!-- end media -->
-                                <div class="media media-card media--card media--card-2">
-                                    <div class="media-body">
-                                        <h5><a href="question-details.html">image picker and store them into firebase with flutter</a></h5>
-                                        <small class="meta">
-                                            <span class="pr-1">1 hour ago</span>
-                                            <span class="pr-1">. by</span>
-                                            <a href="#" class="author">Antonin gavrel</a>
-                                        </small>
-                                    </div>
-                                </div><!-- end media -->
-                            </div><!-- end sidebar-questions -->
-                        </div>
-                    </div><!-- end card -->
-                    {{-- <div class="ad-card">
-                        <h4 class="text-gray text-uppercase fs-13 pb-3 text-center">Advertisements</h4>
-                        <div class="ad-banner mb-4 mx-auto">
-                            <span class="ad-text">290x500</span>
-                        </div>
-                    </div><!-- end ad-card --> --}}
-                </div><!-- end sidebar -->
+                @include('sections.interesting-questions')
             </div><!-- end col-lg-3 -->
         </div><!-- end row -->
     </div><!-- end container -->

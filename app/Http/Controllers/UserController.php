@@ -121,23 +121,33 @@ class UserController extends Controller
     }
 
     private function getSharedData($user) {
-        $currentlyFollowing = 0;
-
-        if (auth()->check()) {
-            $currentlyFollowing = Follow::where([['user_id', '=', auth()->user()->id], ['followeduser', '=', $user->id]])->count();
-        }
-
-        View::share('sharedData', ['currentlyFollowing' => $currentlyFollowing, 'avatar' => $user->avatar, 'username' => $user->username, 'questionCount' => $user->questions()->count()]);
+        $currentlyFollowing = auth()->check() ? Follow::where('user_id', auth()->id())->where('followeduser', $user->id)->count() : 0;
+        $questionsCount = $user->questions()->count();
+        $commentsCount = $user->comments()->count();
+        $totalAnswerUpvotes = $user->comments->sum('votes_count'); // Ensure 'votes_count' is the correct column name in your Comment model
+    
+        View::share('sharedData', [
+            'avatar' => $user->avatar,
+            'username' => $user->username,
+            'questionCount' => $questionsCount,
+            'bonus_points' => $user->bonus_points,
+            'answerCount' => $commentsCount,
+            'answerUpvotes' => $totalAnswerUpvotes,
+            'currentlyFollowing' => $currentlyFollowing
+        ]);
     }
+    
 
     public function showProfile(User $user) {
         $this->getSharedData($user);
-        return view('profile-pages', [
+        $bonus = 1;
+        return view('profile', [
             'questions' => $user->questions()->latest()->get(),
             'followers' => $user->followers()->latest()->get(),
             'following' => $user->following()->latest()->get(),
             'followersCount' => $user->followers()->count(),
             'followingCount' => $user->following()->count(),
+            'bonus_points' => $bonus,
        ]);
     }
 

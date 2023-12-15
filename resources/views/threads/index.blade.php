@@ -17,6 +17,7 @@
                 <h2 class="section-title pb-3">Threads</h2>
                 <ul class="breadcrumb-list">
                     <li><a href="/">Home</a><span><svg xmlns="http://www.w3.org/2000/svg" height="19px" viewBox="0 0 24 24" width="19px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/></svg></span></li>
+                    <li><a href="/threads-home">Threads category</a><span><svg xmlns="http://www.w3.org/2000/svg" height="19px" viewBox="0 0 24 24" width="19px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/></svg></span></li>
                     <li>Threads</li>
                 </ul>
             </div><!-- end hero-content -->
@@ -31,8 +32,16 @@
     ================================= -->
     <section class="blog-area pt-80px pb-80px">
         <div class="container">
+            <h3 class="section-title pb-3 fs-20"><img style="width:2%;" src="/images/fire.gif">Trending threads:</h3>
+            <div class="hero-content text-center pt-20px" style="display:flex;">
+                @foreach($trendingThreads as $trendingThread)
+                    <a href="/threads-{{ $trendingThread->id }}" class="cat-item d-flex align-items-center justify-content-between mb-3 hover-y">
+                        <span class="cat-title">{{ $trendingThread->title }}</span>
+                        <span class="cat-number"><i class="la la-angle-right collapse-icon"></i></span>
+                    </a>
+                @endforeach    
+            </div><!-- end hero-content -->
             <div class="row">
-
                 @foreach($threads as $thread)
                 <div class="col-lg-4 responsive-column-half">
                     <div class="card card-item hover-y">

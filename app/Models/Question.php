@@ -15,8 +15,11 @@ class Question extends Model
         'title',
         'body',
         'user_id',
+        'votes_count',
         'report_count',
         'report_data',
+        'category',
+        'category_id',
     ];
 
     protected $casts = [
@@ -66,4 +69,19 @@ class Question extends Model
 
         $this->save();
     }
+
+    public function calculateInterestingRating($question) {
+        $totalQuestionUpvotes = $question->votes_count;
+        $totalAnswers = $question->comments->count();
+        $totalAnswerUpvotes = $question->comments->sum(function ($comment) {
+            // Summing the 'votes_count' from each vote related to the comment
+            return $comment->votes_count; // Ensure 'vote' is the correct column name in your CommentVote model
+        });
+    
+        if ($totalAnswerUpvotes > 0) {
+            return ($totalQuestionUpvotes - $totalAnswers) / $totalAnswerUpvotes;
+        } else {
+            return ($totalQuestionUpvotes - $totalAnswers) / 1;
+        }
+    }     
 }

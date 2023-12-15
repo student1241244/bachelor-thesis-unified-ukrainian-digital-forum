@@ -15,12 +15,28 @@ use Packages\Dashboard\App\Models\Media;
 
 class QAController extends Controller
 {
+    public function calculateInterestingQuestions() {
+        $questions = Question::with(['votes', 'comments.votes'])
+                             ->get()
+                             ->each(function ($question) {
+                                 $question->interesting_rating = $question->calculateInterestingRating($question);
+                             });
+    
+        $sortedQuestions = $questions->sortByDesc('interesting_rating');
+    
+        // You can limit the number of questions shown
+        $interestingQuestions = $sortedQuestions->take(3);
+    
+        return $interestingQuestions;
+    }
+    
     public function showQuestions($categoryId)
     {
         $category = Category::findOrFail($categoryId);
         $questions = Question::where('category_id', $categoryId)->latest()->paginate(4);
         $count = Question::query()->where('category_id', $categoryId)->count();
-        return view('questions.index', compact('questions', 'categoryId', 'count'));
+        $interestingQuestions = $this->calculateInterestingQuestions();
+        return view('questions.index', compact('questions', 'categoryId', 'count', 'interestingQuestions'));
     }
 
     public function search($query) {
@@ -85,6 +101,8 @@ class QAController extends Controller
 
         $incomingFields['title'] = strip_tags($incomingFields['title']);
         $incomingFields['body'] = strip_tags($incomingFields['body']);
+        $incomingFields['category'] = 'ads';
+        $incomingFields['category_id'] = 1;
         $incomingFields['user_id'] = auth()->id();
         $newPost = Question::create($incomingFields);
 
@@ -101,6 +119,9 @@ class QAController extends Controller
         $data['question_id'] = $question->id;
         $data['user_id'] = auth()->id();
         $answer = Comment::create($data);
+        $user = auth()->user();
+        $user->bonus_points += 10; // Award 10 points per answer
+        $user->save();
 
         foreach ($request->file('images', []) as $image) {
             $answer->addMedia($image)->toMediaCollection('images');
@@ -181,4 +202,19 @@ class QAController extends Controller
 
         return redirect("/question-details/" . $id);
     }
+
+    public function showInterestingQuestions() {
+        $questions = Question::with(['votes_count', 'comments.votes_count'])
+                             ->get()
+                             ->each(function ($question) {
+                                 $question->interesting_rating = $question->calculateInterestingRating();
+                             });
+    
+        $sortedQuestions = $questions->sortByDesc('interesting_rating');
+    
+        // You can limit the number of questions shown
+        $interestingQuestions = $sortedQuestions->take(10);
+    
+        return view('partials.interesting_questions', compact('interestingQuestions'));
+    }    
 }

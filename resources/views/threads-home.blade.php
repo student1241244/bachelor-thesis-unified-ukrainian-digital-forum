@@ -11,7 +11,7 @@
         <span class="stroke-shape stroke-shape-6"></span>
         <div class="container">
             <div class="hero-content text-center pb-5">
-                <h2 class="section-title pb-3 theme-font-2 fs-40">The Forum Threads Community</h2>
+                <h2 class="section-title pb-3 fs-40">The Forum Threads Community</h2>
                 <p class="section-desc">A platform dedicated exclusively to anonymous interactions: To discuss, to engage, to express, to connect.
                 </p>
                 <div class="hero-btn-box py-4">
@@ -21,7 +21,7 @@
             </div><!-- end hero-content -->
             <hr>
             <div class="hero-content text-center pb-5">
-                <h2 class="section-title pb-3 theme-font-2 fs-40">Choose Threads category:</h2>
+                <h2 class="section-title pb-3 fs-30">Choose Threads category:</h2>
             </div>
             <div class="row">
                 @foreach ($categories as $category)

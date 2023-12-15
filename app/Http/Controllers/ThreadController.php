@@ -53,10 +53,6 @@ class ThreadController extends Controller
 
     public function create(Request $request)
     {
-        $incomingRules = [
-            'g-captcha-response' => 'required|recaptcha'
-        ];
-
         // $this->validate($request, $incomingRules, [
         //     'g-captcha-response.recaptcha' => 'Captcha verification failed',
         //     'g-captcha-response.required' => 'Please complete the captcha'
@@ -110,10 +106,10 @@ class ThreadController extends Controller
 
     public function showByCategory($categoryId)
     {
-        // Assuming each thread belongs to a category and 'category_id' is the foreign key in the 'threads' table
+        $trendingThreads = Thread::getTrendingThreads();
         $category = Category::findOrFail($categoryId);
         $threads = Thread::where('category_id', $categoryId)->latest()->paginate(4);
-        return view('threads.index', compact('threads', 'categoryId'));
+        return view('threads.index', compact('threads', 'categoryId', 'trendingThreads'));
     }
 
 }
