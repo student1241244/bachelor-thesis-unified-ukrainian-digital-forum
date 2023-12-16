@@ -57,6 +57,12 @@ return [
             'ignore_exceptions' => false,
         ],
 
+        'auth-fail' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/auth-fail.log'),
+            'level' => 'info',
+        ],
+
         'single' => [
             'driver' => 'single',
             'path' => storage_path('logs/laravel.log'),

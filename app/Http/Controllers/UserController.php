@@ -15,9 +15,18 @@ use Illuminate\Support\Facades\View;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 use Packages\Threads\App\Models\Thread;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        Log::channel('auth-fail')->info('Failed login attempt', [
+            'username' => $request->get('email'), // Change 'email' to your form's username field
+            'ip' => $request->ip(),
+        ]);
+    }
+
     public function updateProfileSettings(UpdateRequest $request) {
         $user = auth()->user();
 
@@ -87,17 +96,17 @@ class UserController extends Controller
             'loginpassword' => 'required'
         ]);
 
-        $user = User::where('username', $incomingFields['loginusername'])->first();
-
         if (auth()->attempt(['username' => $incomingFields['loginusername'], 'password' => $incomingFields['loginpassword']])) {
             if (auth()->user()->checkIsBan()) {
                 auth()->logout();
+
                 return redirect('signin')->with('failure', 'Your account is banned. Please contact administrator.');
             }
-
             $request->session()->regenerate();
             return view('qa-home');
         } else {
+            $this->sendFailedLoginResponse($request);
+
             return redirect('signin')->with('failure', 'Invalid login');
         }
     }
