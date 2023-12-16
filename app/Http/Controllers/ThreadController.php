@@ -62,9 +62,7 @@ class ThreadController extends Controller
     {
         $data = $request->validated();
         $data['is_passcode_user'] = $this->isPasscodeValid();
-        $request->validate([
-            'g-captcha-response' => 'required|captcha',
-        ]);
+        $request->validate(['g-recaptcha-response' => 'required|captcha',]);
         $thread = Thread::create($data);
         if ($request->hasFile('image')) {
             $thread->addMediaFromRequest('image')->toMediaCollection('image');
