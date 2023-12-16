@@ -14,7 +14,6 @@ class StoreRequest extends BaseAjaxRequest
             'body' => 'required',
             'image' => 'mimes:jpeg,jpg,png|max:10000',
             'is_agree' => 'required',
-            'g-captcha-response' => 'required',
         ];
     }
 

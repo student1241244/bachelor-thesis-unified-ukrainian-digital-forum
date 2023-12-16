@@ -26,6 +26,17 @@
     ================================= -->
     <section class="question-area pt-80px pb-40px">
         <div class="container">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <strong>Errors!</strong>
+                    <br>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="row">
                 <div class="col-lg-8">
                     <div class="card card-item">
@@ -66,10 +77,8 @@
                                     </div>
                                 </div>
                             </div><!-- end input-box -->
-                            @if(config('services.recaptcha.key'))
-                                <div class="g-recaptcha" data-sitekey="{{config('services.recaptcha.key')}}">
-                                </div>
-                            @endif
+                            {!! NoCaptcha::renderJs() !!}
+                            {!! NoCaptcha::display() !!}
                             <div class="input-box pt-2">
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox fs-13">

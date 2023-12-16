@@ -6,7 +6,6 @@ return [
         'image' => 'Image',
         'title' => 'Title',
         'body' => 'Body',
-        'g-captcha-response' => 'Captcha',
     ],
     'description' => [
     ],

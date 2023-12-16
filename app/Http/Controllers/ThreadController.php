@@ -53,11 +53,6 @@ class ThreadController extends Controller
 
     public function create(Request $request)
     {
-        $this->validate($request, [
-            'g-captcha-response.recaptcha' => 'Captcha verification failed',
-            'g-captcha-response.required' => 'Please complete the captcha'
-        ]);
-
         $categories = Category::get()->pluck('title', 'id')->toArray();
 
         return view('threads.create', get_defined_vars());
@@ -67,7 +62,9 @@ class ThreadController extends Controller
     {
         $data = $request->validated();
         $data['is_passcode_user'] = $this->isPasscodeValid();
-        
+        $request->validate([
+            'g-captcha-response' => 'required|captcha',
+        ]);
         $thread = Thread::create($data);
         if ($request->hasFile('image')) {
             $thread->addMediaFromRequest('image')->toMediaCollection('image');

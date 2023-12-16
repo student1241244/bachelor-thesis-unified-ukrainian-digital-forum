@@ -8,6 +8,7 @@
         "php": "^8.0.2",
         "adamwathan/bootforms": "^0.9",
         "alaouy/youtube": "^2.2",
+        "anhskohbo/no-captcha": "^3.5",
         "astrotomic/laravel-translatable": "11.*",
         "diglactic/laravel-breadcrumbs": "8.*",
         "divineomega/array_undot": "^4.1",
