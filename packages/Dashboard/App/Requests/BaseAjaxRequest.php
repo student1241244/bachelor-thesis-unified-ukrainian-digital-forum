@@ -20,17 +20,9 @@ abstract class BaseAjaxRequest extends FormRequest
      */
     protected function failedValidation(Validator $validator) : HttpResponseException
     {
-        $errors = $validator->errors()->toArray();
-
-        //dd($errors);
-
-        if (isset($errors['g-recaptcha-response'])) {
-            $errors['g-recaptcha-response'] = [trans('front.errors.recaptcha')];
-        }
-
         throw new HttpResponseException(
             response()->json([
-                'errors'  => $errors,
+                'errors' => $validator->errors(),
             ], 422)
         );
     }
