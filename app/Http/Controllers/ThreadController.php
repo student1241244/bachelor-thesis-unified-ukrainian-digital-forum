@@ -53,10 +53,10 @@ class ThreadController extends Controller
 
     public function create(Request $request)
     {
-        // $this->validate($request, $incomingRules, [
-        //     'g-captcha-response.recaptcha' => 'Captcha verification failed',
-        //     'g-captcha-response.required' => 'Please complete the captcha'
-        // ]);
+        $this->validate($request, [
+            'g-captcha-response.recaptcha' => 'Captcha verification failed',
+            'g-captcha-response.required' => 'Please complete the captcha'
+        ]);
 
         $categories = Category::get()->pluck('title', 'id')->toArray();
 
