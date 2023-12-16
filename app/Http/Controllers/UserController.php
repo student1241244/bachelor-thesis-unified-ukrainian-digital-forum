@@ -19,11 +19,11 @@ use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
-    protected function sendFailedLoginResponse(Request $request)
+    protected function sendFailedLoginResponse($username)
     {
-        Log::channel('auth-fail')->info('Failed login attempt', [
-            'username' => $request->get('email'), // Change 'email' to your form's username field
-            'ip' => $request->ip(),
+        Log::channel('authlog')->info('Failed login attempt', [
+            'username' => $username,
+            'ip' => request()->ip(),
         ]);
     }
 
@@ -105,7 +105,7 @@ class UserController extends Controller
             $request->session()->regenerate();
             return view('qa-home');
         } else {
-            $this->sendFailedLoginResponse($request);
+            $this->sendFailedLoginResponse($incomingFields['loginusername']);
 
             return redirect('signin')->with('failure', 'Invalid login');
         }

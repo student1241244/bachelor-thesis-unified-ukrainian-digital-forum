@@ -61,6 +61,7 @@ return [
             'driver' => 'single',
             'path' => storage_path('logs/auth-fail.log'),
             'level' => 'info',
+            'tap' => [App\Logging\CustomizeFormatter::class],
         ],
 
         'single' => [
