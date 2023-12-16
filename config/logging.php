@@ -57,7 +57,7 @@ return [
             'ignore_exceptions' => false,
         ],
 
-        'auth-fail' => [
+        'authlog' => [
             'driver' => 'single',
             'path' => storage_path('logs/auth-fail.log'),
             'level' => 'info',
