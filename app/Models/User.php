@@ -9,9 +9,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-use Packages\Dashboard\App\Models\User as BaseUser;
-
-class User extends BaseUser
+class User extends Authenticatable
 {
     use Notifiable;
 
@@ -81,8 +79,21 @@ class User extends BaseUser
         'email_verified_at' => 'datetime',
     ];
 
+    public function checkIsBan()
+    {
+        if ($this->ban_to && strtotime($this->ban_to) > strtotime('now')) {
+            return true;
+        }
+        return false;
+    }
+
     public function feedQuestions() {
         return $this->hasManyThrough(Question::class, Follow::class, 'user_id', 'user_id', 'id', 'followeduser');
+    }
+
+    public function bookmarkQuestions()
+    {
+        return $this->belongsToMany(Question::class, 'questions_bookmark', 'user_id', 'question_id');
     }
 
     public function followers() {

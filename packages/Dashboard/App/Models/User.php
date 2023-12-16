@@ -123,11 +123,6 @@ class User extends Authenticatable implements HasMedia, SearchableContract
         return ['name', 'email'];
     }
 
-    public function bookmarkQuestions()
-    {
-        return $this->belongsToMany(Question::class, 'questions_bookmark', 'user_id', 'question_id');
-    }
-
     public static function getList()
     {
         return self::select('id', 'email')->get()->pluck('email', 'id')->toArray();

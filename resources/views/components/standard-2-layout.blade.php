@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>@isset($title)
+    <title>
+        @isset($title)
         {{$title}} | LEMYK
         @else
         LEMYK
@@ -76,10 +77,56 @@
                             </li>
                         </ul><!-- end ul -->
                     </nav><!-- end main-menu -->
+                    @if(session('passcode'))
+                        <div class="theme-selector">
+                            <select id="themeSwitcher">
+                                <option value="light">Light Theme</option>
+                                <option value="dark">Dark Theme</option>
+                            </select>                            
+                        </div>
+                    @endif
+                    @auth
                     <div class="nav-right-button">
-                        <a href="/signin" class="btn theme-btn theme-btn-outline mr-2"><i class="la la-sign-in mr-1"></i> Login</a>
-                        <a href="/signup" class="btn theme-btn"><i class="la la-user mr-1"></i> Sign up</a>
+                        <ul class="user-action-wrap d-flex align-items-center">
+                            <li class="dropdown">
+                                <a class="nav-link dropdown-toggle dropdown--toggle" href="/favourites/{{auth()->user()->username}}" role="button" aria-expanded="false">
+                                    <i class="la la-star-o"></i>
+                                </a>
+                            </li>
+                            <li class="dropdown user-dropdown">
+                                <a class="nav-link dropdown-toggle dropdown--toggle pl-2" href="#" id="userMenuDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <div class="media media-card media--card shadow-none mb-0 rounded-0 align-items-center bg-transparent">
+                                        <div class="media-img media-img-xs flex-shrink-0 rounded-full mr-2">
+                                            <img src="{{auth()->user()->avatar}}" alt="avatar" class="rounded-full js-avatar">
+                                        </div>
+                                        <div class="media-body p-0 border-left-0">
+                                            <h5 class="fs-14">{{auth()->user()->username}}</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown--menu dropdown-menu-right mt-3 keep-open" aria-labelledby="userMenuDropdown">
+                                    <h6 class="dropdown-header">Hi, {{auth()->user()->username}}</h6>
+                                    <div class="dropdown-divider border-top-gray mb-0"></div>
+                                    <div class="dropdown-item-list">
+                                        <a class="dropdown-item" href="/profile/{{auth()->user()->username}}"><i class="la la-user mr-2"></i>Profile</a>
+                                        <a class="dropdown-item" href="notifications.html"><i class="la la-bell mr-2"></i>Notifications</a>
+                                        <a class="dropdown-item" href="referrals.html"><i class="la la-user-plus mr-2"></i>Referrals</a>
+                                        <a class="dropdown-item" href="setting.html"><i class="la la-gear mr-2"></i>Settings</a>
+                                        <form action="/logout" method="POST">
+                                            @csrf
+                                            <button type="submit" class="dropdown-item"><i class="la la-power-off mr-2"></i>Log out</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div><!-- end nav-right-button -->
+                    @else
+                    <div class="nav-right-button">
+                        <a href="/signin" class="btn theme-btn theme-btn-sm theme-btn-outline mr-1">Log in</a>
+                        <a href="/signup" class="btn theme-btn theme-btn-sm">Sign up</a>
+                    </div><!-- end nav-right-button -->
+                    @endauth
                 </div><!-- end menu-wrapper -->
             </div><!-- end col-lg-10 -->
         </div><!-- end row -->
@@ -117,23 +164,16 @@
 {{$slot}}
 
 <!-- ================================
-         END FOOTER AREA
+         START FOOTER AREA
 ================================= -->
 <section class="footer-area pt-80px bg-dark position-relative">
-    <span class="vertical-bar-shape vertical-bar-shape-1"></span>
-    <span class="vertical-bar-shape vertical-bar-shape-2"></span>
-    <span class="vertical-bar-shape vertical-bar-shape-3"></span>
-    <span class="vertical-bar-shape vertical-bar-shape-4"></span>
     <div class="container">
         <div class="row">
             <div class="col-lg-3 responsive-column-half">
                 <div class="footer-item">
                     <h3 class="fs-18 fw-bold pb-2 text-white">Company</h3>
                     <ul class="generic-list-item generic-list-item-hover-underline pt-3 generic-list-item-white">
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Advertising</a></li>
+                        <li><a href="/about">About</a></li>
                     </ul>
                 </div><!-- end footer-item -->
             </div><!-- end col-lg-3 -->
@@ -141,9 +181,9 @@
                 <div class="footer-item">
                     <h3 class="fs-18 fw-bold pb-2 text-white">Legal Stuff</h3>
                     <ul class="generic-list-item generic-list-item-hover-underline pt-3 generic-list-item-white">
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="/privacy-policy">Privacy Policy</a></li>
+                        <li><a href="/content-policy">Content Policy</a></li>
+                        <li><a href="/cookie-policy">Cookie Policy</a></li>
                     </ul>
                 </div><!-- end footer-item -->
             </div><!-- end col-lg-3 -->
@@ -151,8 +191,7 @@
                 <div class="footer-item">
                     <h3 class="fs-18 fw-bold pb-2 text-white">Help</h3>
                     <ul class="generic-list-item generic-list-item-hover-underline pt-3 generic-list-item-white">
-                        <li><a href="#">Knowledge Base</a></li>
-                        <li><a href="#">Support</a></li>
+                        <li><a href="/support">Support</a></li>
                     </ul>
                 </div><!-- end footer-item -->
             </div><!-- end col-lg-3 -->
@@ -160,8 +199,8 @@
                 <div class="footer-item">
                     <h3 class="fs-18 fw-bold pb-2 text-white">Connect with us</h3>
                     <ul class="generic-list-item generic-list-item-hover-underline pt-3 generic-list-item-white">
+                        <li><a href="#"><i class="la la-telegram mr-1"></i> Telegram</a></li>
                         <li><a href="#"><i class="la la-facebook mr-1"></i> Facebook</a></li>
-                        <li><a href="#"><i class="la la-twitter mr-1"></i> Twitter</a></li>
                         <li><a href="#"><i class="la la-linkedin mr-1"></i> LinkedIn</a></li>
                         <li><a href="#"><i class="la la-instagram mr-1"></i> Instagram</a></li>
                     </ul>
@@ -178,7 +217,7 @@
                 </a>
             </div><!-- end col-lg-6 -->
             <div class="col-lg-6">
-                <p class="copyright-desc text-right fs-14">Copyright &copy; 2021 <a href="https://techydevs.com/">TechyDevs</a> Inc.</p>
+                <p class="copyright-desc text-right fs-14">Copyright &copy; {{date('Y')}} <a href="/">Lemyk</a></p>
             </div><!-- end col-lg-6 -->
         </div><!-- end row -->
     </div><!-- end container -->

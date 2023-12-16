@@ -7,10 +7,11 @@ use App\Http\Controllers\FollowController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\GeneralController;
 use App\Http\Controllers\WarningController;
 use App\Http\Controllers\PasscodeController;
-use App\Http\Controllers\PasscodeFeaturesController;
 use App\Http\Controllers\QuestionDetailsController;
+use App\Http\Controllers\PasscodeFeaturesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,7 +59,11 @@ Route::get('/', [UserController::class, "showHomepage"]);
 
 // User routes
 Route::post('/login', [UserController::class, "login"])->middleware('guest');
-Route::post('/register', [UserController::class, "register"])->middleware('guest');
+
+Route::group(['middleware' => ['checkRegistrationEnabled']], function () {
+    Route::post('/register', [UserController::class, "register"])->middleware('guest');
+});
+
 Route::post('/logout', [UserController::class, "logout"])->middleware('auth');
 Route::get('/profile-settings', [UserController::class, "showProfileSettings"])->middleware('auth');
 Route::post('/profile-settings', [UserController::class, "updateProfileSettings"])->middleware('auth');
@@ -105,3 +110,11 @@ Route::post('/unfollow/{user:username}', [FollowController::class, "unfollowUser
 // Route::post('/profile/{user:username}/following', [FollowController::class, "profileFollowing"])->middleware('auth');
 
 Route::post('/switch-theme', [PasscodeFeaturesController::class, 'switchTheme']);
+
+//General routes
+Route::get('/about', [GeneralController::class, "showAbout"]);
+Route::get('/privacy-policy', [GeneralController::class, "showPrivacyPolicy"]);
+Route::get('/content-policy', [GeneralController::class, "showContentPolicy"]);
+Route::get('/cookie-policy', [GeneralController::class, "showCookiePolicy"]);
+Route::get('/contact', [GeneralController::class, "showContact"]);
+Route::get('/support', [GeneralController::class, "showSupport"]);

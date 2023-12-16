@@ -23,7 +23,7 @@
                     <div>
                         <div class="col-lg-4">
                             <div class="hero-btn-box text-right py-3">
-                                <a href="user-profile.html" class="btn theme-btn theme-btn-outline theme-btn-outline-gray"><i class="la la-user mr-1"></i>View Profile</a>
+                                <a href="/profile/{{ $user->username }}" class="btn theme-btn theme-btn-outline theme-btn-outline-gray"><i class="la la-user mr-1"></i>View Profile</a>
                             </div>
                         </div><!-- end col-lg-4 -->
                     </div>
@@ -102,83 +102,6 @@
                         </div><!-- end tab-pane -->
                     </div>
                 </div><!-- end col-lg-9 -->
-                <div class="col-lg-3">
-                    <div class="sidebar">
-                        <div class="card card-item p-4">
-                            <div class="card-body">
-                                <h3 class="fs-17 pb-3">Number Achievement</h3>
-                                <div class="divider"><span></span></div>
-                                <div class="row no-gutters text-center">
-                                    <div class="col-lg-6 responsive-column-half">
-                                        <div class="icon-box pt-3">
-                                            <span class="fs-20 fw-bold text-color">980k</span>
-                                            <p class="fs-14">Questions</p>
-                                        </div><!-- end icon-box -->
-                                    </div><!-- end col-lg-6 -->
-                                    <div class="col-lg-6 responsive-column-half">
-                                        <div class="icon-box pt-3">
-                                            <span class="fs-20 fw-bold text-color-2">610k</span>
-                                            <p class="fs-14">Answers</p>
-                                        </div><!-- end icon-box -->
-                                    </div><!-- end col-lg-6 -->
-                                    <div class="col-lg-6 responsive-column-half">
-                                        <div class="icon-box pt-3">
-                                            <span class="fs-20 fw-bold text-color-3">650k</span>
-                                            <p class="fs-14">Answer accepted</p>
-                                        </div><!-- end icon-box -->
-                                    </div><!-- end col-lg-6 -->
-                                    <div class="col-lg-6 responsive-column-half">
-                                        <div class="icon-box pt-3">
-                                            <span class="fs-20 fw-bold text-color-4">320k</span>
-                                            <p class="fs-14">Users</p>
-                                        </div><!-- end icon-box -->
-                                    </div><!-- end col-lg-6 -->
-                                    <div class="col-lg-12 pt-3">
-                                        <p class="fs-14">To get answer of question <a href="signup.html" class="text-color hover-underline">Join<i class="la la-arrow-right ml-1"></i></a></p>
-                                    </div>
-                                </div><!-- end row -->
-                            </div>
-                        </div><!-- end card -->
-                        <div class="card card-item p-4">
-                            <div class="card-body">
-                                <h3 class="fs-17 pb-3">Trending Questions</h3>
-                                <div class="divider"><span></span></div>
-                                <div class="sidebar-questions pt-3">
-                                    <div class="media media-card media--card media--card-2">
-                                        <div class="media-body">
-                                            <h5><a href="question-details.html">Using web3 to call precompile contract</a></h5>
-                                            <small class="meta">
-                                                <span class="pr-1">2 mins ago</span>
-                                                <span class="pr-1">. by</span>
-                                                <a href="#" class="author">Sudhir Kumbhare</a>
-                                            </small>
-                                        </div>
-                                    </div><!-- end media -->
-                                    <div class="media media-card media--card media--card-2">
-                                        <div class="media-body">
-                                            <h5><a href="question-details.html">Is it true while finding Time Complexity of the algorithm [closed]</a></h5>
-                                            <small class="meta">
-                                                <span class="pr-1">48 mins ago</span>
-                                                <span class="pr-1">. by</span>
-                                                <a href="#" class="author">wimax</a>
-                                            </small>
-                                        </div>
-                                    </div><!-- end media -->
-                                    <div class="media media-card media--card media--card-2">
-                                        <div class="media-body">
-                                            <h5><a href="question-details.html">image picker and store them into firebase with flutter</a></h5>
-                                            <small class="meta">
-                                                <span class="pr-1">1 hour ago</span>
-                                                <span class="pr-1">. by</span>
-                                                <a href="#" class="author">Antonin gavrel</a>
-                                            </small>
-                                        </div>
-                                    </div><!-- end media -->
-                                </div><!-- end sidebar-questions -->
-                            </div>
-                        </div><!-- end card -->
-                    </div><!-- end sidebar -->
-                </div><!-- end col-lg-3 -->
             </div><!-- end row -->
         </div><!-- end container -->
     </section><!-- end user-details-area -->

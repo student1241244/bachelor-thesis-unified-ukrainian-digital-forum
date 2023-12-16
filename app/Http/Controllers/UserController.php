@@ -96,7 +96,7 @@ class UserController extends Controller
             }
 
             $request->session()->regenerate();
-            return view('questions', ['questions' => auth()->user()->feedQuestions()->latest()->paginate(4)]);
+            return view('qa-home');
         } else {
             return redirect('signin')->with('failure', 'Invalid login');
         }
@@ -155,24 +155,4 @@ class UserController extends Controller
         $favourites = $user->bookmarkQuestions()->latest()->paginate(4);
         return view('/favourites', ['favourites' => $favourites, 'title' => 'Favourites']);
     }
-
-    // public function profileFollowers(User $user) {
-    //     $currentlyFollowing = 0;
-
-    //     if (auth()->check()) {
-    //         $currentlyFollowing = Follow::where([['user_id', '=', auth()->user()->id], ['followeduser', '=', $user->id]])->count();
-    //     }
-
-    //     return view('profile-followers', ['currentlyFollowing' => $currentlyFollowing, 'avatar' => $user->avatar, 'username' => $user->username, 'questions' => $user->questions()->latest()->get(), 'questionCount' => $user->questions()->count()]);
-    // }
-
-    // public function profileFollowing(User $user) {
-    //     $currentlyFollowing = 0;
-
-    //     if (auth()->check()) {
-    //         $currentlyFollowing = Follow::where([['user_id', '=', auth()->user()->id], ['followeduser', '=', $user->id]])->count();
-    //     }
-
-    //     return view('profile-following', ['currentlyFollowing' => $currentlyFollowing, 'avatar' => $user->avatar, 'username' => $user->username, 'questions' => $user->questions()->latest()->get(), 'questionCount' => $user->questions()->count()]);
-    // }
 }
