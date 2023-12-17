@@ -105,7 +105,7 @@ class PasscodeController extends Controller
         $payment->update(['passcode_displayed' => true]); // Commented out if not needed
     
         // Return the success view with the passcode
-        return view('passcode.passcode-home', ['passcode' => $rawPasscode, 'title' => 'Passcode feature']);
+        return redirect('passcode.passcode-home', ['passcode' => $rawPasscode, 'title' => 'Passcode feature']);
     }
 
     public function cancel(Request $request)
