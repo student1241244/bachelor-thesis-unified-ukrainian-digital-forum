@@ -42,7 +42,7 @@ Route::get('/qa-home', function () {
     return view('qa-home');
 });
 
-Route::get('/passcode', [PasscodeController::class, "passcodeHome"]);
+Route::get('/passcode', [PasscodeController::class, "passcodeHome"])->name('passcode.passcode-home');
 Route::get('/buy-passcode', [PasscodeController::class, "createCheckoutSession"])->name('passcode.checkout');
 Route::get('/passcode/success', [PasscodeController::class, "success"])->name('passcode.success');
 Route::get('/passcode/cancel', [PasscodeController::class, "cancel"])->name('passcode.cancel');
