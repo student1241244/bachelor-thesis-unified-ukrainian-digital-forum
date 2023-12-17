@@ -20,16 +20,29 @@ class PasscodeController extends Controller
     public function passcodeActivate(Request $request)
     {
         $request->validate([
-            'passcode' => 'required|size:36'
-            // 'g-recaptcha-response' => 'required|captcha'
+            'passcode' => 'required',
+            'g-recaptcha-response' => 'required|captcha'
         ]);
-
-        $payment = Payment::where('passcode', bcrypt($request->passcode))->first();
-
-        if ($payment) {
+    
+        // Retrieve all passcodes (hashed) from the database
+        $payments = Payment::all();
+    
+        // Flag to check if passcode is found and valid
+        $isValidPasscode = false;
+    
+        foreach ($payments as $payment) {
+            // Use password_verify to check if the provided passcode matches the hashed one
+            if (password_verify($request->passcode, $payment->passcode)) {
+                $isValidPasscode = true;
+                break; // Stop the loop as we found the valid passcode
+            }
+        }
+    
+        // Check if valid passcode is found
+        if ($isValidPasscode) {
             // Check if Passcode is not expired, not used, etc.
-            if ($payment->isExpired()) {
-                return back()->with('error', 'Passcode expired, you need to buy a new one.');
+            if ($payment->isExpired() || $payment->isUsed()) {
+                return back()->with('error', 'Invalid or expired Passcode.');
             }
     
             // Embed the Passcode in the user's session
@@ -39,7 +52,7 @@ class PasscodeController extends Controller
         } else {
             return back()->with('error', 'Invalid Passcode.');
         }
-    }
+    }    
 
     public function createCheckoutSession()
     {
