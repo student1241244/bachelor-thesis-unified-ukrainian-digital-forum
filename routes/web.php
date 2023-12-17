@@ -44,7 +44,7 @@ Route::get('/qa-home', function () {
 
 Route::get('/passcode', [PasscodeController::class, "passcodeHome"]);
 Route::get('/buy-passcode', [PasscodeController::class, "createCheckoutSession"])->name('passcode.checkout');
-Route::get('/passcode/success', [PasscodeController::class, "success"])->name('passcode.success');
+Route::get('/passcode/success?token={token}', [PasscodeController::class, "success"])->name('passcode.success');
 Route::get('/passcode/cancel', [PasscodeController::class, "cancel"])->name('passcode.cancel');
 Route::post('/passcode-activate', [PasscodeController::class, 'passcodeActivate'])->name('passcode.activate');
 Route::stripeWebhooks('stripe-webhook');

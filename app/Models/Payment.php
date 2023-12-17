@@ -20,10 +20,4 @@ class Payment extends Model
     {
         return $this->expires_at && $this->expires_at->isPast();
     }
-
-    // Method to check if the passcode has been used
-    public function isUsed()
-    {
-        return $this->is_used;
-    }
 }
