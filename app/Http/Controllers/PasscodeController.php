@@ -20,9 +20,10 @@ class PasscodeController extends Controller
     public function passcodeActivate(Request $request)
     {
         $request->validate([
-            'passcode' => 'required'
+            'passcode' => 'required',
+            'g-recaptcha-response' => 'required|captcha',
         ]);
-    
+        
         // Retrieve all passcodes (hashed) from the database
         $payments = Payment::all();
     

@@ -153,14 +153,27 @@
                             <h3 class="fs-26 fw-bold pb-2">Enter your Passcode</h3>
                             <p class="pb-3 lh-22">If you don't have your Passcode, you can get it by clicking the button above.</p>
                             <p class="pb-2">Once you activate your Passcode, it'll work for everything you do on the website until you leave. Just remember, you'll need to activate it again every time you come back.</p>
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <form method="post" class="mb-4" action="{{ route('passcode.activate') }}">
                                 @csrf
-                                <div class="input-group">
-                                    <input class="form-control form--control" type="text" name="passcode" placeholder="Enter your Passcode">
-                                    <div class="input-group-append">
-                                        <button class="btn theme-btn" type="submit">Activate <i class="la la-arrow-right icon ml-1"></i></button>
+                                <div class="mb-4">
+                                    <div class="input-group">
+                                        <input class="form-control form--control" type="text" name="passcode" placeholder="Enter your Passcode">
+                                        <div class="input-group-append">
+                                            <button class="btn theme-btn" type="submit">Activate <i class="la la-arrow-right icon ml-1"></i></button>
+                                        </div>
                                     </div>
                                 </div>
+                                {!! NoCaptcha::renderJs() !!}
+                                {!! NoCaptcha::display() !!}
                             </form>
                         </div>
                     </div><!-- end card -->
