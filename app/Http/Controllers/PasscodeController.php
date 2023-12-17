@@ -86,13 +86,12 @@ class PasscodeController extends Controller
             Log::error('Error: Token not provided in Success Page');
             abort(404); // Or return a custom error view
         }
-        Log::info('payment:', ['payment' => $secureToken]);
+
         // Find the payment associated with this token
         $payment = Payment::where('secure_token', $secureToken)
                           ->where('status', 'completed')
                           ->first();
         
-        Log::info('payment:', ['payment' => $payment]);
         $rawPasscode = Cache::get('raw_passcode_for_user_' . $payment->id);
         Cache::forget('raw_passcode_for_user_' . $payment->id);
     
@@ -105,7 +104,7 @@ class PasscodeController extends Controller
         $payment->update(['passcode_displayed' => true]); // Commented out if not needed
     
         // Return the success view with the passcode
-        return redirect()->route('passcode.passcode-home')->with(['passcode' => $rawPasscode, 'title' => 'Passcode feature']);
+        return view('passcode.passcode-home', ['passcode' => $rawPasscode, 'title' => 'Passcode feature']);
     }
 
     public function cancel(Request $request)
