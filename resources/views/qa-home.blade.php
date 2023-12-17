@@ -10,6 +10,11 @@
     <span class="stroke-shape stroke-shape-5"></span>
     <span class="stroke-shape stroke-shape-6"></span>
     <div class="container">
+        @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
         <div class="hero-content text-center pb-3">
             <h2 class="section-title pb-3 fs-40">The Social Q&A Community</h2>
             <p class="section-desc">The question and answer section designed to help people, to help each other: <br>

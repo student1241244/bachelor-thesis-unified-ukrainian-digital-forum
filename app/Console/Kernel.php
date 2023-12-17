@@ -2,7 +2,9 @@
 
 namespace App\Console;
 
+use App\Models\Setting;
 use App\Mail\RecapEmail;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -17,10 +19,22 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call(function() {
-            Mail::to('test@google.com')->send(new RecapEmail()); 
-        })->everyMinute();
-    }
+        $frequency = Setting::where('setting_name', 'backup_frequency')->value('setting_status') ?? 'daily';
+        Log::info("Backup frequency set to: {$frequency}");
+    
+        if ($frequency == 'weekly')
+        {
+            $schedule->command('backup:run')->weekly()->withoutOverlapping();
+        } 
+        elseif ($frequency == 'daily') 
+        {
+            $schedule->command('backup:run')->daily()->withoutOverlapping();
+        } 
+        else 
+        {
+            $schedule->command('backup:run')->everyMinute()->withoutOverlapping();
+        }
+    }    
 
     /**
      * Register the commands for the application.

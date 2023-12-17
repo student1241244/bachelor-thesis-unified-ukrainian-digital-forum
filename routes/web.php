@@ -12,6 +12,7 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\WarningController;
 use App\Http\Controllers\PasscodeController;
 use App\Http\Controllers\QuestionDetailsController;
+use App\Http\Controllers\SecuritySettingController;
 use App\Http\Controllers\PasscodeFeaturesController;
 
 /*
@@ -31,6 +32,10 @@ Route::get('/admin-dashboard', function () {
 
 Route::get('/admin/settings', [SettingController::class, "show"])->name('admin.settings');
 Route::post('/admin/settings', [SettingController::class, "update"])->name('admin.settings.update');
+Route::get('/admin/settings-security', [SecuritySettingController::class, "show"])->name('admin.settings-security');
+Route::post('/admin/toggle-maintenance', [SecuritySettingController::class, "toggleMaintenance"])->name('admin.toggleMaintenance');
+Route::post('/admin/settings/update-backup-frequency', [SecuritySettingController::class, "updateBackupFrequency"])->name('admin.settings.updateBackupFrequency');
+
 
 // Main routes
 Route::get('/qa-home', function () {
@@ -79,7 +84,7 @@ Route::get('/signup', function () {
 
 // Q&A routes
 Route::get('/questions/{categoryId}', [QAController::class, "showQuestions"]);
-Route::get('/ask-question', [QAController::class, "show"])->middleware('auth');
+Route::get('/ask-question', [QAController::class, "show"])->middleware(['auth', 'checkContentCreationEnabled']);;
 Route::post('/create-question', [QAController::class, "createNewQuestion"])->middleware('auth');
 Route::get('/question-details/{question}', [QAController::class, "showSingleQuestion"]);
 Route::delete('/question-details/{question}', [QAController::class, "deleteQuestion"])->middleware('can:delete,question');

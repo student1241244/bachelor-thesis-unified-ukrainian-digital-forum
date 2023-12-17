@@ -30,4 +30,9 @@ class Setting extends Model
         $value = $value === 'on' ? 'on' : 'off';
         self::updateOrCreate(['setting_name' => $key], ['setting_status' => $value]);
     }
+
+    public static function setSettingBackup($key, $value)
+    {
+        self::updateOrCreate(['setting_name' => $key], ['setting_status' => $value]);
+    }
 }
