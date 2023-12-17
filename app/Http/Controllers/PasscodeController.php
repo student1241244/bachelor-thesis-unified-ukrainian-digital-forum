@@ -41,7 +41,7 @@ class PasscodeController extends Controller
         // Check if valid passcode is found
         if ($isValidPasscode) {
             // Check if Passcode is not expired, not used, etc.
-            if ($payment->isExpired() || $payment->isUsed()) {
+            if ($payment->isExpired()) {
                 return back()->with('error', 'Invalid or expired Passcode.');
             }
     
