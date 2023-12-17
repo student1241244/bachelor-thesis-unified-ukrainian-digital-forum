@@ -27,7 +27,7 @@
                 </div><!-- end col-lg-5 -->
                 <div class="col-lg-5 ml-auto">
                     <div class="img-box">
-                        <img class="w-100 rounded-rounded lazy js-tilt" src="images/img-loading.png" data-src="/images/developer-tal.png" alt="image">
+                        <img class="w-100 rounded-rounded lazy js-tilt" src="/images/img-loading.png" data-src="/images/developer-tal.png" alt="image">
                     </div>
                 </div><!-- end col-lg-5 -->
             </div><!-- end row -->

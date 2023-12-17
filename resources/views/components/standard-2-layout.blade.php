@@ -51,7 +51,7 @@
         <div class="row align-items-center">
             <div class="col-lg-2">
                 <div class="logo-box">
-                    <a href="/" class="logo"><img src="images/logo-black.png" alt="logo"></a>
+                    <a href="/" class="logo"><img src="/images/logo-black.png" alt="logo"></a>
                     <div class="user-action">
                         <div class="off-canvas-menu-toggle icon-element icon-element-xs shadow-sm" data-toggle="tooltip" data-placement="top" title="Main menu">
                             <i class="la la-bars"></i>
