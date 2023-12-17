@@ -20,29 +20,16 @@ class PasscodeController extends Controller
     public function passcodeActivate(Request $request)
     {
         $request->validate([
-            'passcode' => 'required',
-            'g-recaptcha-response' => 'required|captcha',
+            'passcode' => 'required|size:36'
+            // 'g-recaptcha-response' => 'required|captcha'
         ]);
-        
-        // Retrieve all passcodes (hashed) from the database
-        $payments = Payment::all();
-    
-        // Flag to check if passcode is found and valid
-        $isValidPasscode = false;
-    
-        foreach ($payments as $payment) {
-            // Use password_verify to check if the provided passcode matches the hashed one
-            if (password_verify($request->passcode, $payment->passcode)) {
-                $isValidPasscode = true;
-                break; // Stop the loop as we found the valid passcode
-            }
-        }
-    
-        // Check if valid passcode is found
-        if ($isValidPasscode) {
+
+        $payment = Payment::where('passcode', bcrypt($request->passcode))->first();
+
+        if ($payment) {
             // Check if Passcode is not expired, not used, etc.
-            if ($payment->isExpired() || $payment->isUsed()) {
-                return back()->with('error', 'Invalid or expired Passcode.');
+            if ($payment->isExpired()) {
+                return back()->with('error', 'Passcode expired, you need to buy a new one.');
             }
     
             // Embed the Passcode in the user's session
@@ -52,29 +39,7 @@ class PasscodeController extends Controller
         } else {
             return back()->with('error', 'Invalid Passcode.');
         }
-    }    
-
-    // public function createCheckoutSession(Request $request)
-    // {
-    //     Stripe::setApiKey(config('services.stripe.secret'));
-
-    //     $session = \Stripe\Checkout\Session::create([
-    //         'payment_method_types' => ['card'],
-    //         'line_items' => [[
-    //             'price_data' => [
-    //                 'currency' => 'usd',
-    //                 'product_data' => ['name' => 'Passcode'],
-    //                 'unit_amount' => 1000, // price in cents
-    //             ],
-    //             'quantity' => 1,
-    //         ]],
-    //         'mode' => 'payment',
-    //         'success_url' => route('passcode.success', ['token' => $uniqueKey]),
-    //         'cancel_url' => route('passcode.cancel'),
-    //     ]);
-
-    //     return redirect($session->url, 303);
-    // }
+    }
 
     public function createCheckoutSession()
     {
@@ -127,6 +92,7 @@ class PasscodeController extends Controller
                           ->where('status', 'completed')
                           ->first();
 
+       Log::info('payment:', ['payment' => $payment]);
         $rawPasscode = Cache::get('raw_passcode_for_user_' . $payment->id);
         Cache::forget('raw_passcode_for_user_' . $payment->id);
     

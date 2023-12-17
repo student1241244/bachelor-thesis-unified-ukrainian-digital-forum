@@ -164,7 +164,7 @@
                             @endif
                             <form method="post" class="mb-4" action="{{ route('passcode.activate') }}">
                                 @csrf
-                                <div class="mb-4">
+                                <div class="mb-3">
                                     <div class="input-group">
                                         <input class="form-control form--control" type="text" name="passcode" placeholder="Enter your Passcode">
                                         <div class="input-group-append">
