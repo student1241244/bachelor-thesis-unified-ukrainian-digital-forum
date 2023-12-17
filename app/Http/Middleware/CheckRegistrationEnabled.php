@@ -16,13 +16,12 @@ class CheckRegistrationEnabled
      */
     public function handle($request, Closure $next)
     {
-        // Retrieve the 'user_registration_enabled' setting from the database
-        $registrationEnabled = \App\Models\Setting::where('key', 'user_registration_enabled')->value('value');
-    
-        // Check if the setting is '1' (enabled)
-        if ($registrationEnabled != '1') {
-            // If registration is disabled, redirect to a specific page or show an error message
-            return redirect('path-to-redirect')->with('error', 'User registration is currently disabled.');
+        $registrationEnabled = \App\Models\Setting::where('setting_name', 'user_registration_enabled')->value('setting_status');
+
+        if ($registrationEnabled != 'on') {
+            // Redirect to the home page or a custom error page
+            // Make sure this page does not use the CheckRegistrationEnabled middleware
+            return redirect('/signin')->with('error', 'User registration is currently disabled. Only login to the already created accounts is allowed.');
         }
     
         return $next($request);

@@ -8,6 +8,7 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\GeneralController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\WarningController;
 use App\Http\Controllers\PasscodeController;
 use App\Http\Controllers\QuestionDetailsController;
@@ -27,6 +28,9 @@ use App\Http\Controllers\PasscodeFeaturesController;
 Route::get('/admin-dashboard', function () {
     return "You admin";
 })->middleware('can:visitAdminPages');
+
+Route::get('/admin/settings', [SettingController::class, "show"])->name('admin.settings');
+Route::post('/admin/settings', [SettingController::class, "update"])->name('admin.settings.update');
 
 // Main routes
 Route::get('/qa-home', function () {
@@ -59,10 +63,7 @@ Route::get('/', [UserController::class, "showHomepage"]);
 
 // User routes
 Route::post('/login', [UserController::class, "login"])->middleware('guest');
-
-Route::group(['middleware' => ['checkRegistrationEnabled']], function () {
-    Route::post('/register', [UserController::class, "register"])->middleware('guest');
-});
+Route::post('/register', [UserController::class, "register"])->middleware('guest');
 
 Route::post('/logout', [UserController::class, "logout"])->middleware('auth');
 Route::get('/profile-settings', [UserController::class, "showProfileSettings"])->middleware('auth');
@@ -74,7 +75,7 @@ Route::get('/signin', function () {
 })->name('login')->middleware('guest');
 Route::get('/signup', function () {
     return view('signup', ['title' => 'Signup']);
-})->middleware('guest');
+})->middleware(['guest', 'checkRegistrationEnabled']);
 
 // Q&A routes
 Route::get('/questions/{categoryId}', [QAController::class, "showQuestions"]);

@@ -7,8 +7,13 @@
     <div class="container">
     @if (session()->has('failure'))
     <div class="alert alert-invalid-login">
-        <p class="m-0 small alert alert-danger shadow-sm">{{session('failure')}}</p>
+        <p class="m-0 small alert alert-danger shadow-sm">{{ session('failure') }}</p>
     </div>
+    @endif
+    @if (session('error'))
+        <div class="alert alert-invalid-login">
+            <p class="m-0 small alert alert-danger shadow-sm">{{ session('error') }}</p>
+        </div>
     @endif
         <form action="/login" method="POST" class="card card-item login-form">
             @csrf

@@ -1,4 +1,10 @@
 <x-standard-2-layout :title="$title">
+    @if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+
 <!--======================================
         START SIGN UP AREA
 ======================================-->

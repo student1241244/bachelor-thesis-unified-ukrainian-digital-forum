@@ -16,8 +16,8 @@ class CustomizeFormatter
     {
         foreach ($logger->getHandlers() as $handler) {
             $handler->setFormatter(new LineFormatter(
-                "[%datetime%]: %message% %context%\n", // Custom format
-                null,
+                "[%datetime%]: %message% %context%\n",
+                "Y-m-d H:i:s", // Simplified datetime format
                 true,
                 true
             ));

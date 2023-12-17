@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\UserEvent;
-use App\Http\Requests\Profile\UpdateRequest;
-use App\Models\Comment;
 use App\Models\User;
 use App\Models\Follow;
+use App\Models\Comment;
+use App\Models\Setting;
 use App\Models\Question;
+use App\Events\UserEvent;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Cache;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 use Packages\Threads\App\Models\Thread;
-use Illuminate\Support\Facades\Log;
+use App\Http\Requests\Profile\UpdateRequest;
 
 class UserController extends Controller
 {
@@ -112,21 +113,24 @@ class UserController extends Controller
     }
 
     public function register(Request $request) {
-        $incomingFields = $request->validate([
-            'username' => ['required', 'min:1', 'max:20', Rule::unique('users', 'username')],
-            'email' => ['required', 'email', Rule::unique('users', 'email')],
-            'password' => ['required', 'min:2']
-        ]);
+        if (!Setting::where('key', 'user_registration_enabled')->value('value')) {
+            // Handle the logic if registration is disabled
+            $incomingFields = $request->validate([
+                'username' => ['required', 'min:1', 'max:20', Rule::unique('users', 'username')],
+                'email' => ['required', 'email', Rule::unique('users', 'email')],
+                'password' => ['required', 'min:2']
+            ]);
 
-        $incomingFields['password'] = bcrypt($incomingFields['password']);
+            $incomingFields['password'] = bcrypt($incomingFields['password']);
 
-        $user = User::create($incomingFields);
-        auth()->login($user);
-        
-        $questions = Question::query()->latest()->paginate(4);
-        $count = Question::query()->count();
+            $user = User::create($incomingFields);
+            auth()->login($user);
+            
+            $questions = Question::query()->latest()->paginate(4);
+            $count = Question::query()->count();
 
-        return view('questions', get_defined_vars());
+            return view('questions', get_defined_vars());
+        }
     }
 
     private function getSharedData($user) {
