@@ -1,4 +1,4 @@
-<x-standard-layout>
+<x-standard-layout-threads>
     <!--======================================
             START HERO AREA
     ======================================-->
@@ -98,4 +98,4 @@
     <!--======================================
             END HERO AREA
     ======================================-->
-    </x-standard-layout>
+    </x-standard-layout-threads>

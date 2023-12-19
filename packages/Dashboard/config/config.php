@@ -12,7 +12,7 @@
  * @package    LLC Dashboard extension
  * @version    0.1
  * @author     LLC
- * @license    LLC
+ * @license    MIT
  * @copyright  (c) 2011-2020, LLC
  * @link       http://digitalp.co
  */

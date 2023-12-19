@@ -15,6 +15,11 @@ use Packages\Dashboard\App\Models\Media;
 
 class QAController extends Controller
 {
+    public function getInterestingQuestions() {
+        $interestingQuestions = $this->calculateInterestingQuestions();
+        return view('sections.interesting-questions', compact('interestingQuestions'))->render();
+    }    
+
     public function calculateInterestingQuestions() {
         $questions = Question::with(['votes', 'comments.votes'])
                              ->get()
@@ -23,8 +28,6 @@ class QAController extends Controller
                              });
     
         $sortedQuestions = $questions->sortByDesc('interesting_rating');
-    
-        // You can limit the number of questions shown
         $interestingQuestions = $sortedQuestions->take(3);
     
         return $interestingQuestions;
@@ -201,20 +204,5 @@ class QAController extends Controller
         $user->bookmarkQuestions()->toggle($question);
 
         return redirect("/question-details/" . $id);
-    }
-
-    public function showInterestingQuestions() {
-        $questions = Question::with(['votes_count', 'comments.votes_count'])
-                             ->get()
-                             ->each(function ($question) {
-                                 $question->interesting_rating = $question->calculateInterestingRating();
-                             });
-    
-        $sortedQuestions = $questions->sortByDesc('interesting_rating');
-    
-        // You can limit the number of questions shown
-        $interestingQuestions = $sortedQuestions->take(10);
-    
-        return view('partials.interesting_questions', compact('interestingQuestions'));
-    }    
+    } 
 }

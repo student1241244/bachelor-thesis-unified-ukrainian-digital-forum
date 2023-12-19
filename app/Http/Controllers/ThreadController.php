@@ -33,7 +33,7 @@ class ThreadController extends Controller
     
         Log::error("Passcode invalid or not found", ['rawPasscode' => $rawPasscode]);
         return false;
-    }      
+    }
     
     public function showThreadsHome()
     {
@@ -76,12 +76,7 @@ class ThreadController extends Controller
     public function show(int $id)
     {
         $thread = Thread::findOrFail($id);
-
-        $comments = Comment::query()
-            ->where('thread_id', $id)
-            ->get();
-
-        $countComments = $comments->count();
+        $countComments = Comment::where('thread_id', $id)->count();
 
         return view('threads.show', get_defined_vars());
     }
@@ -94,14 +89,13 @@ class ThreadController extends Controller
     
         Comment::create($data);
     
-        return response()->json([
-            'message' => 'Comment created successfully.',
-        ]);
+        return redirect()->route('threads.show', ['id' => $threadId])->with('success', 'Comment created successfully.');
     }
 
     public function showByCategory($categoryId)
     {
         $trendingThreads = Thread::getTrendingThreads();
+        Log::error("trendingThreads", ['trendingThreads' => $trendingThreads]);
         $category = Category::findOrFail($categoryId);
         $threads = Thread::where('category_id', $categoryId)->latest()->paginate(4);
         return view('threads.index', compact('threads', 'categoryId', 'trendingThreads'));

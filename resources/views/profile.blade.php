@@ -121,7 +121,7 @@
                                                 </div><!-- end item -->
                                             @endforeach
                                         @else
-                                            <p>No questions yet</p>
+                                            <p class="p-3">No questions yet</p>
                                         @endif
                                         <div class="view-more pt-3 px-3">
                                             <a href="/qa-home" class="btn-text fs-15">View all questions and answers <i class="la la-arrow-right icon ml-1"></i></a>
@@ -151,7 +151,7 @@
                                 </div><!-- end questions-snippet -->
 
                             @else
-                                <p>No questions yet</p>
+                                <p class="p-3">No questions yet</p>
                             @endif
                         </div>
                     </div>

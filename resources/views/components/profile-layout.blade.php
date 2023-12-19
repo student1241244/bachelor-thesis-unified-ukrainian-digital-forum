@@ -1,4 +1,4 @@
-<x-standard-layout>
+<x-standard-layout-qa>
     <!--======================================
             START HERO AREA
     ======================================-->
@@ -56,4 +56,4 @@
 
         {{$slot}}
     </div>
-</x-standard-layout>
+</x-standard-layout-qa>

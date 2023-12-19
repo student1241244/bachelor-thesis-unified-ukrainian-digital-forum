@@ -45,7 +45,7 @@
         <div class="row align-items-center">
             <div class="col-lg-2">
                 <div class="logo-box">
-                    <a href="index.html" class="logo"><img src="images/logo-white.png" alt="logo"></a>
+                    <a href="/" class="logo"><img src="/images/logo-white.png" alt="logo"></a>
                     <div class="user-action">
                         <div class="search-menu-toggle icon-element icon-element-xs shadow-sm mr-1" data-toggle="tooltip" data-placement="top" title="Search">
                             <i class="la la-search"></i>
@@ -70,72 +70,13 @@
                                 <a href="/threads-home">Threads</a>
                             </li>
                             <li>
-                                <a href="/about-us">About Lemyk</a>
+                                <a href="/about">About Lemyk</a>
                             </li>
                         </ul><!-- end ul -->
                     </nav><!-- end main-menu -->
-                    <form class="mr-4">
-                        <div class="form-group mb-0">
-                            {{-- <input class="form-control form--control h-auto py-2" type="text" name="search" placeholder="Type your search words..."> --}}
-                            <a href="#" class="text-white mr-2 header-search-icon" title="Search" data-toggle="tooltip" data-placement="bottom">Type your search words... <i class="la la-search"></i></a>
-                            {{-- <button class="form-btn" type="button"><i class="la la-search"></i></button> --}}
-                        </div>
-                    </form>
                     @auth
                     <div class="nav-right-button">
                         <ul class="user-action-wrap d-flex align-items-center">
-                            <li class="dropdown">
-                                <span class="ball red ball-lg noti-dot"></span>
-                                <a class="nav-link dropdown-toggle dropdown--toggle" href="#" id="notificationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="la la-bell"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown--menu dropdown-menu-right mt-3 keep-open" aria-labelledby="notificationDropdown">
-                                    <h6 class="dropdown-header"><i class="la la-bell pr-1 fs-16"></i>Notifications</h6>
-                                    <div class="dropdown-divider border-top-gray mb-0"></div>
-                                    <div class="dropdown-item-list">
-                                        <a class="dropdown-item" href="notifications.html">
-                                            <div class="media media-card media--card shadow-none mb-0 rounded-0 align-items-center bg-transparent">
-                                                <div class="media-img media-img-sm flex-shrink-0">
-                                                    <img src="images/img3.jpg" alt="avatar">
-                                                </div>
-                                                <div class="media-body p-0 border-left-0">
-                                                    <h5 class="fs-14 fw-regular">John Doe following your post</h5>
-                                                    <small class="meta d-block lh-24">
-                                                        <span>45 secs ago</span>
-                                                    </small>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item" href="notifications.html">
-                                            <div class="media media-card media--card shadow-none mb-0 rounded-0 align-items-center bg-transparent">
-                                                <div class="media-img media-img-sm flex-shrink-0">
-                                                    <img src="images/img4.jpg" alt="avatar">
-                                                </div>
-                                                <div class="media-body p-0 border-left-0">
-                                                    <h5 class="fs-14 fw-regular">Arnold Smith answered on your post</h5>
-                                                    <small class="meta d-block lh-24">
-                                                        <span>5 mins ago</span>
-                                                    </small>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item" href="notifications.html">
-                                            <div class="media media-card media--card shadow-none mb-0 rounded-0 align-items-center bg-transparent">
-                                                <div class="media-img media-img-sm flex-shrink-0">
-                                                    <img src="images/img4.jpg" alt="avatar">
-                                                </div>
-                                                <div class="media-body p-0 border-left-0">
-                                                    <h5 class="fs-14 fw-regular">Saeed bookmarked your post</h5>
-                                                    <small class="meta d-block lh-24">
-                                                        <span>1 hour ago</span>
-                                                    </small>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <a class="dropdown-item pb-1 border-bottom-0 text-center btn-text fw-regular" href="notifications.html">View All Notifications <i class="la la-arrow-right icon ml-1"></i></a>
-                                </div>
-                            </li>
                             <li class="dropdown user-dropdown">
                                 <a class="nav-link dropdown-toggle dropdown--toggle pl-2" href="#" id="userMenuDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <div class="media media-card media--card shadow-none mb-0 rounded-0 align-items-center bg-transparent">
@@ -151,10 +92,10 @@
                                     <h6 class="dropdown-header">Hi, {{auth()->user()->username}}</h6>
                                     <div class="dropdown-divider border-top-gray mb-0"></div>
                                     <div class="dropdown-item-list">
-                                        <a class="dropdown-item" href="user-profile.html"><i class="la la-user mr-2"></i>Profile</a>
-                                        <a class="dropdown-item" href="notifications.html"><i class="la la-bell mr-2"></i>Notifications</a>
-                                        <a class="dropdown-item" href="referrals.html"><i class="la la-user-plus mr-2"></i>Referrals</a>
-                                        <a class="dropdown-item" href="setting.html"><i class="la la-gear mr-2"></i>Settings</a>
+                                        <a class="dropdown-item" href="/profile/{{ auth()->user()->username }}"><i class="la la-user mr-2"></i>Profile</a>
+                                        <a class="dropdown-item" href="/favourites/{{ auth()->user()->username }}"><i class="la la-star-o mr-2"></i>Favourites</a>
+                                        <a class="dropdown-item" href="/questions/1"><i class="la la-fire mr-2"></i>Trending</a>
+                                        <a class="dropdown-item" href="/profile-settings"><i class="la la-gear mr-2"></i>Settings</a>
                                         <form action="/logout" method="POST">
                                             @csrf
                                             <button type="submit" class="dropdown-item"><i class="la la-power-off mr-2"></i>Log out</button>
@@ -189,7 +130,7 @@
                 <a href="/threads-home">Threads</a>
             </li>
             <li>
-                <a href="/about-us">About Lemyk</a>
+                <a href="/about">About Lemyk</a>
             </li>
         </ul>
         <div class="off-canvas-btn-box px-4 pt-5 text-center">
@@ -269,7 +210,7 @@
         <div class="row align-items-center pb-4 copyright-wrap">
             <div class="col-lg-6">
                 <a href="/" class="d-inline-block">
-                    <img src="images/logo-white.png" alt="footer logo" class="footer-logo">
+                    <img src="/images/logo-white.png" alt="footer logo" class="footer-logo">
                 </a>
             </div><!-- end col-lg-6 -->
             <div class="col-lg-6">

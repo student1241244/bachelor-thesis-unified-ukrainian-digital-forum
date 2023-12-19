@@ -1,4 +1,4 @@
-<x-standard-layout>
+<x-standard-layout-threads>
 
     <!--======================================
             START HERO AREA
@@ -97,4 +97,4 @@
         </div><!-- end container -->
     </section><!-- end question-area -->
 
-</x-standard-layout>
+</x-standard-layout-threads>

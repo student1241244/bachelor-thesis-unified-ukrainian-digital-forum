@@ -1,4 +1,4 @@
-<x-standard-layout>
+<x-standard-layout-qa>
     <!-- ================================
          START QUESTION AREA
 ================================= -->
@@ -80,4 +80,28 @@
 <!-- ================================
          END QUESTION AREA
 ================================= -->
-</x-standard-layout>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function () {
+    const container = document.getElementById('interesting-questions-container');
+    const cacheKey = 'cachedInterestingQuestions';
+    const cachedData = localStorage.getItem(cacheKey);
+    const cacheTimeKey = 'interestingQuestionsCacheTime';
+    const cacheTime = localStorage.getItem(cacheTimeKey);
+    
+    // Check if cache exists and hasn't expired (1 hour = 3600000 milliseconds)
+    if (cachedData && cacheTime && (new Date().getTime() - cacheTime < 3600000)) {
+        container.innerHTML = cachedData;
+    } else {
+        console.log('Fetching interesting questions...');
+        fetch('/interesting-questions')
+            .then(response => response.text())
+            .then(html => {
+                container.innerHTML = html;
+                localStorage.setItem(cacheKey, html);
+                localStorage.setItem(cacheTimeKey, new Date().getTime());
+            })
+            .catch(error => console.error('Error loading interesting questions:', error));
+    }
+});
+</script>
+</x-standard-layout-qa>

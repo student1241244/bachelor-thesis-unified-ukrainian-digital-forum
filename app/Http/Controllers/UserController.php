@@ -64,10 +64,6 @@ class UserController extends Controller
     }
 
     public function showHomepage() {
-        // if (auth()->check()) {
-        //     return view('questions', ['questions' => auth()->user()->feedQuestions()->latest()->paginate(4)]);
-        // } else {
-
         $userCount = Cache::remember('userCount', 20, function() {
             return user::count();
         });
@@ -113,23 +109,19 @@ class UserController extends Controller
     }
 
     public function register(Request $request) {
-        if (!Setting::where('key', 'user_registration_enabled')->value('value')) {
-            // Handle the logic if registration is disabled
+        if (Setting::where('setting_name', 'user_registration_enabled')->value('setting_status')) {
             $incomingFields = $request->validate([
                 'username' => ['required', 'min:1', 'max:20', Rule::unique('users', 'username')],
                 'email' => ['required', 'email', Rule::unique('users', 'email')],
                 'password' => ['required', 'min:2']
             ]);
-
             $incomingFields['password'] = bcrypt($incomingFields['password']);
-
             $user = User::create($incomingFields);
             auth()->login($user);
-            
-            $questions = Question::query()->latest()->paginate(4);
-            $count = Question::query()->count();
 
-            return view('questions', get_defined_vars());
+            return view('/qa-home', get_defined_vars());
+        } else {
+            Log::info('ERROR. User registration disabled.');
         }
     }
 

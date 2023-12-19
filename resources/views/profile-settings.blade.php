@@ -1,4 +1,4 @@
-<x-standard-layout>
+<x-standard-layout-qa>
     <!--======================================
             START HERO AREA
     ======================================-->
@@ -108,4 +108,4 @@
     <!-- ================================
              END USER DETAILS AREA
     ================================= -->
-</x-standard-layout>
+</x-standard-layout-qa>

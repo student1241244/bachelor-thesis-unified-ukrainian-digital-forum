@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QAController;
+use App\Http\Livewire\CommentsSection;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FollowController;
 use App\Http\Controllers\ReportController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\PasscodeController;
 use App\Http\Controllers\QuestionDetailsController;
 use App\Http\Controllers\SecuritySettingController;
 use App\Http\Controllers\PasscodeFeaturesController;
+use Packages\Settings\App\Controllers\SettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +71,7 @@ Route::get('/', [UserController::class, "showHomepage"]);
 // User routes
 Route::post('/login', [UserController::class, "login"])->middleware('guest');
 Route::post('/register', [UserController::class, "register"])->middleware('guest');
+Route::get('verify/{token}', [UserController::class, "verifyEmail"])->name('verify.email');
 
 Route::post('/logout', [UserController::class, "logout"])->middleware('auth');
 Route::get('/profile-settings', [UserController::class, "showProfileSettings"])->middleware('auth');
@@ -84,6 +87,7 @@ Route::get('/signup', function () {
 
 // Q&A routes
 Route::get('/questions/{categoryId}', [QAController::class, "showQuestions"]);
+Route::get('/interesting-questions', [QAController::class, 'getInterestingQuestions']);
 Route::get('/ask-question', [QAController::class, "show"])->middleware(['auth', 'checkContentCreationEnabled']);;
 Route::post('/create-question', [QAController::class, "createNewQuestion"])->middleware('auth');
 Route::get('/question-details/{question}', [QAController::class, "showSingleQuestion"]);
@@ -98,6 +102,8 @@ Route::get('/questions/get-answer/{id}', [QAController::class, "getAnswer"])->na
 Route::get('/questions/bookmark/{id}', [QAController::class, "bookmark"])->name('questions.bookmark');
 
 Route::get('/search/{query}', [QAController::class, "search"]);
+Route::get('/search/threads/{query}', [ThreadController::class, "search"]);
+// Route::get('/search-threads/{query}', [ThreadController::class, "search"]);
 
 //Question details
 //Comment routes
@@ -124,3 +130,4 @@ Route::get('/content-policy', [GeneralController::class, "showContentPolicy"]);
 Route::get('/cookie-policy', [GeneralController::class, "showCookiePolicy"]);
 Route::get('/contact', [GeneralController::class, "showContact"]);
 Route::get('/support', [GeneralController::class, "showSupport"]);
+

@@ -1,4 +1,4 @@
-<x-standard-layout :title="$title">
+<x-standard-layout-qa :title="$title">
 <!--======================================
         START HERO AREA
 ======================================-->
@@ -104,4 +104,4 @@
 <!-- ================================
          END USER DETAILS AREA
 ================================= -->
-</x-standard-layout>
+</x-standard-layout-qa>

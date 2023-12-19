@@ -1,4 +1,4 @@
-<div class="sidebar">
+<div id="interesting-questions-container" class="sidebar">
     <div class="card card-item">
         <div class="card-body">
             <h3 class="fs-17 pb-3"><img style="width: 10%;" src="/images/fire.gif">Interesting Questions</h3>

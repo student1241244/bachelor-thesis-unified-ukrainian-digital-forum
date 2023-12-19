@@ -31,6 +31,7 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     @vite(['resources/css/app.css'])
     @vite(['resources/js/app.js'])
+    @livewireStyles
     <!-- end inject -->
 </head>
 <body>
@@ -91,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <a href="/threads-home">Threads</a>
                             </li>
                             <li>
-                                <a href="/about-us">About Lemyk</a>
+                                <a href="/about">About Lemyk</a>
                             </li>
                         </ul><!-- end ul -->
                     </nav><!-- end main-menu -->
@@ -103,55 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             </select>                            
                         </div>
                     @endif
-                    <form class="mr-2">
-                        <div class="form-group mb-0">
-                            {{-- <input class="form-control form--control h-auto py-2" type="text" name="search" placeholder="Type your search words..."> --}}
-                            <a href="#" class="text-white mr-2 header-search-icon" title="Search" data-toggle="tooltip" data-placement="bottom">Type your search words... <i class="la la-search"></i></a>
-                            {{-- <button class="form-btn" type="button"><i class="la la-search"></i></button> --}}
-                        </div>
-                    </form>
-                    @auth
-                    <div class="nav-right-button">
-                        <ul class="user-action-wrap d-flex align-items-center">
-                            <li class="dropdown">
-                                <a class="nav-link dropdown-toggle dropdown--toggle" href="/favourites/{{auth()->user()->username}}" role="button" aria-expanded="false">
-                                    <i class="la la-star-o"></i>
-                                </a>
-                            </li>
-                            <li class="dropdown user-dropdown">
-                                <a class="nav-link dropdown-toggle dropdown--toggle pl-2" href="#" id="userMenuDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <div class="media media-card media--card shadow-none mb-0 rounded-0 align-items-center bg-transparent">
-                                        <div class="media-img media-img-xs flex-shrink-0 rounded-full mr-2">
-                                            <img src="{{auth()->user()->avatar}}" alt="avatar" class="rounded-full js-avatar">
-                                        </div>
-                                        <div class="media-body p-0 border-left-0">
-                                            <h5 class="fs-14">{{auth()->user()->username}}</h5>
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="dropdown-menu dropdown--menu dropdown-menu-right mt-3 keep-open" aria-labelledby="userMenuDropdown">
-                                    <h6 class="dropdown-header">Hi, {{auth()->user()->username}}</h6>
-                                    <div class="dropdown-divider border-top-gray mb-0"></div>
-                                    <div class="dropdown-item-list">
-                                        <a class="dropdown-item" href="/profile/{{auth()->user()->username}}"><i class="la la-user mr-2"></i>Profile</a>
-                                        <a class="dropdown-item" href="notifications.html"><i class="la la-bell mr-2"></i>Notifications</a>
-                                        <a class="dropdown-item" href="referrals.html"><i class="la la-user-plus mr-2"></i>Referrals</a>
-                                        <a class="dropdown-item" href="setting.html"><i class="la la-gear mr-2"></i>Settings</a>
-                                        <form action="/logout" method="POST">
-                                            @csrf
-                                            <button type="submit" class="dropdown-item"><i class="la la-power-off mr-2"></i>Log out</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div><!-- end nav-right-button -->
-                    @else
-                    <div class="nav-right-button">
-                        <a href="/signin" class="btn theme-btn theme-btn-sm theme-btn-outline mr-1">Log in</a>
-                        <a href="/signup" class="btn theme-btn theme-btn-sm">Sign up</a>
-                    </div><!-- end nav-right-button -->
-                    @endauth
                 </div><!-- end menu-wrapper -->
             </div><!-- end col-lg-10 -->
         </div><!-- end row -->
@@ -171,14 +123,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="/qa-home">Threads</a>
             </li>
             <li>
-                <a href="/threads-home">About Lemyk</a>
+                <a href="/about">About Lemyk</a>
             </li>
         </ul>
-        <div class="off-canvas-btn-box px-4 pt-5 text-center">
-            <a href="/signin" class="btn theme-btn theme-btn-sm theme-btn-outline"><i class="la la-sign-in mr-1"></i> Login</a>
-            <span class="fs-15 fw-medium d-inline-block mx-2">Or</span>
-            <a href="/signup" class="btn theme-btn theme-btn-sm" data-toggle="modal"><i class="la la-plus mr-1"></i> Sign up</a>
-        </div>
     </div><!-- end off-canvas-menu -->
     <div class="mobile-search-form">
         <div class="d-flex align-items-center">
@@ -253,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="row align-items-center pb-4 copyright-wrap">
             <div class="col-lg-6">
                 <a href="/" class="d-inline-block">
-                    <img src="images/logo-white.png" alt="footer logo" class="footer-logo">
+                    <img src="/images/logo-white.png" alt="footer logo" class="footer-logo">
                 </a>
             </div><!-- end col-lg-6 -->
             <div class="col-lg-6">
@@ -344,15 +291,12 @@ document.getElementById('themeSwitcher').addEventListener('change', function() {
     .catch(error => console.error('Error:', error));
 });
 </script>
-
-<!-- template js files -->
 <script src="/js/jquery-3.4.1.min.js"></script>
 <script src="/js/bootstrap.bundle.min.js"></script>
 <script src="/js/owl.carousel.min.js"></script>
-<script src="/js/upvote.vanilla.js"></script>
-<script src="/js/upvote-script.js"></script>
 <script src="/js/selectize.min.js"></script>
 <script src="/js/jquery.multi-file.min.js"></script>
 <script src="/js/main.js"></script>
+@livewireScripts
 </body>
 </html>

@@ -1,4 +1,4 @@
-<x-standard-layout :title="$question->title">
+<x-standard-layout-qa :title="$question->title">
     <!-- ================================
              START QUESTION AREA
     ================================= -->
@@ -78,7 +78,7 @@
                             <div class="subheader d-flex align-items-center justify-content-between">
                                 <div class="subheader-title">
                                     <div class="float-left" style="translate: 0% 20%;">
-                                        <h3 class="fs-16">Answer </h3>
+                                        <h3 class="fs-16">Answer by: <a href="/profile/{{ $question->user->username }}">{{ $question->user->username }}</h3>
                                     </div>
                                     <div class="float-right" style="margin-left:10px;">
                                         <div class="answer-actions">
@@ -280,4 +280,6 @@ function voteAnswer(questionId, answerId, vote) {
     });
 }
 </script>
-</x-standard-layout>
+<script src="/js/upvote.vanilla.js"></script>
+<script src="/js/upvote-script.js"></script>
+</x-standard-layout-qa>
