@@ -6,12 +6,12 @@ namespace App\Models;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, HasFactory;
 
     public $new_password;
 
@@ -52,7 +52,7 @@ class User extends Authenticatable
         'password',
         'username',
         'is_admin',
-        'ban_to',
+        'ban_to'
     ];
 
     protected function avatar(): Attribute {

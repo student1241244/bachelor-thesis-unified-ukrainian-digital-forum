@@ -13,9 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('table_settings', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('threads', function (Blueprint $table) {
+            $table->boolean('is_passcode_user')->default(false);
         });
     }
 
@@ -26,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_settings');
+        Schema::table('threads', function (Blueprint $table) {
+            //
+        });
     }
 };

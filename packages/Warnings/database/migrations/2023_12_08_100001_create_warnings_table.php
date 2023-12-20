@@ -12,9 +12,7 @@ class CreateWarningsTable extends Migration
      */
     public function up()
     {
-        $this->drop('settings');
-
-        $this->create('settings', function (Blueprint $table) {
+        $this->create('warnings', function (Blueprint $table) {
 			$table->foreignId('user_id')->nullable();
 			$table->text('body')->nullable();
 			$table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');

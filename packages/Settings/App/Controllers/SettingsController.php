@@ -1,6 +1,8 @@
 <?php
+
 namespace Packages\Settings\App\Controllers;
 
+use App\Models\Setting;
 use Packages\Dashboard\App\Controllers\BaseController;
 use Packages\Settings\App\Models\Settings;
 use Packages\Settings\App\Requests\Settings\IndexRequest;
@@ -15,9 +17,14 @@ class SettingsController extends BaseController
      */
     public function index(IndexRequest $request)
     {
-        
+        $formView = 'settings.custom';
+        $settings = Setting::pluck('setting_status', 'setting_name');
+        return view('tpx_dashboard::dashboard.index_simple', get_defined_vars());
+    }
 
-        return redirect('/');
+    public function custom()
+    {
+        return dd('custom');
     }
 
     /**

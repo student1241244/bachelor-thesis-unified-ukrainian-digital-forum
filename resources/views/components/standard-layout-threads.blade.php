@@ -31,7 +31,7 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     @vite(['resources/css/app.css'])
     @vite(['resources/js/app.js'])
-    @livewireStyles
+    @livewireStyles()
     <!-- end inject -->
 </head>
 <body>
@@ -297,6 +297,6 @@ document.getElementById('themeSwitcher').addEventListener('change', function() {
 <script src="/js/selectize.min.js"></script>
 <script src="/js/jquery.multi-file.min.js"></script>
 <script src="/js/main.js"></script>
-@livewireScripts
+@livewireScripts()
 </body>
 </html>

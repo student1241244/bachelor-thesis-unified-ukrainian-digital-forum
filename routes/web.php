@@ -32,9 +32,9 @@ Route::get('/admin-dashboard', function () {
     return "You admin";
 })->middleware('can:visitAdminPages');
 
-Route::get('/admin/settings', [SettingController::class, "show"])->name('admin.settings');
-Route::post('/admin/settings', [SettingController::class, "update"])->name('admin.settings.update');
-Route::get('/admin/settings-security', [SecuritySettingController::class, "show"])->name('admin.settings-security');
+Route::get('/admin/settingss', [SettingController::class, "show"])->name('admin.settings');
+Route::post('/admin/settingss', [SettingController::class, "update"])->name('admin.settings.update');
+Route::get('/admin/settings-securitys', [SecuritySettingController::class, "show"])->name('admin.settings-security');
 Route::post('/admin/toggle-maintenance', [SecuritySettingController::class, "toggleMaintenance"])->name('admin.toggleMaintenance');
 Route::post('/admin/settings/update-backup-frequency', [SecuritySettingController::class, "updateBackupFrequency"])->name('admin.settings.updateBackupFrequency');
 

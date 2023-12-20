@@ -13,6 +13,11 @@ return [
 		],
 	],
 	'permissions' => [
-		'settings' => ['index' => ['admin', 'moderator'], 'destroy' => ['admin', 'moderator'], 'create' => ['admin', 'moderator']],
+		'settings' => [
+            'custom' => ['admin', 'moderator'],
+            'index' => ['admin', 'moderator'],
+            'destroy' => ['admin', 'moderator'],
+            'create' => ['admin', 'moderator'],
+        ],
 	],
 ];

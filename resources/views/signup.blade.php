@@ -1,4 +1,4 @@
-<x-standard-2-layout :title="$title">
+<x-standard-2-layout-qa :title="$title">
     @if(session('error'))
     <div class="alert alert-danger">
         {{ session('error') }}

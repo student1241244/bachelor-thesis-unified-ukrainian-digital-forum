@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 use Packages\Threads\App\Models\Comment;
 use Packages\Dashboard\App\Interfaces\HasMedia;
 use Packages\Dashboard\App\Traits\HasMediaTrait;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Thread extends Model implements HasMedia
 {
-    use HasMediaTrait;
+    use HasMediaTrait, HasFactory;
 
     /**
     * The table associated with the model.

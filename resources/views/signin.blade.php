@@ -1,4 +1,4 @@
-<x-standard-2-layout :title="$title">
+<x-standard-2-layout-qa :title="$title">
 <!--======================================
         START LOGIN AREA
 ======================================-->

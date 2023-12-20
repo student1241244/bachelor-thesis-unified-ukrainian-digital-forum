@@ -1,5 +1,5 @@
 <?php
-namespace Packages\Threads\App\Controllers;
+namespace Packages\Threads\App\Models;
 
 use Packages\Dashboard\App\Controllers\BaseController;
 use Packages\Threads\App\Models\Category;
