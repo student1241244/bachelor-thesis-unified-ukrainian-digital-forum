@@ -21,7 +21,6 @@
     <link rel="icon" sizes="16x16" href="/images/favicon.png">
 
     <!-- inject:css -->
-    <link rel="stylesheet" href="/css/upvotejs.min.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/line-awesome.css">
     <link rel="stylesheet" href="/css/owl.carousel.min.css">
