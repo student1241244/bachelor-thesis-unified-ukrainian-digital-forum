@@ -3,8 +3,6 @@
 namespace Unit\Feature;
 
 use Tests\TestCase;
-use App\Models\User;
-use Illuminate\Support\Facades\Log;
 use Packages\Threads\App\Models\Comment;
 use Packages\Threads\App\Models\Thread;
 use Illuminate\Foundation\Testing\RefreshDatabase;
