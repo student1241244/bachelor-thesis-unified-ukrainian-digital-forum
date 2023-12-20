@@ -26,6 +26,7 @@
         "laravelcollective/html": "^6.0",
         "livewire/livewire": "^2.12",
         "mcamara/laravel-localization": "1.*",
+        "predis/predis": "^2.2",
         "spatie/laravel-backup": "^8.2",
         "spatie/laravel-medialibrary": "^10.4",
         "spatie/laravel-stripe-webhooks": "^3.6",

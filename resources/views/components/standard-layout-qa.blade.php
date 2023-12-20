@@ -21,6 +21,7 @@
     <link rel="icon" sizes="16x16" href="/images/favicon.png">
 
     <!-- inject:css -->
+    <link rel="stylesheet" href="/css/upvotejs.min.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/line-awesome.css">
     <link rel="stylesheet" href="/css/owl.carousel.min.css">
@@ -321,7 +322,7 @@ document.getElementById('themeSwitcher').addEventListener('change', function() {
 </script>
 
 <!-- template js files -->
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/bootstrap.bundle.min.js"></script>
 <script src="/js/owl.carousel.min.js"></script>
 <script src="/js/selectize.min.js"></script>
