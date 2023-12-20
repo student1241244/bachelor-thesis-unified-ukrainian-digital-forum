@@ -34,7 +34,7 @@
     <!-- end inject -->
 </head>
 <body>
-{{-- <!-- start cssload-loader -->
+<!-- start cssload-loader -->
 <div id="preloader">
     <div class="loader">
         <svg class="spinner" viewBox="0 0 50 50">
@@ -42,7 +42,7 @@
         </svg>
     </div>
 </div>
-<!-- end cssload-loader --> --}}
+<!-- end cssload-loader -->
 
 <!--======================================
         START HEADER AREA
