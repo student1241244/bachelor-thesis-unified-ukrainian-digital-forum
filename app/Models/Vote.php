@@ -9,10 +9,10 @@ class Vote extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'vote'];
+    protected $fillable = ['question_id', 'user_id', 'vote'];
 
-    public function votable()
+    public function question()
     {
-        return $this->morphTo();
+        return $this->belongsTo(Question::class);
     }
 }

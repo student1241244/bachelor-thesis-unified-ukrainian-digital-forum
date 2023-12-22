@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('follows', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->unsignedBigInteger('followeduser');
-            $table->foreign('followeduser')->references('id')->on('users');
-            $table->timestamps();
+        Schema::table('comments', function (Blueprint $table) {
+            $table->integer('report_count')->default(0);
+            $table->longText('report_data')->nullable();
+            $table->integer('votes_count')->default(0);
+            $table->integer('is_passcode_user')->default(0);
         });
     }
 
@@ -29,6 +28,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('follows');
+        Schema::table('comments', function (Blueprint $table) {
+            //
+        });
     }
 };

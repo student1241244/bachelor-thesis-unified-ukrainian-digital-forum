@@ -13,22 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('questions_categories', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('title');
-            $table->longText('body');
-            $table->foreignId('user_id')->constrained();
+            // Add other necessary columns if needed
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    
     public function down()
     {
-        Schema::dropIfExists('posts');
-    }
+        Schema::dropIfExists('questions_categories');
+    }    
 };

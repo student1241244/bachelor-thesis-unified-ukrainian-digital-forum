@@ -17,14 +17,15 @@ return new class extends Migration
             $table->string('title');
             $table->longText('body');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('category_id'); // Add this line
+    
+            // Foreign key constraint
+            $table->foreign('category_id')->references('id')->on('questions_categories')->onDelete('cascade');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
+    
     public function down(): void
     {
         Schema::dropIfExists('questions');
-    }
+    }    
 };

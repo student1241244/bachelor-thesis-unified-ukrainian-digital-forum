@@ -126,7 +126,6 @@ class UserController extends Controller
     }
 
     private function getSharedData($user) {
-        $currentlyFollowing = auth()->check() ? Follow::where('user_id', auth()->id())->where('followeduser', $user->id)->count() : 0;
         $questionsCount = $user->questions()->count();
         $commentsCount = $user->comments()->count();
         $totalAnswerUpvotes = $user->comments->sum('votes_count'); // Ensure 'votes_count' is the correct column name in your Comment model
@@ -137,8 +136,7 @@ class UserController extends Controller
             'questionCount' => $questionsCount,
             'bonus_points' => $user->bonus_points,
             'answerCount' => $commentsCount,
-            'answerUpvotes' => $totalAnswerUpvotes,
-            'currentlyFollowing' => $currentlyFollowing
+            'answerUpvotes' => $totalAnswerUpvotes
         ]);
     }
     
@@ -148,10 +146,6 @@ class UserController extends Controller
         $bonus = 1;
         return view('profile', [
             'questions' => $user->questions()->latest()->get(),
-            'followers' => $user->followers()->latest()->get(),
-            'following' => $user->following()->latest()->get(),
-            'followersCount' => $user->followers()->count(),
-            'followingCount' => $user->following()->count(),
             'bonus_points' => $bonus,
        ]);
     }

@@ -12,9 +12,9 @@ class Comment extends Model implements HasMedia
     use HasFactory, HasMediaTrait;
 
     protected $fillable = [
-        'body',
         'question_id',
         'user_id',
+        'body',
         'report_count',
         'report_data',
         'votes_count',
@@ -45,7 +45,7 @@ class Comment extends Model implements HasMedia
 
     public function votes()
     {
-        return $this->morphMany(CommentVote::class, 'commentable');
+        return $this->hasMany(CommentVote::class, 'comment_id');
     }
 
     public function vote($user, $vote)

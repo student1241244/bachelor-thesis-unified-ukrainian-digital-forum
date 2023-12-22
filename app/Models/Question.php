@@ -18,7 +18,6 @@ class Question extends Model
         'votes_count',
         'report_count',
         'report_data',
-        'category',
         'category_id',
     ];
 
@@ -43,7 +42,7 @@ class Question extends Model
 
     public function votes()
     {
-        return $this->morphMany(Vote::class, 'votable');
+        return $this->hasMany(Vote::class, 'question_id');
     }
 
     public function vote($user, $vote)

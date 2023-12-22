@@ -1,4 +1,4 @@
-<x-standard-2-layout :title="$title">
+<x-standard-2-layout-threads :title="$title">
     <!--======================================
             START HERO AREA
     ======================================-->
@@ -191,4 +191,4 @@
     <!-- ================================
              END ABOUT AREA
     ================================= -->
-</x-standard-2-layout>
+</x-standard-2-layout-threads>

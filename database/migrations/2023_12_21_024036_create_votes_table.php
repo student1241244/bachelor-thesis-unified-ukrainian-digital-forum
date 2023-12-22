@@ -13,14 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('comment_votes', function (Blueprint $table) {
+        Schema::create('votes', function (Blueprint $table) {
             $table->id();
-            $table->morphs('commentable'); // Polymorphic relation (can belong to question or answer)
+            $table->unsignedBigInteger('question_id'); // Direct reference to questions
             $table->unsignedBigInteger('user_id');
             $table->tinyInteger('vote'); // -1 for downvote, 1 for upvote
             $table->timestamps();
-        
-            $table->unique(['user_id', 'commentable_id', 'commentable_type']);
+
+            // Foreign key constraints
+            $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -31,8 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('comment_votes', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('votes');
     }
 };
