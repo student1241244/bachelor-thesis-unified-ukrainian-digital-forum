@@ -10,7 +10,7 @@
                     <div class="filters pb-4">
                         <div class="d-flex flex-wrap align-items-center justify-content-between pb-3">
                             <h3 class="fs-22 fw-medium">All Questions</h3>
-                            <a href="/ask-question" class="btn theme-btn theme-btn-sm">Ask Question</a>
+                            <a href="/questions.create" class="btn theme-btn theme-btn-sm">Ask Question</a>
                         </div>
                         <div class="d-flex flex-wrap align-items-center justify-content-between">
                             <p class="pt-1 fs-15 fw-medium lh-20">{{ $count }} questions</p>

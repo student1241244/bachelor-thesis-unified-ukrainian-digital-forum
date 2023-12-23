@@ -93,7 +93,7 @@ class QAController extends Controller
     }
 
     public function show() {
-        return view('ask-question');
+        return view('questions.create');
     }
 
     public function createNewQuestion(Request $request) {

@@ -21,7 +21,7 @@
                 To ask, to learn, to share, to grow.
             </p>
             <div class="hero-btn-box py-4">
-                <a href="/ask-question" class="btn theme-btn mr-2">Ask a Question</a>
+                <a href="/questions.create" class="btn theme-btn mr-2">Ask a Question</a>
             </div>
         </div><!-- end hero-content -->
         <div class="hero-content text-center pb-5">

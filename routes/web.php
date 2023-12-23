@@ -88,7 +88,7 @@ Route::get('/signup', function () {
 // Q&A routes
 Route::get('/questions/{categoryId}', [QAController::class, "showQuestions"]);
 Route::get('/interesting-questions', [QAController::class, 'getInterestingQuestions']);
-Route::get('/ask-question', [QAController::class, "show"])->middleware(['auth', 'checkContentCreationEnabled']);;
+Route::get('/questions.create', [QAController::class, "show"])->middleware(['auth', 'checkContentCreationEnabled']);;
 Route::post('/create-question', [QAController::class, "createNewQuestion"])->middleware('auth');
 Route::get('/question-details/{question}', [QAController::class, "showSingleQuestion"]);
 Route::delete('/question-details/{question}', [QAController::class, "deleteQuestion"])->middleware('can:delete,question');

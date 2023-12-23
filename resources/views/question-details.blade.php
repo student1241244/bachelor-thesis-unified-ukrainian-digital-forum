@@ -43,7 +43,7 @@
                                     </div>
                                     <div  class="float-right">
                                         <div class="hero-btn-box text-right py-3">
-                                            <a href="/ask-question" class="btn theme-btn">Ask a Question</a>
+                                            <a href="/questions.create" class="btn theme-btn">Ask a Question</a>
                                         </div>
                                     </div>
                                 </div>
