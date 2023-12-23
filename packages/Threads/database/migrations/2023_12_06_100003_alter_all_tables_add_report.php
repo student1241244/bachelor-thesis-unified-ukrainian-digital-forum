@@ -26,11 +26,6 @@ class AlterAllTablesAddReport extends Migration
 			$table->unsignedInteger('report_count')->default(0);
 			$table->longText('report_data')->nullable();
         });
-
-        $this->table('comments', function (Blueprint $table) {
-			$table->unsignedInteger('report_count')->default(0);
-			$table->longText('report_data')->nullable();
-        });
     }
 
 }
