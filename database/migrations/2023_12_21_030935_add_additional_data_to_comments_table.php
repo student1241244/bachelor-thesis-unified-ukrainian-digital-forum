@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::table('comments', function (Blueprint $table) {
             $table->integer('report_count')->default(0);
             $table->longText('report_data')->nullable();
-            $table->integer('votes_count')->default(0);
             $table->integer('is_passcode_user')->default(0);
         });
     }
