@@ -10,8 +10,8 @@ class PostAnswerRequest extends BaseAjaxRequest
     {
         return [
             'body' => 'required',
-            'images' => 'nullable|array',
-            'images.*' => 'mimes:jpeg,jpg,png|max:10000',
+            'images' => 'nullable|array|max:6',
+            'images.*' => 'mimes:jpeg,jpg,png|max:2048',
         ];
     }
 }

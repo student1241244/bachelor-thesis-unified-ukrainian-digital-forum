@@ -12,7 +12,7 @@ class StoreRequest extends BaseAjaxRequest
             'title' => 'required',
             'category_id' => 'required|exists:threads_categories,id',
             'body' => 'required',
-            'image' => 'mimes:jpeg,jpg,png|max:10000',
+            'image' => 'mimes:jpeg,jpg,png|max:2048',
             'is_agree' => 'required',
         ];
     }

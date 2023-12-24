@@ -64,6 +64,7 @@ class ThreadController extends Controller
         $data['is_passcode_user'] = $this->isPasscodeValid();
         // $request->validate(['g-recaptcha-response' => 'required|captcha',]);
         $thread = Thread::create($data);
+
         if ($request->hasFile('image')) {
             $thread->addMediaFromRequest('image')->toMediaCollection('image');
         }
@@ -86,19 +87,18 @@ class ThreadController extends Controller
         $data = $request->validated();
         $data['thread_id'] = $threadId;
         $data['is_passcode_user'] = $this->isPasscodeValid();
-    
+        // $request->validate(['g-recaptcha-response' => 'required|captcha',]);
         Comment::create($data);
-    
+
         return redirect()->route('threads.show', ['id' => $threadId])->with('success', 'Comment created successfully.');
     }
 
     public function showByCategory($categoryId)
     {
         $trendingThreads = Thread::getTrendingThreads();
-        Log::error("trendingThreads", ['trendingThreads' => $trendingThreads]);
         $category = Category::findOrFail($categoryId);
         $threads = Thread::where('category_id', $categoryId)->latest()->paginate(4);
-        return view('threads.index', compact('threads', 'categoryId', 'trendingThreads'));
+        return view('threads.index', compact('threads', 'categoryId', 'trendingThreads', 'category'));
     }
 
 }

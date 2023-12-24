@@ -236,7 +236,31 @@ trait HasMediaTrait
      */
     public function getImageOrNull($collection = '', $conversion = ''):?string
     {
-        return $this->getFirstMedia($collection) ? getMediaUrl($this, $collection, $conversion) : null;
+        $media = $this->getFirstMedia($collection);
+
+        if ($media) {
+            return getMediaUrl($this, $collection, $conversion);
+        } else {
+            return url('storage/default/thread.jpg');
+        }
+    }
+
+        /**
+     * Get the URL of the first media item from a collection, or null if none exists.
+     *
+     * @param string $collection
+     * @param string $conversion
+     * @return string|null
+     */
+    public function getImageOrNullForThread($collection = '', $conversion = ''): ?string
+    {
+        $media = $this->getFirstMedia($collection);
+
+        if ($media) {
+            return getMediaUrl($this, $collection, $conversion);
+        }
+
+        return null; // Return null if no media is found
     }
 
     /**

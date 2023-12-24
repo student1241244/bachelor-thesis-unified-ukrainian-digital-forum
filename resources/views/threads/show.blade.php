@@ -44,6 +44,15 @@
                     <div class="card card-item">
                         <div class="card-body">
                         {{ $thread->body }}
+                        <a href="{{ route('threads.show', $thread->id) }}" class="card-img">
+                            @php
+                                $imageUrl = $thread->getImageOrNullForThread('image', '590x300');
+                            @endphp
+                        
+                            @if ($imageUrl)
+                                <img id="img-thread" class="lazy" src="{{ $imageUrl }}" data-src="{{ $imageUrl }}" alt="{{ $thread->title }}">
+                            @endif
+                        </a>                        
                         </div><!-- end card-body -->
                     </div><!-- end card -->
                     @if (session()->has('success'))
@@ -68,14 +77,15 @@
                                 <h4 class="fs-20">Leave a Comment</h4>
                             </div><!-- end form-group -->
                             <div class="form-group col-lg-12">
-                                <textarea class="form-control form--control" name="body" rows="5" placeholder="Your comment here..."></textarea>
+                                <textarea class="form-control form--control mb-4" name="body" rows="5" placeholder="Your comment here..."></textarea>
+                                {!! NoCaptcha::renderJs() !!}
+                                {!! NoCaptcha::display() !!}
                             </div><!-- end form-group -->
                             <div class="form-group col-lg-12 mb-0">
                                 <button class="btn theme-btn" type="submit">Post Comment </button>
                             </div><!-- end form-group -->
                         </div><!-- end card-body -->
                     </form>
-
                 </div><!-- end col-lg-8 -->
             </div><!-- end row -->
         </div><!-- end container -->

@@ -69,7 +69,7 @@
                                 </div>
                             </div><!-- end input-box -->
                             <div class="input-box">
-                                <label class="fs-14 text-black fw-medium">Image</label>
+                                <label class="fs-14 text-black fw-medium">Image (Maximum 1 image. Not more than 2048 KB)</label>
                                 <div class="form-group">
                                     <div class="file-upload-wrap file-upload-layout-2">
                                         <input type="file" name="image" class="file-upload-input" multiple>

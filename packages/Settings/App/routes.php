@@ -20,6 +20,5 @@ Route::group(
     function () {
 		Route::get('settings/custom', 'SettingsController@custom')->name('settings.custom');
 		Route::resource('settings', 'SettingsController', ['except' => ['show']]);
-
-
+    
     });

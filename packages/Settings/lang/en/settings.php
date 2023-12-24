@@ -24,7 +24,6 @@ return [
         'deleted' => 'Settings was successfully deleted',
     ],
     'btn' => [
-        'add' => 'Create Settings',
         'edit' => 'Edit',
         'delete' => 'delete',
     ],

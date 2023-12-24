@@ -43,14 +43,13 @@
                                     </div>
                                     <div  class="float-right">
                                         <div class="hero-btn-box text-right py-3">
-                                            <a href="/questions.create" class="btn theme-btn">Ask a Question</a>
+                                            <a href="/ask-question" class="btn theme-btn">Ask a Question</a>
                                         </div>
                                     </div>
                                 </div>
                             </div><!-- end media -->
                         </div><!-- end question-highlight -->
                         <div class="question d-flex">
-                            
                             <div class="votes votes-styled w-auto">
                                 <div class="vote-buttons">
                                     <button class="vote-button" aria-label="Vote up" onclick="voteQuestion({{ $question->id }}, 1)">
@@ -68,11 +67,17 @@
                                 <div class="question-post-body">
                                     <b>{!! $question->body !!}</b>
                                 </div><!-- end question-post-body -->
+                                @if ($question->getMedia('images')->count())
+                                    @foreach($question->getMedia('images') as $image)
+                                        <a href="{{ $image->getUrl() }}" target="_blank"><img class="img-question" src="{{ $image->getUrl('300x152') }}"></a>
+                                    @endforeach
+                                    <br>
+                                @endif
                             </div><!-- end question-post-body-wrap -->
                         </div><!-- end question -->
                         <div class="answer">
                         @if($comments->isEmpty())
-                            <p>No comments yet.</p>
+                            <p class="pt-4">No comments yet. You can be the first hero!</p>
                         @else
                             @foreach ($comments as $comment)
                             <div class="subheader d-flex align-items-center justify-content-between">
@@ -132,7 +137,7 @@
                                 </div>
                             </div>
                             <div class="input-box">
-                                <label class="fs-14 text-black fw-medium">Image</label>
+                                <label class="fs-14 text-black fw-medium">Image (Maximum 6 image. Not more than 2048 KB)</label>
                                 <div class="form-group">
                                     <div class="file-upload-wrap file-upload-layout-2">
                                         <input type="file" name="images[]" class="file-upload-input" multiple>
@@ -146,52 +151,7 @@
                 </div><!-- end question-main-bar -->
             </div><!-- end col-lg-9 -->
             <div class="col-lg-3">
-                <div class="sidebar">
-                    <div class="card card-item">
-                        <div class="card-body">
-                            <h3 class="fs-17 pb-3"><img style="width: 10%;" src="/images/fire.gif">Interesting Questions</h3>
-                            <div class="divider"><span></span></div>
-                            <div class="sidebar-questions pt-3">
-                                <div class="media media-card media--card media--card-2">
-                                    <div class="media-body">
-                                        <h5><a href="">How to select the dom element with event.target</a></h5>
-                                        <small class="meta">
-                                            <span class="pr-1">2 mins ago</span>
-                                            <span class="pr-1">. by</span>
-                                            <a href="#" class="author">Sudhir Kumbhare</a>
-                                        </small>
-                                    </div>
-                                </div><!-- end media -->
-                                <div class="media media-card media--card media--card-2">
-                                    <div class="media-body">
-                                        <h5><a href="question-details.html">How can you cut an onion without crying?</a></h5>
-                                        <small class="meta">
-                                            <span class="pr-1">48 mins ago</span>
-                                            <span class="pr-1">. by</span>
-                                            <a href="#" class="author">wimax</a>
-                                        </small>
-                                    </div>
-                                </div><!-- end media -->
-                                <div class="media media-card media--card media--card-2">
-                                    <div class="media-body">
-                                        <h5><a href="question-details.html">How to change the behavior of dropdown buttons in HTML</a></h5>
-                                        <small class="meta">
-                                            <span class="pr-1">1 hour ago</span>
-                                            <span class="pr-1">. by</span>
-                                            <a href="#" class="author">Antonin gavrel</a>
-                                        </small>
-                                    </div>
-                                </div><!-- end media -->
-                            </div><!-- end sidebar-questions -->
-                        </div>
-                    </div><!-- end card -->
-                    <div class="ad-card">
-                        <h4 class="text-gray text-uppercase fs-13 pb-3 text-center">Advertisements</h4>
-                        <div class="ad-banner mb-4 mx-auto">
-                            <span class="ad-text">290x500</span>
-                        </div>
-                    </div><!-- end ad-card -->
-                </div><!-- end sidebar -->
+                @include('sections.interesting-questions')
             </div><!-- end col-lg-3 -->
         </div><!-- end row -->
     </div><!-- end container -->

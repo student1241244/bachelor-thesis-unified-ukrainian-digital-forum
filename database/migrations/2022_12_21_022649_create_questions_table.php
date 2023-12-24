@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->longText('body');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->unsignedBigInteger('category_id'); // Add this line
+            $table->unsignedBigInteger('category_id')->default(0);
     
             // Foreign key constraint
             $table->foreign('category_id')->references('id')->on('questions_categories')->onDelete('cascade');

@@ -5,11 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
+use Packages\Dashboard\App\Interfaces\HasMedia;
+use Packages\Dashboard\App\Traits\HasMediaTrait;
 
-class Question extends Model
+class Question extends Model implements HasMedia
 {
-    use Searchable;
-    use HasFactory;
+    use Searchable, HasFactory, HasMediaTrait;
+
+    protected $conversions = [
+        'images' => [
+            '300x152',
+        ],
+    ];
 
     protected $fillable = [
         'title',

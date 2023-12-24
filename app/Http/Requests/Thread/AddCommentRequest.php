@@ -10,6 +10,7 @@ class AddCommentRequest extends BaseAjaxRequest
     {
         return [
             'body' => 'required',
+            'image' => 'mimes:jpeg,jpg,png|max:10000',
         ];
     }
 
@@ -17,6 +18,7 @@ class AddCommentRequest extends BaseAjaxRequest
     {
         $items = parent::attributes();
         $items['body'] = 'Comment';
+        $items['image'] = 'Image';
 
         return $items;
     }

@@ -260,13 +260,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group d-flex align-items-center justify-content-between">
-                        <div class="custom-control custom-checkbox fs-14">
-                            <input type="checkbox" class="custom-control-input" id="rememberMe">
-                            <label class="custom-control-label custom--control-label" for="rememberMe">Remember me!</label>
-                        </div>
-                        <a href="javascript:void(0)" class="lost-pass-btn fs-14 hover-underline">Forgot Password?</a>
-                    </div>
                     <div class="btn-box">
                         <button type="submit" class="btn theme-btn w-100">
                             Login to Account <i class="la la-arrow-right icon ml-1"></i>
@@ -289,7 +282,7 @@
 </div>
 
 <!-- template js files -->
-<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/jquery-3.4.1.min.js"></script>
 <script src="/js/bootstrap.bundle.min.js"></script>
 <script src="/js/jquery.fancybox.min.js"></script>
 <script src="/js/jquery.lazy.min.js"></script>

@@ -25,10 +25,19 @@
 ================================= -->
 <section class="question-area pt-80px pb-40px">
     <div class="container">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <div class="row">
             <div class="col-lg-8">
                 <div class="card card-item">
-                    <form action="/create-question" method="POST" class="card-body">
+                    <form action="{{ route('question.create') }}" method="post" class="card-body" enctype="multipart/form-data">
                         @csrf
                         <div class="input-box">
                             <label class="fs-14 text-black fw-medium mb-0">Question Title</label>
@@ -40,7 +49,7 @@
                                 @enderror
                             </div>
                         </div><!-- end input-box -->
-                        {{-- <div class="input-box">
+                        <div class="input-box">
                             <label class="fs-14 text-black fw-medium mb-0">Category</label>
                             <p class="fs-13 pb-3 lh-20">Please choose the appropriate section so the question can be searched easily.</p>
                             <div class="form-group">
@@ -50,8 +59,11 @@
                                     <option value="{{ $k }}">{{ $v }}</option>
                                     @endforeach
                                 </select>
+                                @error('body')
+                                <p class="m-0 small alert alert-danger shadow-sm">{{$message}}</p>
+                                @enderror
                             </div>
-                        </div><!-- end input-box --> --}}
+                        </div><!-- end input-box -->
                         <div class="input-box">
                             <label class="fs-14 text-black fw-medium mb-0">Details</label>
                             <p class="fs-13 pb-3 lh-20">Include all the information someone would need to answer your question</p>
@@ -60,29 +72,21 @@
                                 @error('body')
                                 <p class="m-0 small alert alert-danger shadow-sm">{{$message}}</p>
                                 @enderror
-                                <div class="d-flex align-items-center pt-2">
-                                    <div class="mr-3">
-                                        ``` <code class="badge bg-gray border border-gray text-gray">code</code> ```
-                                    </div>
-                                    <div class="mr-3 fw-bold">**bold**</div>
-                                    <div class="mr-3 font-italic">*italic*</div>
-                                    <div>&gt;quote</div>
-                                </div>
                             </div>
                         </div><!-- end input-box -->
                         <div class="input-box">
-                            <label class="fs-14 text-black fw-medium">Image</label>
-                            {{-- <div class="form-group">
+                            <label class="fs-14 text-black fw-medium">Image (Maximum 6 images. Not more than 2048 KB)</label>
+                            <div class="form-group">
                                 <div class="file-upload-wrap file-upload-layout-2">
-                                    <input type="file" name="files[]" class="file-upload-input" multiple>
+                                    <input type="file" name="images[]" class="file-upload-input" multiple>
                                     <span class="file-upload-text d-flex align-items-center justify-content-center"><i class="la la-cloud-upload mr-2 fs-24"></i>Drop files here or click to upload.</span>
                                 </div>
-                            </div> --}}
+                            </div>
                         </div><!-- end input-box -->
                         <div class="input-box pt-2">
                             <div class="form-group">
                                 <div class="custom-control custom-checkbox fs-13">
-                                    {{-- <input type="checkbox" class="custom-control-input" id="youAgreeCheckBox"> --}}
+                                    <input type="checkbox" class="custom-control-input" id="youAgreeCheckBox">
                                     <label class="custom-control-label custom--control-label" for="youAgreeCheckBox">By asking your question, you agree to the <a href="privacy-policy.html" class="text-color hover-underline">Privacy Policy.</a></label>
                                 </div>
                             </div>

@@ -20,7 +20,7 @@ class CheckContentCreationEnabled
         $contentCreationEnabled = Setting::where('setting_name', 'content_creation_enabled')->value('setting_status');
 
         if ($contentCreationEnabled != 'on') {
-            return redirect('/qa-home')->with('error', 'Content creation is currently disabled because of maintenance work. Sorry for the inconvenience :(');
+            return redirect('/')->with('error', 'Content creation is currently disabled because of maintenance work. Sorry for the inconvenience :(');
         }
     
         return $next($request);

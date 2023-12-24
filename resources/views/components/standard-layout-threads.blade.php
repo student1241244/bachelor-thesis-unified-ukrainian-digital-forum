@@ -291,7 +291,7 @@ document.getElementById('themeSwitcher').addEventListener('change', function() {
     .catch(error => console.error('Error:', error));
 });
 </script>
-<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/jquery-3.4.1.min.js"></script>
 <script src="/js/bootstrap.bundle.min.js"></script>
 <script src="/js/owl.carousel.min.js"></script>
 <script src="/js/selectize.min.js"></script>

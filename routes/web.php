@@ -32,11 +32,11 @@ Route::get('/admin-dashboard', function () {
     return "You admin";
 })->middleware('can:visitAdminPages');
 
-Route::get('/admin/settingss', [SettingController::class, "show"])->name('admin.settings');
-Route::post('/admin/settingss', [SettingController::class, "update"])->name('admin.settings.update');
-Route::get('/admin/settings-securitys', [SecuritySettingController::class, "show"])->name('admin.settings-security');
-Route::post('/admin/toggle-maintenance', [SecuritySettingController::class, "toggleMaintenance"])->name('admin.toggleMaintenance');
-Route::post('/admin/settings/update-backup-frequency', [SecuritySettingController::class, "updateBackupFrequency"])->name('admin.settings.updateBackupFrequency');
+Route::get('/admin/settingss', [SettingsController::class, "show"])->name('admin.settings');
+Route::post('/admin/settingss', [SettingsController::class, "update"])->name('admin.settings.update');
+Route::get('/admin/settings-securitys', [SettingsController::class, "show"])->name('admin.settings-security');
+Route::post('/admin/toggle-maintenance', [SettingsController::class, "toggleMaintenance"])->name('admin.toggleMaintenance');
+Route::post('/admin/settings/update-backup-frequency', [SettingsController::class, "updateBackupFrequency"])->name('admin.settings.updateBackupFrequency');
 
 
 // Main routes
@@ -58,7 +58,7 @@ Route::put('/reports/clean', [ReportController::class, "clean"])->name('reports.
 
 Route::get('/threads', [ThreadController::class, "index"])->name('threads.index');
 Route::get('/threads-home', [ThreadController::class, "showThreadsHome"])->name('threads.home');
-Route::get('/threads-add', [ThreadController::class, "create"])->name('threads.create');
+Route::get('/threads-add', [ThreadController::class, "create"])->middleware(['auth', 'checkContentCreationEnabled'])->name('threads.create');
 Route::post('/threads', [ThreadController::class, "store"])->name('threads.store');
 Route::post('/threads-{id}/add-comment', [ThreadController::class, "addComment"])->name('threads.add_comment');
 Route::get('/threads-{id}', [ThreadController::class, "show"])->name('threads.show');
@@ -88,8 +88,8 @@ Route::get('/signup', function () {
 // Q&A routes
 Route::get('/questions/{categoryId}', [QAController::class, "showQuestions"]);
 Route::get('/interesting-questions', [QAController::class, 'getInterestingQuestions']);
-Route::get('/questions.create', [QAController::class, "show"])->middleware(['auth', 'checkContentCreationEnabled']);;
-Route::post('/create-question', [QAController::class, "createNewQuestion"])->middleware('auth');
+Route::get('/ask-question', [QAController::class, "show"])->middleware(['auth', 'checkContentCreationEnabled'])->name('questions.create');
+Route::post('/create-question', [QAController::class, "createNewQuestion"])->name('question.create')->middleware('auth');
 Route::get('/question-details/{question}', [QAController::class, "showSingleQuestion"]);
 Route::delete('/question-details/{question}', [QAController::class, "deleteQuestion"])->middleware('can:delete,question');
 Route::get('/question-details/{question}/edit', [QAController::class, "showEditQuestionForm"])->middleware('can:delete,question');
@@ -99,7 +99,7 @@ Route::post('/questions/post-answer/{question_id}', [QAController::class, "postA
 Route::post('/questions/update-answer/{id}', [QAController::class, "updateAnswer"])->name('questions.update_answer')->middleware('auth');
 Route::get('/questions/delete-answer/{id}', [QAController::class, "deleteAnswer"])->name('questions.delete_answer')->middleware('auth');
 Route::get('/questions/get-answer/{id}', [QAController::class, "getAnswer"])->name('questions.get_answer')->middleware('auth');
-Route::get('/questions/bookmark/{id}', [QAController::class, "bookmark"])->name('questions.bookmark');
+Route::get('/questions/bookmark/{id}', [QAController::class, "bookmark"])->name('questions.bookmark')->middleware('auth');
 
 Route::get('/search/{query}', [QAController::class, "search"]);
 Route::get('/search/threads/{query}', [ThreadController::class, "search"]);

@@ -497,7 +497,6 @@ Author Email:   contact@tecydevs.com
 
     });
 
-
     $('body').on('submit', '#thread-form', function (e) {
         e.preventDefault()
         let form = $(this)
@@ -722,6 +721,9 @@ Author Email:   contact@tecydevs.com
                     alert(errors.join("\n"))
                 } else {
                     alert(response.responseJSON.message)
+                    if (response.status === 401 || response.responseJSON.message === 'Unauthenticated') {
+                        window.location.href = '/signin'; // Redirect to the sign-in page
+                    }
                 }
             }
         })

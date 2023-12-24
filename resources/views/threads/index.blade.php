@@ -11,11 +11,11 @@
     <span class="stroke-shape stroke-shape-6"></span>
     <div class="container">
         <div class="hero-content text-center">
-            <h2 class="section-title pb-3">Threads</h2>
+            <h2 class="section-title pb-3">{{ $category->title }}</h2>
             <ul class="breadcrumb-list">
                 <li><a href="/">Home</a><span><svg xmlns="http://www.w3.org/2000/svg" height="19px" viewBox="0 0 24 24" width="19px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/></svg></span></li>
                 <li><a href="/threads-home">Threads category</a><span><svg xmlns="http://www.w3.org/2000/svg" height="19px" viewBox="0 0 24 24" width="19px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/></svg></span></li>
-                <li>Threads</li>
+                <li>Threads - {{ $category->title }}</li>
             </ul>
         </div><!-- end hero-content -->
     </div><!-- end container -->

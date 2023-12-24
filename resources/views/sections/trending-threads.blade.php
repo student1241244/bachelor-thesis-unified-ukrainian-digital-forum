@@ -1,6 +1,6 @@
 <div id="trending-threads-container">
-    <h3 class="section-title pb-3 fs-20"><img style="width:2%;" src="/images/fire.gif">Trending threads:</h3>
-    <div class="hero-content text-center pt-20px" style="display:flex;">
+    <h3 class="section-title fs-20"><img style="width:2%;" src="/images/fire.gif">Trending threads:</h3>
+    <div class="hero-content text-center pt-20px pb-4" style="display:flex;">
         @foreach($trendingThreads as $trendingThread)
             <a href="/threads-{{ $trendingThread->id }}" class="cat-item d-flex align-items-center justify-content-between mb-3 hover-y">
                 <span class="cat-title">{{ $trendingThread->title }}</span>

@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\QA\PostAnswerRequest;
-use App\Http\Requests\QA\UpdateAnswerRequest;
-use App\Jobs\SendNewPostEmail;
-use App\Models\Comment;
 use App\Models\User;
+use App\Models\Comment;
 use App\Models\Question;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Packages\Questions\App\Models\Category;
+use App\Jobs\SendNewPostEmail;
+use Illuminate\Support\Facades\Log;
 use Packages\Dashboard\App\Models\Media;
+use App\Http\Requests\QA\PostAnswerRequest;
+use Packages\Questions\App\Models\Category;
+use App\Http\Requests\QA\UpdateAnswerRequest;
 
 class QAController extends Controller
 {
@@ -39,7 +40,7 @@ class QAController extends Controller
         $questions = Question::where('category_id', $categoryId)->latest()->paginate(4);
         $count = Question::query()->where('category_id', $categoryId)->count();
         $interestingQuestions = $this->calculateInterestingQuestions();
-        return view('questions.index', compact('questions', 'categoryId', 'count', 'interestingQuestions'));
+        return view('questions.index', compact('questions', 'categoryId', 'count', 'interestingQuestions', 'category'));
     }
 
     public function search($query) {
@@ -80,10 +81,10 @@ class QAController extends Controller
     }
 
     public function showSingleQuestion(Question $question) {
-        $question['body'] = strip_tags(Str::markdown($question->body), '<p><ul><ol><li><strong><em><h3><br>');
+        $question['body'] = strip_tags(Str::markdown($question->body), '<p><ul><ol><li><strong><em><h3><br><script>');
 
         $comments = $question->comments()->with(['media', 'user'])->latest()->paginate(4);
-
+        $interestingQuestions = $this->calculateInterestingQuestions();
         $isBookmarked = false;
         if (auth()->check()) {
             $isBookmarked = auth()->user()->bookmarkQuestions()->where('question_id', $question->id)->exists();
@@ -93,21 +94,29 @@ class QAController extends Controller
     }
 
     public function show() {
-        return view('questions.create');
+        $categories = Category::get()->pluck('title', 'id')->toArray();
+
+        return view('questions.create', get_defined_vars());
     }
 
     public function createNewQuestion(Request $request) {
         $incomingFields = $request->validate([
             'title' => 'required',
-            'body' => 'required'
+            'body' => 'required',
+            'category_id' => 'required',
+            'images' => 'array|max:6',
+            'images.*' => 'mimes:jpg,jpeg,png|max:2048',
         ]);
-
+        
         $incomingFields['title'] = strip_tags($incomingFields['title']);
         $incomingFields['body'] = strip_tags($incomingFields['body']);
-        $incomingFields['category_id'] = 1;
         $incomingFields['user_id'] = auth()->id();
         $newPost = Question::create($incomingFields);
 
+        foreach ($request->file('images', []) as $image) {
+            $newPost->addMedia($image)->toMediaCollection('images');
+        }
+        
         dispatch(new SendNewPostEmail(['sendTo' => auth()->user()->email, 'name' => auth()->user()->username, 'title' => $newPost->title]));
 
         return redirect("/question-details/{$newPost->id}")->with('success', 'New post successfully created.');

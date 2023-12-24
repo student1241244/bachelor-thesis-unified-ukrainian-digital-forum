@@ -12,6 +12,11 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 mr-auto">
+                @if (session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
                 <div class="hero-content">
                     <h2 class="section-title fs-50 pb-3 text-white lh-65">Join the first Ukrainian community building forum!</h2>
                     <p class="lh-26 text-white">We are happy that you came to us, let's build Ukrainian community together</p>
@@ -144,7 +149,7 @@
                         </svg>
                         <h5 class="card-title pt-4 pb-2">Forum Threads</h5>
                         <p class="card-text pb-4">The initial idea of this section is intended to provide a space for open discussion without the expectation of arriving at a single, definitive answer across 21 different categories</p>
-                        <a href="/treads-home" class="btn theme-btn bg-3">Browse threads <i class="la la-arrow-right icon ml-1"></i></a>
+                        <a href="/threads-home" class="btn theme-btn bg-3">Browse threads <i class="la la-arrow-right icon ml-1"></i></a>
                     </div><!-- end card-body -->
                 </div><!-- end card -->
             </div><!-- end col-lg-4 -->
@@ -596,13 +601,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group d-flex align-items-center justify-content-between">
-                        <div class="custom-control custom-checkbox fs-14">
-                            <input type="checkbox" class="custom-control-input" id="rememberMe">
-                            <label class="custom-control-label custom--control-label" for="rememberMe">Remember me!</label>
-                        </div>
-                        <a href="javascript:void(0)" class="lost-pass-btn fs-14 hover-underline">Forgot Password?</a>
-                    </div>
                     <div class="btn-box">
                         <button type="submit" class="btn theme-btn w-100">
                             Login to Account <i class="la la-arrow-right icon ml-1"></i>
@@ -719,7 +717,7 @@
 </div>
 
 <!-- template js files -->
-<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/jquery-3.4.1.min.js"></script>
 <script src="/js/bootstrap.bundle.min.js"></script>
 <script src="/js/owl.carousel.min.js"></script>
 <script src="/js/jquery.lazy.min.js"></script>

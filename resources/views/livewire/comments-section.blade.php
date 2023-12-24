@@ -11,7 +11,7 @@
                     @endif
                     <span class="comment-separated"> - </span>
                     <span class="comment-date text-gray">{{ \Carbon\Carbon::parse($comment['created_at'])->diffForHumans() }}</span>
-                    {{-- <span class="comment-date text-gray">#{{ $comment['id'] }}</span> --}}
+                    <span class="comment-date text-gray">#{{ $comment['id'] }}</span>
                     <p class="comment-text pt-1 pb-2 lh-22">{{ $comment['body'] }}</p>
                 </div>
             </li>
