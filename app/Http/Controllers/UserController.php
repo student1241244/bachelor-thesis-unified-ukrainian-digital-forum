@@ -111,19 +111,37 @@ class UserController extends Controller
     public function register(Request $request) {
         if (Setting::where('setting_name', 'user_registration_enabled')->value('setting_status')) {
             $incomingFields = $request->validate([
-                'username' => ['required', 'min:1', 'max:20', Rule::unique('users', 'username')],
-                'email' => ['required', 'email', Rule::unique('users', 'email')],
-                'password' => ['required', 'min:2']
+                'username' => [
+                    'required',
+                    'alpha_num', // Alphanumeric characters
+                    'min:5',     // Minimum of 5 characters
+                    'max:15',    // Maximum of 15 characters
+                    Rule::unique('users', 'username') // Unique in users table
+                ],
+                'email' => [
+                    'required',
+                    'email',
+                    Rule::unique('users', 'email')
+                ],
+                'password' => [
+                    'required',
+                    'min:6', // Minimum of 6 characters
+                    'regex:/[a-z]/',      // At least one lowercase letter
+                    'regex:/[A-Z]/',      // At least one uppercase letter
+                    'regex:/[0-9]/',      // At least one number
+                    'regex:/[@$!%*#?&]/', // At least one special character
+                ]
             ]);
+    
             $incomingFields['password'] = bcrypt($incomingFields['password']);
             $user = User::create($incomingFields);
             auth()->login($user);
-
+    
             return view('/qa-home', get_defined_vars());
         } else {
             Log::info('ERROR. User registration disabled.');
         }
-    }
+    }    
 
     private function getSharedData($user) {
         $questionsCount = $user->questions()->count();

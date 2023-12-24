@@ -83,7 +83,7 @@
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox fs-13">
                                         <input type="checkbox" class="custom-control-input" id="is_agree" name="is_agree" value="1">
-                                        <label class="custom-control-label custom--control-label" for="is_agree">By asking your question, you agree to the <a href="/privacy-policy.html" class="text-color hover-underline">Privacy Policy.</a></label>
+                                        <label class="custom-control-label custom--control-label" for="is_agree">By asking your question, you agree to the <a href="/content-policy" class="text-color hover-underline">Content Policy.</a></label>
                                     </div>
                                 </div>
                                 <div class="btn-box">

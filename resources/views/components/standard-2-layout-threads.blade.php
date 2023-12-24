@@ -120,11 +120,6 @@
                 <a href="/about">About Lemyk</a>
             </li>
         </ul>
-        <div class="off-canvas-btn-box px-4 pt-5 text-center">
-            <a href="/signin" class="btn theme-btn theme-btn-sm theme-btn-outline"><i class="la la-sign-in mr-1"></i> Login</a>
-            <span class="fs-15 fw-medium d-inline-block mx-2">Or</span>
-            <a href="/signup" class="btn theme-btn theme-btn-sm"><i class="la la-plus mr-1"></i> Sign up</a>
-        </div>
     </div><!-- end off-canvas-menu -->
     <div class="body-overlay"></div>
 </header><!-- end header-area -->

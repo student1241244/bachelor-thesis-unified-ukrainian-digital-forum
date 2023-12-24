@@ -13,10 +13,10 @@
         <div class="row">
             <div class="col-lg-6 mr-auto">
                 @if (session('error'))
-                <div class="alert alert-danger">
-                    {{ session('error') }}
-                </div>
-            @endif
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
                 <div class="hero-content">
                     <h2 class="section-title fs-50 pb-3 text-white lh-65">Join the first Ukrainian community building forum!</h2>
                     <p class="lh-26 text-white">We are happy that you came to us, let's build Ukrainian community together</p>

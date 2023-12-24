@@ -113,7 +113,7 @@
                                         <p>{{ $comment->body }}</p>
                                         @if ($comment->getMedia('images')->count())
                                             @foreach($comment->getMedia('images') as $image)
-                                                <a href="{{ $image->getUrl() }}" target="_blank"><img src="{{ $image->getUrl('100x100') }}"></a>
+                                                <a href="{{ $image->getUrl() }}" target="_blank"><img class="img-answer" src="{{ $image->getUrl('100x100') }}"></a>
                                             @endforeach
                                             <br>
                                         @endif

@@ -34,13 +34,6 @@ Author Email:   contact@tecydevs.com
         /* ======= Preloader ======= */
         preloader.delay('500').fadeOut(200);
 
-        /*=========== Mobile search form open ============*/
-        var searchFormToggle = $('.search-menu-toggle');
-        searchFormToggle.on('click', function () {
-            $('.mobile-search-form, .body-overlay').addClass('active');
-            bodyEl.css({'overflow': 'hidden'});
-        });
-
         /*=========== Mobile search form close ============*/
         var searchFormClose = $('.search-bar-close, .body-overlay');
         searchFormClose.on('click', function () {
@@ -407,11 +400,6 @@ Author Email:   contact@tecydevs.com
             $(this).addClass('case-card-is-active');
             $(this).siblings().removeClass('case-card-is-active')
         });
-        /*========= Ajax contact form ========*/
-        var submitBtn = document.querySelector('#send-message-btn');
-        var form = $('.contact-form'),
-            message = $('.contact-success-message'),
-            formData;
 
         // Success function
         function doneFunction(response) {
@@ -498,36 +486,40 @@ Author Email:   contact@tecydevs.com
     });
 
     $('body').on('submit', '#thread-form', function (e) {
-        e.preventDefault()
-        let form = $(this)
-        let url = form.attr('action')
-        let method = 'POST'
-        let data = new FormData($(this)[0]);
-
+        e.preventDefault();
+        let form = $(this);
+        let url = form.attr('action');
+        let method = 'POST';
+        let data = new FormData(this); // Use 'this' directly
+    
         $.ajax({
             url: url,
             method: method,
             data: data,
-            async: false,
-            cache: false,
-            contentType: false,
             processData: false,
+            contentType: false,
+            cache: false,
             success: function (response) {
-                form.html(response.message)
+                // Check if redirectUrl is provided in the response
+                if (response.redirectUrl) {
+                    window.location.href = response.redirectUrl; // Redirect to the new thread
+                } else {
+                    form.html(response.message); // Show the message as before
+                }
             },
             error: function (response) {
-                let errors= [];
+                let errors = [];
                 if (response.responseJSON.errors) {
                     $.each(response.responseJSON.errors, function (key, value) {
-                        errors.push(value[0])
-                    })
-                    alert(errors.join("\n"))
+                        errors.push(value[0]);
+                    });
+                    alert(errors.join("\n"));
                 } else {
-                    alert(response.responseJSON.message)
+                    alert(response.responseJSON.message);
                 }
             }
-        })
-    })
+        });
+    });    
 
     $('body').on('click', '.js-report', function (e) {
         let self = $(this)

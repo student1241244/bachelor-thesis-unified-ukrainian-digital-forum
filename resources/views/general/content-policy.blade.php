@@ -1,4 +1,4 @@
-<x-standard-2-layout>
+<x-standard-2-layout-qa>
     <!--======================================
             START HERO AREA
     ======================================-->
@@ -32,40 +32,41 @@
                 <div class="card-body row">
                     <div class="col-lg-3">
                         <ul class="js-scroll-nav js--scroll-nav">
-                            <li class="active"><a href="#information-we-collect-and-how-we-use-it" class="page-scroll">1. Information We Collect and How We Use It</a></li>
-                            <li><a href="#contact-forms" class="page-scroll">2. Contact forms</a></li>
-                            <li><a href="#how-we-protect-your-information" class="page-scroll">3. How we protect your information</a></li>
-                            <li><a href="#your-contact-information" class="page-scroll">4. Your contact information</a></li>
+                            <li class="active"><a href="#information-we-collect-and-how-we-use-it" class="page-scroll">Content Policy</a></li>
                         </ul>
                     </div><!-- end col-lg-3 -->
                     <div class="col-lg-9">
                         <div class="terms-panel-main-bar pl-3">
-                            <div class="terms-panel mb-30px" id="information-we-collect-and-how-we-use-it">
-                                <h3 class="fs-20 pb-3 fw-bold">1. Information We Collect and How We Use It</h3>
-                                <h4 class="fs-16 pb-1">A. Account Information:</h4>
-                                <p class="pb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, dicta error eum exercitationem expedita hic maiores necessitatibus possimus quo voluptatum.</p>
-                                <h4 class="fs-16 pb-1">B. Public Content:</h4>
-                                <p class="pb-3">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusan tium dolorem que laudantium, totam rem aperiam the eaque ipsa quae abillo was inventore veritatis keret quasi aperiam architecto beatae vitae dicta sunt explicabo.</p>
-                                <h4 class="fs-16 pb-1">C. Contacts:</h4>
-                                <p class="pb-3">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusan tium dolorem que laudantium, totam rem aperiam the eaque ipsa quae abillo was inventore veritatis keret quasi aperiam architecto beatae vitae dicta sunt explicabo.</p>
-                                <h4 class="fs-16 pb-1">D. Communications:</h4>
-                                <p class="pb-3">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusan tium dolorem que laudantium, totam rem aperiam the eaque ipsa quae abillo was inventore veritatis keret quasi aperiam architecto beatae vitae dicta sunt explicabo.</p>
-                            </div><!-- end terms-panel -->
-                            <div class="terms-panel mb-30px" id="contact-forms">
-                                <h3 class="fs-20 pb-3 fw-bold">2. Contact forms</h3>
-                                <h4 class="fs-16 pb-1">A. Cookies</h4>
-                                <p class="pb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, dicta error eum exercitationem expedita hic maiores necessitatibus possimus quo voluptatum.</p>
-                                <h4 class="fs-16 pb-1">B. Embedded content from other websites</h4>
-                                <p class="pb-3">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusan tium dolorem que laudantium, totam rem aperiam the eaque ipsa quae abillo was inventore veritatis keret quasi aperiam architecto beatae vitae dicta sunt explicabo.</p>
-                            </div><!-- end terms-panel -->
-                            <div class="terms-panel mb-30px" id="how-we-protect-your-information">
-                                <h3 class="fs-20 pb-3 fw-bold">3. How we protect your information</h3>
-                                <p class="pb-3">We adopt appropriate data collection, storage and processing practices and security measures to protect against unauthorized access, alteration, disclosure or destruction of your personal information, username, password, transaction information and data stored on our Site.</p>
-                                <p class="pb-3">Sensitive and private data exchange between the Site and its Users happens over a SSL secured communication channel and is encrypted and protected with digital signatures. Our Site is also in compliance with PCI vulnerability standards in order to create as secure of an environment as possible for Users.</p>
-                            </div><!-- end terms-panel -->
-                            <div class="terms-panel" id="your-contact-information">
-                                <h3 class="fs-20 pb-3 fw-bold">4. Your contact information</h3>
-                                <p class="pb-3">If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</p>
+                            <h1>Content Policy for Lemyk.com</h1>
+
+                            <h2>Introduction</h2>
+                            <p>Welcome to Lemyk.com! Our content policy plays an important role in maintaining a positive experience for you, the users. We ask that all participants adhere to the rules and guidelines outlined in this policy.</p>
+                        
+                            <h2>1. Respect for Community</h2>
+                            <p>Lemyk.com is a platform for community engagement, discussion, and sharing. Users should be respectful and considerate in their interactions. Harassment, bullying, and hate speech are not tolerated.</p>
+                        
+                            <h2>2. Prohibited Content</h2>
+                            <p>The following content is not allowed on Lemyk.com:</p>
+                            <ul>
+                                <li><strong>Illegal Material</strong>: Sharing or promoting content that is illegal, such as pirated content or illegal services.</li>
+                                <li><strong>Hate Speech</strong>: Content that promotes hate or violence against individuals or groups based on race, ethnicity, national origin, sex, gender, sexual orientation, religious affiliation, or disabilities.</li>
+                                <li><strong>Harassment</strong>: Bullying, stalking, or targeting of individuals or groups.</li>
+                                <li><strong>Explicit Content</strong>: Pornography and sexually explicit material.</li>
+                                <li><strong>Violence and Graphic Content</strong>: Gratuitously violent or graphic content without educational or newsworthy value.</li>
+                                <li><strong>Personal Information</strong>: Posting or distributing private or personal information without consent.</li>
+                            </ul>
+                        
+                            <h2>3. User-Generated Content</h2>
+                            <p>You are responsible for the content you post. All user-generated content should comply with this policy and local laws.</p>
+                        
+                            <h2>4. Enforcement and Reporting</h2>
+                            <p>Violation of this policy may result in content removal, suspension, or a ban from Lemyk.com. If you encounter content that violates this policy, please report it to our moderation team.</p>
+                        
+                            <h2>5. Modifications to the Policy</h2>
+                            <p>Lemyk.com reserves the right to modify this policy at any time. Users will be notified of significant changes, but you should review this policy periodically.</p>
+                        
+                            <h2>6. Disclaimer</h2>
+                            <p>Lemyk.com is not responsible for the content posted by users. Opinions expressed on the forum do not necessarily reflect the views of Lemyk.com or its staff.</p>
                             </div><!-- end terms-panel -->
                         </div><!-- end terms-panel-main-bar -->
                     </div><!-- end col-lg-9 -->
@@ -76,4 +77,4 @@
     <!-- ================================
              END PRIVACY AREA
     ================================= -->
-</x-standard-2-layout>
+</x-standard-2-layout-qa>

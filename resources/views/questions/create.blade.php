@@ -86,8 +86,8 @@
                         <div class="input-box pt-2">
                             <div class="form-group">
                                 <div class="custom-control custom-checkbox fs-13">
-                                    <input type="checkbox" class="custom-control-input" id="youAgreeCheckBox">
-                                    <label class="custom-control-label custom--control-label" for="youAgreeCheckBox">By asking your question, you agree to the <a href="privacy-policy.html" class="text-color hover-underline">Privacy Policy.</a></label>
+                                    <input type="checkbox" class="custom-control-input" id="is_agree" name="is_agree" value="1">
+                                    <label class="custom-control-label custom--control-label" for="is_agree">By asking your question, you agree to the <a href="/content-policy" class="text-color hover-underline">Content Policy.</a></label>
                                 </div>
                             </div>
                             <div class="btn-box">
@@ -97,161 +97,10 @@
                     </form>
                 </div><!-- end card -->
             </div><!-- end col-lg-8 -->
-            <div class="col-lg-4">
-                <div class="sidebar">
-                    <div class="card card-item p-4">
-                        <h3 class="fs-17 pb-3">Step 1: Draft your question</h3>
-                        <div class="divider"><span></span></div>
-                        <p class="fs-14 lh-22 pb-2 pt-3">The community is here to help you with specific coding, algorithm, or language problems.</p>
-                        <p class="fs-14 lh-22">Avoid asking opinion-based questions.</p>
-                        <div id="accordion" class="generic-accordion pt-4">
-                            <div class="card">
-                                <div class="card-header" id="headingOne">
-                                    <button class="btn btn-link fs-15" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                       <span><span class="text-color pr-2 fs-16">1.</span> Summarize the problem</span>
-                                        <i class="la la-angle-down collapse-icon"></i>
-                                    </button>
-                                </div>
-                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                                    <div class="card-body">
-                                        <ul class="generic-list-item generic-list-item-bullet generic-list-item--bullet-2 fs-14">
-                                            <li class="lh-18 text-black-50">Include details about your goal</li>
-                                            <li class="lh-18 text-black-50">Describe expected and actual results</li>
-                                            <li class="lh-18 text-black-50 mb-0">Include any error messages</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div><!-- end card -->
-                            <div class="card">
-                                <div class="card-header" id="headingTwo">
-                                    <button class="btn btn-link collapsed fs-15" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        <span><span class="text-color pr-2 fs-16">2.</span> Describe what you’ve tried</span>
-                                        <i class="la la-angle-down collapse-icon"></i>
-                                    </button>
-                                </div>
-                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                    <div class="card-body">
-                                        <p class="fs-14 lh-22 text-black-50">
-                                            Show what you’ve tried and tell us what you found (on this site or elsewhere) and why it didn’t meet your needs. You can get better answers when you provide research.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div><!-- end card -->
-                            <div class="card">
-                                <div class="card-header" id="headingThree">
-                                    <button class="btn btn-link collapsed fs-15" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        <span><span class="text-color pr-2 fs-16">3.</span> Show some code</span>
-                                        <i class="la la-angle-down collapse-icon"></i>
-                                    </button>
-                                </div>
-                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                    <div class="card-body">
-                                       <p class="fs-14 lh-22 text-black-50">
-                                           When appropriate, share the minimum amount of code others need to reproduce your problem (also called a
-                                           <a href="#" class="text-color hover-underline">minimum</a>, <a href="#" class="text-color hover-underline">reproducible example</a>)
-                                       </p>
-                                    </div>
-                                </div>
-                            </div><!-- end card -->
-                        </div><!-- end accordion -->
-                    </div><!-- end card -->
-                    <div id="accordion-two" class="generic-accordion">
-                        <div class="card mb-3">
-                            <div class="card-header" id="headingFour">
-                                <button class="btn btn-link collapsed fs-15" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    <span>Have a non-programming question?</span>
-                                    <i class="la la-angle-down collapse-icon"></i>
-                                </button>
-                            </div>
-                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion-two">
-                                <div class="card-body">
-                                    <p class="fs-14 lh-22 text-black-50 pb-2">
-                                        <a class="text-color hover-underline d-block" href="#" target="_blank">Super user</a>
-                                        Troubleshooting hardware and software issues
-                                    </p>
-                                    <p class="fs-14 lh-22 text-black-50 pb-2">
-                                        <a class="text-color hover-underline d-block" href="#" target="_blank">Software engineering</a>
-                                        For software development methods and process questions
-                                    </p>
-                                    <p class="fs-14 lh-22 text-black-50 pb-2">
-                                        <a class="text-color hover-underline d-block" href="#" target="_blank">Hardware recommendations</a>
-                                    </p>
-                                    <p class="fs-14 lh-22 text-black-50 pb-2">
-                                        <a class="text-color hover-underline d-block" href="#" target="_blank">Software recommendations</a>
-                                    </p>
-                                    <p class="fs-14 lh-22 text-black-50">Ask questions about the site on <a class="text-color hover-underline" href="#" target="_blank">meta</a></p>
-                                </div>
-                            </div>
-                        </div><!-- end card -->
-                        <div class="card">
-                            <div class="card-header" id="headingFive">
-                                <button class="btn btn-link collapsed fs-15" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                    <span>More helpful links</span>
-                                    <i class="la la-angle-down collapse-icon"></i>
-                                </button>
-                            </div>
-                            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion-two">
-                                <div class="card-body">
-                                    <p class="fs-14 lh-22 text-black-50 pb-2">
-                                        Find more information about <a class="text-color hover-underline" href="#" target="_blank">how to ask a good question here</a>
-                                    </p>
-                                    <p class="fs-14 lh-22 text-black-50">
-                                        Visit the <a class="text-color hover-underline" href="#" target="_blank">help center</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div><!-- end card -->
-
-                    </div><!-- end accordion -->
-                </div><!-- end sidebar -->
-            </div><!-- end col-lg-4 -->
         </div><!-- end row -->
     </div><!-- end container -->
 </section><!-- end question-area -->
 <!-- ================================
          END QUESTION AREA
-================================= -->
-
-<!-- ================================
-         START CTA AREA
-================================= -->
-<section class="get-started-area pt-80px pb-50px pattern-bg bg-gray">
-    <div class="container">
-        <div class="text-center">
-            <h2 class="section-title">Disilab Q&A communities are different. <br> Here's how</h2>
-        </div>
-        <div class="row pt-50px">
-            <div class="col-lg-4 responsive-column-half">
-                <div class="card card-item hover-y text-center">
-                    <div class="card-body">
-                        <img src="images/bubble.png" alt="bubble">
-                        <h5 class="card-title pt-4 pb-2">Expert communities.</h5>
-                        <p class="card-text">This is just a simple text made for this unique and awesome template, you can easily edit it as you want.</p>
-                    </div><!-- end card-body -->
-                </div><!-- end card -->
-            </div><!-- end col-lg-4 -->
-            <div class="col-lg-4 responsive-column-half">
-                <div class="card card-item hover-y text-center">
-                    <div class="card-body">
-                        <img src="images/vote.png" alt="vote">
-                        <h5 class="card-title pt-4 pb-2">The right answer. Right on top.</h5>
-                        <p class="card-text">This is just a simple text made for this unique and awesome template, you can easily edit it as you want.</p>
-                    </div><!-- end card-body -->
-                </div><!-- end card -->
-            </div><!-- end col-lg-4 -->
-            <div class="col-lg-4 responsive-column-half">
-                <div class="card card-item hover-y text-center">
-                    <div class="card-body">
-                        <img src="images/check.png" alt="check">
-                        <h5 class="card-title pt-4 pb-2">Share knowledge. Earn trust.</h5>
-                        <p class="card-text">This is just a simple text made for this unique and awesome template, you can easily edit it as you want.</p>
-                    </div><!-- end card-body -->
-                </div><!-- end card -->
-            </div><!-- end col-lg-4 -->
-        </div><!-- end row -->
-    </div><!-- end container -->
-</section>
-<!-- ================================
-         END CTA AREA
 ================================= -->
 </x-standard-layout-qa>

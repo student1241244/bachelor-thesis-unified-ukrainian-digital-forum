@@ -8,6 +8,7 @@ use App\Http\Controllers\FollowController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GeneralController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\WarningController;
@@ -28,21 +29,14 @@ use Packages\Settings\App\Controllers\SettingsController;
 |
 */
 
-Route::get('/admin-dashboard', function () {
-    return "You admin";
-})->middleware('can:visitAdminPages');
-
 Route::get('/admin/settingss', [SettingsController::class, "show"])->name('admin.settings');
 Route::post('/admin/settingss', [SettingsController::class, "update"])->name('admin.settings.update');
 Route::get('/admin/settings-securitys', [SettingsController::class, "show"])->name('admin.settings-security');
 Route::post('/admin/toggle-maintenance', [SettingsController::class, "toggleMaintenance"])->name('admin.toggleMaintenance');
 Route::post('/admin/settings/update-backup-frequency', [SettingsController::class, "updateBackupFrequency"])->name('admin.settings.updateBackupFrequency');
+Route::get('/admin/pagespeed', [SettingsController::class, "pageSpeed"])->name('admin.settings.pagespeed');
 
 
-// Main routes
-Route::get('/qa-home', function () {
-    return view('qa-home');
-});
 
 Route::get('/passcode', [PasscodeController::class, "passcodeHome"]);
 Route::get('/buy-passcode', [PasscodeController::class, "createCheckoutSession"])->name('passcode.checkout');
@@ -78,13 +72,6 @@ Route::get('/profile-settings', [UserController::class, "showProfileSettings"])-
 Route::post('/profile-settings', [UserController::class, "updateProfileSettings"])->middleware('auth');
 Route::get('/favourites/{user:username}', [UserController::class, "showFavourites"])->middleware('auth');
 
-Route::get('/signin', function () {
-    return view('signin', ['title' => 'Signin']);
-})->name('login')->middleware('guest');
-Route::get('/signup', function () {
-    return view('signup', ['title' => 'Signup']);
-})->middleware(['guest', 'checkRegistrationEnabled']);
-
 // Q&A routes
 Route::get('/questions/{categoryId}', [QAController::class, "showQuestions"]);
 Route::get('/interesting-questions', [QAController::class, 'getInterestingQuestions']);
@@ -118,8 +105,6 @@ Route::get('/profile/{user:username}', [UserController::class, "showProfile"]);
 //Follow routes
 Route::post('/follow/{user:username}', [FollowController::class, "followUser"])->middleware('auth');
 Route::post('/unfollow/{user:username}', [FollowController::class, "unfollowUser"])->middleware('auth');
-// Route::post('/profile/{user:username}/followers', [FollowController::class, "profileFollowers"])->middleware('auth');
-// Route::post('/profile/{user:username}/following', [FollowController::class, "profileFollowing"])->middleware('auth');
 
 Route::post('/switch-theme', [PasscodeFeaturesController::class, 'switchTheme']);
 
@@ -128,6 +113,8 @@ Route::get('/about', [GeneralController::class, "showAbout"]);
 Route::get('/privacy-policy', [GeneralController::class, "showPrivacyPolicy"]);
 Route::get('/content-policy', [GeneralController::class, "showContentPolicy"]);
 Route::get('/cookie-policy', [GeneralController::class, "showCookiePolicy"]);
-Route::get('/contact', [GeneralController::class, "showContact"]);
 Route::get('/support', [GeneralController::class, "showSupport"]);
-
+Route::post('/send-contact-mail', [ContactController::class, 'sendContactMail']);
+Route::get('/signin', [GeneralController::class, 'showSignin'])->name('login')->middleware('guest');
+Route::get('/signup', [GeneralController::class, 'showSignup'])->middleware(['guest', 'checkRegistrationEnabled']);
+Route::get('/qa-home', [GeneralController::class, 'showQuestionsHome']);

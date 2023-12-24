@@ -149,12 +149,37 @@
                 <a href="/about">About Lemyk</a>
             </li>
         </ul>
-        <div class="off-canvas-btn-box px-4 pt-5 text-center">
-            <a href="/signin" class="btn theme-btn theme-btn-sm theme-btn-outline"><i class="la la-sign-in mr-1"></i> Login</a>
-            <span class="fs-15 fw-medium d-inline-block mx-2">Or</span>
-            <a href="/signup" class="btn theme-btn theme-btn-sm"><i class="la la-plus mr-1"></i> Sign up</a>
-        </div>
     </div><!-- end off-canvas-menu -->
+    @auth
+    <div class="user-off-canvas-menu custom-scrollbar-styled">
+        <div class="user-off-canvas-menu-close icon-element icon-element-sm shadow-sm" data-toggle="tooltip" data-placement="left" title="" data-original-title="Close menu">
+            <i class="la la-times"></i>
+        </div><!-- end user-off-canvas-menu-close -->
+        <ul class="nav nav-tabs generic-tabs generic--tabs pt-90px pl-4 shadow-sm" id="myTab2" role="tablist">
+            <li class="nav-item"><div class="anim-bar" style="left: 166.838px; width: 50.7625px;"></div></li>
+            <li class="nav-item">
+                <a class="nav-link active" id="user-profile-menu-tab" data-toggle="tab" href="#user-profile-menu" role="tab" aria-controls="user-profile-menu" aria-selected="true">Profile</a>
+            </li>
+        </ul>
+        <div class="tab-content pt-3" id="myTabContent2">
+            <div class="tab-pane fade active show" id="user-profile-menu" role="tabpanel" aria-labelledby="user-profile-menu-tab">
+                <div class="dropdown--menu shadow-none w-auto rounded-0">
+                    <div class="dropdown-item-list">
+                        <a class="dropdown-item" href="/profile/{{ auth()->user()->username }}"><i class="la la-user mr-2"></i>Profile</a>
+                        <a class="dropdown-item" href="/favourites/{{ auth()->user()->username }}"><i class="la la-star-o mr-2"></i>Favourites</a>
+                        <a class="dropdown-item" href="/questions/1"><i class="la la-fire mr-2"></i>Trending</a>
+                        <a class="dropdown-item" href="/profile-settings"><i class="la la-gear mr-2"></i>Settings</a>
+                        <form action="/logout" method="POST">
+                            @csrf
+                            <button type="submit" class="dropdown-item"><i class="la la-power-off mr-2"></i>Log out</button>
+                        </form>
+                    </div>
+                </div>
+            </div><!-- end tab-pane -->
+        </div>
+    </div>
+    @else
+    @endauth
     <div class="body-overlay"></div>
 </header><!-- end header-area -->
 <!--======================================

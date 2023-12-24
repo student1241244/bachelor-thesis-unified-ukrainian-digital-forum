@@ -9,9 +9,9 @@ class StoreRequest extends BaseAjaxRequest
     public function rules()
     {
         return [
-            'title' => 'required',
+            'title' => 'required|max:100',
             'category_id' => 'required|exists:threads_categories,id',
-            'body' => 'required',
+            'body' => 'required|max:1000',
             'image' => 'mimes:jpeg,jpg,png|max:2048',
             'is_agree' => 'required',
         ];

@@ -9,7 +9,7 @@ class PostAnswerRequest extends BaseAjaxRequest
     public function rules()
     {
         return [
-            'body' => 'required',
+            'body' => 'required|max:1000',
             'images' => 'nullable|array|max:6',
             'images.*' => 'mimes:jpeg,jpg,png|max:2048',
         ];

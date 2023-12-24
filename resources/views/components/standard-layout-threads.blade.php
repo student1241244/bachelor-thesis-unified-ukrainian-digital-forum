@@ -69,9 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="logo-box">
                     <a href="/" class="logo"><img src="/images/logo-black.png" alt="logo"></a>
                     <div class="user-action">
-                        <div class="search-menu-toggle icon-element icon-element-xs shadow-sm mr-1" data-toggle="tooltip" data-placement="top" title="Search">
-                            <i class="la la-search"></i>
-                        </div>
                         <div class="off-canvas-menu-toggle icon-element icon-element-xs shadow-sm" data-toggle="tooltip" data-placement="top" title="Main menu">
                             <i class="la la-bars"></i>
                         </div>
@@ -120,26 +117,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="/qa-home">Q&A</a>
             </li>
             <li>
-                <a href="/qa-home">Threads</a>
+                <a href="/threads-home">Threads</a>
             </li>
             <li>
                 <a href="/about">About Lemyk</a>
             </li>
+            @if(session('passcode'))
+            <div class="theme-selector">
+                <select id="themeSwitcher">
+                    <option value="light">Light Theme</option>
+                    <option value="dark">Dark Theme</option>
+                </select>                            
+            </div>
+            @endif
         </ul>
     </div><!-- end off-canvas-menu -->
-    <div class="mobile-search-form">
-        <div class="d-flex align-items-center">
-            <form method="post" class="flex-grow-1 mr-3">
-                <div class="form-group mb-0">
-                    <input class="form-control form--control pl-40px" type="text" name="search" placeholder="Type your search words...">
-                    <span class="la la-search input-icon"></span>
-                </div>
-            </form>
-            <div class="search-bar-close icon-element icon-element-sm shadow-sm">
-                <i class="la la-times"></i>
-            </div><!-- end off-canvas-menu-close -->
-        </div>
-    </div><!-- end mobile-search-form -->
     <div class="body-overlay"></div>
 </header><!-- end header-area -->
 <!--======================================

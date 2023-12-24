@@ -93,6 +93,30 @@
                     </div>
                 </div><!-- end media -->
             </div><!-- end hero-list -->
+            <section class="funfact-area">
+                <div class="container">
+                    <div class="counter-box bg-white shadow-md rounded-rounded px-4">
+                        <div class="row">
+                            <div class="col responsive-column-half border-right border-right-gray">
+                                <div class="media media-card text-center px-0 py-4 shadow-none rounded-0 bg-transparent counter-item mb-0">
+                                    <div class="media-body">
+                                        <h5 class="fw-semi-bold pb-2">{{ $threadCount }}</h5>
+                                        <p class="lh-20">Threads created to-date</p>
+                                    </div>
+                                </div>
+                            </div><!-- end col -->
+                            <div class="col responsive-column-half">
+                                <div class="media media-card text-center px-0 py-4 shadow-none rounded-0 bg-transparent counter-item mb-0">
+                                    <div class="media-body">
+                                        <h5 class="fw-semi-bold pb-2">{{ $threadCommentCount }}</h5>
+                                        <p class="lh-20">Comments provided</p>
+                                    </div>
+                                </div>
+                            </div><!-- end col -->
+                        </div><!-- end row -->
+                    </div><!-- end counter-box -->
+                </div><!-- end container -->
+            </section><!-- end funfact-area -->
         </div><!-- end container -->
     </section>
     <!--======================================

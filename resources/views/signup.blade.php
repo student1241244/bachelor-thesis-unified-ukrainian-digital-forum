@@ -63,7 +63,7 @@
                 </div><!-- end col-lg-5 -->
             </div><!-- end row -->
         </form>
-        <p class="text-black text-center fs-15">Already have an account? <a href="login.html" class="text-color hover-underline">Log in</a></p>
+        <p class="text-black text-center fs-15">Already have an account? <a href="/signin" class="text-color hover-underline">Log in</a></p>
     </div><!-- end container -->
     <div class="position-absolute top-0 left-0 w-100 h-100 z-index-n1">
         <svg class="w-100 h-100" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">

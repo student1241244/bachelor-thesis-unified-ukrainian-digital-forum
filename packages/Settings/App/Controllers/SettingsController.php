@@ -31,6 +31,13 @@ class SettingsController extends BaseController
         return view('tpx_dashboard::dashboard.index_simple', get_defined_vars());
     }
 
+    public function pageSpeed(IndexRequest $request)
+    {
+        $formView = 'settings.pagespeed';
+
+        return view('tpx_dashboard::dashboard.index_simple', get_defined_vars());
+    }
+
     public function runDiagnostics()
     {
         $diagnosticService = new DiagnosticService();

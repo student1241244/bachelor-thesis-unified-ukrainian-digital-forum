@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class GeneralController extends Controller
 {
     public function showAbout() {
-        return view('general.about', ['title' => 'Passcode feature']);
+        return view('/general.about', ['title' => 'Passcode feature']);
     }
 
     public function showPrivacyPolicy() {
@@ -19,7 +19,7 @@ class GeneralController extends Controller
     }
 
     public function showCookiePolicy() {
-        return view('/general.content-policy');
+        return view('/general.cookie-policy');
     }
 
     public function showContact() {
@@ -28,5 +28,17 @@ class GeneralController extends Controller
 
     public function showSupport() {
         return view('/general.support');
+    }
+
+    public function showSignin() {
+        return view('/signin', ['title' => 'Signin']);
+    }
+
+    public function showSignup() {
+        return view('/signup', ['title' => 'Signup']);
+    }
+
+    public function showQuestionsHome() {
+        return view('/qa-home');
     }
 }

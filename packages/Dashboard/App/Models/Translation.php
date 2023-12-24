@@ -1,13 +1,5 @@
 <?php
 
-/**
- * @package     Translations
- * @version     0.1.0
- * @author      LLC <contact@test-llc.com>
- * @license     MIT
- * @copyright   2017, LLC
- * @link        http://test-llc.com
- */
 namespace Packages\Dashboard\App\Models;
 
 use Illuminate\Database\Eloquent\Model;

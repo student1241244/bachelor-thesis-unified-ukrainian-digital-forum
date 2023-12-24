@@ -9,6 +9,7 @@ use Packages\Threads\App\Models\Comment;
 use Packages\Threads\App\Models\Category;
 use App\Http\Requests\Thread\StoreRequest;
 use App\Http\Requests\Thread\AddCommentRequest;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
 
 class ThreadController extends Controller
@@ -39,6 +40,14 @@ class ThreadController extends Controller
     {
         $categories = Category::all();
 
+        $threadCount = Cache::remember('threadCount', 20, function() {
+            return Thread::count();
+        });
+
+        $threadCommentCount = Cache::remember('threadCommentCount', 20, function() {
+            return \Packages\Threads\App\Models\Comment::count();
+        });
+
         return view('threads-home', compact('categories'));
     }
 
@@ -68,9 +77,11 @@ class ThreadController extends Controller
         if ($request->hasFile('image')) {
             $thread->addMediaFromRequest('image')->toMediaCollection('image');
         }
+        $threadUrl = route('threads.show', $thread->id);
 
         return response()->json([
             'message' => 'Thread created successfully.',
+            'redirectUrl' => $threadUrl,
         ]);
     }
 

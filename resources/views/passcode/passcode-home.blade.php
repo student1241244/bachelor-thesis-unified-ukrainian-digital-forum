@@ -121,7 +121,7 @@
     ================================= -->
     <section class="about-area pb-120px">
         <div class="container">
-            <div class="about-box bg-white shadow-md rounded-rounded px-5 pt-40px pb-60px">
+            <div class="about-box bg-white shadow-md rounded-rounded px-1 pt-40px pb-60px">
                 <!-- ================================
          START USER DETAILS AREA
 ================================= -->

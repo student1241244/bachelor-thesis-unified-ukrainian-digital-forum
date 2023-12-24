@@ -1,28 +1,11 @@
 <?php
-/**
- * Part ot the LLC Dashboard extension.
- *
- * NOTICE OF LICENSE
- *
- * Licensed under the LLC PSL License.
- *
- * This source file is subject to the LLC PSL License that is
- * bundled with this package in the LICENSE file.
- *
- * @package    LLC Dashboard extension
- * @version    0.1
- * @author     LLC
- * @license    LLC
- * @copyright  (c) 2011-2020, LLC
- * @link       http://digitalp.co
- */
 
 use Products\Models\Product;
 use Services\Models\Service;
 
 return [
     'id' => 'Dashboard',
-    'vendor' => 'LLC',
+    'vendor' => 'Lemyk',
     /*
     |--------------------------------------------------------------------------
     | Default Template
@@ -33,7 +16,7 @@ return [
     */
     'title' => 'Dashboard',
 
-    'version' => '0.2',
+    'version' => '1',
 
     'mini_title' => env('APP_NAME_SHORT'),
 

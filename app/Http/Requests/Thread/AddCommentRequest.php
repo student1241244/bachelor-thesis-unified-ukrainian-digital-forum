@@ -9,8 +9,8 @@ class AddCommentRequest extends BaseAjaxRequest
     public function rules()
     {
         return [
-            'body' => 'required',
-            'image' => 'mimes:jpeg,jpg,png|max:10000',
+            'body' => 'required|max:500',
+            'image' => 'mimes:jpeg,jpg,png|max:2048',
         ];
     }
 

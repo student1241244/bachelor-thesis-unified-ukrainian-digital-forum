@@ -67,5 +67,6 @@
         </select>
     <button type="submit" class="btn btn-xs btn-add">Save Changes</button>
 </form>
+<a href="{{ route('admin.settings.pagespeed') }}">Page Speed</a>
 </div>
 </div>

@@ -54,7 +54,7 @@ class QAController extends Controller
             'title' => 'required',
             'body' => 'required'
         ]);
-
+        
         $incomingFields['title'] = strip_tags($incomingFields['title']);
         $incomingFields['body'] = strip_tags($incomingFields['body']);
 
@@ -71,7 +71,9 @@ class QAController extends Controller
     }
 
     public function showEditQuestionForm(Question $question) {
-        return view('edit-question', ['question' => $question]);
+        $categories = Category::get()->pluck('title', 'id')->toArray();
+
+        return view('edit-question', get_defined_vars());
     }
 
     public function deleteQuestion(Question $question) {
@@ -101,11 +103,12 @@ class QAController extends Controller
 
     public function createNewQuestion(Request $request) {
         $incomingFields = $request->validate([
-            'title' => 'required',
-            'body' => 'required',
-            'category_id' => 'required',
+            'title' => 'required|max:100',
+            'body' => 'required|max:1000',
+            'category_id' => 'required|exists:questions_categories,id',
             'images' => 'array|max:6',
             'images.*' => 'mimes:jpg,jpeg,png|max:2048',
+            'is_agree' => 'required',
         ]);
         
         $incomingFields['title'] = strip_tags($incomingFields['title']);

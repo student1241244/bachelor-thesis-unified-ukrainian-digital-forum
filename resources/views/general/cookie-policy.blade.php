@@ -1,4 +1,4 @@
-<x-standard-2-layout>
+<x-standard-2-layout-qa>
     <!--======================================
             START HERO AREA
     ======================================-->
@@ -32,41 +32,81 @@
                 <div class="card-body row">
                     <div class="col-lg-3">
                         <ul class="js-scroll-nav js--scroll-nav">
-                            <li class="active"><a href="#information-we-collect-and-how-we-use-it" class="page-scroll">1. Information We Collect and How We Use It</a></li>
-                            <li><a href="#contact-forms" class="page-scroll">2. Contact forms</a></li>
-                            <li><a href="#how-we-protect-your-information" class="page-scroll">3. How we protect your information</a></li>
-                            <li><a href="#your-contact-information" class="page-scroll">4. Your contact information</a></li>
+                            <li class="active"><a href="#information-we-collect-and-how-we-use-it" class="page-scroll">Cookie Policy</a></li>
                         </ul>
                     </div><!-- end col-lg-3 -->
                     <div class="col-lg-9">
                         <div class="terms-panel-main-bar pl-3">
-                            <div class="terms-panel mb-30px" id="information-we-collect-and-how-we-use-it">
-                                <h3 class="fs-20 pb-3 fw-bold">1. Information We Collect and How We Use It</h3>
-                                <h4 class="fs-16 pb-1">A. Account Information:</h4>
-                                <p class="pb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, dicta error eum exercitationem expedita hic maiores necessitatibus possimus quo voluptatum.</p>
-                                <h4 class="fs-16 pb-1">B. Public Content:</h4>
-                                <p class="pb-3">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusan tium dolorem que laudantium, totam rem aperiam the eaque ipsa quae abillo was inventore veritatis keret quasi aperiam architecto beatae vitae dicta sunt explicabo.</p>
-                                <h4 class="fs-16 pb-1">C. Contacts:</h4>
-                                <p class="pb-3">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusan tium dolorem que laudantium, totam rem aperiam the eaque ipsa quae abillo was inventore veritatis keret quasi aperiam architecto beatae vitae dicta sunt explicabo.</p>
-                                <h4 class="fs-16 pb-1">D. Communications:</h4>
-                                <p class="pb-3">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusan tium dolorem que laudantium, totam rem aperiam the eaque ipsa quae abillo was inventore veritatis keret quasi aperiam architecto beatae vitae dicta sunt explicabo.</p>
-                            </div><!-- end terms-panel -->
-                            <div class="terms-panel mb-30px" id="contact-forms">
-                                <h3 class="fs-20 pb-3 fw-bold">2. Contact forms</h3>
-                                <h4 class="fs-16 pb-1">A. Cookies</h4>
-                                <p class="pb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, dicta error eum exercitationem expedita hic maiores necessitatibus possimus quo voluptatum.</p>
-                                <h4 class="fs-16 pb-1">B. Embedded content from other websites</h4>
-                                <p class="pb-3">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusan tium dolorem que laudantium, totam rem aperiam the eaque ipsa quae abillo was inventore veritatis keret quasi aperiam architecto beatae vitae dicta sunt explicabo.</p>
-                            </div><!-- end terms-panel -->
-                            <div class="terms-panel mb-30px" id="how-we-protect-your-information">
-                                <h3 class="fs-20 pb-3 fw-bold">3. How we protect your information</h3>
-                                <p class="pb-3">We adopt appropriate data collection, storage and processing practices and security measures to protect against unauthorized access, alteration, disclosure or destruction of your personal information, username, password, transaction information and data stored on our Site.</p>
-                                <p class="pb-3">Sensitive and private data exchange between the Site and its Users happens over a SSL secured communication channel and is encrypted and protected with digital signatures. Our Site is also in compliance with PCI vulnerability standards in order to create as secure of an environment as possible for Users.</p>
-                            </div><!-- end terms-panel -->
-                            <div class="terms-panel" id="your-contact-information">
-                                <h3 class="fs-20 pb-3 fw-bold">4. Your contact information</h3>
-                                <p class="pb-3">If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</p>
-                            </div><!-- end terms-panel -->
+                            <h1>Cookie Policy for Lemyk</h1>
+
+<p>This is the Cookie Policy for Lemyk, accessible from https://lemyk.com</p>
+
+<p><strong>What Are Cookies</strong></p>
+
+<p>As is common practice with almost all professional websites this site uses cookies, which are tiny files that are downloaded to your computer, to improve your experience. This page describes what information they gather, how we use it and why we sometimes need to store these cookies. We will also share how you can prevent these cookies from being stored however this may downgrade or 'break' certain elements of the sites functionality.</p>
+
+<p><strong>How We Use Cookies</strong></p>
+
+<p>We use cookies for a variety of reasons detailed below. Unfortunately in most cases there are no industry standard options for disabling cookies without completely disabling the functionality and features they add to this site. It is recommended that you leave on all cookies if you are not sure whether you need them or not in case they are used to provide a service that you use.</p>
+
+<p><strong>Disabling Cookies</strong></p>
+
+<p>You can prevent the setting of cookies by adjusting the settings on your browser (see your browser Help for how to do this). Be aware that disabling cookies will affect the functionality of this and many other websites that you visit. Disabling cookies will usually result in also disabling certain functionality and features of the this site. Therefore it is recommended that you do not disable cookies. This Cookies Policy was created with the help of the <a href="https://www.cookiepolicygenerator.com/cookie-policy-generator/">Cookies Policy Generator</a>.</p>
+<p><strong>The Cookies We Set</strong></p>
+
+<ul>
+
+<li>
+    <p>Account related cookies</p>
+    <p>If you create an account with us then we will use cookies for the management of the signup process and general administration. These cookies will usually be deleted when you log out however in some cases they may remain afterwards to remember your site preferences when logged out.</p>
+</li>
+
+<li>
+    <p>Login related cookies</p>
+    <p>We use cookies when you are logged in so that we can remember this fact. This prevents you from having to log in every single time you visit a new page. These cookies are typically removed or cleared when you log out to ensure that you can only access restricted features and areas when logged in.</p>
+</li>
+
+
+
+
+
+<li>
+    <p>Site preferences cookies</p>
+    <p>In order to provide you with a great experience on this site we provide the functionality to set your preferences for how this site runs when you use it. In order to remember your preferences we need to set cookies so that this information can be called whenever you interact with a page is affected by your preferences.</p>
+</li>
+
+</ul>
+
+<p><strong>Third Party Cookies</strong></p>
+
+<p>In some special cases we also use cookies provided by trusted third parties. The following section details which third party cookies you might encounter through this site.</p>
+
+<ul>
+
+
+
+
+
+
+
+
+
+
+</ul>
+
+<p><strong>More Information</strong></p>
+
+<p>Hopefully that has clarified things for you and as was previously mentioned if there is something that you aren't sure whether you need or not it's usually safer to leave cookies enabled in case it does interact with one of the features you use on our site.</p>
+
+<p>For more general information on cookies, please read <a href="https://www.cookiepolicygenerator.com/sample-cookies-policy/">the Cookies Policy article</a>.</p>
+
+<p>However if you are still looking for more information then you can contact us through one of our preferred contact methods:</p>
+
+<ul>
+<li>Email: info@lemyk.com</li>
+
+</ul>
+
                         </div><!-- end terms-panel-main-bar -->
                     </div><!-- end col-lg-9 -->
                 </div>
