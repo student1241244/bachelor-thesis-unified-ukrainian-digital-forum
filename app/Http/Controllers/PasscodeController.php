@@ -126,7 +126,7 @@ class PasscodeController extends Controller
 
     public function cancel()
     {
-        return redirect('/')->with('error', 'We regret to inform you that an error occurred during the payment transaction. Should there be any deduction from your account without successful completion of the transaction, and if the amount has not been automatically refunded, please do not hesitate to reach out to us at info@lemyk.com for assistance or via our <a href="/support">Support page</a>.');
+        return redirect('/')->with('error', 'We regret to inform you that an error occurred during the payment transaction. Should there be any deduction from your account without successful completion of the transaction, and if the amount has not been automatically refunded, please do not hesitate to reach out to us at info@lemyk.com for assistance or via our Support page.');
     }
 
     public function handleWebhook(Request $request)
