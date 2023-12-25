@@ -90,35 +90,38 @@ class PasscodeController extends Controller
 
     public function success(Request $request)
     {
-        // Retrieve the token from the query parameters
-        sleep(2);
         $secureToken = $request->query('token');
         Log::info('Accessing Success Page', ['token' => $secureToken]);
     
         if (!$secureToken) {
             Log::error('Error: Token not provided in Success Page');
-            abort(404); // Or return a custom error view
-        }
-
-        // Find the payment associated with this token
-        $payment = Payment::where('secure_token', $secureToken)
-                          ->where('status', 'completed')
-                          ->first();
-        
-        $rawPasscode = Cache::get('raw_passcode_for_user_' . $payment->id);
-        Cache::forget('raw_passcode_for_user_' . $payment->id);
-    
-        if (!$payment) {
-            Log::error('Error: No completed payment found for the provided token', ['token' => $secureToken]);
-            abort(404); // Or return a custom error view
+            return redirect()->route('passcode.failed'); // Redirect to a failure page
         }
     
-        // Optionally mark the passcode as displayed or invalidate the token, if necessary
-        $payment->update(['passcode_displayed' => true]); // Commented out if not needed
+        $startTime = time();
+        $timeout = 30; // Time in seconds to wait for the webhook
+        $interval = 2; // Time in seconds to wait between checks
     
-        // Return the success view with the passcode
-        return view('passcode.passcode-home', ['passcode' => $rawPasscode, 'title' => 'Passcode feature']);
-    }
+        while (time() - $startTime < $timeout) {
+            $payment = Payment::where('secure_token', $secureToken)->first();
+    
+            if ($payment && $payment->status == 'completed') {
+                $rawPasscode = Cache::get('raw_passcode_for_user_' . $payment->id);
+                Cache::forget('raw_passcode_for_user_' . $payment->id);
+    
+                // Optionally mark the passcode as displayed
+                $payment->update(['passcode_displayed' => true]);
+    
+                // Return the success view with the passcode
+                return view('passcode.passcode-home', ['passcode' => $rawPasscode, 'title' => 'Passcode feature']);
+            }
+    
+            sleep($interval);
+        }
+    
+        Log::error('Payment not completed in time', ['token' => $secureToken]);
+        return redirect()->route('passcode.failed'); // Redirect to a failure page
+    }    
 
     public function cancel(Request $request)
     {
