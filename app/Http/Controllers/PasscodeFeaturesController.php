@@ -20,19 +20,17 @@ class PasscodeFeaturesController extends Controller
             return false;
         }
         Log::error("PASSCODE ACTIVATION", ['0.1' => '0.1']);
-        $payment = Payment::where('status', 'completed')->first();
-        if ($payment && password_verify($rawPasscode, $payment->passcode)) {
-            Log::error("PASSCODE ACTIVATION", ['1' => '1']);
-            $activatedAt = $passcodeSession['activated_at'] ?? null;
-            Log::error("PASSCODE ACTIVATION", ['2' => '2']);
-            if (!$activatedAt || now()->diffInMinutes($activatedAt) > 120) {
-                Log::error("PASSCODE ACTIVATION", ['3' => '3']);
-                return false;
-            }
-            return true;
+
+        Log::error("PASSCODE ACTIVATION", ['1' => '1']);
+        $activatedAt = $passcodeSession['activated_at'] ?? null;
+        Log::error("PASSCODE ACTIVATION", ['2' => '2']);
+        if (!$activatedAt || now()->diffInMinutes($activatedAt) > 120) {
+            Log::error("PASSCODE ACTIVATION", ['3' => '3']);
+            return false;
         }
+        return true;
+
         Log::error("PASSCODE ACTIVATION", ['4' => '4']);
-        return false;
     }
     
     public function switchTheme(Request $request)
