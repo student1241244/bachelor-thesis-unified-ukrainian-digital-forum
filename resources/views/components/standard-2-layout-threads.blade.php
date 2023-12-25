@@ -199,6 +199,38 @@
 <!-- end back to top -->
 
 <!-- template js files -->
+@if(session('passcode'))
+<script>
+document.getElementById('themeSwitcher').addEventListener('change', function() {
+    var selectedTheme = this.value;
+    fetch('/switch-theme', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}' // CSRF token for Laravel
+        },
+        body: JSON.stringify({theme: selectedTheme})
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Apply theme change
+            if (selectedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+            } else {
+                document.body.classList.remove('dark-theme');
+            }
+
+            // Store the selected theme in local storage
+            localStorage.setItem('theme', selectedTheme);
+        } else {
+            alert('Invalid or expired passcode.');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+});
+</script>
+@endif
 <script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/bootstrap.bundle.min.js"></script>
 <script src="/js/jquery.fancybox.min.js"></script>

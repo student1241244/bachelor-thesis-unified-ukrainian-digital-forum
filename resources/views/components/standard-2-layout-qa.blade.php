@@ -77,15 +77,6 @@
                             </li>
                         </ul><!-- end ul -->
                     </nav><!-- end main-menu -->
-                    @if(session('passcode'))
-                        <div class="theme-selector">
-                            <select id="themeSwitcher">
-                                <option value="light">Light Theme</option>
-                                <option value="dark">Dark Theme</option>
-                            </select>                            
-                        </div>
-                    @endif
-                    @auth
                     <div class="nav-right-button">
                         <ul class="user-action-wrap d-flex align-items-center">
                             <li class="dropdown">
