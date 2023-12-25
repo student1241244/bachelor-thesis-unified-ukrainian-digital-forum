@@ -98,7 +98,7 @@ class ThreadController extends Controller
         $data = $request->validated();
         $data['thread_id'] = $threadId;
         $data['is_passcode_user'] = $this->isPasscodeValid();
-        // $request->validate(['g-recaptcha-response' => 'required|captcha',]);
+        $request->validate(['g-recaptcha-response' => 'required|captcha',]);
         Comment::create($data);
 
         return redirect()->route('threads.show', ['id' => $threadId])->with('success', 'Comment created successfully.');
