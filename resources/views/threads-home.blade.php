@@ -10,6 +10,11 @@
         <span class="stroke-shape stroke-shape-5"></span>
         <span class="stroke-shape stroke-shape-6"></span>
         <div class="container">
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
             <div class="hero-content text-center pb-5">
                 <h2 class="section-title pb-3 fs-40">The Forum Threads Community</h2>
                 <p class="section-desc">A platform dedicated exclusively to anonymous interactions: To discuss, to engage, to express, to connect.
