@@ -11,7 +11,7 @@
                         <small class="meta">
                             <span class="pr-1">{{ $question->created_at->format('n/j/Y') }}</span>
                             <span class="pr-1">by</span>
-                            <a href="#" class="author">{{ $question->user->username }}</a>
+                            <a href="/profile/{{ $question->user->username }}" class="author">{{ $question->user->username }}</a>
                         </small>
                     </div>
                 </div><!-- end media -->
