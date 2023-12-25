@@ -50,7 +50,7 @@
                             @endphp
                         
                             @if ($imageUrl)
-                                <a href="{{ $image->getUrl() }}" target="_blank"><img id="img-thread" class="lazy" src="{{ $imageUrl }}" data-src="{{ $imageUrl }}" alt="{{ $thread->title }}"></a>
+                                <a href="{{ $imageUrl }}" target="_blank"><img id="img-thread" class="lazy" src="{{ $imageUrl }}" data-src="{{ $imageUrl }}" alt="{{ $thread->title }}"></a>
                             @endif
                         </a>                        
                         </div><!-- end card-body -->
