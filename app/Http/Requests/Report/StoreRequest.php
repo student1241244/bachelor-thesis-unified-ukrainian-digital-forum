@@ -11,7 +11,7 @@ class StoreRequest extends BaseAjaxRequest
         return [
             'type' => 'required',
             'id' => 'required|integer',
-            'reason' => 'required|string',
+            'reason' => 'required|string|max:100',
         ];
     }
 }
