@@ -9,11 +9,17 @@ use Illuminate\Support\Facades\Log;
 class PasscodeFeaturesController extends Controller
 {
     private function validatePasscode() {
-        $rawPasscode = session('passcode');
-        Log::error("PASSCODE", ['PASSCODE' => $rawPasscode]);
+        $passcodeSession = session('passcode');
+        if (!$passcodeSession) {
+            return false;
+        }
+
+        $rawPasscode = $passcodeSession['value'] ?? null;
+
         if (!$rawPasscode) {
             return false;
         }
+
         $payment = Payment::where('status', 'completed')->first();
         if ($payment && password_verify($rawPasscode, $payment->passcode)) {
             Log::error("PASSCODE ACTIVATION", ['1' => '1']);
@@ -33,7 +39,9 @@ class PasscodeFeaturesController extends Controller
     {
         if ($this->validatePasscode()) {
             $theme = $request->input('theme');
-            session(['theme' => $theme]);
+            session([
+                'passcode' => array_merge(session('passcode', []), ['theme' => $theme])
+            ]);
     
             return response()->json(['success' => true]);
         } else {
