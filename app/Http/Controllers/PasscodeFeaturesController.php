@@ -10,6 +10,7 @@ class PasscodeFeaturesController extends Controller
 {
     private function validatePasscode() {
         $rawPasscode = session('passcode');
+        Log::error("PASSCODE", ['PASSCODE' => $rawPasscode]);
         if (!$rawPasscode) {
             return false;
         }
