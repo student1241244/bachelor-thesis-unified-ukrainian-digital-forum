@@ -41,9 +41,11 @@ class PasscodeController extends Controller
                 return back()->with('error', 'Invalid or expired Passcode.');
             }
             session([
-                'passcode' => $request->passcode,
-                'passcode_activated_at' => now(),
-                'theme' => 'light'
+                'passcode' => [
+                    'value' => $request->passcode,
+                    'activated_at' => now(),
+                    'theme' => 'light'
+                ]
             ]);
     
             return redirect('/threads-home')->with('success', 'Passcode activated successfully.');
