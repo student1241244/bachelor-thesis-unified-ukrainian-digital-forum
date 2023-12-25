@@ -75,7 +75,7 @@ class PasscodeController extends Controller
             ]],
             'mode' => 'payment',
             'success_url' => url('/passcode/success?token=' . $secureToken . '#pc'),
-            'cancel_url' => route('passcode.cancel'),
+            'cancel_url' => view('home')->with('error', 'Invalid or expired Passcode.'),
         ]);
         print($session);
         Log::error("SESSION", ['session' => $session]);
