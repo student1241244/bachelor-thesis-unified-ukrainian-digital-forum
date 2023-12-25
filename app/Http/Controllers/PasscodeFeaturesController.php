@@ -13,13 +13,13 @@ class PasscodeFeaturesController extends Controller
         if (!$passcodeSession) {
             return false;
         }
-
+        Log::error("PASSCODE ACTIVATION", ['0' => '0']);
         $rawPasscode = $passcodeSession['value'] ?? null;
-
+        Log::error("PASSCODE", ['PASSCODE' => $rawPasscode]);
         if (!$rawPasscode) {
             return false;
         }
-
+        Log::error("PASSCODE ACTIVATION", ['0.1' => '0.1']);
         $payment = Payment::where('status', 'completed')->first();
         if ($payment && password_verify($rawPasscode, $payment->passcode)) {
             Log::error("PASSCODE ACTIVATION", ['1' => '1']);
