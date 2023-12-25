@@ -52,7 +52,7 @@ Route::put('/reports/clean', [ReportController::class, "clean"])->name('reports.
 
 Route::get('/threads', [ThreadController::class, "index"])->name('threads.index');
 Route::get('/threads-home', [ThreadController::class, "showThreadsHome"])->name('threads.home');
-Route::get('/threads-add', [ThreadController::class, "create"])->middleware(['auth', 'checkContentCreationEnabled'])->name('threads.create');
+Route::get('/threads-add', [ThreadController::class, "create"])->middleware(['checkContentCreationEnabled'])->name('threads.create');
 Route::post('/threads', [ThreadController::class, "store"])->name('threads.store');
 Route::post('/threads-{id}/add-comment', [ThreadController::class, "addComment"])->name('threads.add_comment');
 Route::get('/threads-{id}', [ThreadController::class, "show"])->name('threads.show');
