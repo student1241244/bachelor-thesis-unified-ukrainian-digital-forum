@@ -29,6 +29,9 @@
 <section class="blog-area pt-80px pb-80px">
     <div class="container">
         @include('sections.trending-threads')
+        @if($comments->isEmpty())
+            <p class="pt-4">No threads in the current category yet. You can be the first, create a new one!</p>
+        @else
         <div class="row">
             @foreach($threads as $thread)
             <div class="col-lg-4 responsive-column-half">
@@ -50,6 +53,7 @@
                 </div><!-- end card -->
             </div><!-- end col-lg-4 -->
             @endforeach
+            @endif
         </div><!-- end row -->
         <div class="pager text-center pt-30px">
             {!! $threads->links() !!}

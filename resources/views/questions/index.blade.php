@@ -14,16 +14,6 @@
                         </div>
                         <div class="d-flex flex-wrap align-items-center justify-content-between">
                             <p class="pt-1 fs-15 fw-medium lh-20">{{ $count }} questions</p>
-                            {{-- <div class="filter-option-box w-10">
-                                <select class="custom-select">
-                                    <option value="newest" selected="selected">Newest </option>
-                                    <option value="featured">Bountied (390)</option>
-                                    <option value="frequent">Frequent </option>
-                                    <option value="votes">Votes </option>
-                                    <option value="active">Active </option>
-                                    <option value="unanswered">Unanswered </option>
-                                </select>
-                            </div><!-- end filter-option-box --> --}}
                         </div>
                     </div><!-- end filters -->
                     @unless($questions->isEmpty())
