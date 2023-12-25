@@ -708,7 +708,6 @@ Author Email:   contact@tecydevs.com
             success: function (response) {
                 $('.js-avatar').attr('src', response.avatar)
                 form.trigger('reset')
-                alert(response.message)
             },
             error: function (response) {
                 let errors= [];
