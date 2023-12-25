@@ -15,25 +15,22 @@ use Illuminate\Http\Request;
 class ThreadController extends Controller
 {
     private function isPasscodeValid() {
-        $rawPasscode = session('passcode');
-        if (!$rawPasscode) {
-            Log::error("SESSION", ['session' => 'No session passcode']);
+        $passcodeSession = session('passcode');
+        if (!$passcodeSession || empty($passcodeSession['value']) || empty($passcodeSession['activated_at'])) {
             return false;
         }
-        Log::error("RAW", ['raw passcode' => $rawPasscode]);
-    
-        // Retrieve all payments with status 'completed'
-        $payments = Payment::where('status', 'completed')->get();
-    
-        foreach ($payments as $payment) {
-            if (password_verify($rawPasscode, $payment->passcode)) {
-                Log::info("Passcode valid", ['payment_id' => $payment->id]);
-                return true;
-            }
+        if (now()->diffInMinutes($passcodeSession['activated_at']) > 120) {
+            return false;
         }
-    
-        Log::error("Passcode invalid or not found", ['rawPasscode' => $rawPasscode]);
-        return false;
+        $secureToken = $passcodeSession['secure_token'] ?? null;
+        if (!$secureToken) {
+            return false;
+        }
+        $payment = Payment::where('secure_token', $secureToken)->where('status', 'completed')->first();
+        if (!$payment) {
+            return false;
+        }
+        return true;
     }
     
     public function showThreadsHome()

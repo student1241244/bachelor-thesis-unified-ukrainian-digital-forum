@@ -13,21 +13,17 @@ class PasscodeFeaturesController extends Controller
         if (!$passcodeSession || empty($passcodeSession['value']) || empty($passcodeSession['activated_at'])) {
             return false;
         }
-        Log::error("1", ['1' => $passcodeSession]);
         if (now()->diffInMinutes($passcodeSession['activated_at']) > 120) {
             return false;
         }
-        Log::error("2", ['2' => '2']);
         $secureToken = $passcodeSession['secure_token'] ?? null;
         if (!$secureToken) {
             return false;
         }
-        Log::error("3", ['3' => $secureToken]);
         $payment = Payment::where('secure_token', $secureToken)->where('status', 'completed')->first();
         if (!$payment) {
             return false;
         }
-        Log::error("4", ['4' => $payment]);
         return true;
     }    
     
