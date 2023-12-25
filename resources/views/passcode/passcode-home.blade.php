@@ -128,7 +128,7 @@
 <section class="user-details-area pt-60px pb-60px">
     <div class="container">
         @if (isset($passcode))
-            <div class="row" id="anchor-your-passcode">
+            <div class="row" id="pc">
                 <div class="col-lg-9" style="max-width: 100%;flex: 0 0 100%;">
                     <div class="referrals-content-wrap mb-50px">
                         <div class="card card-item">

@@ -48,7 +48,7 @@ class PasscodeController extends Controller
             // Embed the Passcode in the user's session
             session(['passcode' => $request->passcode]);
     
-            return redirect('/')->with('success', 'Passcode activated successfully.');
+            return redirect('/threads-home')->with('success', 'Passcode activated successfully.');
         } else {
             return back()->with('error', 'Invalid Passcode.');
         }
@@ -73,7 +73,7 @@ class PasscodeController extends Controller
                 'quantity' => 1,
             ]],
             'mode' => 'payment',
-            'success_url' => url('/passcode/success?token=' . $secureToken . '#anchor-your-passcode'),
+            'success_url' => url('/passcode/success?token=' . $secureToken . '#pc'),
             'cancel_url' => route('passcode.cancel'),
         ]);
         print($session);
