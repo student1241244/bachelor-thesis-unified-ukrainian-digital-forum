@@ -43,7 +43,8 @@ class PasscodeController extends Controller
             }
             session([
                 'passcode' => $request->passcode,
-                'passcode_activated_at' => now()
+                'passcode_activated_at' => now(),
+                'theme' => 'light'
             ]);
 
             return redirect('/threads-home')->with('success', 'Passcode activated successfully.');
