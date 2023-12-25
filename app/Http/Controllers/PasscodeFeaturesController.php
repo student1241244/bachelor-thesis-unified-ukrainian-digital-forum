@@ -9,29 +9,23 @@ use Illuminate\Support\Facades\Log;
 class PasscodeFeaturesController extends Controller
 {
     private function validatePasscode() {
-        $passcodeSession = session('passcode');
-        if (!$passcodeSession) {
+        $passcodeSession = session('passcode_data');
+        if (!$passcodeSession || empty($passcodeSession['value']) || empty($passcodeSession['activated_at'])) {
             return false;
         }
-        Log::error("PASSCODE ACTIVATION", ['0' => '0']);
-        $rawPasscode = $passcodeSession['value'] ?? null;
-        Log::error("PASSCODE", ['PASSCODE' => $rawPasscode]);
-        if (!$rawPasscode) {
+    
+        if (now()->diffInMinutes($passcodeSession['activated_at']) > 120) {
             return false;
         }
-        Log::error("PASSCODE ACTIVATION", ['0.1' => '0.1']);
-
-        Log::error("PASSCODE ACTIVATION", ['1' => '1']);
-        $activatedAt = $passcodeSession['activated_at'] ?? null;
-        Log::error("PASSCODE ACTIVATION", ['2' => '2']);
-        if (!$activatedAt || now()->diffInMinutes($activatedAt) > 120) {
-            Log::error("PASSCODE ACTIVATION", ['3' => '3']);
+    
+        $secureToken = $passcodeSession['secure_token'] ?? null;
+        if (!$secureToken) {
             return false;
         }
-        return true;
-
-        Log::error("PASSCODE ACTIVATION", ['4' => '4']);
-    }
+    
+        $payment = Payment::where('secure_token', $secureToken)->where('status', 'completed')->first();
+        return $payment !== null;
+    }    
     
     public function switchTheme(Request $request)
     {

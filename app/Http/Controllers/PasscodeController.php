@@ -44,7 +44,8 @@ class PasscodeController extends Controller
                 'passcode' => [
                     'value' => $request->passcode,
                     'activated_at' => now(),
-                    'theme' => 'light'
+                    'theme' => 'light',
+                    'secure_token' => $validPayment->secure_token
                 ]
             ]);
     
