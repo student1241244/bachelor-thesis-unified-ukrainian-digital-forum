@@ -24,30 +24,28 @@ class PasscodeController extends Controller
             'g-recaptcha-response' => 'required|captcha'
         ]);
     
-        // Retrieve all passcodes (hashed) from the database
         $payments = Payment::all();
-    
-        // Flag to check if passcode is found and valid
+
         $isValidPasscode = false;
+        $validPayment = null;
     
         foreach ($payments as $payment) {
-            // Use password_verify to check if the provided passcode matches the hashed one
             if (password_verify($request->passcode, $payment->passcode)) {
                 $isValidPasscode = true;
-                break; // Stop the loop as we found the valid passcode
+                $validPayment = $payment;
+                break;
             }
         }
-    
-        // Check if valid passcode is found
+
         if ($isValidPasscode) {
-            // Check if Passcode is not expired, not used, etc.
-            if ($payment->isExpired()) {
+            if ($validPayment->isExpired()) {
                 return back()->with('error', 'Invalid or expired Passcode.');
             }
-    
-            // Embed the Passcode in the user's session
-            session(['passcode' => $request->passcode]);
-    
+            session([
+                'passcode' => $request->passcode,
+                'passcode_activated_at' => now()
+            ]);
+
             return redirect('/threads-home')->with('success', 'Passcode activated successfully.');
         } else {
             return back()->with('error', 'Invalid Passcode.');
