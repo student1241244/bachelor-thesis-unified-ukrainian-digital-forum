@@ -69,23 +69,23 @@ class UserController extends Controller
     }
 
     public function showHomepage() {
-        $userCount = Cache::remember('userCount', 20, function() {
+        $userCount = Cache::remember('userCount', 60, function() {
             return user::count();
         });
 
-        $questionCount = Cache::remember('postCount', 20, function() {
+        $questionCount = Cache::remember('postCount', 60, function() {
             return Question::count();
         });
 
-        $answerCount = Cache::remember('answerCount', 20, function() {
+        $answerCount = Cache::remember('answerCount', 60, function() {
             return Comment::count();
         });
 
-        $threadCount = Cache::remember('threadCount', 20, function() {
+        $threadCount = Cache::remember('threadCount', 60, function() {
             return Thread::count();
         });
 
-        $threadCommentCount = Cache::remember('threadCommentCount', 20, function() {
+        $threadCommentCount = Cache::remember('threadCommentCount', 60, function() {
             return \Packages\Threads\App\Models\Comment::count();
         });
 
