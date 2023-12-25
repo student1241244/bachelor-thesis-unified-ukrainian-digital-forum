@@ -48,7 +48,7 @@ class ThreadController extends Controller
             return \Packages\Threads\App\Models\Comment::count();
         });
 
-        return view('threads-home', compact('categories'));
+        return view('threads-home', get_defined_vars());
     }
 
     public function index()
@@ -108,7 +108,7 @@ class ThreadController extends Controller
     {
         $trendingThreads = Thread::getTrendingThreads();
         $category = Category::findOrFail($categoryId);
-        $threads = Thread::where('category_id', $categoryId)->latest()->paginate(4);
+        $threads = Thread::where('category_id', $categoryId)->latest()->paginate(6);
         return view('threads.index', compact('threads', 'categoryId', 'trendingThreads', 'category'));
     }
 

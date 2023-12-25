@@ -30,7 +30,6 @@
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     @vite(['resources/css/app.css'])
-    @vite(['resources/js/app.js'])
     @livewireStyles()
     <!-- end inject -->
 </head>
@@ -253,6 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     </div>
 </div>
+@if(session('passcode'))
 <script>
 document.getElementById('themeSwitcher').addEventListener('change', function() {
     var selectedTheme = this.value;
@@ -283,7 +283,8 @@ document.getElementById('themeSwitcher').addEventListener('change', function() {
     .catch(error => console.error('Error:', error));
 });
 </script>
-<script src="/js/jquery-3.4.1.min.js"></script>
+@endif
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/bootstrap.bundle.min.js"></script>
 <script src="/js/owl.carousel.min.js"></script>
 <script src="/js/selectize.min.js"></script>

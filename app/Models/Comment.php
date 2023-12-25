@@ -18,7 +18,6 @@ class Comment extends Model implements HasMedia
         'report_count',
         'report_data',
         'votes_count',
-        'is_passcode_user',
     ];
 
     /*

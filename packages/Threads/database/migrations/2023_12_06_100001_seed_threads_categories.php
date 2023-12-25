@@ -13,10 +13,7 @@ class SeedThreadsCategories extends Migration
     public function up()
     {
         $list = [
-            'Politics',
-            'Science',
-            'Economy',
-            'Life Style'
+            'Politics and News','Cars' , 'Business' , 'Books' , 'Comics' , 'Science' , 'Crypto' , 'Programmers' , 'Sport' , 'History' , 'Films' , 'Music' , 'Animals' , 'Space' , 'Education' , 'Design' , 'Photography' , 'Job' , 'Artificial Intelligence' , 'Computers' , 'Games'
         ];
 
         foreach ($list as $title) {

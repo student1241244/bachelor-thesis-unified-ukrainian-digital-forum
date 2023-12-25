@@ -3,9 +3,14 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
+use App\Models\Comment;
+use App\Models\Setting;
+use App\Models\Question;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
+use Packages\Threads\App\Models\Thread;
+use Packages\Threads\App\Models\Comment as ThreadsComments;
+use Packages\Questions\App\Models\Category;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,62 +21,52 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'id' => 100,
-            'username' => 'brad',
-            'email' => 'brad@local',
-            'password' => Hash::make('art'),
-            'is_admin' => 1
+        User::create([
+            'username' => 'test',
+            'avatar' => null,
+            'email' => 'test@test.com',
+            'email_verified_at' => null,
+            'password' => bcrypt('test'),
+            'remember_token' => null,
+            'is_admin' => 0,
+            'role_id' => 2,
+            'bonus_points' => 10,
         ]);
 
-        DB::table('users')->insert([
-            'id' => 200,
-            'username' => 'barksalot',
-            'email' => 'barksalot@local',
-            'password' => Hash::make('art')
+        User::factory(10)->create();
+
+        Setting::factory()->create([
+            'setting_name' => 'user_registration_enabled',
+            'setting_status' => 'on'
+        ]);
+        
+        Setting::factory()->create([
+            'setting_name' => 'content_creation_enabled',
+            'setting_status' => 'on'
+        ]);
+        
+        Setting::factory()->create([
+            'setting_name' => 'backup_frequency',
+            'setting_status' => 'daily'
         ]);
 
-        DB::table('users')->insert([
-            'id' => 300,
-            'username' => 'meowsalot',
-            'email' => 'meowsalot@local',
-            'password' => Hash::make('art')
-        ]);
+        $categoryTitles = ['General', 'Programmers', 'Hackers', 'Study'];
+        foreach ($categoryTitles as $title) {
+            Category::create(['title' => $title]);
+        }
 
-        DB::table('questions')->insert([
-            'user_id' => 100,
-            'title' => 'My First Post',
-            'body' => 'Lorem ipsum this is my post.',
-            'created_at' => date("Y-m-d H:i:s")
-        ]);
+        Question::factory(20)->create()->each(function ($question) {
+            Comment::factory(rand(5, 15))->create(['question_id' => $question->id]);
+        });
 
-        DB::table('questions')->insert([
-            'user_id' => 100,
-            'title' => 'My Second Post: HTML',
-            'body' => 'HTML stands for Hyper Text Markup Language',
-            'created_at' => date("Y-m-d H:i:s")
-        ]);
+        $categoryTitles = ['Cars' , 'Business' , 'Books' , 'Comics' , 'Science' , 'Crypto' , 'Programmers' , 'Sport' , 'History' , 'Films' , 'Music' , 'Animals' , 'Space' , 'Education' , 'Design' , 'Photography' , 'Job' , 'Artificial Intelligence' , 'Computers' , 'Games'];
+        foreach ($categoryTitles as $title) {
+            Category::create(['title' => $title]);
+        }
 
-        DB::table('questions')->insert([
-            'user_id' => 200,
-            'title' => 'Being a Dog Is Fun',
-            'body' => 'I like to run and bark.',
-            'created_at' => date("Y-m-d H:i:s")
-        ]);
-
-        DB::table('follows')->insert([
-            'user_id' => 200,
-            'followeduser' => 100
-        ]);
-
-        DB::table('follows')->insert([
-            'user_id' => 300,
-            'followeduser' => 100
-        ]);
-
-        DB::table('follows')->insert([
-            'user_id' => 300,
-            'followeduser' => 200
-        ]);
+        // \Packages\Threads\App\Models\Thread::factory(20)->create();
+        Thread::factory(20)->create()->each(function ($thread) {
+            ThreadsComments::factory(rand(5, 15))->create(['thread_id' => $thread->id]);
+        });
     }
 }

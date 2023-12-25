@@ -51,15 +51,17 @@ class QAController extends Controller
 
     public function editQuestion(Question $question, Request $request) {
         $incomingFields = $request->validate([
-            'title' => 'required',
-            'body' => 'required'
+            'title' => 'required|max:100',
+            'body' => 'required|max:1000',
+            'category_id' => 'required|exists:questions_categories,id',
+            'is_agree' => 'required',
         ]);
         
         $incomingFields['title'] = strip_tags($incomingFields['title']);
         $incomingFields['body'] = strip_tags($incomingFields['body']);
 
         $question->update($incomingFields);
-
+        $interestingQuestions = $this->calculateInterestingQuestions();
         $comments = $question->comments()->with(['media', 'user'])->latest()->paginate(4);
 
         $isBookmarked = false;

@@ -78,9 +78,9 @@ Route::get('/interesting-questions', [QAController::class, 'getInterestingQuesti
 Route::get('/ask-question', [QAController::class, "show"])->middleware(['auth', 'checkContentCreationEnabled'])->name('questions.create');
 Route::post('/create-question', [QAController::class, "createNewQuestion"])->name('question.create')->middleware('auth');
 Route::get('/question-details/{question}', [QAController::class, "showSingleQuestion"]);
-Route::delete('/question-details/{question}', [QAController::class, "deleteQuestion"])->middleware('can:delete,question');
-Route::get('/question-details/{question}/edit', [QAController::class, "showEditQuestionForm"])->middleware('can:delete,question');
-Route::put('/question-details/{question}', [QAController::class, "editQuestion"])->middleware('can:delete,question');
+Route::delete('/question-details/{question}', [QAController::class, "deleteQuestion"])->middleware('auth')->middleware('can:delete,question');
+Route::get('/question-details/{question}/edit', [QAController::class, "showEditQuestionForm"])->middleware('auth')->middleware('can:delete,question');
+Route::put('/question-details/{question}', [QAController::class, "editQuestion"])->name('question.update')->middleware('auth')->middleware('can:update,question');
 
 Route::post('/questions/post-answer/{question_id}', [QAController::class, "postAnswer"])->name('questions.post_answer')->middleware('auth');
 Route::post('/questions/update-answer/{id}', [QAController::class, "updateAnswer"])->name('questions.update_answer')->middleware('auth');

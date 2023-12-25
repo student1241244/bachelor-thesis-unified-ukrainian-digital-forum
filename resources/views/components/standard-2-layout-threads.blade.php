@@ -199,7 +199,7 @@
 <!-- end back to top -->
 
 <!-- template js files -->
-<script src="/js/jquery-3.4.1.min.js"></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/bootstrap.bundle.min.js"></script>
 <script src="/js/jquery.fancybox.min.js"></script>
 <script src="/js/jquery.lazy.min.js"></script>

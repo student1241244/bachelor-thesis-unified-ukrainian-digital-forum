@@ -190,22 +190,6 @@ Author Email:   contact@tecydevs.com
                 passInput.attr('type', 'password');
             }
         });
-
-        /*==== jquery text editor =====*/
-        if (userTextEditor.length) {
-            userTextEditor.jqte({
-                formats: [
-                    ["p","Paragraph"],
-                    ["h1","Heading 1"],
-                    ["h2","Heading 2"],
-                    ["h3","Heading 3"],
-                    ["h4","Heading 4"],
-                    ["h5","Heading 5"],
-                    ["h6","Heading 6"],
-                    ["pre","Preformatted"]
-                ]
-            });
-        }
         /*=========== modal ============*/
         $document.on('click', '.login-btn', function () {
             $('.login-form').modal('show');
@@ -423,21 +407,6 @@ Author Email:   contact@tecydevs.com
                 message.fadeOut();
             }, 3000);
         }
-
-        form.submit(function (e) {
-            e.preventDefault();
-            formData = $(this).serialize();
-            submitBtn.innerHTML = 'Sending...';
-            setTimeout(function () {
-                $.ajax({
-                    type: 'POST',
-                    url: form.attr('action'),
-                    data: formData
-                })
-                    .done(doneFunction)
-                    .fail(failFunction);
-            }, 2000)
-        });
 
         /*==== Quantity number =====*/
         if (quantityBtn.length) {

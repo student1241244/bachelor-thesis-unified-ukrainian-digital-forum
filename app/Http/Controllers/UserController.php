@@ -29,6 +29,11 @@ class UserController extends Controller
     }
 
     public function updateProfileSettings(UpdateRequest $request) {
+        $request->validate([
+            'password' => 'required',
+            'password_confirmation' => 'required'
+        ]);
+
         $user = auth()->user();
 
         $data = $request->only(['email', 'password']);

@@ -120,7 +120,7 @@ return [
     'seeders' => [
         'user' => [
             'email' => 'admin@admin.com',
-            'password' => '123123',
+            'password' => 'admin@',
         ],
     ],
     'route' => [

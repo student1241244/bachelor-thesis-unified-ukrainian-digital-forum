@@ -122,6 +122,7 @@
                             </div><!-- end answer-wrap -->
                             @endforeach
                         @endif
+                        {{$comments->links()}}
                         </div>
                         <br>
                     <div class="post-form">

@@ -22,6 +22,15 @@ body,
     padding: 16px 16px;
 }
 
+.header-search-icon2 {
+    position: relative;
+    top: 3px;
+    color: #6c727c!important;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 16px 16px;
+}
+
 .header-chat-icon {
     cursor: pointer;
     position: relative;

@@ -37,13 +37,14 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="card card-item">
-                    <form action="{{ route('question.create') }}" method="post" class="card-body" enctype="multipart/form-data">
+                    <form action="{{ route('question.update', $question->id) }}" method="post" class="card-body" enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
                         <div class="input-box">
                             <label class="fs-14 text-black fw-medium mb-0">Question Title</label>
                             <p class="fs-13 pb-3 lh-20">Be specific and imagine you’re asking a question to another person</p>
                             <div class="form-group">
-                                <input value="{{old('title')}}" class="form-control form--control" type="text" name="title" placeholder="e.g. Is there an R function for finding the index of an element in a vector?">
+                                <input value="{{ old('title', $question->title) }}" class="form-control form--control" type="text" name="title" placeholder="e.g. Is there an R function for finding the index of an element in a vector?">
                                 @error('title')
                                 <p class="m-0 small alert alert-danger shadow-sm">{{$message}}</p>
                                 @enderror
@@ -56,7 +57,7 @@
                                 <select class="form-control form--control" data-placeholder="Select a Category" name="category_id" style="width:100%;">
                                     <option selected value="">Select a Category</option>
                                     @foreach($categories as $k => $v)
-                                    <option value="{{ $k }}">{{ $v }}</option>
+                                    <option value="{{ $k }}" {{ $k == old('category_id', $question->category_id) ? 'selected' : '' }}>{{ $v }}</option>
                                     @endforeach
                                 </select>
                                 @error('body')
@@ -68,19 +69,10 @@
                             <label class="fs-14 text-black fw-medium mb-0">Details</label>
                             <p class="fs-13 pb-3 lh-20">Include all the information someone would need to answer your question</p>
                             <div class="form-group">
-                                <textarea name="body" class="form-control form--control user-text-editor" rows="10" cols="40">{{old('body')}}</textarea>
+                                <textarea name="body" class="form-control form--control user-text-editor" rows="10" cols="40">{{ old('body', $question->body) }}</textarea>
                                 @error('body')
                                 <p class="m-0 small alert alert-danger shadow-sm">{{$message}}</p>
                                 @enderror
-                            </div>
-                        </div><!-- end input-box -->
-                        <div class="input-box">
-                            <label class="fs-14 text-black fw-medium">Image (Maximum 6 images. Not more than 2048 KB)</label>
-                            <div class="form-group">
-                                <div class="file-upload-wrap file-upload-layout-2">
-                                    <input type="file" name="images[]" class="file-upload-input" multiple>
-                                    <span class="file-upload-text d-flex align-items-center justify-content-center"><i class="la la-cloud-upload mr-2 fs-24"></i>Drop files here or click to upload.</span>
-                                </div>
                             </div>
                         </div><!-- end input-box -->
                         <div class="input-box pt-2">
