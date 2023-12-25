@@ -77,6 +77,7 @@
                             </li>
                         </ul><!-- end ul -->
                     </nav><!-- end main-menu -->
+                    @auth
                     <div class="nav-right-button">
                         <ul class="user-action-wrap d-flex align-items-center">
                             <li class="dropdown">
