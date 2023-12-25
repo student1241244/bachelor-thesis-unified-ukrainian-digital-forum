@@ -3,10 +3,11 @@ declare( strict_types = 1 );
 
 namespace Packages\Questions\App\Requests\Question;
 
+use App\Models\Question;
 use App\Services\ReportService;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Eloquent\Builder;
 use Packages\Dashboard\App\Requests\BaseFilter;
-use App\Models\Question;
 
 /**
  * Class IndexRequest
@@ -106,9 +107,13 @@ class IndexRequest extends BaseFilter
     public function getData()
     {
         return $this->resolveData(function(Question $row) {
+            $images = $row->getMedia('images');
+            $firstImageUrl = $images->first() ? $images->first()->getFullUrl() : null;
+            Log::error("image", ['image' => $firstImageUrl]);
             return [
                 'id' => $row->id,
                 'user_title' => $row->user_title,
+                'images' => $firstImageUrl,
                 'title' => '<a href="'.route('questions.questions.edit', $row->id).'">'.$row->title.'</a>',
                 'body' => $row->body,
                 'reports' => (new ReportService)->formatReportData($row),

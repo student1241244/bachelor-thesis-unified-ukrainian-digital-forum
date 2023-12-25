@@ -24,6 +24,15 @@
 					name: "title",
 					label: "{{ __('questions::question.attributes.title') }}",
 				},
+                {
+					name: "images",
+					label: "{{ __('questions::question.attributes.images') }}",
+					filter: false,
+					sortable: false,
+					render: function(value) {
+						return aGridExt.renderImage(value)
+					}
+				},
 				{
 					name: "body",
 					label: "{{ __('questions::question.attributes.body') }}",

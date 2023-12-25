@@ -20,6 +20,7 @@ class QuestionCrudService
     public function update(Question $question, array $data): Question
     {
         $question->update($data);
+        $this->attachMedia($question);
 
         return $question;
     }
@@ -27,5 +28,12 @@ class QuestionCrudService
     public function delete(Question $question): void
     {
         $question->delete($question);
+    }
+
+    public function attachMedia(Question $question)
+    {
+        if(request()->hasFile('images')) {
+            $question->addMediaFromRequest('images')->toMediaCollection('images');
+        }
     }
 }

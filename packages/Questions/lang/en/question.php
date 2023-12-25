@@ -4,6 +4,7 @@ return [
         'id' => '#',
         'user_id' => 'Author',
         'title' => 'Title',
+        'images' => 'Images',
         'body' => 'Body',
     ],
     'description' => [

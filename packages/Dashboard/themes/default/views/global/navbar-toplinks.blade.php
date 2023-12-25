@@ -4,8 +4,6 @@
                 <img src="{!! auth()->user()->avatar !!}" style="height: 40px; border-radius: 50%;">
             </a>
             <ul class="dropdown-menu m-t-xs">
-                <li><a href="{{ route('dashboard.account.edit') }}">{!! trans('dashboard::auth.edit_profile') !!}</a></li>
-                <li class="divider"></li>
                 <li><a href="{{ route('dashboard.logout') }}">{!! trans('dashboard::auth.logout') !!}</a></li>
             </ul>
     </li>

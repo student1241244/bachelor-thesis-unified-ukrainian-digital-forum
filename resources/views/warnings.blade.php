@@ -18,12 +18,15 @@ if (auth()->check()) {
             <div class="col-lg-8">
                 <div class="hero-content">
                     @foreach($warnings as $warning)
+                    <form method="post" action="{{ route('warnings.destroy', $warning->id) }}">
+                    @csrf
                     <div class="alert alert-warning" role="alert">
                         <h4 class="alert-heading">Warning!</h4>
-                        <p>{{ $warning->body }}</p>
+                        <p class="pt-3">{{ $warning->body }}</p>
                         <hr>
-                        <p class="mb-0"><a href="{{ route('warnings.destroy', $warning->id) }}"><i class="la la-trash"></i></a></p>
+                        <button class="btn theme-btn mr-2" style="background-color:#9e353f" type="submit">Read warning and close</button>
                     </div>
+                    </form>
                     @endforeach
                 </div><!-- end hero-content -->
             </div><!-- end col-lg-8 -->

@@ -45,7 +45,7 @@ Route::get('/passcode/cancel', [PasscodeController::class, "cancel"])->name('pas
 Route::post('/passcode-activate', [PasscodeController::class, 'passcodeActivate'])->name('passcode.activate');
 Route::stripeWebhooks('stripe-webhook');
 
-Route::get('/warnings/{id}/delete', [WarningController::class, "destroy"])->name('warnings.destroy');
+Route::post('/warnings/{id}/delete', [WarningController::class, "destroy"])->name('warnings.destroy');
 
 Route::post('/reports', [ReportController::class, "store"])->name('reports.store');
 Route::put('/reports/clean', [ReportController::class, "clean"])->name('reports.clean');

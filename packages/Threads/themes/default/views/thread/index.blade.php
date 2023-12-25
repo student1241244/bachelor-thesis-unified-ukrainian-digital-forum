@@ -36,10 +36,6 @@
                 {
                     name: "reports",
                     label: "Reports",
-                    filter: {
-                        type: "select",
-                        options: {!!  json_encode(\Packages\Dashboard\App\Helpers\CrudHelper::getYesNoList()) !!},
-                    }
                 },
             ],
             sort: {
