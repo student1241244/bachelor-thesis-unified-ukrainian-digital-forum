@@ -12,13 +12,15 @@ class PasscodeFeaturesController extends Controller
         if (!$rawPasscode) {
             return false;
         }
-    
         $payment = Payment::where('status', 'completed')->first();
-
         if ($payment && password_verify($rawPasscode, $payment->passcode)) {
+            $activatedAt = $passcodeSession['activated_at'] ?? null;
+            if (!$activatedAt || now()->diffInMinutes($activatedAt) > 120) {
+                return false;
+            }
             return true;
         }
-    
+
         return false;
     }
     
@@ -26,7 +28,7 @@ class PasscodeFeaturesController extends Controller
     {
         if ($this->validatePasscode()) {
             $theme = $request->input('theme');
-            session(['passcode' => array_merge(session('passcode', []), ['theme' => $theme])]);
+            session(['theme' => $theme]);
     
             return response()->json(['success' => true]);
         } else {

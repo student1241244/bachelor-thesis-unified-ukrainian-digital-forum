@@ -26,17 +26,18 @@ class PasscodeController extends Controller
     
         $payments = Payment::all();
         $isValidPasscode = false;
+        $validPayment = null;
     
         foreach ($payments as $payment) {
-            // Use password_verify to check if the provided passcode matches the hashed one
             if (password_verify($request->passcode, $payment->passcode)) {
                 $isValidPasscode = true;
-                break; // Stop the loop as we found the valid passcode
+                $validPayment = $payment;
+                break;
             }
         }
     
         if ($isValidPasscode) {
-            if ($payment->isExpired()) {
+            if ($validPayment->isExpired()) {
                 return back()->with('error', 'Invalid or expired Passcode.');
             }
             session([
