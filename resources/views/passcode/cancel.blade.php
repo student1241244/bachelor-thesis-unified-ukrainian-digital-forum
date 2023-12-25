@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Maintenance mode | LEMYK</title>
+    <title>Payment error | LEMYK</title>
 
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -42,8 +42,8 @@
         <div class="media align-items-center justify-content-center error-content">
             <img src="images/404.svg" alt="error-image" class="img-fluid mr-5 error-content-img">
             <div class="media-body flex-inherit">
-                <h2 class="section-title pb-3">Maintenance</h2>
-                <p class="section-desc pb-4">Sorry for the inconvenience, the site is undergoing technical work.</p>
+                <h2 class="section-title pb-3">Payment error</h2>
+                <p class="section-desc pb-4">We regret to inform you that an error occurred during the payment transaction. Should there be any deduction from your account without successful completion of the transaction, and if the amount has not been automatically refunded, please do not hesitate to reach out to us at info@lemyk.com for assistance or via our <a href="/support">Support page</a>.</p>
             </div>
         </div>
     </div><!-- end container -->
