@@ -217,7 +217,8 @@ function voteQuestion(questionId, vote) {
         },
         error: function(xhr, status, error) {
             console.error(error);
-            alert('Error: ' + error.message);
+            alert('Error: ' + 'You are not logged in');
+            window.location.href = '/signin';
         }
     });
 }
@@ -236,7 +237,8 @@ function voteAnswer(questionId, answerId, vote) {
         },
         error: function(xhr, status, error) {
             console.error(error);
-            alert('Error: ' + error.message);
+            alert('Error: ' + 'You are not logged in');
+            window.location.href = '/signin';
         }
     });
 }
