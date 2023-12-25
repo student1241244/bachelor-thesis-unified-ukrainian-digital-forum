@@ -43,7 +43,7 @@ Route::get('/buy-passcode', [PasscodeController::class, "createCheckoutSession"]
 Route::get('/passcode/success', [PasscodeController::class, "success"])->name('passcode.success');
 Route::get('/passcode/cancel', [PasscodeController::class, "cancel"])->name('passcode.cancel');
 Route::post('/passcode-activate', [PasscodeController::class, 'passcodeActivate'])->name('passcode.activate');
-Route::stripeWebhooks('stripe-webhook/');
+Route::stripeWebhooks('stripe-webhook');
 
 Route::get('/warnings/{id}/delete', [WarningController::class, "destroy"])->name('warnings.destroy');
 
