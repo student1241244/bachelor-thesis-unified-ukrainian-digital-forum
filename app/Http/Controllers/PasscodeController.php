@@ -121,12 +121,12 @@ class PasscodeController extends Controller
         }
     
         Log::error('Payment not completed in time', ['token' => $secureToken]);
-        return redirect()->route('passcode.cancel'); // Redirect to a failure page
+        return view('passcode.cancel'); // Redirect to a failure page
     }    
 
     public function cancel(Request $request)
     {
-        return view('passcode.cancel');
+        return redirect('/')->with('error', 'We regret to inform you that an error occurred during the payment transaction. Should there be any deduction from your account without successful completion of the transaction, and if the amount has not been automatically refunded, please do not hesitate to reach out to us at info@lemyk.com for assistance or via our <a href="/support">Support page</a>.');
     }
 
     public function handleWebhook(Request $request)
