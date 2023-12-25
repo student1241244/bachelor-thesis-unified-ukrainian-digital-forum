@@ -35,7 +35,7 @@
             <div class="col-lg-9">
                 <div class="notification-content-wrap">
                     @unless($favourites->isEmpty())
-                    <div class="media media-card media--card shadow-none rounded-0 align-items-center bg-transparent">
+                    <div class="media media-card media--card shadow-none rounded-0 align-items-center bg-transparent" style="display:block;">
                         @foreach($favourites as $favourite)
                         <div class="media-img media-img-sm flex-shrink-0">
                             <a href="/question-details/{{$favourite->id}}"><img src="/images/star.png" alt="favourites"></a>

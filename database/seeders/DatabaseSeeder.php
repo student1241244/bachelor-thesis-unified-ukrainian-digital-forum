@@ -11,6 +11,7 @@ use Illuminate\Database\Seeder;
 use Packages\Threads\App\Models\Thread;
 use Packages\Threads\App\Models\Comment as ThreadsComments;
 use Packages\Questions\App\Models\Category;
+use Packages\Threads\App\Models\Category as ThreadsCategory;
 
 class DatabaseSeeder extends Seeder
 {
@@ -61,10 +62,9 @@ class DatabaseSeeder extends Seeder
 
         $categoryTitles = ['Cars' , 'Business' , 'Books' , 'Comics' , 'Science' , 'Crypto' , 'Programmers' , 'Sport' , 'History' , 'Films' , 'Music' , 'Animals' , 'Space' , 'Education' , 'Design' , 'Photography' , 'Job' , 'Artificial Intelligence' , 'Computers' , 'Games'];
         foreach ($categoryTitles as $title) {
-            Category::create(['title' => $title]);
+            ThreadsCategory::create(['title' => $title]);
         }
 
-        // \Packages\Threads\App\Models\Thread::factory(20)->create();
         Thread::factory(20)->create()->each(function ($thread) {
             ThreadsComments::factory(rand(5, 15))->create(['thread_id' => $thread->id]);
         });
