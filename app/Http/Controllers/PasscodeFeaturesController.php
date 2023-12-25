@@ -24,7 +24,11 @@ class PasscodeFeaturesController extends Controller
         }
     
         $payment = Payment::where('secure_token', $secureToken)->where('status', 'completed')->first();
-        return $payment !== null;
+        if (!$payment) {
+            return false;
+        }
+
+        return true;
     }    
     
     public function switchTheme(Request $request)
