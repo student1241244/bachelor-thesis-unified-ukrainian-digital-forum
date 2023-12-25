@@ -24,10 +24,10 @@ class PasscodeFeaturesController extends Controller
     
     public function switchTheme(Request $request)
     {       
-        if ($this->validatePasscode() == True) {
-            $theme = $request->input('theme');
+        $passcode = session('passcode');
 
-            // Optionally, update session with the selected theme
+        if ($this->validatePasscode($passcode) == True) {
+            $theme = $request->input('theme');
             session(['theme' => $theme]);
 
             return response()->json(['success' => true]);
@@ -36,5 +36,4 @@ class PasscodeFeaturesController extends Controller
             return response()->json(['success' => true]);
         }
     }
-    
 }
