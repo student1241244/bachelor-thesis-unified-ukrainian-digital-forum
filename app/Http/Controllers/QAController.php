@@ -87,7 +87,9 @@ class QAController extends Controller
     public function showSingleQuestion(Question $question) {
         $question['body'] = strip_tags(Str::markdown($question->body), '<p><ul><ol><li><strong><em><h3><br><script>');
 
-        $comments = $question->comments()->with(['media', 'user'])->latest()->paginate(4);
+        $comments = $question->comments()->with(['media', 'user'])
+                                      ->orderBy('votes_count', 'desc')
+                                      ->paginate(4);
         $interestingQuestions = $this->calculateInterestingQuestions();
         $isBookmarked = false;
         if (auth()->check()) {
