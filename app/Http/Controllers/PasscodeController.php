@@ -96,7 +96,7 @@ class PasscodeController extends Controller
     
         if (!$secureToken) {
             Log::error('Error: Token not provided in Success Page');
-            return redirect()->route('passcode.failed'); // Redirect to a failure page
+            return redirect()->route('passcode.cancel'); // Redirect to a failure page
         }
     
         $startTime = time();
@@ -121,7 +121,7 @@ class PasscodeController extends Controller
         }
     
         Log::error('Payment not completed in time', ['token' => $secureToken]);
-        return redirect()->route('passcode.failed'); // Redirect to a failure page
+        return redirect()->route('passcode.cancel'); // Redirect to a failure page
     }    
 
     public function cancel(Request $request)
