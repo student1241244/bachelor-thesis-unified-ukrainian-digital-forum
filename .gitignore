@@ -14,5 +14,3 @@ yarn-error.log
 /.vscode
 /.env
 .DS_Store
-!/public/storage/default/
-!/public/storage/avatars/

@@ -1,3 +1,5 @@
 *
 !public/
+!/public/default/
+!/public/avatars/
 !.gitignore
