@@ -13,10 +13,8 @@ class PasscodeFeaturesController extends Controller
             return false;
         }
     
-        // Retrieve the hashed passcode from the database
         $payment = Payment::where('status', 'completed')->first();
-    
-        // Assuming the hashed passcode is stored in a column named 'passcode'
+
         if ($payment && password_verify($rawPasscode, $payment->passcode)) {
             return true;
         }
@@ -25,10 +23,8 @@ class PasscodeFeaturesController extends Controller
     }
     
     public function switchTheme(Request $request)
-    {
-        $passcode = session('passcode');
-        
-        if ($this->validatePasscode($passcode) == True) {
+    {       
+        if ($this->validatePasscode() == True) {
             $theme = $request->input('theme');
 
             // Optionally, update session with the selected theme
