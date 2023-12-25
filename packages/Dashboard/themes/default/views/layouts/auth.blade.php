@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Packages">
     <title>@yield('title')</title>
-    <link rel="icon" href="/images/default/logos/favicon.png?v=1" type="image/png" sizes="16x16">
+    <link rel="icon" sizes="16x16" href="/images/favicon.png">
     <link href="/{{ config('tpx_dashboard.public_resources') }}/css/bootstrap.min.css" rel="stylesheet">
     <link href="/{{ config('tpx_dashboard.public_resources') }}/css/font-awesome.min.css" rel="stylesheet">
     <link href="/{{ config('tpx_dashboard.public_resources') }}/css/custom.css" rel="stylesheet">
