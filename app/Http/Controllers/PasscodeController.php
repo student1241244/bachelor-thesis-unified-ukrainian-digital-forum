@@ -126,7 +126,7 @@ class PasscodeController extends Controller
 
     public function cancel(Request $request)
     {
-        print("cancel");
+        return view('passcode.cancel');
     }
 
     public function handleWebhook(Request $request)
