@@ -241,7 +241,7 @@ trait HasMediaTrait
         if ($media) {
             return getMediaUrl($this, $collection, $conversion);
         } else {
-            return url('storage/default/thread.jpg');
+            return url('/thread.jpg');
         }
     }
 
