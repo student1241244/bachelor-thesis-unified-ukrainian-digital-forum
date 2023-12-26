@@ -55,7 +55,7 @@
                     <a href="/" class="logo"><img src="/images/logo-black.png" alt="logo"></a>
                     <div class="user-action">
                         <div class="search-menu-toggle icon-element icon-element-xs shadow-sm mr-1" data-toggle="tooltip" data-placement="top" title="Search">
-                            <a href="#" class="text-white mr-2 headersearchicon2" style="top:0px;padding:10px 10px;color:black!important;"><i class="la la-search"></a></i>
+                            <a href="#" class="text-white mr-2 header-search-icon2" style="top:0px;padding:10px 10px;color:black!important;"><i class="la la-search"></a></i>
                         </div>
                         <div class="off-canvas-menu-toggle icon-element icon-element-xs shadow-sm" data-toggle="tooltip" data-placement="top" title="Main menu">
                             <i class="la la-bars"></i>
@@ -89,7 +89,7 @@
                     </nav><!-- end main-menu -->
                     <form class="mr-2">
                         <div class="form-group mb-0">
-                            <a href="#" class="text-white mr-2 header-search-icon" title="Search" data-toggle="tooltip" data-placement="bottom">Type your search words... <i class="la la-search"></i></a>
+                            <a class="text-white mr-2 header-search-icon" title="Search" data-toggle="tooltip" data-placement="bottom">Type your search words... <i class="la la-search"></i></a>
                         </div>
                     </form>
                     @auth
