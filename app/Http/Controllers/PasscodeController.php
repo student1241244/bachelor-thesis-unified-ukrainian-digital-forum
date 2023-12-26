@@ -96,12 +96,12 @@ class PasscodeController extends Controller
     
         if (!$secureToken) {
             Log::error('Error: Token not provided in Success Page');
-            return redirect()->route('passcode.cancel'); // Redirect to a failure page
+            return redirect()->route('passcode.cancel');
         }
     
         $startTime = time();
-        $timeout = 30; // Time in seconds to wait for the webhook
-        $interval = 2; // Time in seconds to wait between checks
+        $timeout = 30;
+        $interval = 2;
     
         while (time() - $startTime < $timeout) {
             $payment = Payment::where('secure_token', $secureToken)->first();
@@ -110,10 +110,8 @@ class PasscodeController extends Controller
                 $rawPasscode = Cache::get('raw_passcode_for_user_' . $payment->id);
                 Cache::forget('raw_passcode_for_user_' . $payment->id);
     
-                // Optionally mark the passcode as displayed
                 $payment->update(['passcode_displayed' => true]);
     
-                // Return the success view with the passcode
                 return view('passcode.passcode-home', ['passcode' => $rawPasscode, 'title' => 'Passcode feature']);
             }
     

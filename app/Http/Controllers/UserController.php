@@ -151,7 +151,7 @@ class UserController extends Controller
     private function getSharedData($user) {
         $questionsCount = $user->questions()->count();
         $commentsCount = $user->comments()->count();
-        $totalAnswerUpvotes = $user->comments->sum('votes_count'); // Ensure 'votes_count' is the correct column name in your Comment model
+        $totalAnswerUpvotes = $user->comments->sum('votes_count');
     
         View::share('sharedData', [
             'avatar' => $user->avatar,

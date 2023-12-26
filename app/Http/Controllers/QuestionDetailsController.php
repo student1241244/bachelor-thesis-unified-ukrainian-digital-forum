@@ -16,9 +16,8 @@ class QuestionDetailsController extends Controller
     {
         try {
             $question = Question::findOrFail($id);
-            $vote = $request->input('vote', 0); // vote should be 1 or -1
+            $vote = $request->input('vote', 0);
         
-            // Ensure that $vote is either 1 or -1
             if (!in_array($vote, [1, -1])) {
                 return response()->json(['error' => 'Invalid vote value'], 400);
             }
@@ -26,10 +25,8 @@ class QuestionDetailsController extends Controller
             Log::error('Question: ' . $question->votes_count);
             return response()->json(['newVoteCount' => $question->votes_count]);
         } catch (\Exception $e) {
-            // Log the error
             Log::error('Vote Error: ' . $e->getMessage());
     
-            // Return a meaningful error response
             return response()->json(['error' => 'Internal Server Error'], 500);
         }
     }
@@ -39,9 +36,8 @@ class QuestionDetailsController extends Controller
         try {
             $question = Question::findOrFail($questionId);
             $answer = $question->comments()->findOrFail($commentId);
-            $vote = $request->input('vote', 0); // vote should be 1 or -1
+            $vote = $request->input('vote', 0);
             
-            // Ensure that $vote is either 1 or -1
             if (!in_array($vote, [1, -1])) {
                 return response()->json(['error' => 'Invalid vote value'], 400);
             }
@@ -50,10 +46,8 @@ class QuestionDetailsController extends Controller
             
             return response()->json(['newVoteCount' => $answer->votes_count]);
         } catch (\Exception $e) {
-            // Log the error
             Log::error('Vote Error: ' . $e->getMessage());
         
-            // Return a meaningful error response
             return response()->json(['error' => 'Internal Server Error'], 500);
         }
     }    

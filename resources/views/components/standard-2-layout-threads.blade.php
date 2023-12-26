@@ -92,9 +92,9 @@
                     </nav><!-- end main-menu -->
                     @if(session('passcode'))
                         <div class="theme-selector">
-                            <select id="themeSwitcher">
-                                <option value="light">Light Theme</option>
-                                <option value="dark">Dark Theme</option>
+                            <select id="themeSwitcher" class="select">
+                                <option value="light">Light</option>
+                                <option value="dark">Dark</option>
                             </select>                            
                         </div>
                     @endif
@@ -119,6 +119,14 @@
             <li>
                 <a href="/about">About Lemyk</a>
             </li>
+            @if(session('passcode'))
+            <div class="theme-selector">
+                <select id="themeSwitcherMobile" class="select" style="width:100%;margin-top:30px;">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>                            
+            </div>
+            @endif
         </ul>
     </div><!-- end off-canvas-menu -->
     <div class="body-overlay"></div>
@@ -207,21 +215,43 @@ document.getElementById('themeSwitcher').addEventListener('change', function() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': '{{ csrf_token() }}' // CSRF token for Laravel
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
         },
         body: JSON.stringify({theme: selectedTheme})
     })
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            // Apply theme change
             if (selectedTheme === 'dark') {
                 document.body.classList.add('dark-theme');
             } else {
                 document.body.classList.remove('dark-theme');
             }
-
-            // Store the selected theme in local storage
+            localStorage.setItem('theme', selectedTheme);
+        } else {
+            alert('Invalid or expired passcode.');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+});
+document.getElementById('themeSwitcherMobile').addEventListener('change', function() {
+    var selectedTheme = this.value;
+    fetch('/switch-theme', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+        body: JSON.stringify({theme: selectedTheme})
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            if (selectedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+            } else {
+                document.body.classList.remove('dark-theme');
+            }
             localStorage.setItem('theme', selectedTheme);
         } else {
             alert('Invalid or expired passcode.');

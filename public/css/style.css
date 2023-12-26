@@ -51,8 +51,36 @@ body.dark-theme {
 }
 
 body.dark-theme div {
-  background-color: #262d33!important; /* Dark background */
+  background-color: transparent!important; /* Dark background */
   color: #fff!important; /* Light text */
+  /* Add other styles for dark theme as needed */
+}
+
+body.dark-theme .modal-content {
+  background-color: #262d33!important; /* Dark background */
+  /* Add other styles for dark theme as needed */
+}
+
+body.dark-theme .card-body {
+  background-color: #262d33!important; /* Dark background */
+  box-shadow: 0 0 10px #0000004d!important;
+  /* Add other styles for dark theme as needed */
+}
+
+body.dark-theme .form--control {
+  background-color: #262d33!important; /* Dark background */
+  /* Add other styles for dark theme as needed */
+}
+
+body.dark-theme .cat-item {
+  background-color: #262d33!important; /* Dark background */
+  box-shadow: 0 0 10px #0000004d!important;
+  /* Add other styles for dark theme as needed */
+}
+
+body.dark-theme .media-card {
+  background-color: #262d33!important; /* Dark background */
+  box-shadow: 0 0 10px #0000004d!important;
   /* Add other styles for dark theme as needed */
 }
 
@@ -68,7 +96,7 @@ body.dark-theme h1,h2,h3,h4,h5,h6,a,span,p {
 }
 
 body.dark-theme * {
-  color: #fff!important; /* Light text */
+  color: #ffffffb5!important; /* Light text */
   /* Add other styles for dark theme as needed */
 }
 
@@ -99,8 +127,23 @@ body.dark-theme .bg-white {
   /* Add other styles for dark theme as needed */
 }
 
+body.dark-theme .off-canvas-menu.active {
+  background-color: #262d33!important; /* Light text */
+  /* Add other styles for dark theme as needed */
+}
+
+body.dark-theme .body-overlay {
+  background: rgba(30, 30, 28, 0.9)!important; /* Light text */
+  /* Add other styles for dark theme as needed */
+}
+
 body.dark-theme hr {
   background-color: white!important; /* Light text */
+  /* Add other styles for dark theme as needed */
+}
+
+body.dark-theme .card-item {
+  box-shadow: 0 0 10px #0000004d!important; /* Light text */
   /* Add other styles for dark theme as needed */
 }
 
