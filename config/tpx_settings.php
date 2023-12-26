@@ -14,9 +14,9 @@ return [
 	],
 	'permissions' => [
 		'settings' => [
-            'custom' => ['admin', 'moderator'],
-            'index' => ['admin', 'moderator'],
-            'destroy' => ['admin', 'moderator'],
+            'custom' => ['admin'],
+            'index' => ['admin'],
+            'destroy' => ['admin'],
         ],
 	],
 ];
