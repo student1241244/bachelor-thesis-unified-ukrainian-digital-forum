@@ -1,66 +1,30 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://lemyk.com/images/logo-white.png" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://lemyk.com/images/logo-white.png" width="150" alt="Laravel Logo"></a></p>
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+We are helping to build Ukrainian online community
 </p>
 
-## About Laravel
+## Bachelor thesis
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Author: ARTUR LAGUTIN
+Bachelor title: UNIFIED UKRAINIAN DIGITAL FORUM: A WEB PLATFORM FOR UKRAINIAN COMMUNITY BUILDING AND COMMUNICATION
+Year: 2024
+Loation: Kaunas
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## About Lemyk
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Lemyk, our digital forum, is a tribute to Mykola Lemyk, an emblematic figure in Ukrainian history, known for his political activism and leadership within the Organization of Ukrainian Nationalists. His legacy of advocating for Ukrainian sovereignty and national identity inspires our platform's mission to connect and empower the Ukrainian community through open dialogue and shared knowledge.
 
-## Learning Laravel
+As a political activist, Mykola Lemyk was deeply involved in the struggle for Ukrainian independence and worked tirelessly to organize and mobilize the Ukrainian diaspora. His dedication to the cause of national self-determination and his efforts in promoting Ukrainian culture and values have left an indelible mark on the nation's collective memory.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+In remembrance of his spirit, Lemyk Forum aspires to be a modern-day confluence of thought and discussion, where Ukrainians can freely express their ideas, celebrate their heritage, and engage in conversations that drive the nation forward. The forum seeks to embody Lemyk's unwavering commitment to community and nation-building by providing a secure space for users to interact and exchange views.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Our platform mirrors Mykola Lemyk’s ethos by providing a secure and engaging environment for users to engage in rich discussions, share insights, and contribute to a thriving digital ecosystem. Lemyk’s spirit of inquiry and dedication to cultural identity are the cornerstones upon which our forum is built, guiding us towards a future where every Ukrainian voice can be heard.
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within Laravel, please send an e-mail to the owner via [info@lemyk.com](mailto:info@lemyk.com). All security vulnerabilities will be promptly addressed.
 
-## License
+## Contact
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+For any project issues or questions contact owner via [info@lemyk.com](mailto:taylor@laravel.com).
