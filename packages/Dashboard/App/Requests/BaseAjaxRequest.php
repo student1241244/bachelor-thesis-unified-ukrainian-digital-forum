@@ -22,8 +22,6 @@ abstract class BaseAjaxRequest extends FormRequest
     {
         $errors = $validator->errors()->toArray();
 
-        //dd($errors);
-
         if (isset($errors['g-recaptcha-response'])) {
             $errors['g-recaptcha-response'] = [trans('front.errors.recaptcha')];
         }
