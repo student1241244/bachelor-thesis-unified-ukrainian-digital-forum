@@ -26,7 +26,7 @@
                 <div class="col-lg-5 mx-auto">
                     <div class="form-action-wrapper py-5">
                         <div class="form-group">
-                            <h3 class="fs-22 pb-3 fw-bold">Log in to Disilab</h3>
+                            <h3 class="fs-22 pb-3 fw-bold">Log in to Lemyk</h3>
                             <div class="divider"><span></span></div>
                             <p class="pt-3">Enter your username and password to login to your account.</p>
                         </div>

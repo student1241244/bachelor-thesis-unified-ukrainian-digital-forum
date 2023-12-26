@@ -28,35 +28,45 @@ class UserController extends Controller
         ]);
     }
 
-    public function updateProfileSettings(UpdateRequest $request) {
-        $request->validate([
-            'password' => 'required',
-            'password_confirmation' => 'required'
-        ]);
-
+    public function updateProfileSettings(Request $request) {
         $user = auth()->user();
-
-        $data = $request->only(['email', 'password']);
-
+    
+        $data = [];
+        
+        if ($request->filled('password')) {
+            $request->validate([
+                'password' => [
+                    'required',
+                    'confirmed',
+                    'min:6', // Minimum of 6 characters
+                    'regex:/[a-z]/',      // At least one lowercase letter
+                    'regex:/[A-Z]/',      // At least one uppercase letter
+                    'regex:/[0-9]/',      // At least one number
+                    'regex:/[@$!%*#?&]/', // At least one special character
+                ]
+            ]);
+            $data['password'] = bcrypt($request->input('password'));
+        }
+    
         if ($request->file('avatar')) {
             $filename = $user->id . '-' . uniqid() . '.jpg';
             $imgData = Image::make($request->file('avatar'))->fit(120)->encode('jpg');
             Storage::put('public/avatars/' . $filename, $imgData);
             $oldAvatar = $user->avatar;
             $data['avatar'] = $filename;
-
-            if ($oldAvatar != "/fallback-avatar.jpg") {
+    
+            if ($oldAvatar && $oldAvatar != "/fallback-avatar.jpg") {
                 Storage::delete(str_replace("/storage/", "public/", $oldAvatar));
             }
-
         }
+    
         $user->update($data);
-
+    
         return response()->json([
             'avatar' => $user->avatar,
             'message' => 'Your profile has been updated successfully',
         ]);
-    }
+    }    
 
     public function showProfileSettings() {
         $user = auth()->user();

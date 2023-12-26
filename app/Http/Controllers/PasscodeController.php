@@ -38,7 +38,7 @@ class PasscodeController extends Controller
     
         if ($isValidPasscode) {
             if ($validPayment->isExpired()) {
-                return back()->with('error', 'Invalid or expired Passcode.');
+                return redirect('/passcode')->with('error', 'Invalid or expired Passcode.');
             }
             session([
                 'passcode' => [

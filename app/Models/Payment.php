@@ -20,6 +20,6 @@ class Payment extends Model
 
     public function isExpired()
     {
-        return $this->expires_at && $this->expires_at->isPast();
+        return $this->created_at->diffInDays(now()) > 30;
     }
 }

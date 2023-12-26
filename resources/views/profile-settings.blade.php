@@ -71,7 +71,7 @@
                                                     <div class="input-box">
                                                         <label class="fs-13 text-black lh-20 fw-medium">Email</label>
                                                         <div class="form-group">
-                                                            <input class="form-control form--control" type="text" name="email" value="{{ $user->email }}">
+                                                            <input readonly="readonly" class="form-control form--control" type="text" name="email" value="{{ $user->email }}">
                                                         </div>
                                                     </div>
                                                     <div class="input-box">

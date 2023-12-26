@@ -14,7 +14,7 @@
                 <div class="col-lg-5">
                     <div class="hero-content py-5">
                         <h2 class="section-title fs-40 pb-3 lh-55">Unlock exclusive features with Lemyk's Passcode</h2>
-                        <p class="section-desc pb-40px">Get the word out to the world’s largest audience of developers and technologists. Advertise with Disilab.</p>
+                        <p class="section-desc pb-40px">Get the word out to the world’s largest audience of developers and technologists. Advertise with Lemyk.</p>
                         <a class="media media-card align-items-center hover-s d-inline-flex" href="{{ route('passcode.checkout') }}">
                             <div class="mr-3">
                                 <svg height="37" viewBox="0 0 37 37" width="37"><path clip-rule="evenodd" d="m18.5 37c10.2173 0 18.5-8.2827 18.5-18.5 0-10.21727-8.2827-18.5-18.5-18.5-10.21727 0-18.5 8.28273-18.5 18.5 0 10.2173 8.28273 18.5 18.5 18.5zm-1.8334-25.3051c-1.2394-.8221-2.8953.0665-2.8953 1.5537v5.2214 5.2214c0 1.4873 1.6559 2.3759 2.8953 1.5537l7.8705-5.2214c1.1117-.7375 1.1117-2.3699 0-3.1074z" fill="currentColor" fill-rule="evenodd"></path></svg>
@@ -153,13 +153,9 @@
                             <h3 class="fs-26 fw-bold pb-2">Enter your Passcode</h3>
                             <p class="pb-3 lh-22">If you don't have your Passcode, you can get it by clicking the button above.</p>
                             <p class="pb-2">Once you activate your Passcode, it'll work for everything you do on the website until you leave. Just remember, you'll need to activate it again every time you come back.</p>
-                            @if ($errors->any())
+                            @if (session('error'))
                                 <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
+                                    {{ session('error') }}
                                 </div>
                             @endif
                             <form method="post" class="mb-4" action="{{ route('passcode.activate') }}">
