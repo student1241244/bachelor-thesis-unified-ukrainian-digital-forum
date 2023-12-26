@@ -1097,6 +1097,7 @@ body h1,h2,h3,h4,h5,h6,span,p,a {
 .theme-btn {
   background-color: #2d86eb;
   color: #fff;
+  margin: 5px;
   font-weight: 500;
   padding-right: 18px;
   padding-left: 18px;
