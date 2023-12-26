@@ -26,12 +26,9 @@
 				},
                 {
 					name: "images",
-					label: "{{ __('questions::question.attributes.images') }}",
+					label: "{{ __('questions::comment.attributes.images') }}",
 					filter: false,
 					sortable: false,
-					render: function(value) {
-						return aGridExt.renderImage(value)
-					}
 				},
 				{
 					name: "body",

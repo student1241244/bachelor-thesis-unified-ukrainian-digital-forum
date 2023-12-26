@@ -32,8 +32,8 @@ class QuestionCrudService
 
     public function attachMedia(Question $question)
     {
-        if(request()->hasFile('images')) {
-            $question->addMediaFromRequest('images')->toMediaCollection('images');
+        foreach (request()->file('images', []) as $image) {
+            $question->addMedia($image)->toMediaCollection('images');
         }
     }
 }

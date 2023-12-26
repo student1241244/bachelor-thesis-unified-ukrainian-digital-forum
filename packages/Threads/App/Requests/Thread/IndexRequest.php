@@ -116,9 +116,9 @@ class IndexRequest extends BaseFilter
                 'id' => $row->id,
                 'category_title' => $row->category_title,
                 'image' => $row->getImageOrNull('image', '100x100'),
-                'title' => '<a href="'.route('threads.threads.edit', $row->id).'">'.$row->title.'</a>',
-                'body' => $row->body,
-                'reports' => (new ReportService)->formatReportData($row),
+                'title' => strip_tags('<a href="'.route('threads.threads.edit', $row->id).'">'.$row->title.'</a>'),
+                'body' => strip_tags($row->body),
+                'reports' => strip_tags((new ReportService)->formatReportData($row)),
             ];
         });
     }

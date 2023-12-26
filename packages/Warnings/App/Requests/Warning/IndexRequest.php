@@ -87,8 +87,8 @@ class IndexRequest extends BaseFilter
         return $this->resolveData(function(Warning $row) {
             return [
                 'id' => $row->id,
-                'user_title' => $row->user_title,
-                'body' => $row->body,
+                'user_title' => strip_tags($row->user_title),
+                'body' => strip_tags($row->body),
             ];
         });
     }

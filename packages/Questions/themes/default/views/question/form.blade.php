@@ -10,6 +10,14 @@ $labels = trans('questions::question.attributes');
 	{!! BootForm::bind($question) !!}
 	@method($question->id ? 'PUT' : 'POST')
 
+	@include('tpx_dashboard::dashboard.partials._file-upload', [
+		'model' => $question,
+		'name' => 'images',
+		'label' => $labels['images'],
+		'accept' => 'image/*',
+		'multiple' => true,
+	])
+
 	{!! BootForm::text($labels['user_id'], 'user_id')->value($question->user->email)->disabled() !!}
 	{!! BootForm::text($labels['title'], 'title') !!}
 	{!! BootForm::textarea($labels['body'], 'body') !!}

@@ -115,11 +115,11 @@ class IndexRequest extends BaseFilter
 
             return [
                 'id' => $row->id,
-                'question_title' => $row->question_title,
-                'user_title' => $row->user_title,
-                'body' => $row->body,
+                'question_title' => strip_tags($row->question_title),
+                'user_title' => strip_tags($row->user_title),
+                'body' => strip_tags($row->body),
                 'images' => $images,
-                'reports' => (new ReportService)->formatReportData($row),
+                'reports' => strip_tags((new ReportService)->formatReportData($row)),
             ];
         });
     }

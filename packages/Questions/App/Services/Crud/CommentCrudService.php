@@ -36,6 +36,5 @@ class CommentCrudService
         foreach (request()->file('images', []) as $image) {
             $comment->addMedia($image)->toMediaCollection('images');
         }
-
     }
 }

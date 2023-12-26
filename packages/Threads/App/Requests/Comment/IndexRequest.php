@@ -100,9 +100,9 @@ class IndexRequest extends BaseFilter
         return $this->resolveData(function(Comment $row) {
             return [
                 'id' => $row->id,
-                'thread_title' => $row->thread_title,
-                'body' => $row->body,
-                'reports' => (new ReportService)->formatReportData($row),
+                'thread_title' => strip_tags($row->thread_title),
+                'body' => strip_tags($row->body),
+                'reports' => strip_tags((new ReportService)->formatReportData($row)),
             ];
         });
     }

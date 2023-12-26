@@ -10,13 +10,6 @@ $labels = trans('threads::comment.attributes');
 	{!! BootForm::bind($comment) !!}
 	@method($comment->id ? 'PUT' : 'POST')
 
-	@include('tpx_dashboard::dashboard.partials._file-upload', [
-		'model' => $thread,
-		'name' => 'image',
-		'label' => $labels['image'],
-		'accept' => 'image/*',
-	])
-
 	{!! BootForm::text($labels['thread_id'], 'thread_id')->value($comment->thread->title)->disabled() !!}
 	{!! BootForm::textarea($labels['body'], 'body') !!}
 

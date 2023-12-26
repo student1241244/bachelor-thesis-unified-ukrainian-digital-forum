@@ -107,16 +107,18 @@ class IndexRequest extends BaseFilter
     public function getData()
     {
         return $this->resolveData(function(Question $row) {
-            $images = $row->getMedia('images');
-            $firstImageUrl = $images->first() ? $images->first()->getFullUrl() : null;
-            Log::error("image", ['image' => $firstImageUrl]);
+            $images = '';
+            foreach ($row->getMedia('images') as $img) {
+                $images .=  '<a style="padding-right: 3px;" href="'.$img->getUrl().'" target="_blank"><img height="20" src="'.$img->getUrl().'"></a>';
+            }
+
             return [
                 'id' => $row->id,
-                'user_title' => $row->user_title,
-                'images' => $firstImageUrl,
-                'title' => '<a href="'.route('questions.questions.edit', $row->id).'">'.$row->title.'</a>',
-                'body' => $row->body,
-                'reports' => (new ReportService)->formatReportData($row),
+                'user_title' => strip_tags($row->user_title),
+                'images' => $images,
+                'title' => strip_tags('<a href="'.route('questions.questions.edit', $row->id).'">'.$row->title.'</a>'),
+                'body' => strip_tags($row->body),
+                'reports' => strip_tags((new ReportService)->formatReportData($row)),
             ];
         });
     }

@@ -76,7 +76,7 @@ class IndexRequest extends BaseFilter
         return $this->resolveData(function(Category $row) {
             return [
                 'id' => $row->id,
-                'title' => '<a href="'.route('threads.categories.edit', $row->id).'">'.$row->title.'</a>',
+                'title' => strip_tags('<a href="'.route('threads.categories.edit', $row->id).'">'.$row->title.'</a>'),
             ];
         });
     }
