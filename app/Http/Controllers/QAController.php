@@ -138,7 +138,7 @@ class QAController extends Controller
         $data['user_id'] = auth()->id();
         $answer = Comment::create($data);
         $user = auth()->user();
-        $user->bonus_points += 10; // Award 10 points per answer
+        $user->bonus_points += 10;
         $user->save();
 
         foreach ($request->file('images', []) as $image) {

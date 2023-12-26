@@ -31,8 +31,6 @@ class SecuritySettingController extends Controller
         $results['Stripe status'] = $this->diagnosticService->checkStripe();
         $results['Composer dependencies'] = $this->diagnosticService->checkComposerDependencies();
 
-        // Add more checks as needed
-
         return $results;
     }
     
@@ -61,7 +59,7 @@ class SecuritySettingController extends Controller
     public function showBackupSettings()
     {
         $settings = Setting::pluck('setting_status', 'setting_name')->toArray();
-        $frequency = $settings['backup_frequency'] ?? 'default_value'; // Replace 'default_value' with your desired default frequency
+        $frequency = $settings['backup_frequency'] ?? 'default_value';
         return $frequency;
     }    
 }
