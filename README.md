@@ -6,9 +6,9 @@ We are helping to build Ukrainian online community
 
 ## Bachelor thesis
 
-Author: ARTUR LAGUTIN
-Bachelor title: UNIFIED UKRAINIAN DIGITAL FORUM: A WEB PLATFORM FOR UKRAINIAN COMMUNITY BUILDING AND COMMUNICATION
-Year: 2024
+Author: ARTUR LAGUTIN<br />
+Bachelor title: UNIFIED UKRAINIAN DIGITAL FORUM: A WEB PLATFORM FOR UKRAINIAN COMMUNITY BUILDING AND COMMUNICATION<br />
+Year: 2024<br />
 Loation: Kaunas
 
 ## About Lemyk
