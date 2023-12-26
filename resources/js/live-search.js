@@ -5,7 +5,7 @@ export default class Search {
     constructor() {
         this.injectHTML();
         this.headerSearchIcon = document.querySelector(".header-search-icon");
-        this.headerSearchIcon2 = document.querySelector(".header-search-icon2");
+        this.headerSearchIcon2 = document.querySelector(".headersearchicon2");
         this.overlay = document.querySelector(".search-overlay");
         this.closeIcon = document.querySelector(".close-live-search");
         this.inputField = document.querySelector("#live-search-field");
