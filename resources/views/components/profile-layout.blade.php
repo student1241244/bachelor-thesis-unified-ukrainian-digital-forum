@@ -21,7 +21,7 @@
                                 <div class="media-body">
                                     <h5>{{$sharedData['username']}}</h5>
                                     <div class="stats fs-14 fw-medium d-flex align-items-center lh-18">
-                                        <span class="text-black pr-2" title="Reputation">Bonus points: </span>
+                                        <span class="text-black pr-2" title="Reputation">Бонусні бали: </span>
                                         <span class="pr-2 d-inline-flex align-items-center" title="Gold"><span class="ball ml-1 gold"></span>{{ $sharedData['bonus_points'] }}</span>
                                     </div>
                                 </div>
@@ -30,7 +30,7 @@
                         @if(isset(auth()->user()->username) == $sharedData['username'])
                         <div class="float-right">
                             <div class="hero-btn-box text-right py-3">
-                                <a href="/profile-settings" class="btn theme-btn theme-btn-outline theme-btn-outline-gray"><i class="la la-gear mr-1"></i> Edit Profile</a>
+                                <a href="/profile-settings" class="btn theme-btn theme-btn-outline theme-btn-outline-gray"><i class="la la-gear mr-1"></i> Редагувати профіль</a>
                             </div>
                         </div>
                         @endif
@@ -39,7 +39,7 @@
                 <div class="col-lg-12">
                     <ul class="nav nav-tabs generic-tabs generic--tabs generic--tabs-2 mt-4" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="user-profile-tab" data-toggle="tab" href="#user-profile" role="tab" aria-controls="user-profile" aria-selected="true">Profile</a>
+                            <a class="nav-link active" id="user-profile-tab" data-toggle="tab" href="#user-profile" role="tab" aria-controls="user-profile" aria-selected="true">Профіль</a>
                         </li>
                     </ul>
                 </div><!-- end col-lg-4 -->

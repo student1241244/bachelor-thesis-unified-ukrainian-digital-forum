@@ -1,7 +1,7 @@
 <div id="interesting-questions-container" class="sidebar">
     <div class="card card-item">
         <div class="card-body">
-            <h3 class="fs-17 pb-3"><img style="width: 10%;" src="/images/fire.gif">Interesting Questions</h3>
+            <h3 class="fs-17 pb-3"><img style="width: 10%;" src="/images/fire.gif">Цікаві запитання</h3>
             <div class="divider"><span></span></div>
             <div class="sidebar-questions pt-3">
             @foreach ($interestingQuestions as $question)
@@ -10,7 +10,6 @@
                         <h5><a href="/question-details/{{ $question->id }}">{{ $question->title }}</a></h5>
                         <small class="meta">
                             <span class="pr-1">{{ $question->created_at->format('n/j/Y') }}</span>
-                            <span class="pr-1">by</span>
                             <a href="/profile/{{ $question->user->username }}" class="author">{{ $question->user->username }}</a>
                         </small>
                     </div>

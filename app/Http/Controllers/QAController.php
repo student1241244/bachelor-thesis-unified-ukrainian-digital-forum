@@ -58,7 +58,7 @@ class QAController extends Controller
         ]);
         
         $incomingFields['title'] = strip_tags($incomingFields['title']);
-        $incomingFields['body'] = strip_tags($incomingFields['body']);
+        $incomingFields['body'] = Str::markdown($incomingFields['body']);
 
         $question->update($incomingFields);
         $interestingQuestions = $this->calculateInterestingQuestions();
@@ -85,7 +85,7 @@ class QAController extends Controller
     }
 
     public function showSingleQuestion(Question $question) {
-        $question['body'] = strip_tags(Str::markdown($question->body), '<p><ul><ol><li><strong><em><h3><br><script>');
+        $question['body'] = strip_tags(Str::markdown($question->body), '<p><ul><ol><li><strong><em><h3><br>');
 
         $comments = $question->comments()->with(['media', 'user'])
                                       ->orderBy('votes_count', 'desc')
@@ -107,16 +107,16 @@ class QAController extends Controller
 
     public function createNewQuestion(Request $request) {
         $incomingFields = $request->validate([
+            'images.*' => 'mimes:jpg,jpeg,png|max:2048',
             'title' => 'required|max:100',
             'body' => 'required|max:1000',
             'category_id' => 'required|exists:questions_categories,id',
             'images' => 'array|max:6',
-            'images.*' => 'mimes:jpg,jpeg,png|max:2048',
             'is_agree' => 'required',
         ]);
         
         $incomingFields['title'] = strip_tags($incomingFields['title']);
-        $incomingFields['body'] = strip_tags($incomingFields['body']);
+        $incomingFields['body'] = Str::markdown(e($incomingFields['body']));
         $incomingFields['user_id'] = auth()->id();
         $newPost = Question::create($incomingFields);
 

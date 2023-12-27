@@ -18,7 +18,7 @@ class ReportController extends Controller
         );
 
         return response()->json([
-            'message' => 'Report was successfully sent!',
+            'message' => 'Звіт успішно надіслано!',
         ]);
     }
 

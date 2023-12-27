@@ -11,10 +11,10 @@
         <span class="stroke-shape stroke-shape-6"></span>
         <div class="container">
             <div class="hero-content text-center">
-                <h2 class="section-title pb-3">Cookie Policy</h2>
+                <h2 class="section-title pb-3">Політика використання файлів cookie</h2>
                 <ul class="breadcrumb-list">
-                    <li><a href="/">Home</a><span><svg xmlns="http://www.w3.org/2000/svg" height="19px" viewBox="0 0 24 24" width="19px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/></svg></span></li>
-                    <li>Cookie Policy</li>
+                    <li><a href="/">Головна</a><span><svg xmlns="http://www.w3.org/2000/svg" height="19px" viewBox="0 0 24 24" width="19px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/></svg></span></li>
+                    <li>Політика використання файлів cookie</li>
                 </ul>
             </div><!-- end hero-content -->
         </div><!-- end container -->
@@ -32,14 +32,14 @@
                 <div class="card-body row">
                     <div class="col-lg-3">
                         <ul class="js-scroll-nav js--scroll-nav">
-                            <li class="active"><a href="#information-we-collect-and-how-we-use-it" class="page-scroll">Cookie Policy</a></li>
+                            <li class="active"><a href="#information-we-collect-and-how-we-use-it" class="page-scroll">Політика використання файлів cookie</a></li>
                         </ul>
                     </div><!-- end col-lg-3 -->
                     <div class="col-lg-9">
                         <div class="terms-panel-main-bar pl-3">
-                            <h4>Cookie Policy for Lemyk</h4>
+                            <h4>Політика використання файлів cookie for Lemyk</h4>
                             <br>
-                            <p>This is the Cookie Policy for Lemyk, accessible from https://lemyk.com</p>
+                            <p>This is the Політика використання файлів cookie for Lemyk, accessible from https://lemyk.com</p>
                             <br>
                             <p><strong>What Are Cookies</strong></p>
 

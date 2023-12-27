@@ -11,10 +11,10 @@
         <span class="stroke-shape stroke-shape-6"></span>
         <div class="container">
             <div class="hero-content text-center">
-                <h2 class="section-title pb-3">Content Policy</h2>
+                <h2 class="section-title pb-3">Політика контенту</h2>
                 <ul class="breadcrumb-list">
-                    <li><a href="/">Home</a><span><svg xmlns="http://www.w3.org/2000/svg" height="19px" viewBox="0 0 24 24" width="19px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/></svg></span></li>
-                    <li>Content Policy</li>
+                    <li><a href="/">Головна</a><span><svg xmlns="http://www.w3.org/2000/svg" height="19px" viewBox="0 0 24 24" width="19px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/></svg></span></li>
+                    <li>Політика контенту</li>
                 </ul>
             </div><!-- end hero-content -->
         </div><!-- end container -->
@@ -45,7 +45,7 @@
                         <div class="terms-panel-main-bar pl-3">
                             <div class="terms-panel mb-30px" id="information-we-collect-and-how-we-use-it">
                                 <h3 class="fs-20 pb-3 fw-bold">1. Introduction</h3>
-                                <p class="pb-3">Welcome to Lemyk.com! Our content policy plays an important role in maintaining a positive experience for you, the users. We ask that all participants adhere to the rules and guidelines outlined in this policy.</p>
+                                <p class="pb-3">Welcome to Lemyk.com! Our Політика контенту plays an important role in maintaining a positive experience for you, the users. We ask that all participants adhere to the rules and guidelines outlined in this policy.</p>
                            </div><!-- end terms-panel -->
                             <div class="terms-panel mb-30px" id="contact-forms">
                                 <h3 class="fs-20 pb-3 fw-bold">2. Respect for Community</h3>

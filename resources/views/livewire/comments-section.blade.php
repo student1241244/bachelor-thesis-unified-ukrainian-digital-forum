@@ -13,7 +13,7 @@
                     <span class="comment-date text-gray">{{ \Carbon\Carbon::parse($comment['created_at'])->diffForHumans() }}</span>
                     <span class="comment-date text-gray">#{{ $comment['id'] }}</span>
                     <p class="comment-text pt-1 pb-2 lh-22">{{ $comment['body'] }}</p>
-                    <a href="#" class="comment-reply text-color hover-underline js-report" data-type="{{ \App\Services\ReportService::TYPE_THREAD_COMMENT }}" data-id="{{ $comment['id'] }}"><i class="la la-flag mr-1"></i>Report</a>
+                    <a href="#" class="comment-reply text-color hover-underline js-report" data-type="{{ \App\Services\ReportService::TYPE_THREAD_COMMENT }}" data-id="{{ $comment['id'] }}"><i class="la la-flag mr-1"></i>Звіт</a>
                 </div>
             </li>
             @endforeach

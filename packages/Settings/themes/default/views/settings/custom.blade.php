@@ -6,7 +6,7 @@
     </div>
 @endif
 <div class="ibox-content shadowed" style="margin-top: 20px;margin-left: 10px;">
-<h2>Settings</h2>
+<h2>Налаштування</h2>
 <hr>
 <h3>Content & Registration status:</h3>
 <div style="margin: 10px;">

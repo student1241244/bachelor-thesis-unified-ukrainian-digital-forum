@@ -9,11 +9,13 @@
                 <div class="question-main-bar pb-45px">
                     <div class="filters pb-4">
                         <div class="d-flex flex-wrap align-items-center justify-content-between pb-3">
-                            <h3 class="fs-22 fw-medium">{{ $category->title }} Questions</h3>
-                            <a href="/ask-question" class="btn theme-btn theme-btn-sm">Ask Question</a>
+                            <h3 class="fs-22 fw-medium">
+                                {{ $category->title }} Питання    
+                            </h3>         
+                            <a href="/ask-question" class="btn theme-btn theme-btn-sm">Задати питання</a>
                         </div>
                         <div class="d-flex flex-wrap align-items-center justify-content-between">
-                            <p class="pt-1 fs-15 fw-medium lh-20">{{ $count }} questions</p>
+                            <p class="pt-1 fs-15 fw-medium lh-20">{{ $count }} запитання</p>
                         </div>
                     </div><!-- end filters -->
                     @unless($questions->isEmpty())
@@ -23,11 +25,11 @@
                             <div class="votes text-center votes-2">
                                 <div class="vote-block">
                                     <span class="vote-counts d-block text-center pr-0 lh-20 fw-medium">{{$question->votes_count}}</span>
-                                    <span class="vote-text d-block fs-13 lh-18">votes</span>
+                                    <span class="vote-text d-block fs-13 lh-18">голосів</span>
                                 </div>
                                 <div class="answer-block answered my-2">
                                     <span class="answer-counts d-block lh-20 fw-medium">{{$question->comments->count()}}</span>
-                                    <span class="answer-text d-block fs-13 lh-18">answers</span>
+                                    <span class="answer-text d-block fs-13 lh-18">відповіді</span>
                                 </div>
                             </div>
                             <div class="media-body">
@@ -41,11 +43,11 @@
                                         <div>
                                             <h5 class="pb-1"><a href="/profile/{{ $question->user->username }}">{{ $question->user->username }}</a></h5>
                                             <div class="stats fs-12 d-flex align-items-center lh-18">
-                                                <span class="text-black pr-2" title="Reputation score">{{ $question->user->bonus_points }} points</span>
+                                                <span class="text-black pr-2" title="Reputation score">{{ $question->user->bonus_points }} балів</span>
                                             </div>
                                         </div>
                                         <small class="meta d-block text-right">
-                                            <span class="text-black d-block lh-18">created</span>
+                                            <span class="text-black d-block lh-18">створений</span>
                                             <span class="d-block lh-18 fs-12">{{$question->created_at->format('n/j/Y')}}</span>
                                         </small>
                                     </div>

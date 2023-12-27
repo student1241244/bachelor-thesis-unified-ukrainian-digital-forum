@@ -134,7 +134,7 @@ export default class Search {
     <div class="search-overlay-top shadow-sm">
       <div class="container container--narrow">
         <label for="live-search-field" class="search-overlay-icon"><i class="la la-search"></i></label>
-        <input autocomplete="off" type="text" id="live-search-field" class="live-search-field" placeholder="What are you interested in?">
+        <input autocomplete="off" type="text" id="live-search-field" class="live-search-field" placeholder="Що вас цікавить?">
         <span class="close-live-search"><i class="la la-close"></i></span>
       </div>
     </div>

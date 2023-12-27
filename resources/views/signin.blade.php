@@ -26,18 +26,18 @@
                 <div class="col-lg-5 mx-auto">
                     <div class="form-action-wrapper py-5">
                         <div class="form-group">
-                            <h3 class="fs-22 pb-3 fw-bold">Log in to Lemyk</h3>
+                            <h3 class="fs-22 pb-3 fw-bold">Увійти в Лемик</h3>
                             <div class="divider"><span></span></div>
-                            <p class="pt-3">Enter your username and password to login to your account.</p>
+                            <p class="pt-3">Введіть своє ім'я користувача та пароль, щоб увійти до свого облікового запису.</p>
                         </div>
                         <div class="form-group">
-                            <label class="fs-14 text-black fw-medium lh-18">Username</label>
-                            <input type="text" name="loginusername" class="form-control form--control" placeholder="Username">
+                            <label class="fs-14 text-black fw-medium lh-18">Ім'я користувача</label>
+                            <input type="text" name="loginusername" class="form-control form--control" placeholder="Ім'я користувача">
                         </div><!-- end form-group -->
                         <div class="form-group">
-                            <label class="fs-14 text-black fw-medium lh-18">Password</label>
+                            <label class="fs-14 text-black fw-medium lh-18">Пароль</label>
                             <div class="input-group">
-                                <input class="form-control form--control password-field" type="password" name="loginpassword" placeholder="Password">
+                                <input class="form-control form--control password-field" type="password" name="loginpassword" placeholder="Пароль">
                                 <div class="input-group-append">
                                     <button class="btn theme-btn-outline theme-btn-outline-gray toggle-password" type="button">
                                         <svg class="eye-on" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 0 24 24" width="22px" fill="#a1a1a1"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 6c3.79 0 7.17 2.13 8.82 5.5C19.17 14.87 15.79 17 12 17s-7.17-2.13-8.82-5.5C4.83 8.13 8.21 6 12 6m0-2C7 4 2.73 7.11 1 11.5 2.73 15.89 7 19 12 19s9.27-3.11 11-7.5C21.27 7.11 17 4 12 4zm0 5c1.38 0 2.5 1.12 2.5 2.5S13.38 14 12 14s-2.5-1.12-2.5-2.5S10.62 9 12 9m0-2c-2.48 0-4.5 2.02-4.5 4.5S9.52 16 12 16s4.5-2.02 4.5-4.5S14.48 7 12 7z"/></svg>
@@ -47,13 +47,13 @@
                             </div>
                         </div><!-- end form-group -->
                         <div class="form-group">
-                            <button id="send-message-btn" class="btn theme-btn w-100" type="submit">Log in <i class="la la-arrow-right icon ml-1"></i></button>
+                            <button id="send-message-btn" class="btn theme-btn w-100" type="submit">Авторизуватися <i class="la la-arrow-right icon ml-1"></i></button>
                         </div><!-- end form-group -->
                     </div><!-- end form-action-wrapper -->
                 </div><!-- end col-lg-5 -->
             </div><!-- end row -->
         </form>
-        <p class="text-black text-center fs-15">Don't have an account? <a href="/signup" class="text-color hover-underline">Sign up</a></p>
+        <p class="text-black text-center fs-15">Немає облікового запису? <a href="/signup" class="text-color hover-underline">Зареєструватися</a></p>
     </div><!-- end container -->
 </section>
 <!--======================================

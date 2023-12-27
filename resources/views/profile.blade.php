@@ -31,7 +31,7 @@
                                                 </div>
                                                 <div class="media-body">
                                                     <h5 class="fw-medium">{{ $sharedData['answerCount'] }}</h5>
-                                                    <p class="fs-15">Answers</p>
+                                                    <p class="fs-15">Відповіді</p>
                                                 </div>
                                             </div>
                                         </div><!-- end col-lg-4 -->
@@ -73,7 +73,7 @@
                                                 </div>
                                                 <div class="media-body">
                                                     <h5 class="fw-medium">{{ $sharedData['questionCount'] }}</h5>
-                                                    <p class="fs-15">Questions</p>
+                                                    <p class="fs-15">Питання</p>
                                                 </div>
                                             </div>
                                         </div><!-- end col-lg-4 -->
@@ -86,7 +86,7 @@
                                                 </div>
                                                 <div class="media-body">
                                                     <h5 class="fw-medium">{{ $sharedData['answerUpvotes'] }}</h5>
-                                                    <p class="fs-15">People reached</p>
+                                                    <p class="fs-15">Людей охоопили</p>
                                                 </div>
                                             </div>
                                         </div><!-- end col-lg-4 -->
@@ -94,7 +94,7 @@
                                 </div><!-- end user-panel -->
                                 <div class="user-panel mb-30px">
                                     <div class="bg-gray p-3 rounded-rounded d-flex align-items-center justify-content-between">
-                                        <h3 class="fs-17">Your Questions <span>({{ $sharedData['questionCount'] }})</span></h3>
+                                        <h3 class="fs-17">Ваші запитання <span>({{ $sharedData['questionCount'] }})</span></h3>
                                     </div>
                                     <div class="vertical-list">
                                         @if ($questions->count())
@@ -121,10 +121,10 @@
                                                 </div><!-- end item -->
                                             @endforeach
                                         @else
-                                            <p class="p-3">No questions yet</p>
+                                            <p class="p-3">Питань ще немає</p>
                                         @endif
                                         <div class="view-more pt-3 px-3">
-                                            <a href="/qa-home" class="btn-text fs-15">View all questions and answers <i class="la la-arrow-right icon ml-1"></i></a>
+                                            <a href="/qa-home" class="btn-text fs-15">Переглянути всі запитання та відповіді <i class="la la-arrow-right icon ml-1"></i></a>
                                         </div>
                                     </div><!-- end vertical-list -->
                                 </div><!-- end user-panel -->
@@ -141,7 +141,7 @@
                                                 <div class="media media-card user-media align-items-center px-0 border-bottom-0 pb-0">
                                                     <div class="media-body d-flex flex-wrap align-items-center justify-content-between">
                                                         <small class="meta d-block text-right">
-                                                            <span class="d-block lh-18 fs-12">created: {{$question->created_at->format('n/j/Y')}}</span>
+                                                            <span class="d-block lh-18 fs-12">створений: {{$question->created_at->format('n/j/Y')}}</span>
                                                         </small>
                                                     </div>
                                                 </div>
@@ -151,7 +151,7 @@
                                 </div><!-- end questions-snippet -->
 
                             @else
-                                <p class="p-3">No questions yet</p>
+                                <p class="p-3">Питань ще немає</p>
                             @endif
                         </div>
                     </div>

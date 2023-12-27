@@ -79,16 +79,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     <nav class="menu-bar mr-auto menu--bar">
                         <ul>
                             <li>
-                                <a href="/home">Home</a>
+                                <a href="/home">Головна</a>
                             </li>
                             <li class="is-mega-menu">
-                                <a href="/qa-home">Q&A</a>
+                                <a href="/qa-home">Відповіді</a>
                             </li>
                             <li class="is-mega-menu">
-                                <a href="/threads-home">Threads</a>
+                                <a href="/threads-home">Треди</a>
                             </li>
                             <li>
-                                <a href="/about">About Lemyk</a>
+                                <a href="/about">Про Лемика</a>
                             </li>
                         </ul><!-- end ul -->
                     </nav><!-- end main-menu -->
@@ -110,16 +110,16 @@ document.addEventListener('DOMContentLoaded', () => {
         </div><!-- end off-canvas-menu-close -->
         <ul class="generic-list-item off-canvas-menu-list pt-90px">
             <li>
-                <a href="/">Home</a>
+                <a href="/">Головна</a>
             </li>
             <li>
-                <a href="/qa-home">Q&A</a>
+                <a href="/qa-home">Відповіді</a>
             </li>
             <li>
-                <a href="/threads-home">Threads</a>
+                <a href="/threads-home">Треди</a>
             </li>
             <li>
-                <a href="/about">About Lemyk</a>
+                <a href="/about">Про Лемика</a>
             </li>
             @if(session('passcode'))
             <div class="theme-selector">
@@ -149,33 +149,33 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="row">
             <div class="col-lg-3 responsive-column-half">
                 <div class="footer-item">
-                    <h3 class="fs-18 fw-bold pb-2 text-white">Company</h3>
+                    <h3 class="fs-18 fw-bold pb-2 text-white">Компанія</h3>
                     <ul class="generic-list-item generic-list-item-hover-underline pt-3 generic-list-item-white">
-                        <li><a href="/about">About</a></li>
+                        <li><a href="/about">Про Лемика</a></li>
                     </ul>
                 </div><!-- end footer-item -->
             </div><!-- end col-lg-3 -->
             <div class="col-lg-3 responsive-column-half">
                 <div class="footer-item">
-                    <h3 class="fs-18 fw-bold pb-2 text-white">Legal Stuff</h3>
+                    <h3 class="fs-18 fw-bold pb-2 text-white">>Політика<</h3>
                     <ul class="generic-list-item generic-list-item-hover-underline pt-3 generic-list-item-white">
-                        <li><a href="/privacy-policy">Privacy Policy</a></li>
-                        <li><a href="/content-policy">Content Policy</a></li>
-                        <li><a href="/cookie-policy">Cookie Policy</a></li>
+                        <li><a href="/privacy-policy">Політика контенту</a></li>
+                        <li><a href="/content-policy">Політика контенту</a></li>
+                        <li><a href="/cookie-policy">Політика використання файлів cookie</a></li>
                     </ul>
                 </div><!-- end footer-item -->
             </div><!-- end col-lg-3 -->
             <div class="col-lg-3 responsive-column-half">
                 <div class="footer-item">
-                    <h3 class="fs-18 fw-bold pb-2 text-white">Help</h3>
+                    <h3 class="fs-18 fw-bold pb-2 text-white">Довідка</h3>
                     <ul class="generic-list-item generic-list-item-hover-underline pt-3 generic-list-item-white">
-                        <li><a href="/support">Support</a></li>
+                        <li><a href="/support">Підтримка</a></li>
                     </ul>
                 </div><!-- end footer-item -->
             </div><!-- end col-lg-3 -->
             <div class="col-lg-3 responsive-column-half">
                 <div class="footer-item">
-                    <h3 class="fs-18 fw-bold pb-2 text-white">Connect with us</h3>
+                    <h3 class="fs-18 fw-bold pb-2 text-white">Зв'яжіться з нами</h3>
                     <ul class="generic-list-item generic-list-item-hover-underline pt-3 generic-list-item-white">
                         <li><a href="#"><i class="la la-telegram mr-1"></i> Telegram</a></li>
                         <li><a href="#"><i class="la la-facebook mr-1"></i> Facebook</a></li>
@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header align-items-center">
-                <h5 class="modal-title" id="replyModalTitle">Report</h5>
+                <h5 class="modal-title" id="replyModalTitle">Звіт</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true" class="la la-times"></span>
                 </button>
@@ -233,10 +233,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     <input type="hidden" name="reason" value="">
                     <div class="form-group">
                         <select class="form-control form--control" id="select_reason">
-                            <option value="">Reason</option>
-                            <option value="Spam">Spam</option>
-                            <option value="Advert">Advert</option>
-                            <option value="" class="js-other">Other</option>
+                            <option value="">Звіт</option>
+                            <option value="Spam">Спам</option>
+                            <option value="Advert">Оголошення</option>
+                            <option value="" class="js-other">Іншe</option>
                         </select>
                     </div>
                     <div class="form-group hidden">

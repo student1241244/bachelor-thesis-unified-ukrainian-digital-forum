@@ -17,15 +17,15 @@
                                         <h5 class="fs-20"><a>{{$question->title}}</a></h5>
                                         <div class="meta d-flex flex-wrap align-items-center fs-13 lh-20 py-1">
                                             <div class="pr-3">
-                                                <span>Created:</span>
+                                                <span>Створено:</span>
                                                 <span class="text-black">{{$question->created_at->format('n/j/Y')}}</span>
                                             </div>
                                             <div class="pr-3">
-                                                <span class="pr-1">By:</span>
+                                                <span class="pr-1">за:</span>
                                                 <a href="/profile/{{$question->user->username}}" class="text-black">{{$question->user->username}}</a>
                                             </div>
                                             <div class="pr-3">
-                                                <a href="#" class="comment-reply text-color hover-underline js-report" data-type="{{ \App\Services\ReportService::TYPE_QUESTION }}" data-id="{{ $question->id }}"><i class="la la-flag mr-1"></i>Report</a>
+                                                <a href="#" class="comment-reply text-color hover-underline js-report" data-type="{{ \App\Services\ReportService::TYPE_QUESTION }}" data-id="{{ $question->id }}"><i class="la la-flag mr-1"></i>Звіт</a>
                                             </div>
                                             <div>
                                                 @can('update', $question)
@@ -43,7 +43,7 @@
                                     </div>
                                     <div  class="float-right">
                                         <div class="hero-btn-box text-right py-3">
-                                            <a href="/ask-question" class="btn theme-btn">Ask a Question</a>
+                                            <a href="/ask-question" class="btn theme-btn">Задайте питання</a>
                                         </div>
                                     </div>
                                 </div>
@@ -77,17 +77,17 @@
                         </div><!-- end question -->
                         <div class="answer">
                         @if($comments->isEmpty())
-                            <p class="pt-4">No comments yet. You can be the first hero!</p>
+                            <p class="pt-4">Поки немає коментарів. Ти можеш бути першим героєм!</p>
                         @else
                             @foreach ($comments as $comment)
                             <div class="subheader d-flex align-items-center justify-content-between">
                                 <div class="subheader-title">
                                     <div class="float-left" style="translate: 0% 20%;">
-                                        <h3 class="fs-16">Answer by: <a href="/profile/{{ $question->user->username }}">{{ $question->user->username }}</h3>
+                                        <h3 class="fs-16">Відповідь: <a href="/profile/{{ $question->user->username }}">{{ $question->user->username }}</h3>
                                     </div>
                                     <div class="float-right" style="margin-left:10px;">
                                         <div class="answer-actions">
-                                            <a href="#" class="comment-reply text-color hover-underline js-report" data-type="{{ \App\Services\ReportService::TYPE_QUESTION_ANSWER }}" data-id="{{ $comment->id }}"><i class="la la-flag mr-1"></i>Report</a>
+                                            <a href="#" class="comment-reply text-color hover-underline js-report" data-type="{{ \App\Services\ReportService::TYPE_QUESTION_ANSWER }}" data-id="{{ $comment->id }}"><i class="la la-flag mr-1"></i>Звіт</a>
                                             @if (auth()->check() && auth()->user()->id == $comment->user_id)
                                                 <a href="#" data-id="{{ $comment->id }}" class="js-link-edit-answer"><i class="la la-pencil"></i></a>
                                                 <a href="{{ route('questions.delete_answer', $comment) }}" onclick="return confirm('Are you sure?')"><i class="la la-trash"></i></a>
@@ -131,14 +131,14 @@
                         <form method="post" class="pt-3" id="answer-form" action="{{ route('questions.post_answer', $question->id) }}">
                             @csrf
                             <div class="input-box">
-                                <label class="fs-14 text-black lh-20 fw-medium">Body</label>
+                                <label class="fs-14 text-black lh-20 fw-medium">Ваша відповідь</label>
                                 <div class="form-group">
                                     <textarea class="form-control form--control form-control-sm fs-13 user-text-editor" name="body" rows="6"
-                                              placeholder="Your answer here..."></textarea>
+                                              placeholder="Ваша відповідь тут..."></textarea>
                                 </div>
                             </div>
                             <div class="input-box">
-                                <label class="fs-14 text-black fw-medium">Image (Maximum 6 image. Not more than 2048 KB)</label>
+                                <label class="fs-14 text-black fw-medium">Зображення (Максимум 6 зображень. Не більше 2048 КБ)</label>
                                 <div class="form-group">
                                     <div class="file-upload-wrap file-upload-layout-2">
                                         <input type="file" name="images[]" class="file-upload-input" multiple>
@@ -146,7 +146,7 @@
                                     </div>
                                 </div>
                             </div><!-- end input-box -->
-                            <button class="btn theme-btn theme-btn-sm" type="submit">Post Your Answer</button>
+                            <button class="btn theme-btn theme-btn-sm" type="submit">Опублікуйте свою відповідь</button>
                         </form>
                     </div>
                 </div><!-- end question-main-bar -->
@@ -165,7 +165,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header align-items-center">
-                <h5 class="modal-title" id="replyModalTitle">Updating Answer</h5>
+                <h5 class="modal-title" id="replyModalTitle">Оновлення відповіді</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true" class="la la-times"></span>
                 </button>
@@ -174,14 +174,14 @@
                 <form method="post" class="pt-3" id="update-answer-form" action="">
                     @csrf
                     <div class="input-box">
-                        <label class="fs-14 text-black lh-20 fw-medium">Body</label>
+                        <label class="fs-14 text-black lh-20 fw-medium">Ваша відповідь</label>
                         <div class="form-group">
                                     <textarea class="form-control form--control form-control-sm fs-13 user-text-editor" name="body" rows="6"
-                                              placeholder="Your answer here..."></textarea>
+                                              placeholder="Ваша відповідь тут..."></textarea>
                         </div>
                     </div>
                     <div class="input-box">
-                        <label class="fs-14 text-black fw-medium">Image</label>
+                        <label class="fs-14 text-black fw-medium">Зображення</label>
                         <div class="form-group js-images-list row">
 
                         </div>
@@ -192,7 +192,7 @@
                             </div>
                         </div>
                     </div><!-- end input-box -->
-                    <button class="btn theme-btn theme-btn-sm" type="submit">Update Your Answer</button>
+                    <button class="btn theme-btn theme-btn-sm" type="submit">Оновіть свою відповідь</button>
                 </form>
 
             </div>

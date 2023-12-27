@@ -63,16 +63,16 @@
                     <nav class="menu-bar mr-auto menu-bar-white">
                         <ul>
                             <li>
-                                <a href="/home">Home</a>
+                                <a href="/home">Головна</a>
                             </li>
                             <li class="is-mega-menu">
-                                <a href="/qa-home">Q&A</a>
+                                <a href="/qa-home">Відповіді</a>
                             </li>
                             <li>
-                                <a href="/threads-home">Threads</a>
+                                <a href="/threads-home">Треди</a>
                             </li>
                             <li>
-                                <a href="/about">About Lemyk</a>
+                                <a href="/about">Про Лемика</a>
                             </li>
                         </ul><!-- end ul -->
                     </nav><!-- end main-menu -->
@@ -91,16 +91,16 @@
                                     </div>
                                 </a>
                                 <div class="dropdown-menu dropdown--menu dropdown-menu-right mt-3 keep-open" aria-labelledby="userMenuDropdown">
-                                    <h6 class="dropdown-header">Hi, {{auth()->user()->username}}</h6>
+                                    <h6 class="dropdown-header">Привіт, {{auth()->user()->username}}</h6>
                                     <div class="dropdown-divider border-top-gray mb-0"></div>
                                     <div class="dropdown-item-list">
-                                        <a class="dropdown-item" href="/profile/{{ auth()->user()->username }}"><i class="la la-user mr-2"></i>Profile</a>
-                                        <a class="dropdown-item" href="/favourites/{{ auth()->user()->username }}"><i class="la la-star-o mr-2"></i>Favourites</a>
-                                        <a class="dropdown-item" href="/questions/1"><i class="la la-fire mr-2"></i>Trending</a>
-                                        <a class="dropdown-item" href="/profile-settings"><i class="la la-gear mr-2"></i>Settings</a>
+                                        <a class="dropdown-item" href="/profile/{{ auth()->user()->username }}"><i class="la la-user mr-2"></i>Профіль</a>
+                                        <a class="dropdown-item" href="/favourites/{{ auth()->user()->username }}"><i class="la la-star-o mr-2"></i>Вибране</a>
+                                        <a class="dropdown-item" href="/questions/1"><i class="la la-fire mr-2"></i>В тренді</a>
+                                        <a class="dropdown-item" href="/profile-settings"><i class="la la-gear mr-2"></i>Налаштування</a>
                                         <form action="/logout" method="POST">
                                             @csrf
-                                            <button type="submit" class="dropdown-item"><i class="la la-power-off mr-2"></i>Log out</button>
+                                            <button type="submit" class="dropdown-item"><i class="la la-power-off mr-2"></i>Вийти</button>
                                         </form>
                                     </div>
                                 </div>
@@ -109,8 +109,8 @@
                     </div><!-- end nav-right-button -->
                     @else
                     <div class="nav-right-button">
-                        <a href="/signin" class="btn theme-btn theme-btn-outline theme-btn-outline-white mr-2"><i class="la la-sign-in mr-1"></i> Login</a>
-                        <a href="/signup" class="btn theme-btn theme-btn-white"><i class="la la-user mr-1"></i> Sign up</a>
+                        <a href="/signin" class="btn theme-btn theme-btn-outline theme-btn-outline-white mr-2"><i class="la la-sign-in mr-1"></i> Логін</a>
+                        <a href="/signup" class="btn theme-btn theme-btn-white"><i class="la la-user mr-1"></i> Зареєструватися</a>
                     </div><!-- end nav-right-button -->
                     @endauth
                 </div><!-- end menu-wrapper -->
@@ -123,24 +123,24 @@
         </div><!-- end off-canvas-menu-close -->
         <ul class="generic-list-item off-canvas-menu-list pt-90px">
             <li>
-                <a href="/home">Home</a>
+                <a href="/home">Головна</a>
             </li>
             <li>
-                <a href="/qa-home">Q&A</a>
+                <a href="/qa-home">Відповіді</a>
             </li>
             <li>
-                <a href="/threads-home">Threads</a>
+                <a href="/threads-home">Треди</a>
             </li>
             <li>
-                <a href="/about">About Lemyk</a>
+                <a href="/about">Про Лемика</a>
             </li>
         </ul>
         @auth
         @else
         <div class="off-canvas-btn-box px-4 pt-5 text-center">
-            <a href="/signin" class="btn theme-btn theme-btn-sm theme-btn-outline"><i class="la la-sign-in mr-1"></i> Login</a>
+            <a href="/signin" class="btn theme-btn theme-btn-sm theme-btn-outline"><i class="la la-sign-in mr-1"></i> Логін</a>
             <span class="fs-15 fw-medium d-inline-block mx-2">Or</span>
-            <a href="/signup" class="btn theme-btn theme-btn-sm" data-toggle="modal"><i class="la la-plus mr-1"></i> Sign up</a>
+            <a href="/signup" class="btn theme-btn theme-btn-sm" data-toggle="modal"><i class="la la-plus mr-1"></i> Зареєструватися</a>
         </div>
         @endauth
     </div><!-- end off-canvas-menu -->
@@ -152,20 +152,20 @@
         <ul class="nav nav-tabs generic-tabs generic--tabs pt-90px pl-4 shadow-sm" id="myTab2" role="tablist">
             <li class="nav-item"><div class="anim-bar" style="left: 166.838px; width: 50.7625px;"></div></li>
             <li class="nav-item">
-                <a class="nav-link active" id="user-profile-menu-tab" data-toggle="tab" href="#user-profile-menu" role="tab" aria-controls="user-profile-menu" aria-selected="true">Profile</a>
+                <a class="nav-link active" id="user-profile-menu-tab" data-toggle="tab" href="#user-profile-menu" role="tab" aria-controls="user-profile-menu" aria-selected="true">Профіль</a>
             </li>
         </ul>
         <div class="tab-content pt-3" id="myTabContent2">
             <div class="tab-pane fade active show" id="user-profile-menu" role="tabpanel" aria-labelledby="user-profile-menu-tab">
                 <div class="dropdown--menu shadow-none w-auto rounded-0">
                     <div class="dropdown-item-list">
-                        <a class="dropdown-item" href="/profile/{{ auth()->user()->username }}"><i class="la la-user mr-2"></i>Profile</a>
-                        <a class="dropdown-item" href="/favourites/{{ auth()->user()->username }}"><i class="la la-star-o mr-2"></i>Favourites</a>
-                        <a class="dropdown-item" href="/questions/1"><i class="la la-fire mr-2"></i>Trending</a>
-                        <a class="dropdown-item" href="/profile-settings"><i class="la la-gear mr-2"></i>Settings</a>
+                        <a class="dropdown-item" href="/profile/{{ auth()->user()->username }}"><i class="la la-user mr-2"></i>Профіль</a>
+                        <a class="dropdown-item" href="/favourites/{{ auth()->user()->username }}"><i class="la la-star-o mr-2"></i>Вибране</a>
+                        <a class="dropdown-item" href="/questions/1"><i class="la la-fire mr-2"></i>В тренді</a>
+                        <a class="dropdown-item" href="/profile-settings"><i class="la la-gear mr-2"></i>Налаштування</a>
                         <form action="/logout" method="POST">
                             @csrf
-                            <button type="submit" class="dropdown-item"><i class="la la-power-off mr-2"></i>Log out</button>
+                            <button type="submit" class="dropdown-item"><i class="la la-power-off mr-2"></i>Вийти</button>
                         </form>
                     </div>
                 </div>
@@ -190,33 +190,33 @@
         <div class="row">
             <div class="col-lg-3 responsive-column-half">
                 <div class="footer-item">
-                    <h3 class="fs-18 fw-bold pb-2 text-white">Company</h3>
+                    <h3 class="fs-18 fw-bold pb-2 text-white">Компанія</h3>
                     <ul class="generic-list-item generic-list-item-hover-underline pt-3 generic-list-item-white">
-                        <li><a href="/about">About</a></li>
+                        <li><a href="/about">Про Лемика</a></li>
                     </ul>
                 </div><!-- end footer-item -->
             </div><!-- end col-lg-3 -->
             <div class="col-lg-3 responsive-column-half">
                 <div class="footer-item">
-                    <h3 class="fs-18 fw-bold pb-2 text-white">Legal Stuff</h3>
+                    <h3 class="fs-18 fw-bold pb-2 text-white">>Політика<</h3>
                     <ul class="generic-list-item generic-list-item-hover-underline pt-3 generic-list-item-white">
-                        <li><a href="/privacy-policy">Privacy Policy</a></li>
-                        <li><a href="/content-policy">Content Policy</a></li>
-                        <li><a href="/cookie-policy">Cookie Policy</a></li>
+                        <li><a href="/privacy-policy">Політика контенту</a></li>
+                        <li><a href="/content-policy">Політика контенту</a></li>
+                        <li><a href="/cookie-policy">Політика використання файлів cookie</a></li>
                     </ul>
                 </div><!-- end footer-item -->
             </div><!-- end col-lg-3 -->
             <div class="col-lg-3 responsive-column-half">
                 <div class="footer-item">
-                    <h3 class="fs-18 fw-bold pb-2 text-white">Help</h3>
+                    <h3 class="fs-18 fw-bold pb-2 text-white">Довідка</h3>
                     <ul class="generic-list-item generic-list-item-hover-underline pt-3 generic-list-item-white">
-                        <li><a href="/support">Support</a></li>
+                        <li><a href="/support">Підтримка</a></li>
                     </ul>
                 </div><!-- end footer-item -->
             </div><!-- end col-lg-3 -->
             <div class="col-lg-3 responsive-column-half">
                 <div class="footer-item">
-                    <h3 class="fs-18 fw-bold pb-2 text-white">Connect with us</h3>
+                    <h3 class="fs-18 fw-bold pb-2 text-white">Зв'яжіться з нами</h3>
                     <ul class="generic-list-item generic-list-item-hover-underline pt-3 generic-list-item-white">
                         <li><a href="#"><i class="la la-telegram mr-1"></i> Telegram</a></li>
                         <li><a href="#"><i class="la la-facebook mr-1"></i> Facebook</a></li>

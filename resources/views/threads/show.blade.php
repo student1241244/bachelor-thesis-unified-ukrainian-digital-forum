@@ -9,8 +9,8 @@
         <div class="container">
             <div class="hero-content">
                 <ul class="breadcrumb-list pb-2">
-                    <li><a href="/">Home</a><span><svg xmlns="http://www.w3.org/2000/svg" height="19px" viewBox="0 0 24 24" width="19px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/></svg></span></li>
-                    <li><a href="/threads/{{ $thread->category_id }}">Threads</a><span><svg xmlns="http://www.w3.org/2000/svg" height="19px" viewBox="0 0 24 24" width="19px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/></svg></span></li>
+                    <li><a href="/">Головна</a><span><svg xmlns="http://www.w3.org/2000/svg" height="19px" viewBox="0 0 24 24" width="19px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/></svg></span></li>
+                    <li><a href="/threads/{{ $thread->category_id }}">Треди</a><span><svg xmlns="http://www.w3.org/2000/svg" height="19px" viewBox="0 0 24 24" width="19px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/></svg></span></li>
                     <li>{{ $thread->title }}</li>
                 </ul>
                 <h2 class="section-title">{{ $thread->title }}</h2>
@@ -23,7 +23,7 @@
                                 <span class="checkmark-icon fs-15"><img src="/images/check1.png"></span>
                             @endif
                             <a href="#comments" class="text-gray"><i class="la la-comment mr-1"></i>{{ $countComments }}</a>
-                            <a href="#" class="comment-reply text-color hover-underline js-report" data-type="{{ \App\Services\ReportService::TYPE_THREAD }}" data-id="{{ $thread->id }}"><i class="la la-flag mr-1"></i>Report</a>
+                            <a href="#" class="comment-reply text-color hover-underline js-report" data-type="{{ \App\Services\ReportService::TYPE_THREAD }}" data-id="{{ $thread->id }}"><i class="la la-flag mr-1"></i>Звіт</a>
                         </small>
                     </div>
                 </div>
