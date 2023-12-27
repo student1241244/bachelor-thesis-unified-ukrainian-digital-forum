@@ -97,7 +97,7 @@
                                     </div>
                                 </a>
                                 <div class="dropdown-menu dropdown--menu dropdown-menu-right mt-3 keep-open" aria-labelledby="userMenuDropdown">
-                                    <h6 class="dropdown-header">Hi, {{auth()->user()->username}}</h6>
+                                    <h6 class="dropdown-header">Привіт, {{auth()->user()->username}}</h6>
                                     <div class="dropdown-divider border-top-gray mb-0"></div>
                                     <div class="dropdown-item-list">
                                         <a class="dropdown-item" href="/profile/{{auth()->user()->username}}"><i class="la la-user mr-2"></i>Профіль</a>
