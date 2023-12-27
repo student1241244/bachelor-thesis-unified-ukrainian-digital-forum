@@ -83,7 +83,7 @@
                             <div class="subheader d-flex align-items-center justify-content-between">
                                 <div class="subheader-title">
                                     <div class="float-left" style="translate: 0% 20%;">
-                                        <h3 class="fs-16">Відповідь: <a href="/profile/{{ $question->user->username }}">{{ $question->user->username }}</h3>
+                                        <h3 class="fs-16">Відповідь: <a href="/profile/{{ $comment->user->username }}">{{ $comment->user->username }}</h3>
                                     </div>
                                     <div class="float-right" style="margin-left:10px;">
                                         <div class="answer-actions">
