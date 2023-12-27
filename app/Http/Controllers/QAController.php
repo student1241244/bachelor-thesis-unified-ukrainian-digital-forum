@@ -74,7 +74,8 @@ class QAController extends Controller
 
     public function showEditQuestionForm(Question $question) {
         $categories = Category::get()->pluck('title', 'id')->toArray();
-
+        $question['body'] = strip_tags(Str::markdown($question->body), '<p><ul><ol><li><strong><em><h3><br>');
+        
         return view('edit-question', get_defined_vars());
     }
 
@@ -116,7 +117,7 @@ class QAController extends Controller
         ]);
         
         $incomingFields['title'] = strip_tags($incomingFields['title']);
-        $incomingFields['body'] = Str::markdown(e($incomingFields['body']));
+
         $incomingFields['user_id'] = auth()->id();
         $newPost = Question::create($incomingFields);
 

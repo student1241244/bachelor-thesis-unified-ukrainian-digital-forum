@@ -59,8 +59,8 @@
                                     <option value="{{ $k }}">{{ $v }}</option>
                                     @endforeach
                                 </select>
-                                @error('body')
-                                <p class="m-0 small alert alert-danger shadow-sm">{{$message}}</p>
+                                @error('category_id')
+                                    <p class="m-0 small alert alert-danger shadow-sm">{{$message}}</p>
                                 @enderror
                             </div>
                         </div><!-- end input-box -->

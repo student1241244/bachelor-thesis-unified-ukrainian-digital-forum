@@ -34,7 +34,7 @@
                             </div>
                             <div class="media-body">
                                 <h5 class="mb-2 fw-medium"><a href="/question-details/{{$question->id}}">{{$question->title}}</a></h5>
-                                <p class="mb-2 truncate lh-20 fs-15">{{$question->body}}</p>
+                                <p class="mb-2 truncate lh-20 fs-15">{!! $question->body !!}</p>
                                 <div class="media media-card user-media align-items-center px-0 border-bottom-0 pb-0">
                                     <a href="/profile/{{ $question->user->username }}" class="media-img d-block">
                                         <img src="{{$question->user->avatar}}" alt="avatar">

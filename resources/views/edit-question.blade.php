@@ -60,8 +60,8 @@
                                     <option value="{{ $k }}" {{ $k == old('category_id', $question->category_id) ? 'selected' : '' }}>{{ $v }}</option>
                                     @endforeach
                                 </select>
-                                @error('body')
-                                <p class="m-0 small alert alert-danger shadow-sm">{{$message}}</p>
+                                @error('category_id')
+                                    <p class="m-0 small alert alert-danger shadow-sm">{{$message}}</p>
                                 @enderror
                             </div>
                         </div><!-- end input-box -->
@@ -69,7 +69,7 @@
                             <label class="fs-14 text-black fw-medium mb-0">Опис запитання</label>
                             <p class="fs-13 pb-3 lh-20">Включіть усю інформацію, яка потрібна комусь, щоб відповісти на ваше запитання</p>
                             <div class="form-group">
-                                <textarea name="body" class="form-control form--control user-text-editor" rows="10" cols="40">{{ old('body', $question->body) }}</textarea>
+                                <textarea name="body" class="form-control form--control user-text-editor" rows="10" cols="40">{{ $question->body }}</textarea>
                                 @error('body')
                                 <p class="m-0 small alert alert-danger shadow-sm">{{$message}}</p>
                                 @enderror
